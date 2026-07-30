@@ -1,6 +1,7 @@
-# AIDD External Reference Material Conventions
+# AIDD External Reference Material Instructions
 
 This document is the fixed entry point that defines the placement and change principles for `references/`, regardless of the project.
+It applies to this directory and all descendants.
 
 ## Purpose
 
@@ -12,6 +13,7 @@ Supplied materials are decision inputs; they are not project-managed source-of-t
 - Keep each supplied unit in one directory. Do not silently mix materials from different suppliers, versions, or receipt dates.
 - Preserve the supplied structure, file names, and content where practical.
 - Record the supplier, receipt date, version or commit, terms of use, and reference purpose in the corresponding project documentation.
+- A general external `docs/` collection or provided dataset belongs here, not in a new top-level `docs/` or `data/` directory.
 - Preserve the content and relative path of any `README.md` included in the supplied material. If a project-managed `README.md` is needed to explain the reference material's purpose, structure, or usage, create it in a distinguishable location rather than overwriting or repurposing the supplied README.
 - When placing original source material here, do not unknowingly incorporate its embedded version-control metadata into the parent repository. Treat it as an external reference using a traceable snapshot, archive, or pinned commit.
 - Do not add generated data, caches, build artifacts, or installed dependencies to supplied materials.
@@ -27,7 +29,9 @@ Supplied materials are decision inputs; they are not project-managed source-of-t
 
 ## Change Principles
 
-- Before adding material, confirm its reference purpose, supplier, terms of use, confidentiality, and whether it may be stored and redistributed.
+- Before adding material, read the [plans and sources-of-truth instructions](../plans/AGENTS.md) and confirm its reference purpose, supplier, receipt date, version or commit, terms of use, confidentiality, and whether it may be stored and redistributed.
 - When content must be modified, do not overwrite it within `references/`. Reflect the change in the appropriate area among `plans/`, `prototypes/`, `products/`, and `etc/`, according to its purpose.
 - When receiving a new version, inspect its relationship to existing references and decisions, and keep versions distinguishable.
 - Do not delete supplied materials referenced by documentation, prototypes, implementations, or active work. Even when the material appears unnecessary, inspect the related sources of truth and usage before deleting it.
+- Before moving or deleting material, also inspect provenance records, licensing obligations, and evidence-retention needs.
+- Verification includes checking provenance, integrity or version information where available, links, usage references, and absence of prohibited sensitive content.

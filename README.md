@@ -1,10 +1,14 @@
 # AIDD Skeleton
 
-AIDD Skeleton is a template that provides the basic structure for AIDD projects. Use this repository to start a new AIDD project quickly.
+AIDD Skeleton is a lightweight template for starting AI-driven development projects.
+
+It provides a clear project structure and shared conventions so developers and AI agents can work together without letting documentation, code, experiments, and environment files drift into chaos.
 
 ## What is AIDD?
 
-**AI-Driven Development (AIDD)** is a development approach that enables developers and AI agents to collaborate effectively through shared project structure, conventions, and documentation.
+**AI-Driven Development (AIDD)** is a development approach in which developers and AI agents collaborate through shared project structure, conventions, and documentation.
+
+Instead of asking an AI to generate code into an unstructured repository, AIDD gives it a predictable framework for understanding the project, discussing decisions, creating artifacts, and verifying results.
 
 ## Quick Start
 
@@ -21,15 +25,22 @@ Hello!
 ...
 ```
 
-Once the conversation starts, the AI agent will guide you through the project.
+The AI agent will inspect the project and guide you through the next steps.
 
-> * Works well with GPT-5.5 on Codex.
+> Used successfully with GPT-5.6 on Codex.
+
+## What You Get
+
+- A working agreement for developers and AI agents
+- A predictable place for plans, implementations, prototypes, references, and environment configuration
+- Clear separation between requirements, design, implementation, and verification
+- A structure designed to stay understandable as the project grows
 
 ## Documentation
 
 - [Working Agreement](AGENTS.md)
-- [Plans and Sources of Truth](plans/README.md)
-- [Execution Environment Conventions](etc/README.md)
-- [Formal Products](products/README.md)
-- [External Reference Materials](references/README.md)
-- [Prototypes](prototypes/README.md)
+- [Plans and Sources of Truth](plans/AGENTS.md)
+- [Execution Environment Conventions](etc/AGENTS.md)
+- [Formal Products](products/AGENTS.md)
+- [External Reference Materials](references/AGENTS.md)
+- [Prototypes](prototypes/AGENTS.md)
