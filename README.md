@@ -23,6 +23,8 @@ Hello!
 
 Once the conversation starts, the AI agent will guide you through the project.
 
+> * Works well with GPT-5.5 on Codex.
+
 ## Documentation
 
 - [Working Agreement](AGENTS.md)
