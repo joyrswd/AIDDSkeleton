@@ -46,6 +46,7 @@ For each application handled by an initialized project, create:
 ```text
 plans/apps/<app>/
 ├── <app>_index.md
+├── <app>_traceability.md
 ├── requirements/
 │   └── <app>_requirements_index.md
 ├── design/
@@ -60,7 +61,8 @@ This is the required application structure after an application has been approve
 - During approved initialization, create `system/documentation_language.md` and `system/system_index.md`, remove `system/.gitkeep`, and populate the three cross-cutting files in the approved documentation language within the same coherent change.
 - `system_index.md` is the fixed entry point that records the system overview and responsibility boundaries, the documents below it and the questions they answer, and the recommended reading order. Do not record details of system-wide requirements, design, rules, or procedures in the index; record them in individual documents.
 - `documentation_language.md` is the source of truth for the approved default project documentation language and explicitly specified application-level overrides.
-- `<app>_index.md` is the fixed entry point that records an application overview, its responsibility boundaries, the recommended reading order, and links to the three category indexes. Do not duplicate lists of individual documents in it.
+- `<app>_index.md` is the fixed entry point that records an application overview, its responsibility boundaries, the recommended reading order, and links to the three category indexes and application traceability. Do not duplicate lists of individual documents in it.
+- `<app>_traceability.md` records the current relationships among that application's approved requirements, design, implementation units, verification, and completion evidence.
 - Each category index is the fixed entry point that records the documents below it, the questions they answer, and their recommended reading order. Do not record details of requirements, design, tests, or verification evidence in an index.
 - Record purpose, requirements, structure, constraints, and development or operational methods that span multiple applications in `plans/system/`.
 - Organize individual documents directly under `plans/system/` using the one-purpose-per-document principle and units and file names appropriate to the question they address and the event that requires their update. Consolidating all common rules into one fixed file is not required.
@@ -74,6 +76,7 @@ This is the required application structure after an application has been approve
 | `plans/system/documentation_language.md` | Which languages are used for project documentation and each application's documentation? |
 | Individual documents under `plans/system/` | What are the purpose, requirements, structure, constraints, and development or operational methods that span multiple applications? |
 | `plans/apps/<app>/<app>_index.md` | What are the application's overview, responsibility boundaries, recommended reading order, and category entry points? |
+| `plans/apps/<app>/<app>_traceability.md` | How do the application's approved requirements, design, implementation units, verification, and completion evidence relate in the current state? |
 | `plans/apps/<app>/*/<app>_*_index.md` | Which documents are in the category, what do they answer, and in what order should they be read? |
 | `plans/apps/<app>/requirements/` | What must the application satisfy? |
 | `plans/apps/<app>/design/` | What structure and approach will the application use to satisfy its requirements? |
@@ -109,13 +112,17 @@ Manage only the following four non-hidden files directly under `plans/`.
 | `AGENTS.md` | Protected fixed local instructions for these conventions | Only when the user explicitly authorizes the governance change as defined in the repository-root `AGENTS.md` |
 | `CURRENT_STATUS.md` | Current lifecycle state, verification state, known limitations, and next work | When the state, verification results, limitations, or priority work changes |
 | `GLOSSARY.md` | Terms, abbreviations, and state expressions shared across documents | When adding a shared term or changing its meaning |
-| `TRACEABILITY.md` | Relationships among requirements, design, implementation, verification, and completion evidence | When any element, relationship, or state changes |
+| `TRACEABILITY.md` | System-wide and cross-application traceability summary and index | When a cross-application relationship, application traceability location, or summarized state changes |
 
 Before initialization approval, keep all three files at zero bytes so that no language or project-specific fact is implied.
 After initialization, use the approved documentation language in all three files.
 In `CURRENT_STATUS.md`, distinguish unimplemented, implemented, and verified work. Do not record speculation as current status.
 Do not turn `GLOSSARY.md` into a dictionary of general terms; use it for terms whose meanings need to be shared across documents.
-In `TRACEABILITY.md`, do not record unsettled relationships as settled or invent placeholder identifiers. Keep documents, implementations, and verification results that support the current state traceable.
+In `TRACEABILITY.md`, record only system-wide relationships, cross-application relationships, links to each application's traceability document, and a concise summary of unresolved or unverified relationships. Do not duplicate application-level relationship details there.
+For each approved application, keep detailed current traceability in `plans/apps/<app>/<app>_traceability.md` and link it from both `TRACEABILITY.md` and `<app>_index.md`.
+Trace at the level of independently approved requirements or observable acceptance criteria and the implementation units and verification evidence needed to judge them. Do not trace every source file, class, function, or code line unless the project documentation explicitly requires that finer granularity.
+Do not append historical verification runs or superseded relationships indefinitely. Keep current effective relationships in traceability documents and retain historical evidence in the project-defined evidence location.
+Do not record unsettled relationships as settled or invent placeholder identifiers. Keep documents, implementations, and verification results that support the current state traceable.
 
 ## Initialization and Lifecycle
 
@@ -153,9 +160,10 @@ In `TRACEABILITY.md`, do not record unsettled relationships as settled or invent
   - It contains 12 or more independently referenced identifiers for requirements, design, tests, decisions, or similar items.
   - It covers three or more functional areas that change independently.
 - As a rule, split a document that exceeds 250 lines or 20 independently referenced identifiers. When it is not split, record the reason and reconsideration condition in the corresponding system or application index.
-- Keep `system_index.md`, `<app>_index.md`, and the three category indexes as single fixed entry points; do not split the indexes themselves. If details have been added to an index, move only those details to an appropriate individual document and reference it from the index.
+- Keep `system_index.md`, `<app>_index.md`, the three category indexes, and the root `TRACEABILITY.md` as single fixed entry points; do not split these entry points themselves. Move application-level traceability details from the root `TRACEABILITY.md` to the corresponding `<app>_traceability.md` rather than growing the root file.
+- When an application's traceability document reaches the general splitting thresholds, split its details by coherent functional area under `plans/apps/<app>/`, retain `<app>_traceability.md` as the application-level entry point, and index the detail documents from it.
 - When splitting, preserve existing identifiers and update indexes, document links, and traceability within the same change. Even when separating an overview from details, do not duplicate the same details in multiple documents.
-- Distinguish documents that show current verification status from historical evidence such as test results. Do not continuously expand a current-status document merely to append history.
+- Distinguish documents that show current verification status from historical evidence such as test results. Do not continuously expand a current-status or traceability document merely to append history.
 
 ## Verification and Structural Changes
 
