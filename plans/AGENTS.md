@@ -3,7 +3,7 @@
 This document defines the documentation structure and source-of-truth management instructions used regardless of the project.
 Record project-specific facts—including purpose, structure, identifiers, commands, and technical constraints—in the project documentation referenced from this document.
 
-This file applies to `plans/` and all descendants. Do not place formal code, runtime configuration, temporary experiments, or unchanged external source material here; use `products/`, `etc/`, `prototypes/`, or `references/`, respectively.
+This file applies to `plans/` and all descendants. Do not place formal code, runtime configuration, project-managed drafts or experiments, or unchanged external source material here; use `products/`, `etc/`, `workbench/`, or `references/`, respectively.
 
 ## Start Here
 
@@ -34,7 +34,7 @@ plans/
 - `plans/system/` and `plans/apps/` are required.
 - The three zero-byte cross-cutting files and the two `.gitkeep` files represent the uninitialized skeleton; their existence does not mean that project-specific facts have been approved.
 - `plans/apps/.gitkeep` retains the empty application-documentation container in Git. Remove it when tracked application content makes it unnecessary.
-- `plans/system/.gitkeep` retains the empty system-documentation container in Git. Remove it when tracked system documents make it unnecessary.
+- `plans/system/.gitkeep` retains the empty system-documentation container in Git. Remove it when tracked system documents makes it unnecessary.
 - Keep `CURRENT_STATUS.md`, `GLOSSARY.md`, and `TRACEABILITY.md` empty until initialization is approved and the documentation language is settled.
 - Do not create `system_index.md` or `documentation_language.md` before initialization approval. Their absence is intentional in the uninitialized skeleton.
 - Project-specific system documents are created during initialization only within the scope of an approved initialization summary.
@@ -103,6 +103,8 @@ Formal programs that display, verify, or generate documentation belong in their 
 
 Place externally supplied documents, data, and original source material that should generally remain unchanged under `references/` at the project root. Reflect requirements, design details, and decisions settled from those materials in the corresponding project documentation.
 
+Place project-managed drafts, investigations, prototypes, implementation plans, and implementation handoffs under `workbench/` while they remain working materials. Reflect any adopted requirements, design details, testing decisions, procedures, or project facts in the corresponding source-of-truth document under `plans/`; a workbench artifact does not become authoritative merely because it is detailed or used during implementation.
+
 ## Required Cross-Cutting Documents
 
 Manage only the following four non-hidden files directly under `plans/`.
@@ -146,7 +148,7 @@ Do not record unsettled relationships as settled or invent placeholder identifie
 - Guide readers from `<app>_index.md` to category indexes and from category indexes to individual documents in the recommended order. Do not maintain the same list of individual documents in multiple indexes.
 - When documents, implementation, and tests disagree, identify the difference and update the appropriate source of truth. Do not rewrite requirements merely to match implementation.
 - When documentation changes, run the verification defined by project-specific conventions.
-- Reflect adopted facts from `references/` and settled findings from `prototypes/` in the appropriate source-of-truth document; neither input is itself the adoption record.
+- Reflect adopted facts from `references/` and settled findings or decisions from `workbench/` in the appropriate source-of-truth document; neither input is itself the adoption record.
 
 ## Document Splitting
 
