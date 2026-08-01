@@ -11,7 +11,7 @@
 
 AI agents tend to introduce directories for local implementation convenience, framework conventions, or tool defaults. Uncontrolled additions create overlapping responsibilities, disperse sources of truth, and degrade the repository structure. This repository therefore fixes its top-level classification deliberately.
 
-* The five required top-level, non-hidden directories are `plans/`, `etc/`, `prototypes/`, `references/`, and `products/`. Do not add another top-level, non-hidden directory.
+* The five required top-level, non-hidden directories are `plans/`, `etc/`, `workbench/`, `references/`, and `products/`. Do not add another top-level, non-hidden directory.
 * Before creating a file or directory, classify the responsibility it serves and place it under the responsible one of those five areas.
 * If content appears not to fit, treat that as a responsibility-boundary or classification design issue. Do not create a new category without a user decision that explicitly changes this core structure.
 * Prefer this repository's responsibility classification over framework layouts and tool defaults. Put an application or package root under `products/` when necessary, for example, and configure generators to output under one of the five areas.
@@ -22,7 +22,7 @@ AI agents tend to introduce directories for local implementation convenience, fr
 
   * [Plans and sources of truth](plans/AGENTS.md)
   * [Execution environments](etc/AGENTS.md)
-  * [Prototypes](prototypes/AGENTS.md)
+  * [Workbench](workbench/AGENTS.md)
   * [External references](references/AGENTS.md)
   * [Formal products](products/AGENTS.md)
 
