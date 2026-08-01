@@ -34,7 +34,7 @@ plans/
 - `plans/system/` and `plans/apps/` are required.
 - The three zero-byte cross-cutting files and the two `.gitkeep` files represent the uninitialized skeleton; their existence does not mean that project-specific facts have been approved.
 - `plans/apps/.gitkeep` retains the empty application-documentation container in Git. Remove it when tracked application content makes it unnecessary.
-- `plans/system/.gitkeep` retains the empty system-documentation container in Git. Remove it when tracked system documents makes it unnecessary.
+- `plans/system/.gitkeep` retains the empty system-documentation container in Git. Remove it when tracked system documents make it unnecessary.
 - Keep `CURRENT_STATUS.md`, `GLOSSARY.md`, and `TRACEABILITY.md` empty until initialization is approved and the documentation language is settled.
 - Do not create `system_index.md` or `documentation_language.md` before initialization approval. Their absence is intentional in the uninitialized skeleton.
 - Project-specific system documents are created during initialization only within the scope of an approved initialization summary.
