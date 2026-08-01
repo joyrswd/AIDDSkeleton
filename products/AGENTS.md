@@ -56,9 +56,10 @@ This is a responsibility guide, not a requirement to use these exact subordinate
 - This includes its database migrations, fixtures, CLI programs, and support scripts.
 - Place only code, tests, fixtures, and support processes that require connections between multiple applications in `system/`.
 - Do not move code there solely for reuse convenience.
-- Place execution environment and external service configuration in `etc/`, requirements, design, and procedures in `plans/`, temporary prototypes for making decisions in `prototypes/`, and externally supplied reference materials that should generally remain unchanged in `references/`.
+- Place execution environment and external service configuration in `etc/`, requirements, design, and procedures in `plans/`, project-managed drafts, investigations, prototypes, and implementation handoffs in `workbench/`, and externally supplied reference materials that should generally remain unchanged in `references/`.
 - The canonical boundary between formal programs and environment configuration—including E2E, code generation, migrations, linting, seed data, and fixtures—is in [Execution Environment Instructions](../etc/AGENTS.md#placement).
 - When adopting original source material from `references/`, reflect it in `products/` as an implementation with formal structure, quality, and tests. Do not use reference material directly as the formal implementation.
+- When adopting code or tools from `workbench/`, reflect them in `products/` as formal implementations rather than depending on the workbench copy as the production source.
 - Output caches, test results, build artifacts, and installed dependencies under the generated execution unit and, as a rule, do not track them in version control.
 
 ## Change Principles
