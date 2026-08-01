@@ -130,6 +130,15 @@ AI agents tend to introduce directories for local implementation convenience, fr
 ## Review Principles
 
 * Review the change against its approved purpose, scope, exclusions, and observable acceptance criteria.
+* When implementation, configuration, tests, or evidence differ from the applicable project sources of truth, do not immediately attribute the mismatch to an implementation defect or use the current implementation as the baseline.
+* Diagnose the mismatch in this order:
+
+  1. Determine whether the applicable requirements, design, testing documents, and approved decisions are complete, internally consistent, current, and applicable to the reviewed change.
+  2. Determine whether the implementation conforms to the validated sources of truth.
+  3. Determine whether the verification methods and evidence correctly demonstrate that conformity.
+* Classify the root cause independently from review severity as a **source-of-truth deficiency**, **implementation deficiency**, **verification deficiency**, or **unresolved decision**, and state the evidence for that classification.
+* When the source of truth is deficient, report the required documentation correction or, when authorized, make it before deriving implementation changes from that source. Do not rewrite project documentation merely to match the current implementation.
+* When correcting a source-of-truth deficiency would materially change the approved purpose, scope, acceptance criteria, responsibility boundaries, or design decision, obtain the required user decision before changing either the documentation or implementation.
 * Classify every substantive review finding as one of the following:
 
   * **Blocker:** Accepting the current change would violate an approved acceptance criterion or directly risk data corruption, security failure, irreversible damage, or a major regression.
