@@ -6,7 +6,7 @@ It applies to this directory and all descendants.
 ## Purpose
 
 Place externally supplied documents, data, configuration, and original source material in `references/`, generally without modification, when they are inputs to decisions about requirements, design, production, migration, or similar matters.
-Supplied materials are decision inputs; they are not project-managed source-of-truth documents, formal implementations, or temporary prototypes.
+Supplied materials are decision inputs; they are not project-managed source-of-truth documents, formal implementations, or project-created workbench materials.
 
 ## Placement
 
@@ -21,7 +21,7 @@ Supplied materials are decision inputs; they are not project-managed source-of-t
 
 ## Use and Adoption
 
-- When processing supplied materials for validation, copy only what is needed into `prototypes/` and do not modify the supplied materials directly.
+- When processing supplied materials for validation, drafting, transformation, or implementation preparation, copy only what is needed into `workbench/` and do not modify the supplied materials directly.
 - Reflect requirements, design details, and decisions settled from supplied materials in the corresponding project documentation under `plans/`. The existence of supplied material alone does not record a decision.
 - When adopting original source material, reflect it in `products/` as an implementation with formal structure, quality, and tests. Do not use reference material directly as the formal implementation.
 - When adopting supplied configuration, reflect it in `etc/` as configuration managed by the project.
@@ -30,8 +30,8 @@ Supplied materials are decision inputs; they are not project-managed source-of-t
 ## Change Principles
 
 - Before adding material, read the [plans and sources-of-truth instructions](../plans/AGENTS.md) and confirm its reference purpose, supplier, receipt date, version or commit, terms of use, confidentiality, and whether it may be stored and redistributed.
-- When content must be modified, do not overwrite it within `references/`. Reflect the change in the appropriate area among `plans/`, `prototypes/`, `products/`, and `etc/`, according to its purpose.
+- When content must be modified, do not overwrite it within `references/`. Reflect the change in the appropriate area among `plans/`, `workbench/`, `products/`, and `etc/`, according to its purpose.
 - When receiving a new version, inspect its relationship to existing references and decisions, and keep versions distinguishable.
-- Do not delete supplied materials referenced by documentation, prototypes, implementations, or active work. Even when the material appears unnecessary, inspect the related sources of truth and usage before deleting it.
+- Do not delete supplied materials referenced by documentation, workbench units, implementations, or active work. Even when the material appears unnecessary, inspect the related sources of truth and usage before deleting it.
 - Before moving or deleting material, also inspect provenance records, licensing obligations, and evidence-retention needs.
 - Verification includes checking provenance, integrity or version information where available, links, usage references, and absence of prohibited sensitive content.
