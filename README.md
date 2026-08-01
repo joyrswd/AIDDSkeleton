@@ -27,7 +27,7 @@ Hello!
 
 The AI agent will inspect the project and guide you through the next steps.
 
-> Used successfully with GPT-5.6 on Codex.
+> Used successfully with GPT-5.6 on Codex and Gemini 3.6 Flash on Antigravity.
 
 ## What You Get
 
