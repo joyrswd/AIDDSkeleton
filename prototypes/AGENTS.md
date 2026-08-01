@@ -27,7 +27,9 @@ A prototype is evidence for investigating an open question; it is neither a form
 
 ## Change Principles
 
-- Before making changes, read the [plans and sources-of-truth instructions](../plans/AGENTS.md), current status, and the requirements or design document whose decision the prototype supports. When using supplied materials from `references/`, also read the [external reference material instructions](../references/AGENTS.md).
+- Before making changes, read the [plans and sources-of-truth instructions](../plans/AGENTS.md) and determine the current lifecycle state. Read `../plans/CURRENT_STATUS.md`, but in the uninitialized state do not treat its empty skeleton file as project-specific information. Also read the available approved basis that records the matter the prototype will investigate, as applicable: a requirements document, design document, approved initialization summary, open question recorded in a source of truth, approved decision, constraint, or acceptance criterion, or the user's current explicit request and its observable completion criteria.
+- A prototype explicitly intended to help settle requirements or design may begin before the corresponding requirements or design document exists, provided that another approved basis records the question. Do not begin from an unapproved assumption alone, and do not create a prototype before initialization or outside the approved scope without the authorization required by the repository-root instructions.
+- When using supplied materials from `references/`, also read the [external reference material instructions](../references/AGENTS.md).
 - Do not treat prototype results as evidence that formal implementation is complete or accepted.
 - Limit verification methods to what the purpose requires. Do not prematurely demand the same maintainability from a prototype as from a formal implementation.
 - Do not claim broader quality, security, performance, or maintainability than the evidence supports.
