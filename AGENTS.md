@@ -5,7 +5,6 @@
 - This document defines repository-wide authority, interaction, workflow, review, and safety rules for AI-driven development.
 - Record project-specific facts—including scope, architecture, technologies, commands, and naming conventions—in the project documentation under `plans/`.
 - The AI investigates, proposes, changes, and verifies. The user retains final authority over intent, priorities, and decisions that materially change scope, responsibility boundaries, or accepted outcomes.
-- The root `README.md` is the human-facing public landing page, not an instruction source or project source of truth. Do not duplicate agent rules or project facts there.
 
 ## Repository Model
 
@@ -22,7 +21,7 @@ Classify every file or directory by responsibility and place it in the applicabl
 - Do not add another top-level, non-hidden directory without an explicit user decision that changes this repository model.
 - Prefer this responsibility model over framework layouts and tool defaults. Conventional directories such as `src/`, `apps/`, `packages/`, `scripts/`, `infra/`, `docs/`, and `tests/` belong below the responsible area, not at the repository root.
 - Hidden directories and top-level files may not be used to bypass the five-area model.
-- A `README.md` may explain a human-facing implementation or supplied unit where useful, but it does not replace requirements, design, testing, status, or agent instructions.
+- A `README.md` may provide human-facing guidance, but it is not an instruction source or project source of truth and must not duplicate or replace requirements, design, testing, status, or agent instructions.
 
 ## Instruction Hierarchy and Protection
 
@@ -61,20 +60,20 @@ Classify every file or directory by responsibility and place it in the applicabl
 - When a completion report identifies a decision required from the user, present it according to the Decision Requests rules above.
 - Update project status, traceability, evidence records, and other sources of truth as required by `plans/AGENTS.md`; a conversational completion report does not replace those updates.
 
-## Conversation and Documentation Language
+## Conversation Language
 
 - Determine the conversation language for each conversation from its first user message: use an explicit language instruction, otherwise the primary language of the user's request, then an execution-environment language, then English.
 - Exclude code, quotations, attachments, URLs, and file paths when identifying the request language. For environment language, prefer a platform-provided language, then `LC_ALL`, `LC_MESSAGES`, `LANGUAGE`, and `LANG`; ignore values such as `C`, `POSIX`, and `C.UTF-8`.
 - Treat the result as a BCP 47 language tag. A later temporary or continuing language change applies only as explicitly requested in the current conversation.
 - Conversation language and project documentation language are independent. Follow `plans/AGENTS.md` for project documentation language and do not store conversation language in the repository.
 
-## Initialization and Lifecycle
+## Project Initialization
 
 - A tracked skeleton remains uninitialized until its purpose, scope, responsibility boundaries, and required project sources of truth have been approved and recorded.
 - Begin initialization with read-only investigation. Before changing project-specific content, present one initialization summary covering verified facts, user decisions, proposed assumptions, open questions, blockers, documents to change, the lifecycle state to be reached, and work that will remain unstarted.
 - Approval of that summary authorizes only the project-specific documents, directories, and assumptions it explicitly identifies. It does not authorize protected instruction changes unless they are also identified.
 - If the user explicitly requests immediate initialization from supplied information and reasonable assumptions, the summary may omit advance discussion of each open question; identify every adopted assumption in the completion report.
-- Ask again only when work requires a material scope change outside the approved summary, a protected governance change, a new top-level classification, a destructive or irreversible operation, external publication, or another authority boundary defined above.
+- After approval, ask again only when work crosses a boundary defined in `Task, Authority, and Safety Boundaries`, changes a protected `AGENTS.md`, or changes the top-level repository model.
 - The detailed documentation lifecycle, initialization outputs, state transitions, entry criteria, completion criteria, and evidence rules are defined in `plans/AGENTS.md`.
 
 ## Working Principles
@@ -82,9 +81,8 @@ Classify every file or directory by responsibility and place it in the applicabl
 1. Understand the requested outcome, constraints, observable acceptance criteria, current lifecycle state, and intended target state.
 2. Inspect the applicable instructions, project sources of truth, implementation, tests, configuration, evidence, and existing user changes.
 3. Make the smallest coherent change that safely satisfies the approved outcome.
-4. Keep requirements, design, implementation, tests, status, and traceability consistent.
-5. Verify in proportion to risk and record what could not be verified.
-6. Complete required project-document updates and report the outcome.
+4. Verify in proportion to risk and reconcile affected implementation, documentation, tests, status, and traceability.
+5. Report the outcome according to the Interaction Protocol.
 
 Apply these rules throughout the workflow:
 
