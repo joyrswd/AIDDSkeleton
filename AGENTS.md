@@ -80,7 +80,6 @@ Apply these rules throughout the workflow:
 - When requirements or assumptions change, inspect effects on documentation, implementation, tests, execution environments, migration, and operation before changing affected artifacts.
 - When recorded facts or relationships change, update the responsible project documentation in the same change.
 - Record important decisions and their reasons, assumptions, material rejected alternatives, and reconsideration conditions in the responsible source of truth.
-- Advance lifecycle state only when its documented transition conditions and evidence are present. Keep unimplemented, implemented, and verified states distinct.
 - Do not claim implementation or verification beyond available evidence.
 
 ## Review Principles
