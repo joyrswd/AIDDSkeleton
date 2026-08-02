@@ -78,6 +78,7 @@ Apply these rules throughout the workflow:
 - Distinguish verified facts, assumptions, decisions, and open questions. Do not record assumptions or proposals as settled project facts.
 - Make acceptance criteria observable and, where practical, verify behavior rather than implementation details.
 - When requirements or assumptions change, inspect effects on documentation, implementation, tests, execution environments, migration, and operation before changing affected artifacts.
+- When recorded facts or relationships change, update the responsible project documentation in the same change.
 - Record important decisions and their reasons, assumptions, material rejected alternatives, and reconsideration conditions in the responsible source of truth.
 - Advance lifecycle state only when its documented transition conditions and evidence are present. Keep unimplemented, implemented, and verified states distinct.
 - Do not claim implementation or verification beyond available evidence.
@@ -90,7 +91,7 @@ Review against the approved purpose, scope, exclusions, and observable acceptanc
 2. Determine whether the implementation conforms to the validated sources of truth.
 3. Determine whether the verification methods and evidence demonstrate that conformity.
 
-Classify the root cause independently from severity as a **source-of-truth deficiency**, **implementation deficiency**, **verification deficiency**, or **unresolved decision**. Report or correct a source-of-truth deficiency before deriving implementation changes from it; obtain the required user decision when the correction would materially change approved intent, scope, acceptance criteria, responsibility boundaries, or design.
+Classify the root cause independently from severity as a **source-of-truth deficiency**, **implementation deficiency**, **verification deficiency**, or **unresolved decision**, and state the supporting evidence. Report or correct a source-of-truth deficiency before deriving implementation changes from it; obtain the required user decision when the correction would materially change approved intent, scope, acceptance criteria, responsibility boundaries, or design.
 
 Classify each substantive finding as:
 
@@ -98,6 +99,6 @@ Classify each substantive finding as:
 - **In-scope deficiency:** the approved scope is not yet satisfied.
 - **Follow-up:** useful improvement that does not prevent acceptance of the approved change.
 
-Do not promote follow-up work into the current scope without user approval. On repeated review, check previous blockers and in-scope deficiencies first, identify any newly applied criterion and whether it belongs to the approved scope, and state whether the change is acceptable within that scope.
+Do not promote follow-up work into the current scope without user approval. On repeated review, check previous blockers and in-scope deficiencies first, identify any newly applied criterion and whether it belongs to the approved scope, report newly discovered follow-ups separately, and state whether the change is acceptable within that scope.
 
 In every handoff, report the actual outcome, changed sources of truth, verification performed, unverified matters and risks, reached lifecycle state, and remaining or follow-up work. When blocked, exhaust safe in-scope alternatives before stating the precise blocker and required decision or authority. Do not expose credentials, personal information, or confidential values in code, documentation, logs, or reports.
