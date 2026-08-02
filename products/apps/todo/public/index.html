@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e8">
+  <title>余白 — Todo</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">MY DAILY NOTES</p>
+        <h1>今日に、<br><em>余白</em>をつくる。</h1>
+      </div>
+      <div class="date" aria-label="今日の日付"><span id="date-day">--</span><small id="date-detail">----</small></div>
+    </header>
+
+    <section class="workspace" aria-labelledby="list-title">
+      <form id="todo-form" class="composer">
+        <label for="todo-title">新しい Todo</label>
+        <div class="input-row">
+          <input id="todo-title" name="title" maxlength="200" autocomplete="off" placeholder="次にすることは？" required>
+          <button type="submit" aria-label="Todoを追加"><span>追加する</span><b aria-hidden="true">＋</b></button>
+        </div>
+      </form>
+
+      <div class="toolbar">
+        <div>
+          <p class="section-label">TODAY'S LIST</p>
+          <h2 id="list-title">やること</h2>
+        </div>
+        <nav class="filters" aria-label="Todoの絞り込み">
+          <button class="active" data-filter="all">すべて</button>
+          <button data-filter="active">未完了</button>
+          <button data-filter="completed">完了</button>
+        </nav>
+      </div>
+
+      <div id="loading" class="loading">リストを読み込んでいます…</div>
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+      <div id="empty" class="empty" hidden>
+        <span aria-hidden="true">✓</span>
+        <p>ここにはまだ何もありません。</p>
+        <small>小さな一歩を書き留めてみましょう。</small>
+      </div>
+      <footer><p id="count">0 件の Todo</p><p>ひとつずつ、丁寧に。</p></footer>
+    </section>
+  </main>
+  <div id="notice" class="notice" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
