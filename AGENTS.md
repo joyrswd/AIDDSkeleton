@@ -55,6 +55,7 @@ Classify every file or directory by responsibility and place it in the applicabl
 - A tracked skeleton remains uninitialized until its purpose, scope, responsibility boundaries, and required project sources of truth have been approved and recorded.
 - Begin initialization with read-only investigation. Before changing project-specific content, present one initialization summary covering verified facts, user decisions, proposed assumptions, open questions, blockers, documents to change, the lifecycle state to be reached, and work that will remain unstarted.
 - Approval of that summary authorizes only the project-specific documents, directories, and assumptions it explicitly identifies. It does not authorize protected instruction changes unless they are also identified.
+- If the user explicitly requests immediate initialization from supplied information and reasonable assumptions, the summary may omit advance discussion of each open question; identify every adopted assumption in the handoff.
 - Ask again only when work requires a material scope change outside the approved summary, a protected governance change, a new top-level classification, a destructive or irreversible operation, external publication, or another authority boundary defined above.
 - The detailed documentation lifecycle, initialization outputs, state transitions, entry criteria, completion criteria, and evidence rules are defined in `plans/AGENTS.md`.
 
@@ -76,6 +77,7 @@ Apply these rules throughout the workflow:
 - Do not silently resolve contradictions or rewrite requirements merely to match implementation. Identify the difference and update the responsible source of truth within the authorized scope.
 - Distinguish verified facts, assumptions, decisions, and open questions. Do not record assumptions or proposals as settled project facts.
 - Make acceptance criteria observable and, where practical, verify behavior rather than implementation details.
+- When requirements or assumptions change, inspect effects on documentation, implementation, tests, execution environments, migration, and operation before changing affected artifacts.
 - Record important decisions and their reasons, assumptions, material rejected alternatives, and reconsideration conditions in the responsible source of truth.
 - Advance lifecycle state only when its documented transition conditions and evidence are present. Keep unimplemented, implemented, and verified states distinct.
 - Do not claim implementation or verification beyond available evidence.
@@ -88,7 +90,7 @@ Review against the approved purpose, scope, exclusions, and observable acceptanc
 2. Determine whether the implementation conforms to the validated sources of truth.
 3. Determine whether the verification methods and evidence demonstrate that conformity.
 
-Classify the root cause independently from severity as a **source-of-truth deficiency**, **implementation deficiency**, **verification deficiency**, or **unresolved decision**.
+Classify the root cause independently from severity as a **source-of-truth deficiency**, **implementation deficiency**, **verification deficiency**, or **unresolved decision**. Report or correct a source-of-truth deficiency before deriving implementation changes from it; obtain the required user decision when the correction would materially change approved intent, scope, acceptance criteria, responsibility boundaries, or design.
 
 Classify each substantive finding as:
 
@@ -96,6 +98,6 @@ Classify each substantive finding as:
 - **In-scope deficiency:** the approved scope is not yet satisfied.
 - **Follow-up:** useful improvement that does not prevent acceptance of the approved change.
 
-Do not promote follow-up work into the current scope without user approval. On repeated review, check previous blockers and in-scope deficiencies first, identify any newly applied criterion, and state whether the change is acceptable within its approved scope.
+Do not promote follow-up work into the current scope without user approval. On repeated review, check previous blockers and in-scope deficiencies first, identify any newly applied criterion and whether it belongs to the approved scope, and state whether the change is acceptable within that scope.
 
-In every handoff, report the actual outcome, changed sources of truth, verification performed, unverified matters and risks, reached lifecycle state, and remaining or follow-up work. Do not expose credentials, personal information, or confidential values in code, documentation, logs, or reports.
+In every handoff, report the actual outcome, changed sources of truth, verification performed, unverified matters and risks, reached lifecycle state, and remaining or follow-up work. When blocked, exhaust safe in-scope alternatives before stating the precise blocker and required decision or authority. Do not expose credentials, personal information, or confidential values in code, documentation, logs, or reports.
