@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="今日のことに集中できる、シンプルなTodoアプリ">
+  <title>Today — Todo</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow"><span></span><span id="today-label"></span></p>
+        <h1>今日のこと<span class="accent">.</span></h1>
+        <p class="subtitle">大切なことを、一つずつ。</p>
+      </div>
+      <div class="progress-ring" aria-label="Todoの進捗">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle class="ring-track" cx="24" cy="24" r="20"></circle>
+          <circle class="ring-value" cx="24" cy="24" r="20"></circle>
+        </svg>
+        <strong id="progress-number">0%</strong>
+      </div>
+    </header>
+
+    <section class="composer" aria-labelledby="composer-title">
+      <h2 id="composer-title" class="sr-only">Todoを追加</h2>
+      <form id="todo-form" novalidate>
+        <label for="todo-input" class="sr-only">Todoの内容</label>
+        <span class="plus" aria-hidden="true">+</span>
+        <input id="todo-input" name="title" maxlength="200" autocomplete="off" placeholder="次にすることは？" required>
+        <button class="add-button" type="submit">追加 <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+
+    <div id="message" class="message" role="status" aria-live="polite"></div>
+
+    <section class="todos" aria-labelledby="list-title">
+      <div class="section-heading">
+        <h2 id="list-title">マイリスト</h2>
+        <p id="count-label">0 件</p>
+      </div>
+      <div id="loading" class="loading"><span></span><span></span><span></span><em>読み込み中</em></div>
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+      <div id="empty-state" class="empty-state" hidden>
+        <div class="empty-icon" aria-hidden="true">✓</div>
+        <h3>すっきりしています</h3>
+        <p>上のフォームから、最初の Todo を追加しましょう。</p>
+      </div>
+    </section>
+
+    <footer>
+      <span>PHP</span><i></i><span>JavaScript</span><i></i><span>SQLite</span>
+    </footer>
+  </main>
+</body>
+</html>
