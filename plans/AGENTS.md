@@ -137,6 +137,7 @@ Do not record unsettled relationships as settled or invent placeholder identifie
 - Completion criteria must include at least implementation and configuration, required verification, consistency with requirements, design, and tests, and updates to current status and traceability.
 - Record whether security, privacy, accessibility, performance, availability, monitoring, data retention, recovery, and licensing apply to the project, along with the reason for each decision.
 - Record the verification methods used to advance a state, their results, and unverified matters in the location defined by the project documentation.
+- Identify the evidence type and verified scope; do not treat fixture, mock, real-database, manual, live-system, or historical execution evidence as interchangeable.
 
 ## Source-of-Truth Management
 
