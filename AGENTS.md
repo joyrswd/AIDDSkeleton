@@ -89,6 +89,7 @@ Apply these rules throughout the workflow:
 - Preserve unrelated user changes and do not expand scope merely because adjacent work is technically related.
 - Include a discovered issue only when it is required by an approved acceptance criterion or necessary to prevent a direct regression, data corruption, security failure, or irreversible damage. Record other useful issues as follow-up.
 - Prefer simple, maintainable changes over speculative abstractions.
+- Follow repository instructions and approved project decisions over general development conventions or framework defaults. Apply general conventions only where the repository does not define the matter.
 - Requirements define required outcomes, design defines the approach, and testing documents define verification. Code, configuration, tests, and execution results are evidence of current behavior, not substitutes for those sources of truth.
 - Do not silently resolve contradictions or rewrite requirements merely to match implementation. Identify the difference and update the responsible source of truth within the authorized scope.
 - Distinguish verified facts, assumptions, decisions, and open questions. Do not record assumptions or proposals as settled project facts.
