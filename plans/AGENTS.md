@@ -127,10 +127,18 @@ Manage only these four non-hidden files directly under `plans/`:
   - implementation entry criteria, completion criteria, standard verification, and evidence locations;
   - whether security, privacy, accessibility, performance, availability, monitoring, data retention, recovery, and licensing apply, with reasons.
 - Open questions may remain only when their decision point and blocking effect are recorded.
-- When release, operation, or retirement is outside the lifecycle, record the end boundary and required handoff. When included, define their transition and completion criteria and where feedback is incorporated.
+- When release, operation, or retirement is outside the lifecycle, record the end boundary and required handoff deliverables. When included, define their transition and completion criteria and where feedback is incorporated.
 - Implementation entry criteria must include applicable requirements and acceptance criteria, responsibility boundaries and implementation approach, verification methods, and no unresolved blocker.
 - Completion criteria must include implementation and configuration, required verification, consistency among requirements, design, tests, and implementation, plus current-status and traceability updates.
-- Record the verification method, result, verified scope, evidence type, and unverified matters. Do not treat fixture, mock, real-database, manual, live-system, or historical evidence as interchangeable.
+
+## Status and Evidence Updates
+
+- Update `CURRENT_STATUS.md` when lifecycle state, verification state, known limitations, or priority work changes.
+- Update the responsible traceability documents when relationships among requirements, design, implementation, verification, or completion evidence change.
+- Record the verification method, result, verified scope, evidence type, and material unverified matters in the project-defined locations. Do not treat fixture, mock, real-database, manual, live-system, or historical evidence as interchangeable.
+- Advance lifecycle state only when its documented transition conditions and required evidence are present. Keep unimplemented, implemented, and verified states distinct.
+- Record remaining risks or blockers when they affect current state, completion, or the next authorized work.
+- A conversational completion report does not replace required updates to project status, traceability, evidence records, or other sources of truth.
 
 ## Source-of-Truth Management
 
