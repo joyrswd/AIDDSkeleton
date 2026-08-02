@@ -66,7 +66,7 @@ Use the same approved `<app>` name under `plans/apps/<app>/` and `products/apps/
 |---|---|
 | `system/system_index.md` | System overview, responsibility boundaries, documentation map, and recommended reading order |
 | `system/documentation_language.md` | Default documentation language and explicit application overrides |
-| Other documents under `system/` | Purpose, requirements, structure, constraints, and development or operational methods spanning applications |
+| Other documents directly under `system/` | Purpose, requirements, structure, constraints, and development or operational methods spanning applications |
 | `apps/<app>/<app>_index.md` | Application overview, responsibility boundaries, reading order, category entry points, and traceability link |
 | `apps/<app>/<app>_traceability.md` | Current application relationships among requirements, design, implementation, verification, and completion evidence |
 | Category indexes | Documents in that category, the questions they answer, and recommended reading order |
@@ -83,14 +83,15 @@ Use the same approved `<app>` name under `plans/apps/<app>/` and `products/apps/
 
 ## Documentation Language
 
-- During initialization, propose the default documentation language in the approval summary. After approval, record it as a BCP 47 tag in `system/documentation_language.md`; record only explicit application-level overrides.
+- During initialization, propose the default documentation language in the approval summary; unless the user specifies another language, propose the current conversation language.
+- After approval, record the default as a BCP 47 tag in `system/documentation_language.md` and record only explicit application-level overrides.
 - Use the default language for system and cross-application documents. Application documents inherit it unless the user explicitly approves an override.
-- Do not infer documentation language or an override from conversation language, code, supplied material, or execution environment.
+- Do not infer documentation language or an override from code, supplied material, or execution environment.
 - Use the selected conversation language in conversation and the recorded documentation language in project documents.
 - Change documentation language only on explicit user request. Do not implicitly choose whether existing documents are translated or only future changes use the new language.
 - The language setting does not require translating or modifying supplied originals under `references/`.
 - Do not create a second machine-readable file containing the same language setting.
-- Create `documentation_language.md` and `system_index.md` together. When changing the language setting, update relevant index guidance in the same change.
+- Create `documentation_language.md` and `system_index.md` together. Do not delete either independently. When changing the language setting, update relevant index guidance in the same change.
 - Returning to the uninitialized state requires an explicitly approved lifecycle reset that deletes both fixed system documents, empties the three cross-cutting files, restores `system/.gitkeep`, and verifies the whole state atomically.
 
 ## Cross-Cutting Documents and Traceability
@@ -122,7 +123,7 @@ Manage only these four non-hidden files directly under `plans/`:
   - system and application responsibility boundaries;
   - requirements, design, and testing sources of truth;
   - observable acceptance criteria and open questions;
-  - lifecycle states, transition conditions, and end boundary;
+  - lifecycle identifiers, states, transition conditions, and end boundary;
   - implementation entry criteria, completion criteria, standard verification, and evidence locations;
   - whether security, privacy, accessibility, performance, availability, monitoring, data retention, recovery, and licensing apply, with reasons.
 - Open questions may remain only when their decision point and blocking effect are recorded.
