@@ -34,7 +34,7 @@ Determine the documentation state before formal work:
 - When release, operation, or retirement is outside the lifecycle, record the end boundary and required handoff deliverables. When included, define their transition and completion criteria and where feedback is incorporated.
 - Implementation entry criteria must include applicable requirements and acceptance criteria, responsibility boundaries and implementation approach, verification methods, and no unresolved blocker.
 - Completion criteria must include implementation and configuration, required verification, consistency among requirements, design, tests, and implementation, plus current-status and traceability updates.
-- Do not delete either fixed system document independently. Returning to the uninitialized state requires an explicitly approved lifecycle reset that deletes both fixed system documents, empties the three cross-cutting files, restores `system/.gitkeep`, and verifies the whole state atomically.
+- Do not delete either fixed system document independently. Returning to the uninitialized state requires an explicitly approved lifecycle reset that removes project-specific system and application documents, deletes both fixed system documents, empties the three cross-cutting files, restores both retention markers, and verifies the whole state atomically.
 - When initialized, read `CURRENT_STATUS.md`, `system/system_index.md`, `system/documentation_language.md`, `GLOSSARY.md`, and `TRACEABILITY.md` in that order, then follow the indexes applicable to the target.
 
 ## Structure and Indexes
