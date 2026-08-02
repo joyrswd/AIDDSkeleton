@@ -34,6 +34,8 @@ Use the narrowest owning product when a program belongs to one application; use 
 
 - When the project is uninitialized or the relevant responsibility is not approved, do not invent services, commands, topology, publication boundaries, persistence, recovery methods, or operational guarantees.
 - Keep configuration consistent with the applicable environment, development, testing, release, migration, and operation sources of truth.
+- Ensure project documentation defines reproducible prerequisites and procedures for applicable environment setup, execution, analysis, testing, documentation checks, deployment, migration, rollback, and operation.
+- Prefer automated, reproducible checks; when automation is impractical, define how the check is run and where its result is recorded.
 - When service composition, networking, persistence, publication boundaries, deployment, rollback, or recovery behavior changes, update the responsible project documentation in the same change.
 - Before deleting, recreating, or migrating existing data, confirm the effect and recovery method under the repository authority rules.
 - Verify changed configuration in proportion to impact, including applicable syntax, expanded-configuration, startup, migration, health, rollback, and recovery checks.
