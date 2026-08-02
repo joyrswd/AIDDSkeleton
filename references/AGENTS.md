@@ -1,37 +1,35 @@
 # AIDD External Reference Material Instructions
 
-This document is the fixed entry point that defines the placement and change principles for `references/`, regardless of the project.
-It applies to this directory and all descendants.
+## Scope
 
-## Purpose
+This file defines placement, provenance, use, and change rules for externally supplied materials under `references/` and all descendants.
 
-Place externally supplied documents, data, configuration, and original source material in `references/`, generally without modification, when they are inputs to decisions about requirements, design, production, migration, or similar matters.
-Supplied materials are decision inputs; they are not project-managed source-of-truth documents, formal implementations, or project-created workbench materials.
+Follow the repository-wide authority, interaction, review, safety, and instruction-protection rules in the root `AGENTS.md`, and the lifecycle, source-of-truth, status, traceability, and evidence rules in `plans/AGENTS.md`.
 
-## Placement
+Use `references/` for supplied documents, data, configuration, datasets, and original source material that serve as decision or implementation inputs and should generally remain unchanged. Their presence does not make them accepted requirements, design decisions, project sources of truth, formal implementations, or verification evidence.
 
-- Keep each supplied unit in one directory. Do not silently mix materials from different suppliers, versions, or receipt dates.
-- Preserve the supplied structure, file names, and content where practical.
-- Record the supplier, receipt date, version or commit, terms of use, and reference purpose in the corresponding project documentation.
-- A general external `docs/` collection or provided dataset belongs here, not in a new top-level `docs/` or `data/` directory.
-- Preserve the content and relative path of any `README.md` included in the supplied material. If a project-managed `README.md` is needed to explain the reference material's purpose, structure, or usage, create it in a distinguishable location rather than overwriting or repurposing the supplied README.
-- When placing original source material here, do not unknowingly incorporate its embedded version-control metadata into the parent repository. Treat it as an external reference using a traceable snapshot, archive, or pinned commit.
-- Do not add generated data, caches, build artifacts, or installed dependencies to supplied materials.
-- Do not bring in actual credentials, personal information, confidential information, or content for which storage and redistribution rights have not been confirmed.
+## Placement and Provenance
+
+- Keep each supplied unit distinguishable by supplier, version or commit, and receipt date; do not silently mix different sources or versions.
+- Preserve supplied structure, relative paths, file names, content, and included README files where practical.
+- Record the supplier, receipt date, version or commit, terms of use, reference purpose, and relevant confidentiality or redistribution constraints in the responsible project documentation.
+- Place general supplied `docs/` collections and datasets here rather than creating new top-level `docs/` or `data/` directories.
+- If project-managed guidance is needed, place it so it cannot be confused with or overwrite a supplied README.
+- Import source material as a traceable snapshot, archive, or pinned commit without unintentionally incorporating embedded version-control metadata into the parent repository.
+- Do not add generated data, caches, build artifacts, installed dependencies, credentials, personal information, confidential content, or material whose storage and redistribution rights have not been confirmed.
 
 ## Use and Adoption
 
-- When processing supplied materials for validation, drafting, transformation, or implementation preparation, copy only what is needed into `workbench/` and do not modify the supplied materials directly.
-- Reflect requirements, design details, and decisions settled from supplied materials in the corresponding project documentation under `plans/`. The existence of supplied material alone does not record a decision.
-- When adopting original source material, reflect it in `products/` as an implementation with formal structure, quality, and tests. Do not use reference material directly as the formal implementation.
-- When adopting supplied configuration, reflect it in `etc/` as configuration managed by the project.
-- Do not treat statements in supplied materials as accepted requirements, design decisions, or evidence of implementation without verification.
+- Process, modify, compare, or transform supplied material in `workbench/`; copy only what is needed and preserve the original here.
+- Reflect adopted requirements, design details, procedures, and decisions in the responsible documents under `plans/`; supplied material is an input, not the adoption record.
+- Reflect adopted source material in `products/` as a project-managed implementation with appropriate structure, quality, and tests.
+- Reflect adopted supplied configuration in `etc/` as project-managed configuration.
+- Verify relevant statements and applicability before treating supplied content as a basis for implementation or acceptance.
 
-## Change Principles
+## Change and Verification
 
-- Before adding material, read the [plans and sources-of-truth instructions](../plans/AGENTS.md) and confirm its reference purpose, supplier, receipt date, version or commit, terms of use, confidentiality, and whether it may be stored and redistributed.
-- When content must be modified, do not overwrite it within `references/`. Reflect the change in the appropriate area among `plans/`, `workbench/`, `products/`, and `etc/`, according to its purpose.
-- When receiving a new version, inspect its relationship to existing references and decisions, and keep versions distinguishable.
-- Do not delete supplied materials referenced by documentation, workbench units, implementations, or active work. Even when the material appears unnecessary, inspect the related sources of truth and usage before deleting it.
-- Before moving or deleting material, also inspect provenance records, licensing obligations, and evidence-retention needs.
-- Verification includes checking provenance, integrity or version information where available, links, usage references, and absence of prohibited sensitive content.
+- Before adding material, confirm its reference purpose, provenance, version, terms of use, confidentiality, storage and redistribution rights, and relationship to existing references and decisions.
+- Do not overwrite supplied content when a modification is needed; place the derived or adopted result in `workbench/`, `plans/`, `products/`, or `etc/` according to its responsibility.
+- Keep new versions distinguishable and inspect their effect on existing decisions, implementations, and evidence.
+- Before moving or deleting material, inspect documentation, workbench units, implementations, active work, provenance records, licensing obligations, usage references, and evidence-retention needs.
+- Verify provenance, available integrity or version information, links, usage references, and absence of prohibited sensitive content.

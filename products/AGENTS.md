@@ -1,9 +1,12 @@
 # AIDD Formal Product Instructions
 
-This document is the fixed entry point that defines the structure and change principles for formal implementations placed in `products/`, regardless of the project.
-It applies to this directory and all descendants.
+## Scope
 
-## Required Structure
+This file defines structure, placement, and change rules for formal implementations and tests under `products/` and all descendants.
+
+Follow the repository-wide authority, interaction, review, safety, and instruction-protection rules in the root `AGENTS.md`, and the lifecycle, source-of-truth, status, traceability, and evidence rules in `plans/AGENTS.md`.
+
+## Structure and Placement
 
 The clone-ready skeleton is:
 
@@ -16,60 +19,28 @@ products/
     └── .gitkeep
 ```
 
-- The retention markers preserve empty classification directories in Git; they do not assert that an application or system product exists. Remove a marker when tracked content makes it unnecessary.
-- Place formal implementations owned by a single application in `apps/`.
-- Place implementations, integration tests, fixtures, and development or verification support processes that span multiple applications in `system/`.
-- This includes formal shared code, cross-application integration code, E2E and contract tests, managed code generators, and cross-application support programs.
-- Use the same `<app>` name under `products/apps/<app>/` and `plans/apps/<app>/`.
-- Never create a literal `<app>` directory or invent a temporary application name.
-- A `README.md` may be placed under `products/` when it is necessary to explain the purpose, structure, or usage of an implementation unit, distribution unit, or tool.
-- An optional `README.md` may be placed directly under each `products/apps/<app>/` to introduce that application's formal implementation.
-- An application's `README.md` must describe the implementation entry point and direct readers to the corresponding project documentation. Do not duplicate details from requirements, design, tests, or current status.
-- Before implementing a new application, confirm the locations of the corresponding requirements, design, and tests and satisfy the implementation entry criteria defined in the project documentation.
+- Retention markers preserve empty classification directories; remove one when tracked content makes it unnecessary.
+- Place code, resources, dependency definitions, migrations, fixtures, CLIs, support programs, unit tests, and application-local integration tests owned by one application under `apps/<app>/`.
+- Place only genuinely cross-application code, integration processes, E2E or contract tests, fixtures, generators, and support programs under `system/`; do not move work there merely for reuse convenience.
+- Use the same approved `<app>` name under `products/apps/<app>/` and `plans/apps/<app>/`. Never create a literal `<app>` directory or invent a temporary application name.
+- Keep conventional `src/`, `tests/`, `scripts/`, `tools/`, and `packages/` below their owning application or `system/`; do not create them at the repository root.
+- A local `README.md` may explain an implementation unit and its entry point, but must direct readers to the responsible project documentation rather than duplicate requirements, design, testing policy, status, or traceability.
 
-Do not mechanically impose a framework layout. An application or package root may be `products/apps/<app>/`, and any conventional subdirectories remain below the owning product:
+Place environment and external-service configuration in `etc/`, project sources of truth and procedures in `plans/`, working materials and implementation handoffs in `workbench/`, and supplied originals in `references/`. The canonical product/environment boundary for E2E, generation, migrations, linting, seed data, and fixtures is in [Execution Environment Instructions](../etc/AGENTS.md#placement).
 
-| Common name or use | Placement by responsibility |
-|---|---|
-| Application `src/` | `products/apps/<app>/src/` |
-| Application `tests/` | `products/apps/<app>/tests/` |
-| Application-owned CLI or script | Within `products/apps/<app>/` |
-| Formal code shared by applications | `products/system/` |
-| Code connecting multiple applications | `products/system/` |
-| Cross-application E2E or contract tests | `products/system/` |
-| Cross-system fixtures | `products/system/` |
-| General `packages/` | The owning application, or `products/system/` only when genuinely shared |
-| Managed code generator | Its owning application, or `products/system/` when it serves multiple applications |
+## Formalization and Completion
 
-This is a responsibility guide, not a requirement to use these exact subordinate names. Do not create top-level `src/`, `tests/`, `scripts/`, `tools/`, or `packages/`.
+- Begin formal implementation only when the project-defined entry criteria are satisfied, including applicable requirements and acceptance criteria, responsibility boundaries and approach, verification methods, and no unresolved blocker.
+- Resolve missing or contradictory requirements, assumptions, design, or testing policy in the responsible source of truth rather than filling the gap only in code.
+- When adopting code or tools from `workbench/` or source material from `references/`, create a project-managed formal implementation with appropriate structure, quality, and tests; do not depend on the working or supplied copy as the production source.
+- Code or configuration existing is not evidence of completion. Keep unimplemented, implemented, and verified states distinct and satisfy the project-defined completion criteria.
+- Generated outputs, caches, test results, build artifacts, and installed dependencies belong under their execution unit and, as a rule, are not tracked.
 
-## Entry and Completion
+## Change and Verification
 
-- Begin formal implementation only when the corresponding requirements and acceptance criteria, responsibility boundaries and implementation approach, and verification methods are available, with no open questions that block the work.
-- If missing or contradictory assumptions, requirements, or design details are discovered during implementation, return to and resolve the applicable source of truth instead of filling the gap only in the implementation.
-- Do not treat the existence of code or configuration alone as evidence of completion. Confirm that required verification and updates to requirements, design, tests, current status, and traceability meet the completion criteria.
-- Keep unimplemented, implemented, and verified states distinct.
-
-## Placement
-
-- Keep application-specific code, resources, dependency definitions, unit tests, and integration tests for an application on its own under the same `apps/<app>/`.
-- This includes its database migrations, fixtures, CLI programs, and support scripts.
-- Place only code, tests, fixtures, and support processes that require connections between multiple applications in `system/`.
-- Do not move code there solely for reuse convenience.
-- Place execution environment and external service configuration in `etc/`, requirements, design, and procedures in `plans/`, project-managed drafts, investigations, prototypes, and implementation handoffs in `workbench/`, and externally supplied reference materials that should generally remain unchanged in `references/`.
-- The canonical boundary between formal programs and environment configuration—including E2E, code generation, migrations, linting, seed data, and fixtures—is in [Execution Environment Instructions](../etc/AGENTS.md#placement).
-- When adopting original source material from `references/`, reflect it in `products/` as an implementation with formal structure, quality, and tests. Do not use reference material directly as the formal implementation.
-- When adopting code or tools from `workbench/`, reflect them in `products/` as formal implementations rather than depending on the workbench copy as the production source.
-- Output caches, test results, build artifacts, and installed dependencies under the generated execution unit and, as a rule, do not track them in version control.
-
-## Change Principles
-
-- Before making changes, read the [plans and sources-of-truth instructions](../plans/AGENTS.md), current status, and the requirements, design, tests, and responsibility boundaries for the target.
-- Read any more specific `AGENTS.md` along the target path; do not create one mechanically for each application.
-- Keep implementation within the corresponding responsibility boundary. Do not introduce direct dependencies between applications or move code into `system/` solely for convenience.
-- When externally observable behavior, data structures, responsibility boundaries, or dependencies change, update the corresponding sources of truth and traceability within the same change.
-- Verify changed behavior with tests closest to the target responsibility. Verify guarantees that require connections between multiple applications with cross-application tests.
-- Also run the static analysis, generation consistency, migration, compatibility, security, performance, and packaging checks required by project documentation and proportional to the change.
-- Do not use generated artifacts or an intermediate migration state as evidence of implementation. Confirm consistency among code, configuration, tests, and documentation.
-- When verification cannot run, record the reason, impact, and remaining risk; do not report it as successful.
-- Before moving, promoting, or deleting formal artifacts, inspect dependents, public contracts, migrations, tests, documentation, current status, traceability, and retained evidence.
+- Keep changes within the approved responsibility boundary. Do not introduce direct application-to-application dependencies without an approved design change.
+- When observable behavior, public contracts, data structures, dependencies, migrations, or responsibility boundaries change, update the responsible documentation, status, and traceability in the same change.
+- Verify behavior with tests closest to the owning responsibility; verify cross-application guarantees with tests under `products/system/`.
+- Run additional static analysis, generation-consistency, migration, compatibility, security, performance, and packaging checks required by project documentation and proportional to the change.
+- Do not treat generated artifacts or an intermediate migration state as implementation evidence. Record unavailable checks, their impact, and remaining risk instead of reporting success.
+- Before moving, promoting, or deleting formal artifacts, inspect dependents, public contracts, migrations, tests, documentation, status, traceability, and evidence-retention needs.

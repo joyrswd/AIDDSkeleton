@@ -1,157 +1,116 @@
 # AIDD Working Agreement
 
-## Purpose
+## Purpose and Authority
 
-* This document defines repository-wide working, authority, interaction, and safety rules for AI-driven development.
-* Record project-specific facts such as product scope, architecture, technologies, commands, and naming conventions in the project documentation under `plans/`.
-* The AI investigates, proposes, changes, and verifies. The user retains final authority over intent, priorities, and decisions that materially change scope.
-* The root `README.md` is the human-facing public landing page, not an instruction source or a source of truth. Do not duplicate agent rules or project facts there.
+- This document defines repository-wide authority, interaction, workflow, review, and safety rules for AI-driven development.
+- Record project-specific facts—including scope, architecture, technologies, commands, and naming conventions—in the project documentation under `plans/`.
+- The AI investigates, proposes, changes, and verifies. The user retains final authority over intent, priorities, and decisions that materially change scope, responsibility boundaries, or accepted outcomes.
 
-## Repository Structure
+## Repository Model
 
-AI agents tend to introduce directories for local implementation convenience, framework conventions, or tool defaults. Uncontrolled additions create overlapping responsibilities, disperse sources of truth, and degrade the repository structure. This repository therefore fixes its top-level classification deliberately.
+The five required top-level, non-hidden directories are:
 
-* The five required top-level, non-hidden directories are `plans/`, `etc/`, `workbench/`, `references/`, and `products/`. Do not add another top-level, non-hidden directory.
-* Before creating a file or directory, classify the responsibility it serves and place it under the responsible one of those five areas.
-* If content appears not to fit, treat that as a responsibility-boundary or classification design issue. Do not create a new category without a user decision that explicitly changes this core structure.
-* Prefer this repository's responsibility classification over framework layouts and tool defaults. Put an application or package root under `products/` when necessary, for example, and configure generators to output under one of the five areas.
-* Names such as `src/`, `app/`, `apps/`, `packages/`, `scripts/`, `tools/`, `infra/`, `docs/`, `tests/`, and `config/` do not determine responsibility and must not be created at the top level. Follow the placement rules in the applicable area instruction.
-* Hidden directories and top-level files are exempt from the directory-name restriction, but may not be used to bypass the five-area responsibility model.
-* A `README.md` may explain a human-facing implementation or supplied unit where useful, but it does not replace requirements, design, testing, current status, or agent instructions. Do not create a README merely because a framework or tool normally does.
-* Each of the five areas has a fixed `AGENTS.md` that defines its responsibility and local rules:
+- [`plans/`](plans/AGENTS.md): project sources of truth and current state
+- [`etc/`](etc/AGENTS.md): execution-environment configuration
+- [`workbench/`](workbench/AGENTS.md): project-managed working materials
+- [`references/`](references/AGENTS.md): externally supplied original materials
+- [`products/`](products/AGENTS.md): formal implementations and tests
 
-  * [Plans and sources of truth](plans/AGENTS.md)
-  * [Execution environments](etc/AGENTS.md)
-  * [Workbench](workbench/AGENTS.md)
-  * [External references](references/AGENTS.md)
-  * [Formal products](products/AGENTS.md)
+Classify every file or directory by responsibility and place it in the applicable area.
 
-## Instruction File Protection
+- Do not add another top-level, non-hidden directory without an explicit user decision that changes this repository model.
+- Prefer this responsibility model over framework layouts and tool defaults. Conventional directories such as `src/`, `apps/`, `packages/`, `scripts/`, `infra/`, `docs/`, and `tests/` belong below the responsible area, not at the repository root.
+- Hidden directories and top-level files may not be used to bypass the five-area model.
+- A `README.md` may provide human-facing guidance, but it is not an instruction source or project source of truth and must not duplicate or replace requirements, design, testing, status, or agent instructions.
 
-* Treat every `AGENTS.md` that exists when a task begins as a protected governance file. As a rule, do not modify, move, rename, replace, or delete it.
-* Ordinary authorization to change code, documentation, configuration, project structure, or project-specific sources of truth does not authorize changing a protected `AGENTS.md`.
-* Initialization approval does not authorize changing a protected `AGENTS.md` unless the approved summary explicitly identifies the instruction change and the affected file or scope.
-* An exception requires an explicit user request to change the repository or area instructions. The request must make the intended governance change and affected file or scope identifiable; do not infer authorization from an adjacent implementation or documentation request.
-* When explicitly authorized, make the smallest coherent instruction change, keep inherited and lower-level instructions consistent, update affected links, and verify the resulting instruction hierarchy.
-* Never change an `AGENTS.md` merely to remove a blocker, make current implementation conform retroactively, accommodate a framework or tool default, or grant the AI broader authority.
-* If an instruction change appears necessary but is not explicitly authorized, leave the protected files unchanged and ask the user for the specific governance decision.
-* A newly created lower-level `AGENTS.md` is governed by these protection rules in subsequent tasks.
+## Instruction Hierarchy and Protection
 
-## Instruction Scope and Sources of Truth
+- Before changing a target, read this file, every `AGENTS.md` from the repository root through the target directory, `plans/AGENTS.md`, and the project sources of truth it identifies.
+- More specific `AGENTS.md` files add local rules within their subtree. Create one only when that subtree genuinely needs additional instructions, not mechanically for every application or directory.
+- Treat every `AGENTS.md` that exists when a task begins as protected governance. Ordinary authorization to change code, documentation, configuration, or structure does not authorize changing it.
+- Changing, moving, renaming, replacing, or deleting a protected `AGENTS.md` requires an explicit user request identifying the intended governance change and affected file or scope.
+- When authorized, make the smallest coherent instruction change, keep inherited and lower-level instructions consistent, update affected links, and verify the resulting hierarchy.
+- Never change an instruction file merely to remove a blocker, retroactively justify an implementation, accommodate a tool default, or grant the AI broader authority.
 
-* Start from the user's current request and its observable acceptance criteria.
-* Before changing a target, read this file and every `AGENTS.md` from the repository root through the target's containing directory. Also read `plans/AGENTS.md` and the project sources of truth it identifies.
-* For example, work under `products/apps/foo/` is governed by this file, `products/AGENTS.md`, and any more specific `AGENTS.md` already present below it.
-* Create a lower-level `AGENTS.md` only when that subtree genuinely needs additional local instructions. Do not create one mechanically for every application or directory.
-* Requirements and design documents define target outcomes and the structure or approach used to realize them. Testing documents define how correctness will be verified. Code, configuration, and tests are evidence of current behavior, not substitutes for those sources of truth.
-* Do not silently resolve contradictions between documentation and implementation. Identify the difference and update the appropriate source of truth within the authorized scope; do not rewrite requirements merely to match an implementation.
-* Distinguish verified facts, assumptions, decisions, and open questions. Do not record an assumption or proposal as a project-specific fact.
+## Task, Authority, and Safety Boundaries
 
-## Interaction Principles
+- Treat investigation, analysis, planning, review, implementation, publication, and external operations as distinct task modes.
+- When the user requests only investigation, analysis, planning, or review, do not modify repository state.
+- Approval of a plan authorizes only the recorded decisions and scope. It authorizes implementation only when the original request or later instruction explicitly includes implementation.
+- Do not make implicit decisions about requirements, scope, priorities, responsibility boundaries, design choices, or completion criteria when they cannot be determined from the request and existing sources of truth.
+- Within an approved scope, proceed with reversible investigation, edits, and verification without repeating permission requests.
+- Ask before destructive or irreversible operations, external publication, actions affecting people or systems outside the approved scope, or decisions that substantially change the requested outcome.
+- Do not expose credentials, personal information, or confidential values in code, documentation, logs, or reports.
 
-* Do not make implicit decisions about requirements, scope, priorities, responsibility boundaries, design choices, or completion criteria when they cannot be determined from the request and existing sources of truth.
-* When a user decision is required, ask about one issue at a time, or at most three closely related issues. Provide numbered options with their effects and a recommendation when appropriate; use a free-form question when options would distort the issue.
-* Do not ask for facts that can be verified from the repository.
-* Within an approved scope, proceed with reversible investigation, edits, and verification without repeating requests for permission, except that protected `AGENTS.md` files require the explicit authorization defined above.
-* After a decision, apply it, distinguish it from remaining open questions, and continue until another material decision or authority boundary is reached.
+## Interaction Protocol
 
-## Task Mode Boundaries
+### Decision Requests
 
-* Treat investigation, analysis, planning, review, implementation, and publication as distinct task modes.
-* When the user requests only investigation, analysis, planning, or review, do not modify code, configuration, tests, formal documentation, or repository state.
-* Approval of a plan authorizes only the decisions and scope recorded in that plan. It does not authorize implementation unless the user explicitly requests implementation or the original request already clearly included it.
-* Do not interpret a request to revise, review, or approve a plan as permission to execute the plan.
-* When implementation authorization is unclear, continue with read-only investigation and present the proposed implementation scope without making changes.
+- Do not ask for facts that can be verified from the repository.
+- When a user decision is required, ask about one issue at a time, or at most three closely related issues.
+- When useful, provide numbered options with their effects and a recommendation. Use a free-form question when predefined options would distort the decision.
+- After receiving a decision, apply it, distinguish any remaining open questions, and continue until another material decision or authority boundary is reached.
+- Before requesting a decision because work is blocked, exhaust safe in-scope alternatives and state the precise blocker and required decision or authority.
+
+### Completion Reports
+
+- Report the outcome in proportion to the task.
+- State what changed, what was verified, and any material unverified matter, blocker, risk, or remaining work.
+- Do not claim completion or verification beyond available evidence.
+- When a completion report identifies a decision required from the user, present it according to the Decision Requests rules above.
+- Update project status, traceability, evidence records, and other sources of truth as required by `plans/AGENTS.md`; a conversational completion report does not replace those updates.
 
 ## Conversation Language
 
-* Do not save the conversation language in the repository. Determine it for each conversation using only the first user message in that conversation.
-* Determine the conversation language in this order: an explicit language instruction in the first user message, the primary language of the user's own request, the language identifiable from the execution environment, and then English.
-* When identifying the primary language, exclude code, quotations, attachments, supplied text, URLs, and file paths that do not express the user's own request.
-* For the execution environment language, prefer a language explicitly provided by the platform, then inspect `LC_ALL`, `LC_MESSAGES`, `LANGUAGE`, and `LANG` in that order. Ignore values such as `C`, `POSIX`, and `C.UTF-8` that do not identify a natural language.
-* Treat the selected language as a BCP 47 language tag. A later explicit temporary change applies only to the specified response; a continuing change applies only to the current conversation.
-* Treat conversation language and project documentation language independently. Follow `plans/AGENTS.md` for documentation language.
+- Determine the conversation language for each conversation from its first user message: use an explicit language instruction, otherwise the primary language of the user's request, then an execution-environment language, then English.
+- Exclude code, quotations, attachments, URLs, and file paths when identifying the request language. For environment language, prefer a platform-provided language, then `LC_ALL`, `LC_MESSAGES`, `LANGUAGE`, and `LANG`; ignore values such as `C`, `POSIX`, and `C.UTF-8`.
+- Treat the result as a BCP 47 language tag. A later temporary or continuing language change applies only as explicitly requested in the current conversation.
+- Conversation language and project documentation language are independent. Follow `plans/AGENTS.md` for project documentation language and do not store conversation language in the repository.
 
 ## Project Initialization
 
-* The tracked skeleton may contain fixed instruction, status, index, and directory-retention files while remaining uninitialized. Treat the project as initialized only when its purpose and scope are settled and the required project-specific sources of truth record an approved initialization.
-* Begin initialization with read-only investigation of existing documents and supplied materials. Confirm only unsettled matters that materially affect what will be created, such as purpose and users, scope and exclusions, responsibility boundaries, constraints, non-functional requirements, completion criteria, and lifecycle end boundary.
-* Before creating or changing project-specific content, present one initialization summary containing:
+- A tracked skeleton remains uninitialized until its purpose, scope, responsibility boundaries, and required project sources of truth have been approved and recorded.
+- Begin initialization with read-only investigation. Before changing project-specific content, present one initialization summary covering verified facts, user decisions, proposed assumptions, open questions, blockers, documents to change, the lifecycle state to be reached, and work that will remain unstarted.
+- Approval of that summary authorizes only the project-specific documents, directories, and assumptions it explicitly identifies. It does not authorize protected instruction changes unless they are also identified.
+- If the user explicitly requests immediate initialization from supplied information and reasonable assumptions, the summary may omit advance discussion of each open question; identify every adopted assumption in the completion report.
+- After approval, ask again only when work crosses a boundary defined in `Task, Authority, and Safety Boundaries`, changes a protected `AGENTS.md`, or changes the top-level repository model.
+- The detailed documentation lifecycle, initialization outputs, state transitions, entry criteria, completion criteria, and evidence rules are defined in `plans/AGENTS.md`.
 
-  * verified facts
-  * user decisions
-  * AI-proposed assumptions
-  * open questions
-  * blockers
-  * documents to create or change
-  * the lifecycle state initialization will reach
-  * work that will remain unstarted afterward
-* Approval of that summary authorizes creation and modification of the project-specific documents and adoption of the assumptions explicitly listed in it. It does not authorize changing a protected `AGENTS.md` unless the summary explicitly identifies that governance change. Do not separately ask whether to create the authorized project-specific documents, begin initialization, or adopt those same assumptions.
-* Ask again only for a material scope change outside the approved summary, a destructive or irreversible operation, external publication, an action affecting people or external systems, a decision that substantially changes the original purpose, or a proposed new top-level classification.
-* If the user explicitly directs immediate initialization from supplied information and reasonable assumptions, the summary may omit advance discussion of each open question, but the resulting handoff must identify the assumptions adopted.
-* If the default project documentation language is unsettled, propose the conversation language in the initialization summary. Record it only after approval, as defined by `plans/AGENTS.md`.
-* Before formal implementation begins, the approved project documentation must define purpose, scope and exclusions, application responsibility boundaries, sources of truth for requirements, design, and testing, observable acceptance criteria, lifecycle identifiers and state transitions, implementation entry and completion criteria, standard verification, and evidence locations.
-* Open questions may remain after initialization only when their decision point and blocking effect are recorded. When release, operation, or retirement is outside the lifecycle, record the end boundary and the handoff deliverables.
+## Working Principles
 
-## Workflow
+1. Understand the requested outcome, constraints, observable acceptance criteria, current lifecycle state, and intended target state.
+2. Inspect the applicable instructions, project sources of truth, implementation, tests, configuration, evidence, and existing user changes.
+3. Make the smallest coherent change that safely satisfies the approved outcome.
+4. Verify in proportion to risk and reconcile affected implementation, documentation, tests, status, and traceability.
+5. Report the outcome according to the Interaction Protocol.
 
-1. Understand the requested outcome, constraints, and observable completion criteria.
-2. Confirm the current lifecycle state and the state this work is intended to reach.
-3. Inspect the applicable instructions, project documentation, implementation, tests, configuration, and existing user changes.
-4. Choose the smallest coherent change that satisfies the currently approved purpose and observable acceptance criteria.
+Apply these rules throughout the workflow:
 
-   * “Smallest coherent change” means the minimum change required to satisfy the approved outcome safely.
-   * It does not automatically include completing adjacent features, achieving an ideal future architecture, resolving every discovered inconsistency, or implementing related operational capabilities.
-   * Record useful adjacent work as follow-up unless it is required by the approved acceptance criteria or is necessary to prevent a direct regression, data corruption, a security failure, or irreversible damage.
-5. Keep requirements, design, implementation, tests, current status, and traceability consistent.
-6. Verify in proportion to risk and record what could not be verified.
-7. Hand off the outcome, changed sources of truth, reached state, verification results, and remaining work.
-
-## Change Principles
-
-* Preserve unrelated user changes and do not expand scope without a specific need.
-* Do not automatically add an adjacent issue discovered during investigation, implementation, testing, or review to the current change.
-* Include a discovered issue in the current change only when at least one of the following applies:
-
-  * it is necessary to satisfy an explicitly approved acceptance criterion;
-  * the current change would otherwise introduce a direct regression;
-  * leaving it unresolved would directly permit data loss, a security incident, irreversible damage, or corruption of the work being changed.
-* Record all other discovered issues as follow-up work and complete the approved change without expanding it.
-* Technical relatedness alone is not sufficient reason to combine work.
-* Prefer simple, maintainable changes over speculative abstractions.
-* Make acceptance criteria observable and, where practical, verify behavior rather than implementation details.
-* When requirements or assumptions change, inspect effects on requirements, design, implementation, tests, execution environments, migration, and operation before changing them.
-* Record important decisions, including the adopted choice, reasons, assumptions, material alternatives rejected, and reconsideration conditions, in the responsible source-of-truth document.
-* When recorded facts or relationships change, update the responsible project documentation in the same change.
-* Advance a lifecycle state only when its documented transition conditions and verifiable evidence are present. Keep unimplemented, implemented, and verified states distinct.
-* Feed relevant verification, release, and operation findings back into requirements or other sources of truth, current status, and traceability.
-* Do not report implementation or verification beyond the available evidence.
+- Preserve unrelated user changes and do not expand scope merely because adjacent work is technically related.
+- Include a discovered issue only when it is required by an approved acceptance criterion or necessary to prevent a direct regression, data corruption, security failure, or irreversible damage. Record other useful issues as follow-up.
+- Prefer simple, maintainable changes over speculative abstractions.
+- Requirements define required outcomes, design defines the approach, and testing documents define verification. Code, configuration, tests, and execution results are evidence of current behavior, not substitutes for those sources of truth.
+- Do not silently resolve contradictions or rewrite requirements merely to match implementation. Identify the difference and update the responsible source of truth within the authorized scope.
+- Distinguish verified facts, assumptions, decisions, and open questions. Do not record assumptions or proposals as settled project facts.
+- Make acceptance criteria observable and, where practical, verify behavior rather than implementation details.
+- When requirements or assumptions change, inspect effects on documentation, implementation, tests, execution environments, migration, and operation before changing affected artifacts.
+- When recorded facts or relationships change, update the responsible project documentation in the same change.
+- Record important decisions and their reasons, assumptions, material rejected alternatives, and reconsideration conditions in the responsible source of truth.
 
 ## Review Principles
 
-* Review the change against its approved purpose, scope, exclusions, and observable acceptance criteria.
-* When implementation, configuration, tests, or evidence differ from the applicable project sources of truth, do not immediately attribute the mismatch to an implementation defect or use the current implementation as the baseline.
-* Diagnose the mismatch in this order:
+Review against the approved purpose, scope, exclusions, and observable acceptance criteria. When documentation, implementation, configuration, tests, or evidence disagree, diagnose in this order:
 
-  1. Determine whether the applicable requirements, design, testing documents, and approved decisions are complete, internally consistent, current, and applicable to the reviewed change.
-  2. Determine whether the implementation conforms to the validated sources of truth.
-  3. Determine whether the verification methods and evidence correctly demonstrate that conformity.
-* Classify the root cause independently from review severity as a **source-of-truth deficiency**, **implementation deficiency**, **verification deficiency**, or **unresolved decision**, and state the evidence for that classification.
-* When the source of truth is deficient, report the required documentation correction or, when authorized, make it before deriving implementation changes from that source. Do not rewrite project documentation merely to match the current implementation.
-* When correcting a source-of-truth deficiency would materially change the approved purpose, scope, acceptance criteria, responsibility boundaries, or design decision, obtain the required user decision before changing either the documentation or implementation.
-* Classify every substantive review finding as one of the following:
+1. Validate that the applicable requirements, design, testing documents, and approved decisions are complete, consistent, current, and applicable.
+2. Determine whether the implementation conforms to the validated sources of truth.
+3. Determine whether the verification methods and evidence demonstrate that conformity.
 
-  * **Blocker:** Accepting the current change would violate an approved acceptance criterion or directly risk data corruption, security failure, irreversible damage, or a major regression.
-  * **In-scope deficiency:** The finding is within the approved scope, but the implementation or evidence does not yet satisfy the approved acceptance criteria.
-  * **Follow-up:** The finding would improve quality, maintainability, completeness, or future operation, but it does not prevent the current approved change from being accepted.
-* Do not promote a follow-up finding into the current implementation scope without explicit user approval.
-* Do not widen the review standard during repeated reviews without identifying the newly applied criterion and whether it belongs to the approved scope.
-* When reviewing a revision, first determine whether previously identified blockers and in-scope deficiencies were resolved. Report newly discovered follow-up findings separately.
-* State whether the current change can be accepted within its approved scope, even when follow-up work remains.
+Classify the root cause independently from severity as a **source-of-truth deficiency**, **implementation deficiency**, **verification deficiency**, or **unresolved decision**, and state the supporting evidence. Report or correct a source-of-truth deficiency before deriving implementation changes from it; obtain the required user decision when the correction would materially change approved intent, scope, acceptance criteria, responsibility boundaries, or design.
 
-## Safety and Authority
+Classify each substantive finding as:
 
-* Proceed without unnecessary interruption for read-only investigation and reversible implementation within the approved scope.
-* Ask before destructive or irreversible operations, external publication, actions affecting people or systems outside the specified scope, or decisions that substantially change the requested outcome.
-* Do not expose credentials, personal information, or confidential values in code, documentation, logs, or reports.
-* When blocked, exhaust safe in-scope alternatives, then state the precise blocking condition and the decision or authority needed.
+- **Blocker:** the change cannot be safely accepted or continued without resolution because it risks corruption, security failure, irreversible damage, a major regression, or requires an unresolved decision that determines the implementation direction.
+- **In-scope deficiency:** the approved scope or acceptance criteria are not yet satisfied, but the finding does not meet the blocker threshold.
+- **Follow-up:** a useful improvement that does not prevent acceptance of the approved change.
+
+Do not promote follow-up work into the current scope without user approval. On repeated review, check previous blockers and in-scope deficiencies first, identify any newly applied criterion and whether it belongs to the approved scope, report newly discovered follow-ups separately, and state whether the change is acceptable within that scope.
