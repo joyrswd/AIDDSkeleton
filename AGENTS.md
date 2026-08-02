@@ -33,15 +33,33 @@ Classify every file or directory by responsibility and place it in the applicabl
 - When authorized, make the smallest coherent instruction change, keep inherited and lower-level instructions consistent, update affected links, and verify the resulting hierarchy.
 - Never change an instruction file merely to remove a blocker, retroactively justify an implementation, accommodate a tool default, or grant the AI broader authority.
 
-## Task and Decision Boundaries
+## Task, Authority, and Safety Boundaries
 
 - Treat investigation, analysis, planning, review, implementation, publication, and external operations as distinct task modes.
 - When the user requests only investigation, analysis, planning, or review, do not modify repository state.
 - Approval of a plan authorizes only the recorded decisions and scope. It authorizes implementation only when the original request or later instruction explicitly includes implementation.
 - Do not make implicit decisions about requirements, scope, priorities, responsibility boundaries, design choices, or completion criteria when they cannot be determined from the request and existing sources of truth.
-- Do not ask for facts that can be verified from the repository. When a user decision is required, ask about one issue at a time, or at most three closely related issues, and explain the effects of the available choices.
 - Within an approved scope, proceed with reversible investigation, edits, and verification without repeating permission requests.
 - Ask before destructive or irreversible operations, external publication, actions affecting people or systems outside the approved scope, or decisions that substantially change the requested outcome.
+- Do not expose credentials, personal information, or confidential values in code, documentation, logs, or reports.
+
+## Interaction Protocol
+
+### Decision Requests
+
+- Do not ask for facts that can be verified from the repository.
+- When a user decision is required, ask about one issue at a time, or at most three closely related issues.
+- When useful, provide numbered options with their effects and a recommendation. Use a free-form question when predefined options would distort the decision.
+- After receiving a decision, apply it, distinguish any remaining open questions, and continue until another material decision or authority boundary is reached.
+- Before requesting a decision because work is blocked, exhaust safe in-scope alternatives and state the precise blocker and required decision or authority.
+
+### Completion Reports
+
+- Report the outcome in proportion to the task.
+- State what changed, what was verified, and any material unverified matter, blocker, risk, or remaining work.
+- Do not claim completion or verification beyond available evidence.
+- When a completion report identifies a decision required from the user, present it according to the Decision Requests rules above.
+- Update project status, traceability, evidence records, and other sources of truth as required by `plans/AGENTS.md`; a conversational completion report does not replace those updates.
 
 ## Conversation and Documentation Language
 
@@ -80,7 +98,6 @@ Apply these rules throughout the workflow:
 - When requirements or assumptions change, inspect effects on documentation, implementation, tests, execution environments, migration, and operation before changing affected artifacts.
 - When recorded facts or relationships change, update the responsible project documentation in the same change.
 - Record important decisions and their reasons, assumptions, material rejected alternatives, and reconsideration conditions in the responsible source of truth.
-- Do not claim implementation or verification beyond available evidence.
 
 ## Review Principles
 
@@ -99,12 +116,3 @@ Classify each substantive finding as:
 - **Follow-up:** a useful improvement that does not prevent acceptance of the approved change.
 
 Do not promote follow-up work into the current scope without user approval. On repeated review, check previous blockers and in-scope deficiencies first, identify any newly applied criterion and whether it belongs to the approved scope, report newly discovered follow-ups separately, and state whether the change is acceptable within that scope.
-
-## Completion and Reporting
-
-- Report the outcome in proportion to the task.
-- State what changed, what was verified, and any material unverified matter, blocker, risk, or remaining work.
-- Do not claim completion or verification beyond available evidence.
-- Update project status, traceability, evidence records, and other sources of truth as required by `plans/AGENTS.md`; a conversational completion report does not replace those updates.
-- When blocked, exhaust safe in-scope alternatives before stating the precise blocker and required decision or authority.
-- Do not expose credentials, personal information, or confidential values in code, documentation, logs, or reports.
