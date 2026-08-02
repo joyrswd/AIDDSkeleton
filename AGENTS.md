@@ -55,7 +55,7 @@ Classify every file or directory by responsibility and place it in the applicabl
 - A tracked skeleton remains uninitialized until its purpose, scope, responsibility boundaries, and required project sources of truth have been approved and recorded.
 - Begin initialization with read-only investigation. Before changing project-specific content, present one initialization summary covering verified facts, user decisions, proposed assumptions, open questions, blockers, documents to change, the lifecycle state to be reached, and work that will remain unstarted.
 - Approval of that summary authorizes only the project-specific documents, directories, and assumptions it explicitly identifies. It does not authorize protected instruction changes unless they are also identified.
-- If the user explicitly requests immediate initialization from supplied information and reasonable assumptions, the summary may omit advance discussion of each open question; identify every adopted assumption in the handoff.
+- If the user explicitly requests immediate initialization from supplied information and reasonable assumptions, the summary may omit advance discussion of each open question; identify every adopted assumption in the completion report.
 - Ask again only when work requires a material scope change outside the approved summary, a protected governance change, a new top-level classification, a destructive or irreversible operation, external publication, or another authority boundary defined above.
 - The detailed documentation lifecycle, initialization outputs, state transitions, entry criteria, completion criteria, and evidence rules are defined in `plans/AGENTS.md`.
 
@@ -66,7 +66,7 @@ Classify every file or directory by responsibility and place it in the applicabl
 3. Make the smallest coherent change that safely satisfies the approved outcome.
 4. Keep requirements, design, implementation, tests, status, and traceability consistent.
 5. Verify in proportion to risk and record what could not be verified.
-6. Hand off the outcome, changed sources of truth, reached state, verification results, and remaining work.
+6. Complete required project-document updates and report the outcome.
 
 Apply these rules throughout the workflow:
 
@@ -83,7 +83,7 @@ Apply these rules throughout the workflow:
 - Advance lifecycle state only when its documented transition conditions and evidence are present. Keep unimplemented, implemented, and verified states distinct.
 - Do not claim implementation or verification beyond available evidence.
 
-## Review and Handoff
+## Review Principles
 
 Review against the approved purpose, scope, exclusions, and observable acceptance criteria. When documentation, implementation, configuration, tests, or evidence disagree, diagnose in this order:
 
@@ -95,10 +95,17 @@ Classify the root cause independently from severity as a **source-of-truth defic
 
 Classify each substantive finding as:
 
-- **Blocker:** acceptance would violate an approved criterion or directly risk corruption, security failure, irreversible damage, or a major regression.
-- **In-scope deficiency:** the approved scope is not yet satisfied.
-- **Follow-up:** useful improvement that does not prevent acceptance of the approved change.
+- **Blocker:** the change cannot be safely accepted or continued without resolution because it risks corruption, security failure, irreversible damage, a major regression, or requires an unresolved decision that determines the implementation direction.
+- **In-scope deficiency:** the approved scope or acceptance criteria are not yet satisfied, but the finding does not meet the blocker threshold.
+- **Follow-up:** a useful improvement that does not prevent acceptance of the approved change.
 
 Do not promote follow-up work into the current scope without user approval. On repeated review, check previous blockers and in-scope deficiencies first, identify any newly applied criterion and whether it belongs to the approved scope, report newly discovered follow-ups separately, and state whether the change is acceptable within that scope.
 
-In every handoff, report the actual outcome, changed sources of truth, verification performed, unverified matters and risks, reached lifecycle state, and remaining or follow-up work. When blocked, exhaust safe in-scope alternatives before stating the precise blocker and required decision or authority. Do not expose credentials, personal information, or confidential values in code, documentation, logs, or reports.
+## Completion and Reporting
+
+- Report the outcome in proportion to the task.
+- State what changed, what was verified, and any material unverified matter, blocker, risk, or remaining work.
+- Do not claim completion or verification beyond available evidence.
+- Update project status, traceability, evidence records, and other sources of truth as required by `plans/AGENTS.md`; a conversational completion report does not replace those updates.
+- When blocked, exhaust safe in-scope alternatives before stating the precise blocker and required decision or authority.
+- Do not expose credentials, personal information, or confidential values in code, documentation, logs, or reports.
