@@ -27,7 +27,9 @@ Hello!
 
 The AI agent will inspect the project and guide you through the next steps.
 
-> Used successfully with GPT-5.6 on Codex and Gemini 3.6 Flash on Antigravity.
+> Tested with GPT-5.6 on Codex and Gemini 3.6 Flash on Antigravity.
+> Fast models can be used, but results may be less reliable.
+> For best results, use a more capable model.
 
 ## What You Get
 
