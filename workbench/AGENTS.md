@@ -4,9 +4,21 @@
 
 This file defines placement and lifecycle rules for project-managed working materials under `workbench/` and all descendants.
 
+It also defines the repository-wide pre-work clarification protocol referenced by the root [`AGENTS.md`](../AGENTS.md).
+
 Follow the repository-wide authority, interaction, review, safety, and instruction-protection rules in the root `AGENTS.md`, and the lifecycle, source-of-truth, status, traceability, and evidence rules in `plans/AGENTS.md`.
 
 Use `workbench/` for investigations, comparisons, drafts, preparation, prototypes, technical spikes, transformation outputs, implementation plans, and handoffs that support the project but are not themselves sources of truth, formal implementations, or managed environment configuration.
+
+## Pre-Work Clarification Protocol
+
+- Clarify breadth-first across the stated major decision areas before following any one answer into detail. Immediate follow-up is appropriate when only one material area exists or when it is needed to understand or question the remaining areas.
+- After covering the major areas, check answers for contradictions, incompatible assumptions, and material dependencies before deepening. Do not silently choose between conflicting answers; when they appear reconcilable, state the proposed interpretation and ask the user to confirm it.
+- Resolve material inconsistencies before deepening unless their effect is isolated, explicit, and does not prevent unaffected work from proceeding.
+- Deepen only matters that materially affect the requested outcome and cannot be safely deferred through a reasonable, reversible default.
+- When the user may delegate a decision, provide a recommendation and state the default that will be used.
+- End the session once there is sufficient information to proceed coherently; do not attempt to eliminate every ambiguity.
+- Conversational clarification does not require retention, but its result may be kept as a workbench unit when it has continuing working or handoff value.
 
 ## Workbench Units
 
