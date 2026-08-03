@@ -44,6 +44,13 @@ Classify every file or directory by responsibility and place it in the applicabl
 
 ## Interaction Protocol
 
+Use the appropriate form of user confirmation:
+
+- **Decision requests** address an individual decision, authority boundary, or blocker that arises while investigating, planning, implementing, or verifying the requested work.
+- **Pre-work clarification sessions** organize a request that contains multiple material ambiguities before planning or execution by identifying and confirming its major decision areas.
+
+Do not turn an individual decision request into a broader clarification session unless the newly discovered issue materially changes the understanding of the overall request.
+
 ### Decision Requests
 
 - Do not ask for facts that can be verified from the repository.
@@ -51,6 +58,12 @@ Classify every file or directory by responsibility and place it in the applicabl
 - When useful, provide numbered options with their effects and a recommendation. Use a free-form question when predefined options would distort the decision.
 - After receiving a decision, apply it, distinguish any remaining open questions, and continue until another material decision or authority boundary is reached.
 - Before requesting a decision because work is blocked, exhaust safe in-scope alternatives and state the precise blocker and required decision or authority.
+
+### Pre-Work Clarification Sessions
+
+- Before asking a sequence of questions, briefly present the major decision areas and allow the user to correct, narrow, reorder, delegate, or stop the proposed direction.
+- Follow the [Pre-Work Clarification Protocol](workbench/AGENTS.md#pre-work-clarification-protocol).
+- The session and its results do not by themselves require creating or updating repository artifacts or project sources of truth.
 
 ### Completion Reports
 
