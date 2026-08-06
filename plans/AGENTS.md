@@ -91,15 +91,6 @@ plans/apps/<app>/
 - Application test code belongs with implementation under `products/`. Project-managed documentation belongs here; supplied documentation belongs under `references/`.
 - Formal programs that generate, display, or verify documentation belong under `products/`; their execution-environment configuration belongs under `etc/`.
 
-## Overview Diagrams
-
-- In an initialized project, place one overview diagram directly under `plans/system/` and one directly under each approved `plans/apps/<app>/`. Link each diagram from the corresponding `system_index.md` or `<app>_index.md`.
-- Use the system diagram to show the main users, responsibility boundaries, and relationships among applications. Use each application diagram to show its main processing or structural relationships.
-- Do not default to a flowchart. Choose the Mermaid or UML diagram type—such as a sequence, state, component, activity, or flow diagram—that expresses the subject clearly with the fewest elements. Avoid large node-heavy diagrams and move details to the responsible requirements, design, testing, or operational documents.
-- Keep each overview diagram in one document. Overview diagram documents are exempt from the line, identifier, and functional-area thresholds in `Document Splitting` and must not be split to satisfy those thresholds. When a diagram becomes difficult to read, simplify it, change the diagram type, or remove detail instead of splitting the document.
-- When an application handles persistent entities, include a simple entity-relationship diagram that shows only entity names, primary keys, foreign keys, and relationships. Do not include other columns, types, indexes, or constraints.
-- Clearly distinguish implemented, target, and unresolved content when they appear in the same diagram.
-
 ## Documentation Language
 
 - During initialization, propose the default documentation language in the approval summary; unless the user specifies another language, propose the current conversation language.
@@ -148,7 +139,7 @@ Manage only these four non-hidden files directly under `plans/`:
 
 ## Document Splitting
 
-These thresholds apply only to initialized project-specific source-of-truth documents, not protected `AGENTS.md` files or overview diagram documents.
+These thresholds apply only to initialized project-specific source-of-truth documents, not protected `AGENTS.md` files.
 
 - Review whether to split a document when it reaches 150 lines, contains 12 independently referenced identifiers, or covers three independently changing functional areas.
 - As a rule, split a document above 250 lines or 20 independently referenced identifiers. When retaining it, record the reason and reconsideration condition in the responsible index.
