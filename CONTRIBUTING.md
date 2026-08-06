@@ -1,13 +1,20 @@
 # Contributing to AIDD Skeleton
 
-Thank you for helping improve AIDD Skeleton. Contributions that make the template clearer, safer, easier to adopt, or more reliable across AI development environments are welcome.
+AIDD Skeleton is provided as-is as a reusable repository template. Pull requests may be submitted for consideration, but maintenance, support, responses, review, and acceptance are not guaranteed.
+
+## Project status and support
+
+- GitHub Issues and Discussions are disabled for this repository.
+- The project does not provide a support channel, response-time commitment, or public roadmap.
+- Pull requests are reviewed only at the maintainer's discretion and may be left unanswered or closed without being merged.
+- The MIT License allows you to use, modify, and maintain your own copy independently.
 
 ## Before you start
 
 - Read the repository-wide [working agreement](AGENTS.md).
 - Start from the latest `main` branch.
 - Keep changes focused and avoid unrelated cleanup.
-- For a substantial behavior, structure, or governance change, open an issue first so the intended outcome can be discussed.
+- Prepare a self-contained pull request; no advance discussion or approval channel is maintained.
 
 ## Repository rules
 
@@ -34,6 +41,4 @@ A good pull request explains:
 
 Prefer a small number of coherent commits over one commit per file. Do not include generated project-specific content in the reusable skeleton unless that content is part of the intended template.
 
-## Reporting problems
-
-Use the bug report form for reproducible problems and the feature request form for proposed improvements. Include enough context for another person to understand the expected result, actual result, environment, and verification steps.
+Submitting a pull request does not create an obligation to review, respond, merge, maintain, or release the proposed change.
