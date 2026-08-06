@@ -1,0 +1,66 @@
+name: Feature request
+description: Suggest an improvement to the AIDD Skeleton template
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the outcome you want and why it would improve the reusable template.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: What is difficult, unclear, unsafe, or unnecessarily manual today?
+      placeholder: Describe the user or contributor need.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: Explain the smallest useful change you have in mind.
+      placeholder: Describe the proposed behavior, structure, or guidance.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Primary area
+      options:
+        - Repository structure
+        - Agent instructions
+        - Plans and documentation
+        - Execution environment
+        - Workbench or references
+        - Products and verification
+        - README or contribution guidance
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Note any other approaches and why they are less suitable.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Observable success criteria
+      description: How could the improvement be verified?
+      placeholder: List concrete outcomes that would demonstrate success.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add examples, links, screenshots, or compatibility considerations.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I checked that a similar request is not already open.
+          required: true
+        - label: This request is about the reusable skeleton rather than one generated project's application-specific content.
+          required: true
