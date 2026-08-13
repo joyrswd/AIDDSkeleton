@@ -99,7 +99,7 @@ plans/apps/<app>/
 - Entity-relationship diagrams are not part of the overview-diagram type selection. Use Mermaid `erDiagram` syntax and do not substitute a flowchart or other generic graph notation.
 - Entity-relationship diagrams must show only entity names, primary keys, foreign keys, and relationships. Do not include other columns, types, indexes, or constraints.
 - Keep each overview or entity-relationship diagram in one document. These diagram documents are exempt from the line, identifier, and functional-area thresholds in `Document Splitting` and must not be split to satisfy those thresholds. When an overview diagram becomes difficult to read, simplify it, change the diagram type, or remove detail instead of splitting the document.
-- Clearly distinguish implemented, target, and unresolved content when they appear in the same diagram.
+- Keep overview diagrams focused on the adopted project definition. When a diagram intentionally includes implementation state or approved future intent that is itself part of the responsible source of truth, distinguish those states clearly. Candidate target designs and unresolved alternatives belong in `workbench/`, not as parallel source-of-truth views.
 
 ## Documentation Language
 
@@ -142,7 +142,10 @@ Manage only these four non-hidden files directly under `plans/`:
 ## Source-of-Truth Management
 
 - Maintain each project fact in one responsible document rather than duplicating details across documents.
-- Distinguish current, target, assumed, decided, and open states. Do not record proposals or unapproved assumptions as settled project facts.
+- Treat the responsible documents under `plans/` as the adopted project definition for their responsibility. Do not create parallel `current` and `target` source-of-truth documents, filename variants, or equivalent views for the same responsibility; the responsible source-of-truth document itself represents the adopted state.
+- Develop candidate replacements, proposed target states, and change alternatives in `workbench/` while they are being evaluated. Prefer referencing the existing source of truth and recording the proposed delta rather than copying the current content.
+- Future intent may be recorded in `plans/` when that future intent is itself the approved responsibility of the document, such as an approved lifecycle boundary or roadmap. Do not use that exception to maintain a candidate replacement alongside the adopted source of truth.
+- Distinguish assumed, decided, and open states where they are relevant. Do not record proposals or unapproved assumptions as settled project facts.
 - Make acceptance and completion criteria observable. Split requirements that cannot be implemented, verified, and judged complete together.
 - When documentation, implementation, and tests disagree, follow the root `Review Principles` and update the responsible source of truth within the authorized scope; do not rewrite requirements merely to match implementation.
 - Reflect adopted facts from `references/` and settled findings or decisions from `workbench/` in the responsible source-of-truth document; neither source is itself the adoption record.

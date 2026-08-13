@@ -36,6 +36,7 @@ Use `workbench/` for investigations, comparisons, drafts, preparation, prototype
 - Limit conclusions to the verified scope; a prototype does not establish formal quality, security, performance, maintainability, completion, or acceptance.
 - An implementation handoff may package authorized scope, relevant exclusions, completion conditions, blockers, decisions, assumptions, open questions, execution order, and working context for a later conversation, agent, developer, or environment.
 - Reference responsible sources of truth rather than duplicating them unnecessarily, and clearly distinguish approved decisions from suggestions and assumptions.
+- When a unit proposes changing an existing `plans/` source of truth, use that source as the basis and record the proposed delta and decision context instead of creating a duplicate current copy. Create a full candidate view only when coherent evaluation requires it, and keep it clearly identified as workbench material rather than a parallel source of truth.
 - A handoff does not authorize implementation unless the user request or an approved decision grants that authority, and its guidance does not override repository instructions or project sources of truth.
 - When investigation or handoff preparation settles a project fact, update the responsible source of truth instead of leaving the decision only in the workbench.
 
@@ -44,6 +45,7 @@ Use `workbench/` for investigations, comparisons, drafts, preparation, prototype
 - Reflect adopted requirements, design, testing policy, procedures, decisions, and other project facts in `plans/`.
 - Reflect adopted formal code, tests, tools, and support programs in `products/`, and adopted environment configuration in `etc/`; do not use the workbench copy as the managed source.
 - Preserve supplied originals in `references/`. When processing them, copy only what is needed into the workbench and do not modify the supplied material directly.
+- After adoption, do not retain a candidate workbench artifact in a form that can be mistaken for an active alternative source of truth. Delete it, mark it as superseded or historical, or make its relationship to the resulting source of truth explicit according to its continuing evidential or working value.
 - After a unit has served its purpose, delete it, retain it as useful history or evidence, or mark it as superseded so obsolete material does not appear active.
 - Before deleting a unit, inspect inbound references, unresolved work, traceability, and evidence-retention needs.
 
