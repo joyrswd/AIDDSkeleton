@@ -13,7 +13,7 @@ Follow the repository-wide authority, task-mode, interaction, review, safety, an
 Determine the documentation state before formal work:
 
 | State | `CURRENT_STATUS.md`, `GLOSSARY.md`, `TRACEABILITY.md` | `system/system_index.md`, `system/documentation_language.md` | Retention markers |
-|---|---|---|---|
+|---|---|---|
 | Uninitialized | Present and zero bytes | Absent | `system/.gitkeep` and `apps/.gitkeep` present |
 | Initialized | Present with approved-language content | Both present | `system/.gitkeep` absent; `apps/.gitkeep` present only while no application documentation exists |
 | Inconsistent | Any other combination | Any other combination | Reconcile before continuing formal work |
