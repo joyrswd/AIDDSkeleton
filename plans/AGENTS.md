@@ -13,7 +13,7 @@ Follow the repository-wide authority, task-mode, interaction, review, safety, an
 Determine the documentation state before formal work:
 
 | State | `CURRENT_STATUS.md`, `GLOSSARY.md`, `TRACEABILITY.md` | `system/system_index.md`, `system/documentation_language.md` | Retention markers |
-|---|---|---|
+|---|---|---|---|
 | Uninitialized | Present and zero bytes | Absent | `system/.gitkeep` and `apps/.gitkeep` present |
 | Initialized | Present with approved-language content | Both present | `system/.gitkeep` absent; `apps/.gitkeep` present only while no application documentation exists |
 | Inconsistent | Any other combination | Any other combination | Reconcile before continuing formal work |
@@ -162,6 +162,8 @@ Manage only these four non-hidden files directly under `plans/`:
 - Future intent may be recorded in `plans/` when that future intent is itself the approved responsibility of the document, such as an approved lifecycle boundary or roadmap. Do not use that exception to maintain a candidate replacement alongside the adopted source of truth.
 - Distinguish assumed, decided, and open states where they are relevant. Do not record proposals or unapproved assumptions as settled project facts.
 - Make acceptance and completion criteria observable. Split requirements that cannot be implemented, verified, and judged complete together.
+- Classify a constraint by the responsibility it serves, not merely by how technical or implementation-specific it appears. Put required outcomes, externally imposed conditions, compatibility obligations, and acceptance conditions in requirements; put adopted implementation choices among otherwise valid ways to satisfy those requirements in design.
+- Do not reclassify an existing requirement or design statement merely to normalize taxonomy. Move it only when its current placement materially obscures responsibility, creates harmful duplication, or incorrectly constrains or frees future valid implementations. When a material constraint could reasonably belong to either category and its existing intent is unclear, preserve its current placement until that responsibility is resolved.
 - When investigation or implementation reveals a potentially normative fact, do not copy it directly into design. First classify it as a current-realization fact, a required outcome or constraint, or an adopted implementation constraint. Promote only required outcomes/constraints to requirements and adopted implementation constraints to design; keep current locations, private identifiers, implementation status, and other incidental realization facts in implementation, traceability, status, or evidence unless they are independently adopted as contracts or constraints.
 - Existing implementation is evidence of current behavior and structure, not automatic authority to define or rewrite the source of truth. Conversely, absence of a normative statement does not by itself authorize opportunistic re-architecture of an existing implementation; follow the root working and review principles and resolve material design changes explicitly.
 - When documentation, implementation, and tests disagree, follow the root `Review Principles` and update the responsible source of truth within the authorized scope; do not rewrite requirements merely to match implementation.
