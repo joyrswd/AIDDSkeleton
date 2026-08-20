@@ -13,7 +13,7 @@ Follow the repository-wide authority, task-mode, interaction, review, safety, an
 Determine the documentation state before formal work:
 
 | State | `CURRENT_STATUS.md`, `GLOSSARY.md`, `TRACEABILITY.md` | `system/system_index.md`, `system/documentation_language.md` | Retention markers |
-|---|---|---|---|
+|---|---|---|
 | Uninitialized | Present and zero bytes | Absent | `system/.gitkeep` and `apps/.gitkeep` present |
 | Initialized | Present with approved-language content | Both present | `system/.gitkeep` absent; `apps/.gitkeep` present only while no application documentation exists |
 | Inconsistent | Any other combination | Any other combination | Reconcile before continuing formal work |
@@ -32,7 +32,7 @@ Determine the documentation state before formal work:
   - whether security, privacy, accessibility, performance, availability, monitoring, data retention, recovery, and licensing apply, with reasons.
 - Open questions may remain only when their decision point and blocking effect are recorded.
 - When release, operation, or retirement is outside the lifecycle, record the end boundary and required handoff deliverables. When included, define their transition and completion criteria and where feedback is incorporated.
-- Implementation entry criteria must include applicable requirements and acceptance criteria, responsibility boundaries and implementation approach, verification methods, and no unresolved blocker.
+- Implementation entry criteria must include applicable requirements and acceptance criteria, responsibility boundaries and any adopted implementation approach, verification methods, and no unresolved blocker. When a scope intentionally adopts no additional implementation constraint beyond applicable requirements and inherited rules, record that explicitly rather than inventing design detail.
 - Completion criteria must include implementation and configuration, required verification, consistency among requirements, design, tests, and implementation, plus current-status and traceability updates.
 - Do not delete either fixed system document independently. Returning to the uninitialized state requires an explicitly approved lifecycle reset that removes project-specific system and application documents, deletes both fixed system documents, empties the three cross-cutting files, restores both retention markers, and verifies the whole state atomically.
 - When initialized, read `CURRENT_STATUS.md`, `system/system_index.md`, `system/documentation_language.md`, `GLOSSARY.md`, and `TRACEABILITY.md` in that order, then follow the indexes applicable to the target.
@@ -73,11 +73,11 @@ plans/apps/<app>/
 | `system/documentation_language.md` | Default documentation language and explicit application overrides |
 | Other documents directly under `system/` | Purpose, requirements, structure, constraints, and development or operational methods spanning applications |
 | `apps/<app>/<app>_index.md` | Application overview, responsibility boundaries, reading order, category entry points, and traceability link |
-| `apps/<app>/<app>_traceability.md` | Current application relationships among requirements, design, implementation, verification, and completion evidence |
-| Category indexes | Documents in that category, the questions they answer, and recommended reading order |
+| `apps/<app>/<app>_traceability.md` | Current relationships among normative requirements and design, implementation responsibilities, verification evidence, and concise coverage state |
+| Category indexes | Documents in that category, the questions they answer, recommended reading order, and any explicit absence or inherited responsibility for that category |
 | `requirements/` | Outcomes and constraints the application must satisfy |
-| `design/` | Structure and approach used to satisfy requirements |
-| `testing/` | How correctness will be verified |
+| `design/` | Adopted structure, approach, contracts, algorithms, invariants, and other implementation constraints intentionally imposed on future valid implementations |
+| `testing/` | Verification strategy and specifications describing what evidence is sufficient to establish correctness |
 
 - `plans/system/` and `plans/apps/` are required classification directories. Retention markers preserve empty directories in Git; remove a marker when tracked content makes it unnecessary.
 - Do not create a `README.md` under `plans/`; use the fixed indexes for navigation and `AGENTS.md` for agent instructions.
@@ -85,11 +85,24 @@ plans/apps/<app>/
 - Use the same approved `<app>` name under `plans/apps/<app>/` and `products/apps/<app>/`.
 - Use one purpose per project-specific document and choose file boundaries by question answered, reader, update trigger, and lifecycle.
 - Keep system documents directly under `plans/system/`; use document boundaries rather than subdirectories to separate their responsibilities.
-- Keep indexes as navigation entry points; do not place detailed requirements, design, test content, procedures, or evidence in them.
+- The three application category directories and category indexes are required responsibility entry points, but they do not require standalone detail documents when the scope has no additional category-specific content. In that case, the category index must say so explicitly and identify any inherited or cross-cutting source that applies.
+- Do not create detail documents merely to populate a category. For design, an explicit statement that the scope adopts no additional normative implementation constraints beyond applicable requirements and inherited rules is valid.
+- Formal implementation still requires verification methods. If no application-specific testing detail document is needed, the testing index must identify the applicable inherited or cross-cutting verification policy; absence of a detail document never means absence of verification responsibility.
+- Keep indexes as navigation entry points. They may contain concise category-absence or inheritance statements and links to current evidence, but must not duplicate detailed requirements, design, testing specifications, procedures, or execution results.
 - `system_index.md` indexes individual system documents. `<app>_index.md` links the three category indexes and application traceability; each category index lists its individual documents. Do not maintain the same detailed list at multiple levels.
 - Place application-specific execution and diagnostic procedures directly under `apps/<app>/` and reference them from `<app>_index.md`.
 - Application test code belongs with implementation under `products/`. Project-managed documentation belongs here; supplied documentation belongs under `references/`.
 - Formal programs that generate, display, or verify documentation belong under `products/`; their execution-environment configuration belongs under `etc/`.
+
+## Normative Content and Semantic Reconstruction
+
+- Requirements, design, and testing are normative responsibilities. Their adopted content must remain understandable and usable without relying on the current contents of `products/`.
+- Together, the applicable requirements, design, and testing sources of truth must provide a sufficient basis to implement an independent realization with the same intended outcomes, adopted contracts, responsibility boundaries, algorithms or invariants where fixed, and to verify that realization against the same acceptance intent.
+- This is semantic reconstruction, not source reproduction or operational restoration. It does not require reproducing the current source tree, private file/class/function/state names, exact dependency lock, migration history, fixtures, scripts, artifacts, or other incidental implementation detail unless one of those is itself an adopted contract or constraint.
+- Design may be highly concrete when the project intentionally fixes that detail for future valid implementations. Concrete database roles, schema contracts, protocol paths, transaction rules, security boundaries, algorithms, runtime constraints, or stable identifiers may therefore belong in design.
+- Before admitting a current-implementation detail into design, evaluate whether the project intentionally wants to constrain future valid implementations by that detail. Strong indicators include that changing it would alter an adopted contract, responsibility boundary, dependency direction, security property, correctness invariant, operational constraint, or chosen algorithm, or would permit a reasonably compliant reimplementation that the project would reject.
+- A source path, private helper/class/function name, state-field name, DOM identifier, current directory layout, or implementation status is not design merely because it exists in `products/`. Keep such information in implementation, traceability, status, or evidence unless the identifier or layout is itself an adopted contract or constraint.
+- Testing is not limited to automated test code. Depending on the requirement, sufficient verification may include automated tests, manual review, visual inspection, live-system checks, performance measurements, security checks, operational exercises, or other evidence appropriate to the acceptance condition.
 
 ## Overview Diagrams
 
@@ -120,17 +133,19 @@ Manage only these four non-hidden files directly under `plans/`:
 | Document | Role | Update trigger |
 |---|---|---|
 | `AGENTS.md` | Protected fixed instructions for this area | Explicitly authorized governance change only |
-| `CURRENT_STATUS.md` | Current lifecycle and verification state, known limitations, and next work | State, verification, limitation, or priority change |
+| `CURRENT_STATUS.md` | Aggregate lifecycle and implementation/verification state, material limitations or blockers, and next work | State, limitation, blocker, or priority change |
 | `GLOSSARY.md` | Shared project terms, abbreviations, and state expressions | Shared meaning is added or changed |
-| `TRACEABILITY.md` | System-wide and cross-application traceability summary and application traceability index | Cross-application relationship, linked location, or summarized state changes |
+| `TRACEABILITY.md` | System-wide and cross-application relationship summary, concise coverage state, and application traceability index | Relationship, linked location, or summarized coverage state changes |
 
 - Before initialization, keep the three project-specific cross-cutting files at zero bytes. After initialization, write them in the approved documentation language.
-- In `CURRENT_STATUS.md`, distinguish unimplemented, implemented, and verified work and do not record speculation as current status.
+- In `CURRENT_STATUS.md`, distinguish unimplemented, implemented, and verified work and do not record speculation as current status. Keep it concise: summarize current capability, material limitations or blockers, next work, and links to the responsible traceability or evidence rather than duplicating detailed run data.
 - Keep `GLOSSARY.md` limited to terms whose meaning must be shared across project documents.
-- Keep the root `TRACEABILITY.md` to system-wide and cross-application relationships, links to application traceability documents, and concise unresolved or unverified summaries.
+- Keep the root `TRACEABILITY.md` to system-wide and cross-application relationships, links to application traceability documents, concise coverage state, and concise unresolved or unverified summaries.
 - Keep application-level detail in `apps/<app>/<app>_traceability.md` and link it from both the root `TRACEABILITY.md` and `<app>_index.md`.
-- Trace independently approved requirements or observable acceptance criteria to the implementation units and verification evidence needed to judge them. Do not trace every file, class, function, or line unless the project explicitly requires that granularity.
+- Trace independently approved requirements or observable acceptance criteria to the implementation responsibilities and verification evidence needed to judge them. Prefer responsibility units, modules, or directories; do not trace every file, class, function, or line unless that granularity is required to identify the responsible realization.
+- Traceability may carry concise coverage state needed to see whether a requirement or design decision is unimplemented, implemented, partially verified, or verified. Do not duplicate detailed CI run history, exact test counts, artifact identifiers or hashes, command output, or long verification narratives there.
 - Update the responsible status and traceability documents when lifecycle state, verification state, known limitations, priority work, relationships, linked locations, or summarized completion evidence change.
+- Record execution-specific evidence in the project-defined evidence location. Evidence or result records own the applicable commit or head, environment, commands, run identifiers, artifacts, actual results, directly verified scope, and material unverified scope; status, traceability, and testing documents should link to those records rather than duplicate the details.
 - Record the verification method, result, verified scope, evidence type, and material unverified matters in the project-defined locations. Do not treat fixture, mock, real-database, manual, live-system, or historical evidence as interchangeable.
 - Treat verification as scoped: evidence establishes only the behavior, conditions, and boundaries it directly exercises or observes. Implementation presence, code inspection, syntax checks, static analysis, or successful adjacent tests do not verify unexercised runtime behavior.
 - Mark a requirement, acceptance criterion, completion criterion, or aggregate lifecycle state as verified only when sufficient evidence covers every required observable part and applicable condition. Otherwise, record the verified subset and remaining unverified scope without advancing the broader state beyond the available evidence.
@@ -147,6 +162,8 @@ Manage only these four non-hidden files directly under `plans/`:
 - Future intent may be recorded in `plans/` when that future intent is itself the approved responsibility of the document, such as an approved lifecycle boundary or roadmap. Do not use that exception to maintain a candidate replacement alongside the adopted source of truth.
 - Distinguish assumed, decided, and open states where they are relevant. Do not record proposals or unapproved assumptions as settled project facts.
 - Make acceptance and completion criteria observable. Split requirements that cannot be implemented, verified, and judged complete together.
+- When investigation or implementation reveals a potentially normative fact, do not copy it directly into design. First classify it as a current-realization fact, a required outcome or constraint, or an adopted implementation constraint. Promote only required outcomes/constraints to requirements and adopted implementation constraints to design; keep current locations, private identifiers, implementation status, and other incidental realization facts in implementation, traceability, status, or evidence unless they are independently adopted as contracts or constraints.
+- Existing implementation is evidence of current behavior and structure, not automatic authority to define or rewrite the source of truth. Conversely, absence of a normative statement does not by itself authorize opportunistic re-architecture of an existing implementation; follow the root working and review principles and resolve material design changes explicitly.
 - When documentation, implementation, and tests disagree, follow the root `Review Principles` and update the responsible source of truth within the authorized scope; do not rewrite requirements merely to match implementation.
 - Reflect adopted facts from `references/` and settled findings or decisions from `workbench/` in the responsible source-of-truth document; neither source is itself the adoption record.
 

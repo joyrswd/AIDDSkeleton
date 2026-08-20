@@ -36,6 +36,14 @@ Place environment and external-service configuration in `etc/`, project sources 
 - Code or configuration existing is not evidence of completion. Keep unimplemented, implemented, and verified states distinct and satisfy the project-defined completion criteria.
 - Generated outputs, caches, test results, build artifacts, and installed dependencies belong under their execution unit and, as a rule, are not tracked.
 
+## Existing-Implementation Changes
+
+- Before changing an existing implementation, inspect the relevant code, tests, configuration, dependency definitions, migrations, and nearby established responsibility or dependency boundaries needed to understand the current realization.
+- Treat existing implementation structure as evidence, not normative design. Preserve material established boundaries when they are compatible with the adopted sources of truth and outside the approved change, but do not preserve technical debt, provisional structure, or a known deficiency solely because it exists.
+- Do not replace an established architecture, responsibility boundary, dependency direction, state authority, or compatibility pattern merely because another implementation could also satisfy the requirements. A material replacement requires an applicable adopted design decision or an explicitly authorized design correction/change.
+- When the intent of a material existing structure is unclear and changing it would affect compatibility, responsibility, security, persistence, state authority, or another material boundary, do not infer permission to redesign from documentation silence; resolve the design question through the applicable source-of-truth process.
+- When implementation work reveals potentially durable project knowledge, classify it before promotion. Required outcomes or constraints belong in requirements; adopted future implementation constraints belong in design; current paths, private identifiers, implementation status, and other incidental realization facts remain in products, traceability, status, or evidence unless independently adopted as contracts or constraints.
+
 ## Change and Verification
 
 - Keep changes within the approved responsibility boundary. Do not introduce direct application-to-application dependencies without an approved design change.
