@@ -30,6 +30,7 @@ Classify every file or directory by responsibility and place it in the applicabl
 - Treat every `AGENTS.md` that exists when a task begins as protected governance. Ordinary authorization to change code, documentation, configuration, or structure does not authorize changing it.
 - Changing, moving, renaming, replacing, or deleting a protected `AGENTS.md` requires an explicit user request identifying the intended governance change and affected file or scope.
 - When authorized, make the smallest coherent instruction change, keep inherited and lower-level instructions consistent, update affected links, and verify the resulting hierarchy.
+- When applying an updated shared governance baseline to an existing repository, merge its authorized changes into the existing protected instruction hierarchy rather than treating baseline byte identity as the goal. Preserve pre-existing local rules that the authorized update does not explicitly retire or replace; if a baseline change conflicts with such a rule or would require moving or re-scoping it, surface the conflict for an explicit governance decision instead of silently preferring either side.
 - Never change an instruction file merely to remove a blocker, retroactively justify an implementation, accommodate a tool default, or grant the AI broader authority.
 
 ## Task, Authority, and Safety Boundaries
