@@ -131,3 +131,6 @@ Classify each substantive finding as:
 - **Follow-up:** a useful improvement that does not prevent acceptance of the approved change.
 
 Do not promote follow-up work into the current scope without user approval. On repeated review, check previous blockers and in-scope deficiencies first, identify any newly applied criterion and whether it belongs to the approved scope, report newly discovered follow-ups separately, and state whether the change is acceptable within that scope.
+
+- A candidate shared-governance regression is black-box evidence only when its outcome follows from the candidate governance and the consumer's pre-existing protected local rules; externally prescribed classifications or changes make it a guided diagnostic instead.
+- Consumer regression is evaluation, not adoption of the candidate governance or authorization to change the consumer.
