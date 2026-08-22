@@ -34,7 +34,8 @@ Use `workbench/` for investigations, comparisons, drafts, preparation, prototype
 
 - Identify the question, claim, or hypothesis being examined and the method or evidence used to evaluate it.
 - Verification produces evidence; it does not by itself require creation of a dedicated repository evidence file. Use the verification tool's own output, an external result, or a proportional workbench unit according to what is needed to support the current claim and any required retention.
-- When retaining execution-specific verification material in the workbench, record enough context to judge the claim later: the target or version actually examined using an unambiguous identity appropriate to the environment, the relevant environment or conditions, the method or commands when material, the actual result, directly verified scope, and material unverified scope. Do not require Git, a commit SHA, a CI run identifier, or any particular storage technology when another identity or record is sufficient.
+- When retaining execution-specific verification material in the workbench, record enough context to judge the claim later: the target or state actually examined, relevant environment or conditions, verification method or commands when material, actual result, directly verified scope, and material unverified scope.
+- Use a stable or immutable target identity when the environment provides one. A commit SHA, release or version identifier, artifact digest, deployment identifier, dataset version, snapshot identity, or other stable identity may be used; mutable labels such as branch, environment, or host names are context rather than substitutes. When no stable identity exists, record enough observation time, relevant state, conditions, and scope to avoid applying the result to a materially different state by inference. Do not require Git, CI, or any particular storage technology.
 - Treat evidence as scoped to what was directly exercised or observed. A successful adjacent check, implementation presence, source inspection, or static analysis does not verify runtime behavior it did not exercise.
 - Limit conclusions to the verified scope; a prototype does not establish formal quality, security, performance, maintainability, completion, or acceptance.
 - An implementation handoff may package authorized scope, relevant exclusions, completion conditions, blockers, decisions, assumptions, open questions, execution order, and working context for a later conversation, agent, developer, or environment.
@@ -50,9 +51,10 @@ Use `workbench/` for investigations, comparisons, drafts, preparation, prototype
 - Preserve supplied originals in `references/`. When processing them, copy only what is needed into the workbench and do not modify the supplied material directly.
 - Promote project-managed findings, observations, mappings, evidence-derived summaries, or other non-normative material to `references/` only when they have continuing reference value beyond the work unit. Promotion does not make them normative or an adoption record.
 - Do not retain a verification run merely because it occurred. After the current claim and handoff needs are satisfied, delete disposable execution output or leave it in its native execution system unless continuing evidential, diagnostic, audit, or maintenance value justifies project-managed retention.
+- Do not delete or discard workbench material while it is the only available basis for a current verified claim. First preserve an adequate basis elsewhere or downgrade the affected verification state according to `plans/AGENTS.md`.
 - After adoption, do not retain a candidate workbench artifact in a form that can be mistaken for an active alternative source of truth. Delete it, mark it as superseded or historical, promote its durable non-normative reference value, or make its relationship to the resulting source of truth explicit.
-- After a unit has served its purpose, delete it, promote durable reference material, retain it temporarily when unresolved work still depends on it, or mark it as superseded so obsolete material does not appear active.
-- Before deleting or promoting a unit, inspect inbound references, unresolved work, traceability, and any continuing evidential or maintenance need.
+- After a unit has served its purpose, delete it, promote durable reference material, retain it temporarily when unresolved work or a current verification claim still depends on it, or mark it as superseded so obsolete material does not appear active.
+- Before deleting or promoting a unit, inspect inbound references, unresolved work, traceability, current verification claims, and any continuing evidential or maintenance need.
 
 ## Change Principles
 
@@ -60,4 +62,4 @@ Use `workbench/` for investigations, comparisons, drafts, preparation, prototype
 - A unit intended to help settle requirements or design may precede the corresponding formal document when its question has another approved basis.
 - When using supplied material, also follow [External and Durable Reference Material Instructions](../references/AGENTS.md).
 - Preserve unrelated working materials and do not broaden a unit beyond its stated purpose without an authorized need.
-- The presence of a workbench result is neither adoption nor proof of formal completion by itself. Judge verification evidence by its method, result, and scope, and update project status and traceability only according to `plans/AGENTS.md`.
+- The presence of a workbench result is neither adoption nor proof of formal completion by itself. Judge verification evidence by its method, result, identity, conditions, and scope, and update project status and traceability only according to `plans/AGENTS.md`.
