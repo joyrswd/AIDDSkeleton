@@ -34,7 +34,7 @@ Place environment and external-service configuration in `etc/`, project sources 
 - Resolve missing or contradictory requirements, assumptions, design, or testing policy in the responsible source of truth rather than filling the gap only in code.
 - When adopting code or tools from `workbench/` or source material from `references/`, create a project-managed formal implementation with appropriate structure, quality, and tests; do not depend on the working or reference copy as the production source.
 - Code or configuration existing is not evidence of completion. Keep unimplemented, implemented, and verified states distinct and satisfy the project-defined completion criteria.
-- Generated outputs, caches, test results, build artifacts, and installed dependencies belong under their execution unit and, as a rule, are not tracked.
+- Generated outputs, caches, disposable test results, build artifacts, and installed dependencies belong under their execution unit and, as a rule, are not tracked. When a test result must be retained as project-managed evidence for a current verification claim, retain it according to the verification-basis lifecycle in `plans/AGENTS.md` rather than treating it as disposable execution output.
 
 ## Existing-Implementation Changes
 
