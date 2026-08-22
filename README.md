@@ -38,8 +38,8 @@ Instead of asking an AI to generate code into an unstructured repository, AIDD g
 ```text
 plans/       Project plans and sources of truth
 products/    Formal implementations, tests, and deliverables
-references/  Externally supplied reference materials
-workbench/   Temporary and exploratory working materials
+references/  Durable non-normative reference materials
+workbench/   Working, exploratory, and verification materials
 etc/         Execution-environment configuration
 ```
 
@@ -48,7 +48,7 @@ Repository-wide and directory-specific `AGENTS.md` files define the working agre
 ## What You Get
 
 - A shared working agreement for developers and AI agents
-- Clear separation between plans, formal products, references, workbench materials, and environment configuration
+- Clear separation between plans, formal products, durable references, workbench materials, and environment configuration
 - A predictable workflow for requirements, design, implementation, and verification
 - A structure designed to remain understandable as the project grows
 
@@ -64,5 +64,5 @@ AIDD Skeleton is provided as-is. Maintenance, support, responses, reviews, and a
 - [Plans and Sources of Truth](plans/AGENTS.md)
 - [Execution Environment Conventions](etc/AGENTS.md)
 - [Formal Products](products/AGENTS.md)
-- [External Reference Materials](references/AGENTS.md)
+- [Reference Materials](references/AGENTS.md)
 - [Workbench](workbench/AGENTS.md)
