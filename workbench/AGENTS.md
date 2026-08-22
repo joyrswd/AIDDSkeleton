@@ -6,9 +6,9 @@ This file defines placement and lifecycle rules for project-managed working mate
 
 It also defines the repository-wide pre-work clarification protocol referenced by the root [`AGENTS.md`](../AGENTS.md).
 
-Follow the repository-wide authority, interaction, review, safety, and instruction-protection rules in the root `AGENTS.md`, and the lifecycle, source-of-truth, status, traceability, and evidence rules in `plans/AGENTS.md`.
+Follow the repository-wide authority, interaction, review, safety, and instruction-protection rules in the root `AGENTS.md`, and the lifecycle, source-of-truth, status, traceability, and verification rules in `plans/AGENTS.md`.
 
-Use `workbench/` for investigations, comparisons, drafts, preparation, prototypes, technical spikes, transformation outputs, implementation plans, and handoffs that support the project but are not themselves sources of truth, formal implementations, or managed environment configuration.
+Use `workbench/` for investigations, comparisons, drafts, preparation, prototypes, technical spikes, transformation outputs, implementation plans, handoffs, and project-managed verification results or evidence that support the project but are not themselves sources of truth, formal implementations, managed environment configuration, or durable reference material.
 
 ## Pre-Work Clarification Protocol
 
@@ -22,37 +22,45 @@ Use `workbench/` for investigations, comparisons, drafts, preparation, prototype
 
 ## Workbench Units
 
-- Keep each unit focused on one purpose, question, experiment, or handoff and independently understandable and removable where practical.
-- Organize by purpose or work unit rather than imposing fixed subdirectories for prototypes, drafts, investigations, or handoffs.
-- Keep the inputs, dependency definitions, notes, and reproduction instructions needed to understand the unit together when practical.
-- A substantial unit must make its purpose, approved basis, evaluation or consumption method, and adoption, retention, supersession, or deletion condition discoverable from the unit or applicable project documentation.
+- Keep each unit focused on one purpose, question, experiment, verification activity, or handoff and independently understandable and removable where practical.
+- Organize by purpose or work unit rather than imposing fixed subdirectories for prototypes, drafts, investigations, verification, or handoffs.
+- Keep the inputs, dependency definitions, notes, evidence, and reproduction instructions needed to understand the unit together when practical.
+- A substantial unit must make its purpose, approved basis, evaluation or consumption method, and adoption, retention, supersession, promotion, or deletion condition discoverable from the unit or applicable project documentation.
 - Use a short note, header, local README, or other proportional entry point; do not require a heavyweight template for small or obvious materials.
 - Exploratory code belongs inside its workbench unit even when a tool normally generates `src/`, `app/`, `tests/`, or `packages/` at its root.
 - Do not use the workbench as a permanent substitute for `plans/`, `products/`, `etc/`, or `references/`, and do not track disposable caches, dependencies, logs, or generated outputs without continuing working or evidential value.
 
-## Investigations, Prototypes, and Handoffs
+## Investigations, Verification, Prototypes, and Handoffs
 
-- Identify the question or hypothesis being examined and the method or evidence used to evaluate it.
+- Identify the question, claim, or hypothesis being examined and the method or evidence used to evaluate it.
+- Verification produces evidence; it does not by itself require creation of a dedicated repository evidence file. Use the verification tool's own output, an external result, or a proportional workbench unit according to what is needed to support the current claim and any required retention.
+- When retaining execution-specific verification material in the workbench, record enough context to judge the claim later: the target or state actually examined, relevant environment or conditions, verification method or commands when material, actual result, directly verified scope, and material unverified scope.
+- Use a stable or immutable target identity when the environment provides one. A commit SHA, release or version identifier, artifact digest, deployment identifier, dataset version, snapshot identity, or other stable identity may be used; mutable labels such as branch, environment, or host names are context rather than substitutes. When no stable identity exists, record enough observation time, relevant state, conditions, and scope to avoid applying the result to a materially different state by inference. Do not require Git, CI, or any particular storage technology.
+- Treat evidence as scoped to what was directly exercised or observed. A successful adjacent check, implementation presence, source inspection, or static analysis does not verify runtime behavior it did not exercise.
 - Limit conclusions to the verified scope; a prototype does not establish formal quality, security, performance, maintainability, completion, or acceptance.
 - An implementation handoff may package authorized scope, relevant exclusions, completion conditions, blockers, decisions, assumptions, open questions, execution order, and working context for a later conversation, agent, developer, or environment.
 - Reference responsible sources of truth rather than duplicating them unnecessarily, and clearly distinguish approved decisions from suggestions and assumptions.
 - When a unit proposes changing an existing `plans/` source of truth, use that source as the basis and record the proposed delta and decision context instead of creating a duplicate current copy. Create a full candidate view only when coherent evaluation requires it, and keep it clearly identified as workbench material rather than a parallel source of truth.
 - A handoff does not authorize implementation unless the user request or an approved decision grants that authority, and its guidance does not override repository instructions or project sources of truth.
-- When investigation or handoff preparation settles a project fact, update the responsible source of truth instead of leaving the decision only in the workbench.
+- When investigation, verification, or handoff preparation settles a project fact, update the responsible source of truth instead of leaving the decision only in the workbench.
 
 ## Adoption and Exit
 
 - Reflect adopted requirements, design, testing policy, procedures, decisions, and other project facts in `plans/`.
 - Reflect adopted formal code, tests, tools, and support programs in `products/`, and adopted environment configuration in `etc/`; do not use the workbench copy as the managed source.
 - Preserve supplied originals in `references/`. When processing them, copy only what is needed into the workbench and do not modify the supplied material directly.
-- After adoption, do not retain a candidate workbench artifact in a form that can be mistaken for an active alternative source of truth. Delete it, mark it as superseded or historical, or make its relationship to the resulting source of truth explicit according to its continuing evidential or working value.
-- After a unit has served its purpose, delete it, retain it as useful history or evidence, or mark it as superseded so obsolete material does not appear active.
-- Before deleting a unit, inspect inbound references, unresolved work, traceability, and evidence-retention needs.
+- Promote project-managed findings, observations, mappings, evidence-derived summaries, or other non-normative material to `references/` only when they have continuing reference value beyond the work unit. Promotion does not make them normative or an adoption record.
+- Do not retain a verification run merely because it occurred. After the current claim and handoff needs are satisfied, delete disposable execution output or leave it in its native execution system unless continuing evidential, diagnostic, audit, or maintenance value justifies project-managed retention.
+- Do not delete or discard workbench material while the adequate basis for a current verified claim materially depends on it. First establish that the remaining basis without that material is sufficient to reassess the claimed scope, preserve an adequate replacement basis elsewhere, or downgrade the affected verification state according to `plans/AGENTS.md`.
+- Treat verification-basis retention in the workbench as transitional while the material still serves active work, an immediate handoff, unresolved reconciliation belonging to the work unit, or a bounded post-work transition with a specific exit event that will retire, replace, or re-evaluate the basis, such as the next identified re-verification, lifecycle transition, basis replacement, or reconciliation step. Closing a unit does not by itself require promotion. Open-ended intentions such as re-verifying later or keeping material for now are not bounded transitions. If the exit event is missed, cancelled, or deferred so that the dependency becomes open-ended, or if the current verified claim must remain supportable after the transitional responsibility ends and the remaining basis without the workbench material is not sufficient to reassess the claimed scope, follow the durable-basis lifecycle in `plans/AGENTS.md`. Other partial or inadequate bases do not remove this dependency, while multiple bases may jointly provide adequate support and one proportional basis may support multiple related claims.
+- After adoption, do not retain a candidate workbench artifact in a form that can be mistaken for an active alternative source of truth. Delete it, mark it as superseded or historical, promote its durable non-normative reference value, or make its relationship to the resulting source of truth explicit.
+- After a unit has served its purpose, delete it, promote durable reference material, retain it only while unresolved work, handoff, reconciliation, or the transitional verification-basis rule above still requires it, or mark it as superseded so obsolete material does not appear active.
+- Before deleting or promoting a unit, inspect inbound references, unresolved work, traceability, current verification claims, and any continuing evidential or maintenance need.
 
 ## Change Principles
 
 - Base each unit on the user's explicit request, an approved decision or initialization summary, a recorded open question, an applicable source of truth, or supplied material; do not begin from an unapproved assumption alone.
 - A unit intended to help settle requirements or design may precede the corresponding formal document when its question has another approved basis.
-- When using supplied material, also follow [External Reference Material Instructions](../references/AGENTS.md).
+- When using supplied material, also follow [External and Durable Reference Material Instructions](../references/AGENTS.md).
 - Preserve unrelated working materials and do not broaden a unit beyond its stated purpose without an authorized need.
-- A workbench result is neither adoption nor evidence that formal implementation is complete; update project status and evidence only according to `plans/AGENTS.md`.
+- The presence of a workbench result is neither adoption nor proof of formal completion by itself. Judge verification evidence by its method, result, identity, conditions, and scope, and update project status and traceability only according to `plans/AGENTS.md`.

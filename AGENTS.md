@@ -12,8 +12,8 @@ The five required top-level, non-hidden directories are:
 
 - [`plans/`](plans/AGENTS.md): project sources of truth and current state
 - [`etc/`](etc/AGENTS.md): execution-environment configuration
-- [`workbench/`](workbench/AGENTS.md): project-managed working materials
-- [`references/`](references/AGENTS.md): externally supplied original materials
+- [`workbench/`](workbench/AGENTS.md): project-managed working materials, including investigations and verification results
+- [`references/`](references/AGENTS.md): durable non-normative reference materials, including externally supplied originals and promoted project knowledge
 - [`products/`](products/AGENTS.md): formal implementations and tests
 
 Classify every file or directory by responsibility and place it in the applicable area.
@@ -72,7 +72,7 @@ Do not turn an individual decision request into a broader clarification session 
 - State what changed, what was verified, and any material unverified matter, blocker, risk, or remaining work.
 - Do not claim completion or verification beyond available evidence.
 - When a completion report identifies a decision required from the user, present it according to the Decision Requests rules above.
-- Update project status, traceability, evidence records, and other sources of truth as required by `plans/AGENTS.md`; a conversational completion report does not replace those updates.
+- Update project status, traceability, retained verification material, and other sources of truth as required by `plans/AGENTS.md`; a conversational completion report does not replace those updates.
 
 ## Conversation Language
 
@@ -88,7 +88,7 @@ Do not turn an individual decision request into a broader clarification session 
 - Approval of that summary authorizes only the project-specific documents, directories, and assumptions it explicitly identifies. It does not authorize protected instruction changes unless they are also identified.
 - If the user explicitly requests immediate initialization from supplied information and reasonable assumptions, the summary may omit advance discussion of each open question; identify every adopted assumption in the completion report.
 - After approval, ask again only when work crosses a boundary defined in `Task, Authority, and Safety Boundaries`, changes a protected `AGENTS.md`, or changes the top-level repository model.
-- The detailed documentation lifecycle, initialization outputs, state transitions, entry criteria, completion criteria, and evidence rules are defined in `plans/AGENTS.md`.
+- The detailed documentation lifecycle, initialization outputs, state transitions, entry criteria, completion criteria, and verification rules are defined in `plans/AGENTS.md`.
 
 ## Working Principles
 
@@ -106,7 +106,7 @@ Apply these rules throughout the workflow:
 - Follow repository instructions and approved project decisions over general development conventions or framework defaults. Apply general conventions only where the repository does not define the matter.
 - Requirements define required outcomes, design defines the approach, and testing documents define verification. Code, configuration, tests, and execution results are evidence of current behavior, not substitutes for those sources of truth.
 - For an existing implementation, inspect the relevant current code, tests, configuration, dependencies, responsibility boundaries, dependency directions, and established patterns before changing it. Treat them as evidence of the current realization, not as normative authority: do not replace a material established structure merely because another implementation could satisfy the requirements, and do not preserve it merely because it exists when an approved design change or supported correction justifies replacement.
-- When implementation work reveals potentially durable project knowledge, classify it before treating it as normative. Adopt required outcomes or constraints in requirements and adopted implementation constraints in design; keep incidental current-realization details such as private paths, identifiers, and implementation status outside normative sources of truth unless those details are themselves approved contracts or constraints.
+- When implementation work reveals potentially durable project knowledge, classify it before treating it as normative. Adopt required outcomes or constraints in requirements and adopted implementation constraints in design; retain non-normative knowledge with continuing reference value under `references/`; keep transient investigation and verification material in `workbench/`.
 - Do not silently resolve contradictions or rewrite requirements merely to match implementation. Identify the difference and update the responsible source of truth within the authorized scope.
 - Distinguish verified facts, assumptions, decisions, and open questions. Do not record assumptions or proposals as settled project facts.
 - Make acceptance criteria observable and, where practical, verify behavior rather than implementation details.
