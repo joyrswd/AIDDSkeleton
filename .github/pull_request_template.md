@@ -10,6 +10,8 @@ Explain the problem, need, or decision that motivated the change.
 
 - 
 
+For changes to protected governance, also identify the changed semantics, materially affected downstream scope, evidence for any general-adoption claim, and remaining uncertainty.
+
 ## Verification
 
 Describe the checks performed and the scope they cover.
@@ -18,6 +20,7 @@ Describe the checks performed and the scope they cover.
 - [ ] YAML or configuration syntax checked, when applicable
 - [ ] Repository structure checked against `AGENTS.md`
 - [ ] Relevant behavior exercised, when applicable
+- [ ] Any general-adoption claim for a potentially breaking governance change is supported by representative black-box consumer evidence
 
 ## Unverified or out of scope
 
