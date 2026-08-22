@@ -10,6 +10,8 @@ Explain the problem, need, or decision that motivated the change.
 
 - 
 
+For changes to protected governance, also identify the semantics that changed, the bounded downstream migration scope, the representative initialized consumer regression, and any remaining unverified consumer behavior.
+
 ## Verification
 
 Describe the checks performed and the scope they cover.
@@ -18,6 +20,7 @@ Describe the checks performed and the scope they cover.
 - [ ] YAML or configuration syntax checked, when applicable
 - [ ] Repository structure checked against `AGENTS.md`
 - [ ] Relevant behavior exercised, when applicable
+- [ ] Potentially breaking governance changes were black-box tested against an isolated representative initialized consumer, or the unverified downstream risk is explicit
 
 ## Unverified or out of scope
 

@@ -14,6 +14,7 @@ AIDD Skeleton is provided as-is as a reusable repository template. Pull requests
 - Read the repository-wide [working agreement](AGENTS.md).
 - Start from the latest `main` branch.
 - Keep changes focused and avoid unrelated cleanup.
+- Treat a change that alters authority, classification, routing, retention, lifecycle, or migration semantics as a potentially breaking governance change and plan a representative initialized-consumer regression.
 - Prepare a self-contained pull request; no advance discussion or approval channel is maintained.
 
 ## Repository rules
@@ -28,7 +29,10 @@ Do not add another top-level non-hidden directory unless the repository model is
 2. Make the smallest coherent change that satisfies the intended outcome.
 3. Update affected links and related documentation in the same change.
 4. Verify the changed Markdown, YAML, paths, and repository structure.
-5. Open a pull request and complete the pull request template.
+5. For a potentially breaking governance change, exercise the candidate as a black-box against at least one representative initialized consumer before presenting it as generally adoptable. Keep the trial isolated from the consumer's adopted governance.
+6. Open a pull request and complete the pull request template.
+
+If the representative consumer regression cannot be completed, state the missing verification and downstream risk explicitly; do not describe the candidate's consumer behavior as verified or generally adoptable.
 
 ## Pull request guidance
 
@@ -38,6 +42,7 @@ A good pull request explains:
 - why the change is useful;
 - how it was verified;
 - what remains unverified or intentionally out of scope.
+- for a potentially breaking governance change, the candidate identity, affected downstream semantics, representative consumer used, regression outcome, and any remaining consumer risk.
 
 Prefer a small number of coherent commits over one commit per file. Do not include generated project-specific content in the reusable skeleton unless that content is part of the intended template.
 
