@@ -4,7 +4,7 @@
 
 This file defines placement, provenance, use, and change rules for durable non-normative reference materials under `references/` and all descendants.
 
-Follow the repository-wide authority, interaction, review, safety, and instruction-protection rules in the root `AGENTS.md`, and the lifecycle, source-of-truth, status, traceability, and verification rules in `plans/AGENTS.md`.
+All repository-wide governance in the root `AGENTS.md` applies here. Also follow the project-specific source-of-truth, lifecycle, status, traceability, and verification-basis rules in `plans/AGENTS.md`.
 
 Use `references/` for material that should remain available for future consultation without becoming a project source of truth, formal implementation, or managed environment configuration. This includes externally supplied originals and project-managed non-normative material promoted from `workbench/` because it has continuing evidential, diagnostic, maintenance, interoperability, audit, or re-investigation value.
 
