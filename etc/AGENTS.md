@@ -26,7 +26,7 @@ The following table is the canonical boundary guide between formal products and 
 | Database change | Migration in its owning product area | Whole-environment bootstrap and invocation in `etc/` |
 | Linting | Lint program in its owning product area | CI runner and job configuration in `etc/` |
 | Seed data | Seed data in its owning product area | Startup injection mechanism in `etc/` |
-| External-service fixture | Fixture in the product area that owns the verification responsibility | Emulator, endpoint, and consuming-service configuration in `etc/` |
+| External-service fixture | Fixture implementation in the product area that owns the verification responsibility | Emulator deployment and wiring, endpoint selection, and consuming-service configuration in `etc/` |
 
 Determine formal-artifact placement from responsibility ownership before applying the table: use `products/apps/<app>/` for application-owned programs and `products/system/` for system-owned programs. The table is not an exception to this rule. Artifact category, number of application targets, cross-application execution or observation, reuse, and use of shared infrastructure do not by themselves determine product ownership. See [Formal Product Instructions](../products/AGENTS.md).
 
