@@ -6,18 +6,44 @@
 - Record project-specific facts—including scope, architecture, technologies, commands, and naming conventions—in the project documentation under `plans/`.
 - The AI investigates, proposes, changes, and verifies. The user retains final authority over intent, priorities, and decisions that materially change scope, responsibility boundaries, or accepted outcomes.
 
+## Governance Model
+
+Organize repository governance by the responsibility each rule serves.
+
+### Information Governance
+
+- **Authority** defines what may constrain future implementation or judgment and distinguishes adopted normative sources from proposals, observations, implementations, and other supporting material.
+- **Lifecycle** defines how information moves through investigation, proposal, adoption, implementation, verification, retention, supersession, and disposal without silently changing its authority or responsibility.
+- **Evidence** defines what basis is sufficient for a claim and keeps existence, implementation, execution, verification, and acceptance distinct.
+
+### Operating Governance
+
+- **Permission / Scope** defines the basis on which work may begin or expand and the boundary between approved intent and implementation discretion.
+- **Structure / Placement** assigns repository material according to ownership, responsibility, lifecycle, and authority rather than file type or tool convention alone.
+- **Interaction / Review** governs clarification, proposals, approval, implementation, verification, review, re-review, handoff, and completion reporting.
+- **Safety / Compliance** governs instruction protection, credentials and secrets, privacy and confidentiality, licensing and use restrictions, and destructive, irreversible, or externally consequential actions.
+
+These categories identify primary governance responsibilities; they are not a requirement that every procedure belong to only one category. A lifecycle transition, review procedure, or structural change may enforce several categories at once, but each rule must still have one authoritative owner and must not be redefined independently in multiple locations.
+
+Apply these repository-wide information principles:
+
+- A proposal, assumption, observation, implementation detail, test, execution result, or retained reference does not become an adopted requirement, design constraint, testing rule, or other source of truth merely because it exists, is linked, or supports a decision.
+- Moving or promoting information may change its lifecycle location without changing its authority. An authority change requires the applicable adoption or source-of-truth process.
+- A claim must be no broader than its supporting basis. Presence does not establish implementation, implementation does not establish execution, execution does not establish verification, and verification does not by itself establish acceptance or completion beyond the applicable criteria.
+
 ## Repository Model
 
 The five required top-level, non-hidden directories are:
 
-- [`plans/`](plans/AGENTS.md): project sources of truth and current state
-- [`etc/`](etc/AGENTS.md): execution-environment configuration
-- [`workbench/`](workbench/AGENTS.md): project-managed working materials, including investigations and verification results
+- [`plans/`](plans/AGENTS.md): adopted project definition, current state and traceability, and project-specific source-of-truth and verification-basis lifecycle rules
+- [`etc/`](etc/AGENTS.md): project-managed execution-environment configuration
+- [`workbench/`](workbench/AGENTS.md): non-authoritative working material, including investigations, proposals, handoffs, and transitional project-managed verification material
 - [`references/`](references/AGENTS.md): durable non-normative reference materials, including externally supplied originals and promoted project knowledge
 - [`products/`](products/AGENTS.md): formal implementations and tests
 
 Classify every file or directory by responsibility and place it in the applicable area.
 
+- Directory placement does not by itself establish adoption, normative authority, implementation completion, or verification state; apply the responsible lifecycle and evidence rules as well.
 - Do not add another top-level, non-hidden directory without an explicit user decision that changes this repository model.
 - Prefer this responsibility model over framework layouts and tool defaults. Conventional directories such as `src/`, `apps/`, `packages/`, `scripts/`, `infra/`, `docs/`, and `tests/` belong below the responsible area, not at the repository root.
 - Hidden directories and top-level files may not be used to bypass the five-area model.
@@ -26,24 +52,36 @@ Classify every file or directory by responsibility and place it in the applicabl
 ## Instruction Hierarchy and Protection
 
 - Before changing a target, read this file, every `AGENTS.md` from the repository root through the target directory, `plans/AGENTS.md`, and the project sources of truth it identifies.
-- More specific `AGENTS.md` files add local rules within their subtree. Create one only when that subtree genuinely needs additional instructions, not mechanically for every application or directory.
+- The root `AGENTS.md` owns repository-wide governance definitions and principles. More specific `AGENTS.md` files inherit them and add only rules needed to concretize the responsibility of their subtree; they must not independently redefine repository-wide concepts or broaden permission.
+- Create a descendant `AGENTS.md` only when that subtree genuinely needs additional instructions, not mechanically for every application or directory.
+- If an inherited and local rule appear inconsistent, do not silently choose a preferred rule. Preserve the existing authority and surface the conflict for the governance decision required to resolve it.
 - Treat every `AGENTS.md` that exists when a task begins as protected governance. Ordinary authorization to change code, documentation, configuration, or structure does not authorize changing it.
 - Changing, moving, renaming, replacing, or deleting a protected `AGENTS.md` requires an explicit user request identifying the intended governance change and affected file or scope.
 - When authorized, make the smallest coherent instruction change, keep inherited and lower-level instructions consistent, update affected links, and verify the resulting hierarchy.
 - When applying an updated shared governance baseline to an existing repository, merge its authorized changes into the existing protected instruction hierarchy rather than treating baseline byte identity as the goal. Preserve pre-existing local rules that the authorized update does not explicitly retire or replace; if a baseline change conflicts with such a rule or would require moving or re-scoping it, surface the conflict for an explicit governance decision instead of silently preferring either side.
 - Never change an instruction file merely to remove a blocker, retroactively justify an implementation, accommodate a tool default, or grant the AI broader authority.
 
-## Task, Authority, and Safety Boundaries
+## Permission / Scope Boundaries
 
+- Work may be based on an explicit user request, an approved decision or initialization summary, an applicable existing source of truth, or reversible investigation needed to understand an authorized task. None of these bases authorizes adopting a new requirement, design decision, acceptance condition, or broader scope that the basis does not support.
 - Treat investigation, analysis, planning, review, implementation, publication, and external operations as distinct task modes.
 - When the user requests only investigation, analysis, planning, or review, do not modify repository state.
 - Approval of a plan authorizes only the recorded decisions and scope. It authorizes implementation only when the original request or later instruction explicitly includes implementation.
 - Do not make implicit decisions about requirements, scope, priorities, responsibility boundaries, design choices, or completion criteria when they cannot be determined from the request and existing sources of truth.
 - Within an approved scope, proceed with reversible investigation, edits, and verification without repeating permission requests.
-- Ask before destructive or irreversible operations, external publication, actions affecting people or systems outside the approved scope, or decisions that substantially change the requested outcome.
-- Do not expose credentials, personal information, or confidential values in code, documentation, logs, or reports.
+- Ask before a decision or action that substantially changes the requested outcome, expands the approved responsibility boundary, or otherwise requires authority not already present.
 
 ## Interaction Protocol
+
+Keep interaction states distinct:
+
+- Clarification resolves material ambiguity; it is not adoption by itself.
+- A proposal or recommendation is non-authoritative until adopted through the applicable decision or source-of-truth process.
+- Approval authorizes only the decision, scope, and task mode actually approved.
+- Implementation changes the realization; it does not establish verification or acceptance by itself.
+- Verification produces scoped evidence. Acceptance, completion, or lifecycle advancement requires the applicable criteria as well as sufficient evidence.
+- Review evaluates the current target against applicable authority and evidence. Re-review evaluates the revised target and previous findings without treating prior review conclusions as proof of correctness.
+- A handoff transfers context, decisions, scope, evidence, and open work as applicable; it does not grant authority that the receiving work did not otherwise have.
 
 Use the appropriate form of user confirmation:
 
@@ -63,7 +101,12 @@ Do not turn an individual decision request into a broader clarification session 
 ### Pre-Work Clarification Sessions
 
 - Before asking a sequence of questions, briefly present the major decision areas and allow the user to correct, narrow, reorder, delegate, or stop the proposed direction.
-- Follow the [Pre-Work Clarification Protocol](workbench/AGENTS.md#pre-work-clarification-protocol).
+- Clarify breadth-first across the stated major decision areas before following any one answer into detail. Immediate follow-up is appropriate when only one material area exists or when it is needed to understand or question the remaining areas.
+- After covering the major areas, check answers for contradictions, incompatible assumptions, and material dependencies before deepening. Do not silently choose between conflicting answers; when they appear reconcilable, state the proposed interpretation and ask the user to confirm it.
+- Resolve material inconsistencies before deepening unless their effect is isolated, explicit, and does not prevent unaffected work from proceeding.
+- Deepen only matters that materially affect the requested outcome and cannot be safely deferred through a reasonable, reversible default.
+- When the user may delegate a decision, provide a recommendation and state the default that will be used.
+- End the session once there is sufficient information to proceed coherently; do not attempt to eliminate every ambiguity.
 - The session and its results do not by themselves require creating or updating repository artifacts or project sources of truth.
 
 ### Completion Reports
@@ -73,6 +116,14 @@ Do not turn an individual decision request into a broader clarification session 
 - Do not claim completion or verification beyond available evidence.
 - When a completion report identifies a decision required from the user, present it according to the Decision Requests rules above.
 - Update project status, traceability, retained verification material, and other sources of truth as required by `plans/AGENTS.md`; a conversational completion report does not replace those updates.
+
+## Safety / Compliance
+
+- Instruction protection is governed by `Instruction Hierarchy and Protection` above and may not be weakened merely to complete another task.
+- Ask before destructive or irreversible operations, external publication, actions affecting people or systems outside the approved scope, or other actions whose external consequences cannot be safely reversed within the authorized work.
+- Do not expose credentials, private keys, tokens, personal information, or confidential values in code, documentation, logs, reports, prompts, or retained evidence.
+- Respect applicable privacy, confidentiality, licensing, terms-of-use, redistribution, and retention restrictions identified by the user, project sources of truth, supplied material, or reference provenance. Do not assume permission to store, modify, publish, or redistribute material when that permission is material and unresolved.
+- Apply project-defined security, privacy, safety, and compliance requirements within their stated scope. Do not silently weaken them to simplify implementation, verification, or delivery.
 
 ## Conversation Language
 
@@ -87,7 +138,7 @@ Do not turn an individual decision request into a broader clarification session 
 - Begin initialization with read-only investigation. Before changing project-specific content, present one initialization summary covering verified facts, user decisions, proposed assumptions, open questions, blockers, documents to change, the lifecycle state to be reached, and work that will remain unstarted.
 - Approval of that summary authorizes only the project-specific documents, directories, and assumptions it explicitly identifies. It does not authorize protected instruction changes unless they are also identified.
 - If the user explicitly requests immediate initialization from supplied information and reasonable assumptions, the summary may omit advance discussion of each open question; identify every adopted assumption in the completion report.
-- After approval, ask again only when work crosses a boundary defined in `Task, Authority, and Safety Boundaries`, changes a protected `AGENTS.md`, or changes the top-level repository model.
+- After approval, ask again only when work crosses a boundary defined in `Permission / Scope Boundaries`, changes a protected `AGENTS.md`, or changes the top-level repository model.
 - The detailed documentation lifecycle, initialization outputs, state transitions, entry criteria, completion criteria, and verification rules are defined in `plans/AGENTS.md`.
 
 ## Working Principles
