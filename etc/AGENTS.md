@@ -28,7 +28,7 @@ The following table is the canonical boundary guide between formal products and 
 | Seed data | Application data with its app; cross-application data in `products/system/` | Startup injection mechanism in `etc/` |
 | External-service fixture | Fixture in `products/system/` | Emulator, endpoint, and consuming-service configuration in `etc/` |
 
-Use the narrowest owning product when a program belongs to one application; use `products/system/` only for genuinely cross-application responsibilities. See [Formal Product Instructions](../products/AGENTS.md).
+Place formal artifacts in the product area that owns their responsibility: use `products/apps/<app>/` for application-owned programs and `products/system/` for system-owned programs, including genuinely cross-application responsibilities. The number of application targets, reuse, or use of shared infrastructure does not by itself determine product ownership. See [Formal Product Instructions](../products/AGENTS.md).
 
 ## Change and Verification
 

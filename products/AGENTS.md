@@ -21,7 +21,7 @@ products/
 
 - Retention markers preserve empty classification directories; remove one when tracked content makes it unnecessary.
 - Place code, resources, dependency definitions, migrations, fixtures, CLIs, support programs, unit tests, and application-local integration tests owned by one application under `apps/<app>/`.
-- Place only genuinely cross-application code, integration processes, E2E or contract tests, fixtures, generators, and support programs under `system/`; do not move work there merely for reuse convenience.
+- Place code, integration processes, E2E or contract tests, fixtures, generators, and support programs owned by a system responsibility under `system/`, including genuinely cross-application artifacts. System ownership does not require multiple application targets; do not move work there merely because it is reused or uses shared infrastructure.
 - Use the same approved `<app>` name under `products/apps/<app>/` and `plans/apps/<app>/`. Never create a literal `<app>` directory or invent a temporary application name.
 - Keep conventional `src/`, `tests/`, `scripts/`, `tools/`, and `packages/` below their owning application or `system/`; do not create them at the repository root.
 - A local `README.md` may explain an implementation unit and its entry point, but must direct readers to the responsible project documentation rather than duplicate requirements, design, testing policy, status, or traceability.
