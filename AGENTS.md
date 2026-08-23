@@ -52,7 +52,7 @@ Classify every file or directory by responsibility and place it in the applicabl
 ## Instruction Hierarchy and Protection
 
 - Before changing a target, read this file, every `AGENTS.md` from the repository root through the target directory, `plans/AGENTS.md`, and the project sources of truth it identifies.
-- The root `AGENTS.md` owns repository-wide governance definitions and principles. More specific `AGENTS.md` files inherit them and add only rules needed to concretize the responsibility of their subtree; they must not independently redefine repository-wide concepts or broaden permission.
+- The root `AGENTS.md` owns repository-wide governance definitions and principles. More specific `AGENTS.md` files inherit them and add rules for their subtree, including local authority where the root leaves that responsibility to the subtree; they must not independently redefine repository-wide concepts or weaken, contradict, or override inherited repository-wide boundaries.
 - Create a descendant `AGENTS.md` only when that subtree genuinely needs additional instructions, not mechanically for every application or directory.
 - Treat every `AGENTS.md` that exists when a task begins as protected governance. Ordinary authorization to change code, documentation, configuration, or structure does not authorize changing it.
 - Changing, moving, renaming, replacing, or deleting a protected `AGENTS.md` requires an explicit user request identifying the intended governance change and affected file or scope.
