@@ -4,11 +4,11 @@
 
 This file defines placement and lifecycle rules for project-managed working materials under `workbench/` and all descendants.
 
-Follow the repository-wide authority, permission/scope, interaction/review, safety/compliance, structure, and instruction-protection rules in the root `AGENTS.md`, and the project-specific source-of-truth, lifecycle, status, traceability, and verification-basis rules in `plans/AGENTS.md`.
+All repository-wide governance in the root `AGENTS.md` applies here. Also follow the project-specific source-of-truth, lifecycle, status, traceability, and verification-basis rules in `plans/AGENTS.md`.
 
 Use `workbench/` for investigations, comparisons, drafts, preparation, prototypes, technical spikes, transformation outputs, implementation plans, handoffs, and project-managed verification results or evidence that support the project but are not themselves sources of truth, formal implementations, managed environment configuration, or durable reference material.
 
-Conversational clarification is governed by the root `AGENTS.md` and does not require retention. Keep a clarification result here only when it has continuing working or handoff value, without treating the retained record as an adoption source.
+Conversational clarification does not require retention, but its result may be kept as a workbench unit when it has continuing working or handoff value.
 
 ## Workbench Units
 

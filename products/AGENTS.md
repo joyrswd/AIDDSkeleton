@@ -4,7 +4,7 @@
 
 This file defines structure, placement, and change rules for formal implementations and tests under `products/` and all descendants.
 
-Follow the repository-wide authority, interaction, review, safety, and instruction-protection rules in the root `AGENTS.md`, and the lifecycle, source-of-truth, status, traceability, and verification rules in `plans/AGENTS.md`.
+All repository-wide governance in the root `AGENTS.md` applies here. Also follow the project-specific source-of-truth, lifecycle, status, traceability, and verification-basis rules in `plans/AGENTS.md`.
 
 ## Structure and Placement
 

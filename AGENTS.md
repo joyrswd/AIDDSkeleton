@@ -2,7 +2,7 @@
 
 ## Purpose and Authority
 
-- This document defines repository-wide authority, interaction, workflow, review, and safety rules for AI-driven development.
+- This document defines repository-wide governance definitions, boundaries, and common rules for AI-driven development.
 - Record project-specific facts—including scope, architecture, technologies, commands, and naming conventions—in the project documentation under `plans/`.
 - The AI investigates, proposes, changes, and verifies. The user retains final authority over intent, priorities, and decisions that materially change scope, responsibility boundaries, or accepted outcomes.
 
@@ -20,8 +20,8 @@ Organize repository governance by the responsibility each rule serves.
 
 - **Permission / Scope** defines the basis on which work may begin or expand and the boundary between approved intent and implementation discretion.
 - **Structure / Placement** assigns repository material according to ownership, responsibility, lifecycle, and authority rather than file type or tool convention alone.
-- **Interaction / Review** governs clarification, proposals, approval, implementation, verification, review, re-review, handoff, and completion reporting.
-- **Safety / Compliance** governs instruction protection, credentials and secrets, privacy and confidentiality, licensing and use restrictions, and destructive, irreversible, or externally consequential actions.
+- **Interaction / Review** organizes clarification, proposals, approval, implementation, verification, review, re-review, handoff, and completion reporting.
+- **Safety / Compliance** identifies repository-wide safety rules while keeping directory-specific compliance responsibilities with their owning subtree.
 
 These categories identify primary governance responsibilities; they are not a requirement that every procedure belong to only one category. A lifecycle transition, review procedure, or structural change may enforce several categories at once, but each rule must still have one authoritative owner and must not be redefined independently in multiple locations.
 
@@ -54,7 +54,6 @@ Classify every file or directory by responsibility and place it in the applicabl
 - Before changing a target, read this file, every `AGENTS.md` from the repository root through the target directory, `plans/AGENTS.md`, and the project sources of truth it identifies.
 - The root `AGENTS.md` owns repository-wide governance definitions and principles. More specific `AGENTS.md` files inherit them and add only rules needed to concretize the responsibility of their subtree; they must not independently redefine repository-wide concepts or broaden permission.
 - Create a descendant `AGENTS.md` only when that subtree genuinely needs additional instructions, not mechanically for every application or directory.
-- If an inherited and local rule appear inconsistent, do not silently choose a preferred rule. Preserve the existing authority and surface the conflict for the governance decision required to resolve it.
 - Treat every `AGENTS.md` that exists when a task begins as protected governance. Ordinary authorization to change code, documentation, configuration, or structure does not authorize changing it.
 - Changing, moving, renaming, replacing, or deleting a protected `AGENTS.md` requires an explicit user request identifying the intended governance change and affected file or scope.
 - When authorized, make the smallest coherent instruction change, keep inherited and lower-level instructions consistent, update affected links, and verify the resulting hierarchy.
@@ -63,25 +62,14 @@ Classify every file or directory by responsibility and place it in the applicabl
 
 ## Permission / Scope Boundaries
 
-- Work may be based on an explicit user request, an approved decision or initialization summary, an applicable existing source of truth, or reversible investigation needed to understand an authorized task. None of these bases authorizes adopting a new requirement, design decision, acceptance condition, or broader scope that the basis does not support.
+- Applicable project sources of truth constrain an already authorized task within its approved scope; they do not by themselves authorize a task mode, repository modification, publication, or scope expansion.
 - Treat investigation, analysis, planning, review, implementation, publication, and external operations as distinct task modes.
 - When the user requests only investigation, analysis, planning, or review, do not modify repository state.
 - Approval of a plan authorizes only the recorded decisions and scope. It authorizes implementation only when the original request or later instruction explicitly includes implementation.
 - Do not make implicit decisions about requirements, scope, priorities, responsibility boundaries, design choices, or completion criteria when they cannot be determined from the request and existing sources of truth.
 - Within an approved scope, proceed with reversible investigation, edits, and verification without repeating permission requests.
-- Ask before a decision or action that substantially changes the requested outcome, expands the approved responsibility boundary, or otherwise requires authority not already present.
 
 ## Interaction Protocol
-
-Keep interaction states distinct:
-
-- Clarification resolves material ambiguity; it is not adoption by itself.
-- A proposal or recommendation is non-authoritative until adopted through the applicable decision or source-of-truth process.
-- Approval authorizes only the decision, scope, and task mode actually approved.
-- Implementation changes the realization; it does not establish verification or acceptance by itself.
-- Verification produces scoped evidence. Acceptance, completion, or lifecycle advancement requires the applicable criteria as well as sufficient evidence.
-- Review evaluates the current target against applicable authority and evidence. Re-review evaluates the revised target and previous findings without treating prior review conclusions as proof of correctness.
-- A handoff transfers context, decisions, scope, evidence, and open work as applicable; it does not grant authority that the receiving work did not otherwise have.
 
 Use the appropriate form of user confirmation:
 
@@ -119,11 +107,8 @@ Do not turn an individual decision request into a broader clarification session 
 
 ## Safety / Compliance
 
-- Instruction protection is governed by `Instruction Hierarchy and Protection` above and may not be weakened merely to complete another task.
-- Ask before destructive or irreversible operations, external publication, actions affecting people or systems outside the approved scope, or other actions whose external consequences cannot be safely reversed within the authorized work.
-- Do not expose credentials, private keys, tokens, personal information, or confidential values in code, documentation, logs, reports, prompts, or retained evidence.
-- Respect applicable privacy, confidentiality, licensing, terms-of-use, redistribution, and retention restrictions identified by the user, project sources of truth, supplied material, or reference provenance. Do not assume permission to store, modify, publish, or redistribute material when that permission is material and unresolved.
-- Apply project-defined security, privacy, safety, and compliance requirements within their stated scope. Do not silently weaken them to simplify implementation, verification, or delivery.
+- Ask before destructive or irreversible operations, external publication, actions affecting people or systems outside the approved scope, or decisions that substantially change the requested outcome.
+- Do not expose credentials, personal information, or confidential values in code, documentation, logs, or reports.
 
 ## Conversation Language
 
@@ -138,7 +123,7 @@ Do not turn an individual decision request into a broader clarification session 
 - Begin initialization with read-only investigation. Before changing project-specific content, present one initialization summary covering verified facts, user decisions, proposed assumptions, open questions, blockers, documents to change, the lifecycle state to be reached, and work that will remain unstarted.
 - Approval of that summary authorizes only the project-specific documents, directories, and assumptions it explicitly identifies. It does not authorize protected instruction changes unless they are also identified.
 - If the user explicitly requests immediate initialization from supplied information and reasonable assumptions, the summary may omit advance discussion of each open question; identify every adopted assumption in the completion report.
-- After approval, ask again only when work crosses a boundary defined in `Permission / Scope Boundaries`, changes a protected `AGENTS.md`, or changes the top-level repository model.
+- After approval, ask again only when work crosses a boundary defined in `Permission / Scope Boundaries` or `Safety / Compliance`, changes a protected `AGENTS.md`, or changes the top-level repository model.
 - The detailed documentation lifecycle, initialization outputs, state transitions, entry criteria, completion criteria, and verification rules are defined in `plans/AGENTS.md`.
 
 ## Working Principles

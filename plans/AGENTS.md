@@ -6,7 +6,7 @@ This file defines the documentation structure, lifecycle, and source-of-truth ma
 
 Record project-specific purpose, scope, requirements, design, testing policy, procedures, identifiers, commands, constraints, current state, and traceability here. Place formal implementations and tests in `products/`, execution-environment configuration in `etc/`, project-managed working and verification materials in `workbench/`, and durable non-normative reference materials in `references/`.
 
-Follow the repository-wide authority, task-mode, interaction, review, safety, and instruction-protection rules in the root `AGENTS.md`.
+All repository-wide governance in the root `AGENTS.md` applies here. This file adds the project-specific documentation, source-of-truth, lifecycle, status, traceability, and verification-basis rules for this subtree.
 
 ## Lifecycle and Initialization
 
