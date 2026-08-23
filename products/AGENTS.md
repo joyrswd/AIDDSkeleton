@@ -20,8 +20,8 @@ products/
 ```
 
 - Retention markers preserve empty classification directories; remove one when tracked content makes it unnecessary.
-- Place code, resources, dependency definitions, migrations, fixtures, CLIs, support programs, unit tests, and application-local integration tests owned by one application under `apps/<app>/`.
-- Place code, integration processes, E2E or contract tests, fixtures, generators, and support programs owned by a system responsibility under `system/`, including genuinely cross-application artifacts. System ownership does not require multiple application targets; do not move work there merely because it is reused or uses shared infrastructure.
+- Place code, resources, dependency definitions, migrations, fixtures, CLIs, support programs, unit tests, and application-local integration tests owned by an application under `apps/<app>/`.
+- Place code, integration processes, E2E or contract tests, fixtures, generators, and support programs owned by a system responsibility under `system/`, including artifacts that realize or verify a system-owned responsibility spanning applications. System ownership does not require multiple application targets; artifact category, number of targets, cross-application execution or observation, reuse, and use of shared infrastructure do not by themselves establish it.
 - Use the same approved `<app>` name under `products/apps/<app>/` and `plans/apps/<app>/`. Never create a literal `<app>` directory or invent a temporary application name.
 - Keep conventional `src/`, `tests/`, `scripts/`, `tools/`, and `packages/` below their owning application or `system/`; do not create them at the repository root.
 - A local `README.md` may explain an implementation unit and its entry point, but must direct readers to the responsible project documentation rather than duplicate requirements, design, testing policy, status, or traceability.
@@ -48,7 +48,7 @@ Place environment and external-service configuration in `etc/`, project sources 
 
 - Keep changes within the approved responsibility boundary. Do not introduce direct application-to-application dependencies without an approved design change.
 - When observable behavior, public contracts, data structures, dependencies, migrations, or responsibility boundaries change, update the responsible documentation, status, and traceability in the same change.
-- Verify behavior with tests closest to the owning responsibility; verify cross-application guarantees with tests under `products/system/`.
+- Place tests in the product area that owns the verification responsibility identified by the applicable sources of truth. Put tests for system-owned guarantees under `products/system/` and tests for application-owned guarantees under the owning application, even when they invoke or observe other applications.
 - Run additional static analysis, generation-consistency, migration, compatibility, security, performance, and packaging checks required by project documentation and proportional to the change.
 - Do not treat generated artifacts or an intermediate migration state as implementation evidence. Record unavailable checks, their impact, and remaining risk instead of reporting success.
 - Before moving, promoting, or deleting formal artifacts, inspect dependents, public contracts, migrations, tests, documentation, status, traceability, current verification basis, and reference-retention needs.

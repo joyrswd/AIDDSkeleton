@@ -17,18 +17,18 @@ Place configuration here when it controls an execution environment from outside 
 - Do not use `etc/` as a permanent location for generated data, caches, logs, build artifacts, or installed dependencies.
 - Represent required secrets with variable names or safe example values. Never store actual credentials, private keys, tokens, personal information, or confidential values.
 
-The following table is the canonical boundary guide between formal products and execution-environment configuration:
+The following table is the canonical boundary guide between formal products and execution-environment configuration. It distinguishes artifact roles; it does not assign application or system ownership within `products/`:
 
 | Concern | Formal artifact | Environment-side artifact |
 |---|---|---|
-| E2E testing | Test and fixture in `products/system/` | Compose and environment startup in `etc/` |
+| E2E testing | Test and fixture in the product area that owns the verification responsibility | Compose and environment startup in `etc/` |
 | Code generation | Generator in its owning product area | Generator container and wiring in `etc/` |
-| Database change | Application migration in `products/apps/<app>/` | Whole-environment bootstrap and invocation in `etc/` |
+| Database change | Migration in its owning product area | Whole-environment bootstrap and invocation in `etc/` |
 | Linting | Lint program in its owning product area | CI runner and job configuration in `etc/` |
-| Seed data | Application data with its app; cross-application data in `products/system/` | Startup injection mechanism in `etc/` |
-| External-service fixture | Fixture in `products/system/` | Emulator, endpoint, and consuming-service configuration in `etc/` |
+| Seed data | Seed data in its owning product area | Startup injection mechanism in `etc/` |
+| External-service fixture | Fixture in the product area that owns the verification responsibility | Emulator, endpoint, and consuming-service configuration in `etc/` |
 
-Place formal artifacts in the product area that owns their responsibility: use `products/apps/<app>/` for application-owned programs and `products/system/` for system-owned programs, including genuinely cross-application responsibilities. The number of application targets, reuse, or use of shared infrastructure does not by itself determine product ownership. See [Formal Product Instructions](../products/AGENTS.md).
+Determine formal-artifact placement from responsibility ownership before applying the table: use `products/apps/<app>/` for application-owned programs and `products/system/` for system-owned programs. The table is not an exception to this rule. Artifact category, number of application targets, cross-application execution or observation, reuse, and use of shared infrastructure do not by themselves determine product ownership. See [Formal Product Instructions](../products/AGENTS.md).
 
 ## Change and Verification
 
