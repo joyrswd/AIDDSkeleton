@@ -67,9 +67,9 @@ plans/apps/<app>/
 
 | Location | Responsibility |
 |---|---|
-| `system/system_index.md` | System overview, RBs, documentation map, reading order |
-| `system/documentation_language.md` | Default documentation language + explicit app overrides |
-| other `system/` docs | System-owned purpose, requirements, structure, constraints, development/operational methods |
+| `plans/system/system_index.md` | System overview, RBs, documentation map, reading order |
+| `plans/system/documentation_language.md` | Default documentation language + explicit app overrides |
+| other `plans/system/` docs | System-owned purpose, requirements, structure, constraints, development/operational methods |
 | `<app>_index.md` | App overview, RBs, reading order, category entries, traceability |
 | `<app>_traceability.md` | Normative → implementation/VB relationships + concise coverage |
 | category indexes | Category docs, questions answered, order, absence/inheritance |
@@ -155,7 +155,7 @@ Determine ownership from **purpose + change authority + invocation/governing dec
 ## Documentation Language
 
 - Initialization summary proposes default; absent user choice, propose current conversation language.
-- After approval: BCP 47 default in `system/documentation_language.md`; only explicit app overrides.
+- After approval: BCP 47 default in `plans/system/documentation_language.md`; only explicit app overrides.
 - System/cross-app docs use default; app docs inherit unless explicit override.
 - Never infer language/override from code, supplied material, later conversation language, or environment.
 - Conversation language is independent after initialization.
