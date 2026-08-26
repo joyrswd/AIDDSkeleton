@@ -2,45 +2,44 @@
 
 ## Scope
 
-This file defines the documentation structure, lifecycle, and source-of-truth management rules for `plans/` and all descendants.
-
-Record project-specific purpose, scope, requirements, design, testing policy, procedures, identifiers, commands, constraints, current state, and traceability here. Place formal implementations and tests in `products/`, execution-environment configuration in `etc/`, project-managed working and verification materials in `workbench/`, and durable non-normative reference materials in `references/`.
-
-All repository-wide governance in the root `AGENTS.md` applies here. This file adds the project-specific documentation, source-of-truth, lifecycle, status, traceability, and verification-basis rules for this subtree.
+- Applies to `plans/` and descendants; inherits root governance.
+- `plans/` owns project-specific adopted definition, lifecycle/status/traceability, procedures, identifiers, commands, constraints, and VB rules.
+- Other repository-area ownership is defined by root `AGENTS.md`.
 
 ## Lifecycle and Initialization
 
-Determine the documentation state before formal work:
-
-| State | `CURRENT_STATUS.md`, `GLOSSARY.md`, `TRACEABILITY.md` | `system/system_index.md`, `system/documentation_language.md` | Retention markers |
+| State | `CURRENT_STATUS.md`, `GLOSSARY.md`, `TRACEABILITY.md` | `system/system_index.md`, `system/documentation_language.md` | Markers |
 |---|---|---|---|
-| Uninitialized | Present and zero bytes | Absent | `system/.gitkeep` and `apps/.gitkeep` present |
-| Initialized | Present with approved-language content | Both present | `system/.gitkeep` absent; `apps/.gitkeep` present only while no application documentation exists |
-| Inconsistent | Any other combination | Any other combination | Reconcile before continuing formal work |
+| Uninitialized | present, zero bytes | absent | `system/.gitkeep`, `apps/.gitkeep` present |
+| Initialized | present, approved-language content | both present | `system/.gitkeep` absent; `apps/.gitkeep` only while no app docs exist |
+| Inconsistent | any other combination | any other combination | reconcile before formal work |
 
-- Fixed skeleton files and retention markers do not by themselves establish project facts or initialization.
-- Do not infer project-specific facts from an uninitialized or inconsistent state.
-- Generate project-specific documentation only from content authorized by the initialization-summary flow in the root `AGENTS.md`; do not request the same permission again for documents, directories, or assumptions explicitly included in the approved summary.
-- Initialization must atomically create `system/documentation_language.md` and `system/system_index.md`, populate the three cross-cutting files in the approved language, and remove `system/.gitkeep`.
-- During initialization, define at least:
-  - purpose, users, scope, and exclusions;
-  - system and application responsibility boundaries;
-  - requirements, design, and testing sources of truth;
-  - observable acceptance criteria and open questions;
-  - lifecycle identifiers, states, transition conditions, and end boundary;
-  - implementation entry criteria, completion criteria, standard verification, and verification-result retention expectations;
-  - whether security, privacy, accessibility, performance, availability, monitoring, data retention, recovery, and licensing apply, with reasons.
-- Open questions may remain only when their decision point and blocking effect are recorded.
-- When release, operation, or retirement is outside the lifecycle, record the end boundary and required handoff deliverables. When included, define their transition and completion criteria and where feedback is incorporated.
-- Implementation entry criteria must include applicable requirements and acceptance criteria, responsibility boundaries and any adopted implementation approach, verification methods, and no unresolved blocker. When a scope intentionally adopts no additional implementation constraint beyond applicable requirements and inherited rules, record that explicitly rather than inventing design detail.
-- Completion criteria must include implementation and configuration, required verification, consistency among requirements, design, tests, and implementation, plus current-status and traceability updates.
-- Do not delete either fixed system document independently. Returning to the uninitialized state requires an explicitly approved lifecycle reset that removes project-specific system and application documents, deletes both fixed system documents, empties the three cross-cutting files, restores both retention markers, and verifies the whole state atomically.
-- When initialized, read `CURRENT_STATUS.md`, `system/system_index.md`, `system/documentation_language.md`, `GLOSSARY.md`, and `TRACEABILITY.md` in that order, then follow the indexes applicable to the target.
+- Fixed skeleton files/markers alone ≠ project facts or initialization.
+- Do not infer project facts from uninitialized/inconsistent state.
+- Initialization content must come from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
+- Initialize atomically:
+  - create `system/documentation_language.md` and `system/system_index.md`;
+  - populate the three cross-cutting files in approved language;
+  - remove `system/.gitkeep`.
+- Define at least:
+  - purpose, users, scope, exclusions;
+  - system/app RBs;
+  - requirements/design/testing SoTs;
+  - observable AC + open questions;
+  - lifecycle identifiers/states/transitions/end boundary;
+  - implementation entry/completion criteria, standard verification, VB retention expectations;
+  - applicability + reasons for security, privacy, accessibility, performance, availability, monitoring, retention, recovery, licensing.
+- Open questions require a decision point + blocking effect.
+- If release/operation/retirement is outside lifecycle: record end boundary + handoff. If inside: define transitions/completion + feedback route.
+- Implementation entry criteria: applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, no unresolved Blocker.
+- Completion criteria: implementation/configuration, required verification, requirements/design/tests/implementation consistency, status + traceability updates.
+- Do not delete either fixed system document independently.
+- Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty three cross-cutting files, restore both markers, verify whole state.
+- Initialized read order: `CURRENT_STATUS.md` → `system/system_index.md` → `system/documentation_language.md` → `GLOSSARY.md` → `TRACEABILITY.md` → target indexes.
 
 ## Structure and Indexes
 
-The clone-ready skeleton is:
-
+Clone-ready:
 ```text
 plans/
 ├── AGENTS.md
@@ -53,8 +52,7 @@ plans/
     └── .gitkeep
 ```
 
-For each approved application, use:
-
+Per approved app:
 ```text
 plans/apps/<app>/
 ├── <app>_index.md
@@ -69,161 +67,223 @@ plans/apps/<app>/
 
 | Location | Responsibility |
 |---|---|
-| `system/system_index.md` | System overview, responsibility boundaries, documentation map, and recommended reading order |
-| `system/documentation_language.md` | Default documentation language and explicit application overrides |
-| Other documents under `system/` | System-owned purpose, requirements, structure, constraints, and development or operational methods, including responsibilities that span applications |
-| `apps/<app>/<app>_index.md` | Application overview, responsibility boundaries, reading order, category entry points, and traceability link |
-| `apps/<app>/<app>_traceability.md` | Current relationships among normative requirements and design, implementation responsibilities, verification basis, and concise coverage state |
-| Category indexes | Documents in that category, the questions they answer, recommended reading order, and any explicit absence or inherited responsibility for that category |
-| `requirements/` | Outcomes and constraints the application must satisfy |
-| `design/` | Adopted structure, approach, contracts, algorithms, invariants, and other implementation constraints intentionally imposed on future valid implementations |
-| `testing/` | Verification strategy and specifications describing what evidence is sufficient to establish correctness |
+| `system/system_index.md` | System overview, RBs, documentation map, reading order |
+| `system/documentation_language.md` | Default documentation language + explicit app overrides |
+| other `system/` docs | System-owned purpose, requirements, structure, constraints, development/operational methods |
+| `<app>_index.md` | App overview, RBs, reading order, category entries, traceability |
+| `<app>_traceability.md` | Normative → implementation/VB relationships + concise coverage |
+| category indexes | Category docs, questions answered, order, absence/inheritance |
+| `requirements/` | Required outcomes/constraints |
+| `design/` | Adopted implementation structure/approach/contracts/algorithms/invariants/constraints |
+| `testing/` | Verification strategy/specifications: what must be shown and sufficient evidence |
 
-- `plans/system/` and `plans/apps/` are required classification directories. Retention markers preserve empty directories in Git; remove a marker when tracked content makes it unnecessary.
-- Do not create a `README.md` under `plans/`; use the fixed indexes for navigation and `AGENTS.md` for agent instructions.
-- Do not create `plans/apps/<app>/` until the application name and responsibility are approved. Never create a literal `<app>` directory or invent a temporary application name.
-- Use the same approved `<app>` name under `plans/apps/<app>/` and `products/apps/<app>/`.
-- Use one purpose per project-specific document and choose file boundaries by question answered, reader, update trigger, and lifecycle.
-- Keep fixed system entry documents directly under `plans/system/`. Other system documents may remain directly under `plans/system/` while their responsibility is small, or may be grouped in a responsibility-based subdirectory when one stable system responsibility owns multiple independently changing documents.
-- Do not create a system subdirectory merely because file count is high, for visual tidiness, by `requirements` / `design` / `testing` type, or to match a tool or framework. A system subdirectory must represent a stable responsibility boundary; one or two small documents do not require a directory.
-- The three application category directories and category indexes are required responsibility entry points, but they do not require standalone detail documents when the scope has no additional category-specific content. In that case, the category index must say so explicitly and identify any inherited or cross-cutting source that applies.
-- Do not create detail documents merely to populate a category. For design, an explicit statement that the scope adopts no additional normative implementation constraints beyond applicable requirements and inherited rules is valid.
-- Formal implementation still requires verification methods. If no application-specific testing detail document is needed, the testing index must identify the applicable inherited or cross-cutting verification policy; absence of a detail document never means absence of verification responsibility.
-- Keep `requirements/`, `design/`, and `testing/` as normative category boundaries. Do not place execution-result or evidence records—such as CI run reports, command output, measured results, artifact identities, or completed verification logs—in these category directories merely because they were produced while verifying the corresponding requirements. Project-managed execution-specific verification material belongs in `workbench/` while it has working or evidential value; durable non-normative knowledge or artifacts promoted after that work belong in `references/`. When a document mixes normative verification criteria with execution results, classify the materially constraining statements before separation so the verification intent remains in normative testing.
-- A testing index may link to the current verification basis needed to judge coverage, but execution history is not a testing source of truth and must not be listed or described as a normative testing specification or used as a general execution-history catalog.
-- Keep indexes as navigation entry points. They may contain concise category-absence or inheritance statements and links needed to understand current coverage, but must not duplicate detailed requirements, design, testing specifications, procedures, or execution results.
-- `system_index.md` remains the primary navigation entry point for system documentation. Make each system responsibility, its document location, and recommended reading order discoverable there. Link every project-specific Markdown document directly under `plans/system/` from `system_index.md`, except `system_index.md` itself. Documents inside a responsibility subdirectory may be reached through a local index, but every nested project document must remain reachable from `system_index.md`. Protected `AGENTS.md` files belong to the instruction hierarchy, are not project documentation, and are excluded from documentation index coverage. Use a local index inside a responsibility subdirectory only when that responsibility is large enough to need its own navigation, and do not maintain the same detailed document list at multiple levels. `<app>_index.md` links the three category indexes and application traceability; each category index lists its individual documents.
-- Place a procedure by the responsibility that owns its purpose and change authority, execution decision and governing conditions, and success or failure judgment, not by its execution target, caller, tool, filename, or operational vocabulary. System ownership does not require multiple application targets, and an application-specific execution target does not establish application ownership.
-- Place genuinely application-owned execution and diagnostic procedures directly under `apps/<app>/` and reference them from `<app>_index.md`. Application ownership requires that the application own the procedure's purpose, change authority, decision to invoke it, and application-specific success or failure judgment. Using shared tools, observability, deployment capability, system-managed environments, or `etc/` configuration does not by itself transfer that ownership.
-- Place system-owned procedures under `plans/system/` according to the system structure rules, including system-owned procedures whose execution spans applications. Cross-application targets, callers, execution, or observation do not by themselves establish system ownership. Do not select one participating application as a representative owner or duplicate a system-owned procedure for each participating application.
-- When shared execution conditions, safety constraints, orchestration, or success judgment are system-owned, keep that shared responsibility in the system procedure. When a system-owned procedure needs application-specific prerequisites, commands, acceptance conditions, or operational constraints, keep the shared procedure with the system responsibility and record only the application-owned delta with the application, linking to the shared procedure instead of copying it.
-- Place normative testing sources by the responsibility that owns the verification purpose, change authority, governing conditions, and sufficiency judgment. Keep application-owned verification criteria and testing specifications with the application even when verification invokes or observes other applications; place system-owned verification policy and specifications under `plans/system/`.
-- Operational terminology does not determine whether material belongs in `plans/` or `etc/`. Keep adopted procedures, operational policy, and constraints in `plans/`; keep project-managed execution-environment configuration in `etc/`; place execution results and transient verification material according to the applicable verification-basis lifecycle.
-- Place durable non-normative current-realization knowledge—such as external-source mappings, adapter compatibility notes, observed DOM/XPath mappings, or evidence-derived operational observations—under `references/` when it has continuing reference value. Link it from the applicable plans index only when that reference is needed to understand or maintain the current responsibility. Record provenance, represented scope, observation or snapshot identity, freshness, and revalidation conditions according to `references/AGENTS.md`; do not let reference material become normative authority merely because plans link to it.
-- Application test code belongs with implementation under `products/`. Project-managed source-of-truth documentation belongs here; durable non-normative reference material belongs under `references/`.
-- Formal programs that generate, display, or verify documentation belong under `products/`; their execution-environment configuration belongs under `etc/`.
+General:
+- `plans/system/` and `plans/apps/` are required classifications. Remove `.gitkeep` when tracked content makes it unnecessary.
+- No `plans/README.md`; use indexes for navigation, `AGENTS.md` for instructions.
+- Create `apps/<app>/` only after app name + responsibility approval; never literal `<app>` or invented temporary name.
+- Same approved `<app>` under `plans/apps/` and `products/apps/`.
+- One purpose per project doc; split boundaries by question, reader, update trigger, lifecycle.
+- Keep fixed system entry docs directly under `plans/system/`.
+- Other system docs:
+  - flat while responsibility is small;
+  - responsibility-based subdirectory only when one stable system responsibility owns multiple independently changing docs;
+  - never group merely by count, tidiness, requirements/design/testing type, tool, or framework.
+- Required app category dirs/indexes do not require detail docs. If none: index states explicit absence/inherited or cross-cutting source.
+- Do not create detail docs just to fill a category. Design may explicitly state no additional normative implementation constraints.
+- Verification responsibility always exists for formal implementation; if no app testing detail doc, testing index names inherited/cross-cutting policy.
+- `requirements/`, `design/`, `testing/` are normative boundaries. Execution results/evidence do not belong there merely because verification produced them. Mixed docs: classify constraining statements first; keep normative verification intent in testing; active execution material follows VB lifecycle.
+- Testing index may link current VB for coverage; never make execution history a normative testing spec/catalog.
+- Indexes = navigation + concise absence/inheritance/coverage context, not duplicated detailed requirements/design/testing/procedures/results.
+- System navigation:
+  - `system_index.md` is primary;
+  - directly link each Markdown doc directly under `plans/system/` except itself;
+  - nested docs may route through a local index but must remain reachable from `system_index.md`;
+  - protected `AGENTS.md` excluded;
+  - local index only when responsibility needs navigation;
+  - do not duplicate the same detailed list at multiple levels.
+- App navigation: `<app>_index.md` → three category indexes + app traceability; category index → its docs.
+
+### Responsibility Placement
+
+Determine ownership from **purpose + change authority + invocation/governing decision + success/failure (or sufficiency) judgment**, not target/caller/tool/file name/operational vocabulary.
+
+- App-owned execution/diagnostic procedure → directly under `apps/<app>/`, linked from `<app>_index.md`.
+- System-owned procedure → `plans/system/`, including procedures spanning apps.
+- Multiple targets do not prove system ownership; one app target does not prove app ownership.
+- Shared tools/observability/deployment/system environments/`etc/` config do not transfer ownership.
+- Never choose one participating app as representative owner or duplicate a system-owned procedure per app.
+- For system-owned shared execution with app-specific prerequisites/commands/AC/constraints: keep shared responsibility in system procedure; record only app-owned delta with app + link.
+- Normative testing uses the same ownership test: verification purpose, change authority, governing conditions, sufficiency judgment.
+- Operational terminology ≠ `etc/` ownership: adopted procedures/policy/constraints → `plans/`; execution-environment config → `etc/`.
+- Durable non-normative current-realization knowledge (e.g. source mappings, adapter notes, DOM/XPath mappings, observed operational facts) → `references/` when continuing value exists; link from plans only when needed. Preserve provenance/scope/freshness/revalidation per `references/AGENTS.md`.
+- Application test code → `products/`. Formal doc generators/viewers/verifiers → `products/`; their environment config → `etc/`.
 
 ## Normative Content and Semantic Reconstruction
 
-- Requirements, design, and testing are normative responsibilities. Their adopted content must remain understandable and usable without relying on the current contents of `products/`.
-- Together, the applicable requirements, design, and testing sources of truth must provide a sufficient basis to implement an independent realization with the same intended outcomes, adopted contracts, responsibility boundaries, algorithms or invariants where fixed, and to verify that realization against the same acceptance intent.
-- This is semantic reconstruction, not source reproduction or operational restoration. It does not require reproducing the current source tree, private file/class/function/state names, exact dependency lock, migration history, fixtures, scripts, artifacts, or other incidental implementation detail unless one of those is itself an adopted contract or constraint.
-- Before removing, abstracting, relocating, or changing the authority of content from an existing normative source, classify each materially constraining statement and verify that its intended semantics either remain in the responsible normative source or are explicitly being changed or retired. Treat loss of specificity in an adopted timezone, unit, protocol or version, transaction or isolation rule, identity rule, cardinality, ordering, security boundary, compatibility rule, or similar invariant as a normative change rather than editorial cleanup.
-- Moving a statement between normative and non-normative locations changes its authority. Verify that the set of future valid implementations is not unintentionally broadened or narrowed by the move.
-- Design may be highly concrete when the project intentionally fixes that detail for future valid implementations. Concrete database roles, schema contracts, protocol paths, transaction rules, security boundaries, algorithms, runtime constraints, or stable identifiers may therefore belong in design.
-- Before admitting a current-implementation detail into design, evaluate whether the project intentionally wants to constrain future valid implementations by that detail. Strong indicators include that changing it would alter an adopted contract, responsibility boundary, dependency direction, security property, correctness invariant, operational constraint, or chosen algorithm, or would permit a reasonably compliant reimplementation that the project would reject.
-- A source path, private helper/class/function name, state-field name, DOM identifier, current directory layout, or implementation status is not design merely because it exists in `products/`. Keep such information in implementation, traceability, status, `workbench/`, or `references/` unless the identifier or layout is itself an adopted contract or constraint.
-- State adopted design constraints in normative terms. Do not delegate design authority to a current source file, helper, generated artifact, configuration file, test, or implementation module by naming that artifact as the source of truth for the constraint. When useful, identify the current realization location through traceability or an explicitly non-normative workbench/reference mapping instead.
-- Non-normative current-realization knowledge is not automatically disposable. Retain it under `references/` when it materially supports maintenance, source-adapter updates, diagnostics, audit, or re-investigation, but distinguish it from adopted requirements/design/testing, state its scope or freshness, and do not let it constrain future valid implementations without independent adoption.
-- Testing specifications define what must be verified, the relevant verification method or observation, and what evidence is sufficient. Do not make private helper/class/function names, current source paths, migration filenames or sequence numbers, fixture paths, test-file layout, or other current test implementation structure normative merely because current tests use them; include such details only when they are independently adopted verification constraints. Apply the same boundary to testing indexes, catalogs, and coverage summaries: they may map requirements to semantic verification cases and concise coverage state, but must not make current test paths, helper names, fixture filenames, migration sequences, current test-case or execution counts, runs, or artifacts part of normative testing authority. Do not treat an adopted exhaustive input or state domain, boundary matrix, transition set, or required enumeration as such an incidental count: its semantic scope and cardinality constrain what evidence is sufficient even when the current organization or number of test cases and runs does not.
-- Testing is not limited to automated test code. Depending on the requirement, sufficient verification may include automated tests, manual review, visual inspection, live-system checks, performance measurements, security checks, operational exercises, or other evidence appropriate to the acceptance condition.
+- Requirements/design/testing are normative and must remain usable without current `products/`.
+- Together they must support independent implementation with the same intended outcomes, adopted contracts/RBs, fixed algorithms/invariants, and equivalent acceptance intent.
+- Goal = semantic reconstruction, not source reproduction/operational restoration.
+- Incidental implementation details are not required unless independently adopted constraints/contracts: source tree, private file/class/function/state names, exact lock, migration history, fixtures/scripts/artifacts, etc.
+- Before removing/abstracting/relocating/changing authority of normative content:
+  - classify each materially constraining statement;
+  - preserve its semantics in the responsible normative SoT or explicitly change/retire it.
+- Treat loss of adopted timezone/unit/protocol-version/transaction-isolation/identity/cardinality/ordering/security/compatibility or similar invariant as normative change, not cleanup.
+- Moving between normative/non-normative locations changes authority; verify future valid implementations are not unintentionally broadened/narrowed.
+- Design may be concrete when intentionally constraining future valid implementations (schema/contracts/protocol paths/transaction rules/security/RBs/algorithms/runtime/stable IDs).
+- Admit current implementation detail into design only when the project intends that future constraint. Indicators: changing it alters an adopted contract, RB, dependency direction, security/correctness/operational property, chosen algorithm, or permits a reimplementation the project would reject.
+- Source path/private helper/class/function/state-field/DOM ID/current directory layout/implementation status ≠ design unless independently adopted.
+- State design constraints normatively; do not delegate design authority to current source/config/test/generated artifact. Map current realization via traceability or non-normative workbench/reference material.
+- Durable current-realization knowledge may remain non-normative in `references/`; record scope/freshness and do not let it constrain future implementations without adoption.
+- Testing specs define required verification, method/observation, and sufficient evidence.
+- Current test implementation details (private names/paths/migration filenames/fixture paths/test layout/current case/run counts/artifacts) are non-normative unless independently adopted.
+- Semantic exhaustive domains/matrices/transitions/enumerations remain normative even if they imply cardinality.
+- Verification may be automated, manual, visual, live-system, performance, security, operational, or other evidence appropriate to AC.
 
 ## Overview Diagrams
 
-- In an initialized project, place one overview diagram directly under `plans/system/` and one directly under each approved `plans/apps/<app>/`. When an application handles persistent entities, also place one entity-relationship diagram directly under that application directory. Link every diagram from the corresponding `system_index.md` or `<app>_index.md`.
-- Use the system diagram to show the main users, responsibility boundaries, and relationships among applications. Use each application overview diagram to show its main processing or structural relationships.
-- For overview diagrams, do not default to a flowchart. Choose the Mermaid or UML diagram type—such as a sequence, state, component, activity, or flow diagram—that expresses the subject clearly with the fewest elements. Avoid large node-heavy diagrams and move details to the responsible requirements, design, testing, or operational documents.
-- Entity-relationship diagrams are not part of the overview-diagram type selection. Use Mermaid `erDiagram` syntax and do not substitute a flowchart or other generic graph notation.
-- Entity-relationship diagrams must show only entity names, primary keys, foreign keys, and relationships. Do not include other columns, types, indexes, or constraints.
-- Keep each overview or entity-relationship diagram in one document. These diagram documents are exempt from the line, identifier, and functional-area thresholds in `Document Splitting` and must not be split to satisfy those thresholds. When an overview diagram becomes difficult to read, simplify it, change the diagram type, or remove detail instead of splitting the document.
-- Keep overview diagrams focused on the adopted project definition. When a diagram intentionally includes implementation state or approved future intent that is itself part of the responsible source of truth, distinguish those states clearly. Candidate target designs and unresolved alternatives belong in `workbench/`, not as parallel source-of-truth views.
+- Initialized project:
+  - one overview diagram directly under `plans/system/`;
+  - one directly under each approved `plans/apps/<app>/`;
+  - if app has persistent entities, one ER diagram directly under that app.
+- Link each from corresponding index.
+- System overview: main users, RBs, app relationships. App overview: main processing/structural relationships.
+- Choose the clearest minimal Mermaid/UML type; do not default to flowchart. Move detail to responsible docs.
+- ER diagram: Mermaid `erDiagram`; entity names + PKs + FKs + relationships only.
+- Keep each overview/ER diagram in one document; exempt from Document Splitting thresholds. If unreadable, simplify/change type/remove detail, not split.
+- Show adopted definition. Clearly distinguish implementation state/approved future intent only when itself part of SoT. Candidate targets/unresolved alternatives → `workbench/`.
 
 ## Documentation Language
 
-- During initialization, propose the default documentation language in the approval summary; unless the user specifies another language, propose the current conversation language.
-- After approval, record the default as a BCP 47 tag in `system/documentation_language.md` and record only explicit application-level overrides.
-- Use the default language for system and cross-application documents. Application documents inherit it unless the user explicitly approves an override.
-- Do not infer documentation language or an override from code, supplied material, conversation changes, or execution environment.
-- Conversation language is governed by the root `AGENTS.md` and does not determine documentation language after initialization.
-- Change documentation language only on explicit user request. Do not implicitly choose whether existing documents are translated or only future changes use the new language.
-- The language setting does not require translating or modifying supplied originals under `references/`.
-- Do not create a second machine-readable file containing the same language setting.
-- When changing the language setting, update relevant index guidance in the same change.
+- Initialization summary proposes default; absent user choice, propose current conversation language.
+- After approval: BCP 47 default in `system/documentation_language.md`; only explicit app overrides.
+- System/cross-app docs use default; app docs inherit unless explicit override.
+- Never infer language/override from code, supplied material, later conversation language, or environment.
+- Conversation language is independent after initialization.
+- Change documentation language only on explicit user request; do not infer whether existing docs are translated vs future-only.
+- Supplied originals under `references/` need not be translated.
+- Do not duplicate language setting in another machine-readable file.
+- Language-setting changes update relevant index guidance.
 
-## Cross-Cutting Status, Traceability, and Verification
+## Status, Traceability, and Verification
 
-Manage only these four non-hidden files directly under `plans/`:
+Only these non-hidden files directly under `plans/`:
 
-| Document | Role | Update trigger |
+| Document | Role | Trigger |
 |---|---|---|
-| `AGENTS.md` | Protected fixed instructions for this area | Explicitly authorized governance change only |
-| `CURRENT_STATUS.md` | Aggregate lifecycle and implementation/verification state, material limitations or blockers, and next work | State, limitation, blocker, or priority change |
-| `GLOSSARY.md` | Shared project terms, abbreviations, and state expressions | Shared meaning is added or changed |
-| `TRACEABILITY.md` | System-wide and cross-application relationship summary, concise coverage state, and application traceability index | Relationship, linked location, or summarized coverage state changes |
+| `AGENTS.md` | protected instructions | explicit governance change |
+| `CURRENT_STATUS.md` | aggregate lifecycle/implementation/verification state, material limits/blockers, next work | state/limit/blocker/priority change |
+| `GLOSSARY.md` | shared terms/abbreviations/state expressions | shared meaning change |
+| `TRACEABILITY.md` | system/cross-app relationships, concise coverage, app traceability index | relationship/link/coverage change |
 
-- Before initialization, keep the three project-specific cross-cutting files at zero bytes. After initialization, write them in the approved documentation language.
-- In `CURRENT_STATUS.md`, distinguish unimplemented, implemented, and verified work and do not record speculation as current status. Keep it concise: summarize current capability, material limitations or blockers, next work, and links to the responsible traceability or verification basis rather than duplicating detailed execution data. When reconciling an existing status document, remove or relocate superseded execution narratives, run identifiers, exact version identities, test counts, command output, and other execution history even when those details remain factually accurate.
-- Keep `GLOSSARY.md` limited to terms whose meaning must be shared across project documents.
-- Keep the root `TRACEABILITY.md` to system-wide and cross-application relationships, links to application traceability documents, concise coverage state, and concise unresolved or unverified summaries.
-- Keep application-level detail in `apps/<app>/<app>_traceability.md` and link it from both the root `TRACEABILITY.md` and `<app>_index.md`.
-- Trace independently approved requirements or observable acceptance criteria to the implementation responsibilities and verification basis needed to judge them. Prefer responsibility units, modules, or directories; do not trace every file, class, function, or line unless that granularity is required to identify the responsible realization.
-- Aggregate multiple requirements or acceptance criteria into one traceability entry only when they share the materially same design responsibility, implementation responsibility, verification basis, and coverage state, and the grouping still allows each item to be judged independently. Do not compress mappings merely to shorten the table when doing so obscures which design decision or verification basis establishes a particular requirement.
-- Traceability may carry concise coverage state needed to see whether a requirement or design decision is unimplemented, implemented, partially verified, or verified. Do not duplicate detailed execution history, exact test counts, artifact identifiers or hashes, command output, or long verification narratives there.
-- Update the responsible status and traceability documents when lifecycle state, verification state, known limitations, priority work, relationships, linked locations, or summarized completion basis changes.
-- Execution-specific verification results and evidence are working material by default, not a required project-document category. A verification activity does not require creation of a dedicated evidence file. Project-managed working evidence belongs under `workbench/`; evidence may also remain in the execution system or other medium that produced it when that record is sufficient for the current verification claim and no project-managed retention need exists.
-- While a status, traceability, completion, or lifecycle claim is asserted as verified, a verification basis sufficient to reassess that claim must remain available. The basis may be a durable native execution-system record, retained workbench material, promoted reference material, or a proportional verification summary; it does not need to be a repository Markdown file. Preserve enough information to identify the actual target or state, relevant conditions, verification method, actual result, directly verified scope, and material unverified scope.
-- When a current verified claim depends on an external, native, or otherwise expirable basis, make any known retention, expiry, freshness, or revalidation boundary discoverable when that boundary is material to safe later use. Before relying on the claim for a completion decision, lifecycle transition, current-status report, or later acceptance decision after such a boundary has been reached—or whenever continued availability or applicability is not otherwise assured—recheck the basis. If sufficient availability and applicability cannot be established, downgrade the affected claim to a truthful state until it is verified again. This rule does not require periodic polling or repository-managed evidence files.
-- Use a stable or immutable target identity when the environment provides one. Examples include a commit SHA, release or version identifier, artifact digest, deployment identifier, dataset version, or snapshot identity. Mutable labels such as branch, environment, or host names are context rather than substitutes for a stable identity. When no stable identity exists, record enough observation time, materially relevant state, conditions, and scope to prevent later application to a materially different state by inference. Do not require Git, CI, GitHub, or any particular storage technology.
-- If the basis for a current verified claim is deleted, expires, becomes unavailable, loses applicability, or is superseded without a justified basis for continued applicability, do not leave the claim asserted as verified. Record re-verification required, unsupported, unverified, or another project-defined state that truthfully reflects the remaining support until sufficient verification is available again.
-- When workbench material yields durable non-normative knowledge or an artifact with continuing evidential, diagnostic, maintenance, interoperability, audit, or re-investigation value, promote that durable material to `references/` according to `references/AGENTS.md`. Do not promote every successful run or preserve execution history merely because it exists. Adopt any resulting normative requirement, design constraint, or testing rule into the responsible source of truth instead of relying on the reference as authority.
-- Treat verification-basis retention in `workbench/` as transitional while the material still serves active work, an immediate handoff, unresolved reconciliation belonging to the work unit, or a bounded post-work transition with a specific exit event that will retire, replace, or re-evaluate the basis, such as the next identified re-verification, lifecycle transition, basis replacement, or reconciliation step. Closing the main work unit does not by itself require promotion. Open-ended intentions such as re-verifying later or keeping material for now are not bounded transitions. If the exit event is missed, cancelled, or deferred so that the dependency becomes open-ended, or if the current verified claim must remain supportable after the transitional responsibility ends and the remaining basis without the workbench material is not sufficient to reassess the claimed scope, the workbench dependency has a durable responsibility even when other partial or inadequate bases exist: use a suitable durable native or external basis, promote only the minimum project-managed material needed to restore adequate reassessability to `references/`, or downgrade the claim. Multiple partial bases may jointly provide adequate support, and one proportional basis may support multiple related claims; do not require each basis to be independently complete or create per-claim or per-run repository files merely to satisfy this lifecycle rule.
-- When a bounded post-work transition is used to justify retaining a current verification basis, make its exit event and intended disposition discoverable in proportion to the claim from the workbench unit, applicable project documentation, or a durable native or external record. Identify the event well enough that a later maintainer can determine whether it has not yet occurred, occurred, been cancelled, or been deferred or replaced; a fixed date, repository identifier, or dedicated metadata file is not required. Reaching the exit event ends that bounded retention justification. Reconcile the basis and affected current claim by retiring or replacing the basis, re-evaluating its applicability, or downgrading the claim; if the intended disposition is not completed, do not rely on the expired bounded-transition rationale to keep the claim verified, and retain verified state only when an otherwise adequate applicable basis still supports it. If the exit event changes, keep the currently effective event discoverable; do not require an exit-event history archive.
-- When a status, traceability, or index entry references retained evidence or reference material to support current coverage, the referenced material must be applicable to the asserted state. When carrying earlier evidence forward to a later target or state, establish that materially relevant differences do not affect the directly verified scope, relevant environment or configuration and conditions, applicable requirements or acceptance criteria, or the testing rules that determine evidence sufficiency. Identity lineage or an unsupported assumption that a change is unrelated is not enough. Use whatever comparison is appropriate to the environment—such as implementation or configuration differences, deployment metadata, or snapshot metadata—and reverify the affected scope when continued applicability cannot be established. No particular VCS or comparison mechanism is required.
-- Record the verification method, result, verified scope, evidence type, and material unverified matters in proportion to the claim. Do not treat fixture, mock, real-database, manual, live-system, or historical evidence as interchangeable.
-- Treat verification as scoped: evidence establishes only the behavior, conditions, and boundaries it directly exercises or observes. Implementation presence, code inspection, syntax checks, static analysis, or successful adjacent tests do not verify unexercised runtime behavior.
-- Mark a requirement, acceptance criterion, completion criterion, or aggregate lifecycle state as verified only when sufficient evidence covers every required observable part and applicable condition. Otherwise, record the verified subset and remaining unverified scope without advancing the broader state beyond the available evidence.
-- Advance lifecycle state only when its documented transition conditions and required evidence are present. Record remaining risks or blockers when they affect current state, completion, or the next authorized work.
-- Keep current effective relationships in status and traceability documents. Do not append historical runs there and do not require a project-managed historical evidence archive. Dispose of, supersede, or promote workbench verification material only when no current verified claim depends on it, or after replacing that basis or downgrading the affected claim.
-- Do not invent placeholder identifiers or present unsettled relationships as settled.
-- A conversational completion report does not replace required updates to project status, traceability, or other sources of truth.
+Status/traceability:
+- Before initialization, three project-specific files remain zero bytes; after, approved language.
+- `CURRENT_STATUS.md`: distinguish unimplemented/implemented/verified; no speculation. Keep capability, material limits/blockers, next work, links to traceability/VB. Remove/relocate stale execution narratives, run/version IDs, counts, output/history.
+- `GLOSSARY.md`: only project-wide shared meanings.
+- Root `TRACEABILITY.md`: system/cross-app relationships, app links, concise coverage, unresolved/unverified summary.
+- App detail → `<app>_traceability.md`, linked from root traceability + app index.
+- Trace independently approved requirement/AC → responsible design/implementation/VB. Prefer responsibility/module/directory granularity; file/class/function/line only when needed.
+- Aggregate trace entries only when design responsibility, implementation responsibility, VB, and coverage materially match and each item remains independently judgeable.
+- Traceability may show concise unimplemented/implemented/partially verified/verified state; no detailed run history, exact counts/hashes/output/long narratives.
+- Update status/traceability when lifecycle/verification state, material limitations, priority work, relationships, links, or summarized completion basis changes.
+- No placeholder IDs or unsettled relationships presented as settled.
+- Conversation report ≠ required status/traceability/SoT update.
 
-## Source-of-Truth Management
+### Verification Basis (VB)
 
-- Maintain each project fact in one responsible document rather than duplicating details across documents.
-- Treat the responsible documents under `plans/` as the adopted project definition for their responsibility. Do not create parallel `current` and `target` source-of-truth documents, filename variants, or equivalent views for the same responsibility; the responsible source-of-truth document itself represents the adopted state.
-- Develop candidate replacements, proposed target states, and change alternatives in `workbench/` while they are being evaluated. Prefer referencing the existing source of truth and recording the proposed delta rather than copying the current content.
-- Future intent may be recorded in `plans/` when that future intent is itself the approved responsibility of the document, such as an approved lifecycle boundary or roadmap. Do not use that exception to maintain a candidate replacement alongside the adopted source of truth.
-- Distinguish assumed, decided, and open states where they are relevant. Do not record proposals or unapproved assumptions as settled project facts.
-- Make acceptance and completion criteria observable. Split requirements that cannot be implemented, verified, and judged complete together.
-- Classify a constraint by the responsibility it serves, not merely by how technical or implementation-specific it appears. Put required outcomes, externally imposed conditions, compatibility obligations, and acceptance conditions in requirements; put adopted implementation choices among otherwise valid ways to satisfy those requirements in design.
-- Do not reclassify an existing requirement or design statement merely to normalize taxonomy. Move it only when its current placement materially obscures responsibility, creates harmful duplication, or incorrectly constrains or frees future valid implementations. When a material constraint could reasonably belong to either category and its existing intent is unclear, preserve its current placement until that responsibility is resolved.
-- When investigation or implementation reveals a potentially normative fact, do not copy it directly into design. First classify it as a current-realization fact, a required outcome or constraint, or an adopted implementation constraint. Promote only required outcomes/constraints to requirements and adopted implementation constraints to design; keep transient current-realization findings in `workbench/` and durable non-normative knowledge in `references/` unless independently adopted as contracts or constraints.
-- Do not treat discovery of a more specific current-realization value as proof that the project has adopted that value normatively. Adding a new requirement or design constraint that narrows future valid implementations requires adoption evidence independent of its mere presence in implementation or tests, such as a pre-existing normative statement whose adoption is not itself in doubt, an approved decision, or another explicit project adoption record. If that intent is unresolved, keep the detail as a current-realization finding or an open decision rather than silently promoting it.
-- A statement in the current responsible normative source remains effective until it is explicitly changed or retired, but its placement alone does not prove that an implementation-derived detail was intentionally adopted. When concrete evidence creates material doubt about that provenance or intent, classify the matter under the root `Review Principles` and preserve the current authority while the required correction or decision is unresolved; do not silently delete, generalize, or reconfirm the detail merely because of either its current placement or its implementation origin.
-- Do not require routine history research for every normative statement. Investigate provenance when specific evidence creates material doubt, such as implementation-first synchronization, a conflicting adoption record, or unexplained realization-specific precision. A later explicit project decision or adoption record may validly make an implementation-derived detail normative.
-- Current normative design must describe the adopted end state, not rely on stale transition instructions to explain it. After a migration, refactor, rename, or staged rollout is complete, reconcile active design and its indexes so obsolete stages, former names, temporary compatibility mechanisms, and superseded target structure no longer appear as current normative direction. Preserve maintenance-relevant history as durable non-normative reference material when needed rather than requiring readers to reinterpret stale active design.
-- When a brownfield document mixes normative content with non-normative current-realization or maintenance knowledge, do not let either inherit the other's authority. Separate the content when their readers, update triggers, or authority differ and separation preserves usability; otherwise mark the sections explicitly and identify which statements are normative. Do not duplicate the same facts solely to create that separation.
-- After separating mixed brownfield content, check both reconstruction directions: with `products/` absent, the normative sources must still support semantic reconstruction; with the current realization unavailable or an external source changed, retained non-normative reference material must preserve enough provenance and observation context to re-investigate maintenance-relevant mappings without becoming normative authority.
-- When performing brownfield authority cleanup, do not stop at the edited document. Inspect the affected responsibility's entry points and summaries—including indexes, scope or overview documents, active transition or migration design, traceability, testing indexes or catalogs, status, and retained verification/reference links—for the same class of authority leakage or stale duplication before declaring the cleanup complete. Keep this sweep scoped to the affected responsibility rather than turning it into unrelated repository-wide rewriting.
-- A governance migration covers changed semantics and all existing cases materially affected by them. The migration state must account for that whole scope: unresolved cases remain explicit as unverified or known debt, and completion cannot be claimed while any remain. An unrelated issue discovered during migration neither expands that scope nor loses the severity or escalation required by the root review rules.
-- Removing, consolidating, or changing the authority of verification material must not leave a current verification claim unsupported or broader than its remaining basis. Verification claims, their bases, and their stated verified and unverified scope must remain consistent.
-- When a governance update changes classification, routing, or retention for existing execution-result or evidence records, inspect affected records wherever they currently live, including standalone application or system evidence and records reached through indexes or traceability links. Before moving, deleting, promoting, or leaving such a record in place, determine whether it still supports a current verified claim, must remain available for that claim, has continuing non-normative reference value, or may be retired; inspect inbound links, index routing, status, and traceability, and reconcile those dependents with the lifecycle change. Do not migrate a record solely because its old placement differs from the new default, do not promote it solely because it is historical, and do not create a repository-wide execution archive merely to preserve history. If a record must remain temporarily in a legacy location to avoid losing a current basis or breaking dependent links while reconciliation is unresolved, treat that placement as deferred migration rather than an accepted durable classification, keep the remaining reconciliation discoverable, and do not report the affected governance migration as fully reconciled. Once safe to resolve, assign the record's responsibility according to the current model—use a suitable native or external basis, keep active working or verification material in `workbench/`, promote only durable non-normative material to `references/`, retire material with no continuing need, and reflect only the applicable current-state or traceability semantics in `plans/`.
-- When that migration finds execution-result or evidence content inside `requirements/`, `design/`, or `testing/`, classify mixed documents at statement or section level before relocation. Keep verification thresholds, required observations, sufficient-evidence criteria, and other adopted verification intent in normative testing; move active or still-useful execution-specific material to `workbench/`, and promote only durable non-normative knowledge or artifacts with continuing reference value to `references/`. Reconcile inbound links for moved material and do not create or preserve a repository-wide execution archive merely to retain history.
-- Existing implementation is evidence of current behavior and structure, not automatic authority to define or rewrite the source of truth. Conversely, absence of a normative statement does not by itself authorize opportunistic re-architecture of an existing implementation; follow the root working and review principles and resolve material design changes explicitly.
-- When documentation, implementation, and tests disagree, follow the root `Review Principles` and update the responsible source of truth within the authorized scope; do not rewrite requirements merely to match implementation.
-- Reflect adopted facts from `references/` and settled findings or decisions from `workbench/` in the responsible source-of-truth document; neither source is itself the adoption record.
+- Execution-specific results/evidence are working material by default; verification does not require a dedicated repository evidence file.
+- Project-managed active evidence → `workbench/`; native/external execution record may remain there when sufficient and no project-managed retention need exists.
+- A current verified claim requires an available, applicable VB sufficient to reassess its scope.
+- VB may be native/external record, retained workbench material, promoted reference, or proportional summary; Markdown/repository storage is not required.
+- Preserve proportionally: actual target/state, relevant conditions, method, result, directly verified scope, material unverified scope.
+- Prefer stable identity when available (commit/release/version/digest/deployment/dataset/snapshot/etc.). Mutable branch/environment/host labels are context only. Without stable ID, record time/state/conditions/scope sufficiently to prevent unsafe inference. No Git/CI/tool requirement.
+- External/expirable VB: make material retention/expiry/freshness/revalidation boundary discoverable. Recheck after boundary or when continued availability/applicability is uncertain before relying on the claim for completion/transition/status/acceptance.
+- Deleted/expired/unavailable/inapplicable/superseded-without-justification VB → downgrade affected verified claim until sufficient verification exists.
+- Evidence is scoped to directly exercised/observed behavior/conditions/boundaries. Presence/source inspection/syntax/static analysis/adjacent success ≠ unexercised runtime verification.
+- Mark requirement/AC/completion/lifecycle state verified only when all required observable parts/conditions have sufficient evidence; otherwise record verified subset + unverified scope.
+- Advance lifecycle only with documented transition conditions + required evidence.
+- Record method/result/verified scope/evidence type/material unverified matters proportionally; fixture/mock/real DB/manual/live/historical evidence are not interchangeable.
+- Carrying earlier evidence to later target/state requires evidence that relevant differences do not affect verified scope, environment/config/conditions, applicable requirements/AC, or testing sufficiency rules. Identity lineage or “unrelated change” assumption alone is insufficient; compare appropriate implementation/config/deployment/snapshot state or reverify.
+- Status/traceability/index links to evidence/reference must point to material applicable to asserted state.
+
+Retention:
+- Durable non-normative knowledge/artifact with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`; do not promote every run/history.
+- Any normative result → responsible requirements/design/testing SoT, not reference authority.
+- Workbench VB is transitional while serving active work, immediate handoff, unresolved reconciliation, or a **bounded post-work transition** with a specific exit event (e.g. identified re-verification, lifecycle transition, basis replacement/reconciliation).
+- “Keep for now” / “reverify later” without specific exit event is not bounded.
+- If exit event is missed/cancelled/deferred into open-ended dependency, or claim must outlive transitional responsibility and remaining basis is inadequate: use suitable durable native/external VB, promote minimum needed material to `references/`, or downgrade claim.
+- Multiple partial bases may jointly be sufficient; one proportional basis may support multiple related claims. No per-claim/per-run file requirement.
+- For bounded transition, make effective exit event + intended disposition discoverable enough to determine pending/occurred/cancelled/deferred/replaced. No fixed date/ID/metadata file/history archive required.
+- At exit event: retire/replace/re-evaluate VB or downgrade claim. Expired bounded-transition rationale cannot alone support verified state.
+- Do not dispose of current effective VB until no current verified claim depends on it, or replacement/downgrade is complete.
+
+## SoT Management
+
+Core:
+- One responsible document per project fact; do not duplicate details.
+- Responsible `plans/` docs are adopted SoTs for their responsibility. No parallel `current`/`target` variants or equivalent views.
+- Candidate replacements/target states/alternatives → `workbench/`; prefer delta against current SoT over copied current view.
+- Approved future intent may live in `plans/` when it is itself the document's responsibility (e.g. lifecycle boundary/roadmap), not as a parallel candidate SoT.
+- Distinguish assumed/decided/open. Proposal/unapproved assumption ≠ settled fact.
+- AC/completion criteria observable; split requirements that cannot be implemented, verified, and completed together.
+
+Requirements vs design:
+- Classify by responsibility, not technicality:
+  - requirements: required outcomes, external conditions, compatibility obligations, AC;
+  - design: adopted choice among otherwise valid implementation approaches.
+- Do not reclassify just to normalize taxonomy. Move only when current placement materially obscures responsibility, duplicates harmfully, or wrongly constrains/frees future implementations. If ambiguous intent, preserve placement pending decision.
+
+Current-realization (CR) authority:
+- Discovery in implementation/tests ≠ normative adoption.
+- First classify CR fact vs required outcome/constraint vs adopted implementation constraint.
+- Promote only independently adopted required outcomes → requirements; adopted implementation constraints → design. Transient CR → `workbench/`; durable non-normative CR → `references/`.
+- New realization-specific precision narrowing future valid implementations requires adoption evidence independent of mere implementation/test presence.
+- Existing normative statement remains effective until explicitly changed/retired, but placement alone does not prove intentional adoption of implementation-derived detail.
+- Concrete provenance/intent doubt → root Review Principles; preserve current authority while unresolved. Do not silently delete/generalize/reconfirm.
+- Do not research history routinely; investigate when specific evidence creates material doubt (implementation-first sync, conflicting adoption record, unexplained realization-specific precision). Later explicit adoption can validly make CR detail normative.
+
+Brownfield/current design:
+- Active normative design describes adopted end state, not stale transition steps. After completed migration/refactor/rename/rollout, remove obsolete stages/names/temp compatibility/superseded targets from active design; retain useful history non-normatively.
+- Mixed normative + CR/maintenance content: prevent authority leakage. Separate when readers/update triggers/authority differ and usability survives; otherwise mark sections/authority explicitly. Do not duplicate facts just to separate.
+- After separation validate both:
+  - without `products/`, normative sources still support semantic reconstruction;
+  - without current realization/external source, retained references preserve enough provenance/observation context to re-investigate mappings without becoming normative.
+- Brownfield authority cleanup includes affected responsibility's entry points/summaries (indexes, scope/overview, active transition/migration design, traceability, testing indexes/catalogs, status, retained verification/reference links) for the same leakage/stale duplication; keep sweep scoped.
+
+Governance migration:
+- Covers changed semantics + all materially affected existing cases. Unresolved cases remain explicit debt/unverified; do not claim migration complete while any remain.
+- Unrelated discovered issues do not expand migration scope and retain root severity/escalation.
+- Changing/removing/consolidating verification material must keep claims ≤ remaining applicable VB.
+- When classification/routing/retention rules change, inspect affected execution/evidence records in all current locations + inbound links/index/status/traceability.
+- For each record decide: supports current claim and must remain, continuing non-normative reference value, active work, or retire.
+- Do not migrate solely because legacy placement differs from new default; do not promote solely because historical; do not create repository-wide execution archive.
+- Temporary legacy placement is allowed only to avoid losing current VB/breaking dependent links while reconciliation is unresolved; mark as deferred migration and do not claim full reconciliation.
+- Resolve safely to current model: native/external VB, `workbench/` active material, `references/` durable non-normative material, retire no-need material, `plans/` only current SoT semantics.
+- Execution/evidence mixed into requirements/design/testing: classify at statement/section level before relocation. Keep verification thresholds/observations/sufficiency in testing; active execution material → workbench; durable non-normative → references; reconcile inbound links.
+- Existing implementation is current-realization evidence, not automatic SoT authority; documentation silence also does not authorize opportunistic re-architecture.
+- Docs/implementation/tests disagreement → root Review Principles; update responsible SoT within authority.
+- Adopted facts from `references/` and settled workbench decisions must be reflected in responsible SoT; neither is adoption record.
 
 ## Document Splitting
 
-These thresholds apply only to initialized project-specific source-of-truth documents, not protected `AGENTS.md` files, overview diagram documents, or entity-relationship diagram documents.
+Applies only to initialized project-specific SoT docs; excludes protected `AGENTS.md`, overview, ER diagrams.
 
-- Review whether to split a document when it reaches 150 lines, contains 12 independently referenced identifiers, or covers three independently changing functional areas.
-- As a rule, split a document above 250 lines or 20 independently referenced identifiers. When retaining it, record the reason and reconsideration condition in the responsible index.
-- Split by coherent responsibility, question, reader, update trigger, or lifecycle—not by line count alone.
-- For system documentation, splitting a stable responsibility into multiple independently changing documents may justify grouping those documents in a responsibility-based subdirectory. Splitting alone does not require a directory, and file count alone does not justify one.
-- Keep `system_index.md`, `<app>_index.md`, category indexes, and the root `TRACEABILITY.md` as single entry points.
-- When application traceability exceeds the general thresholds, retain `<app>_traceability.md` as the entry point and move coherent detail into indexed documents below the application directory.
+- Review split at ≥150 lines, ≥12 independently referenced identifiers, or ≥3 independently changing functional areas.
+- As a rule split >250 lines or >20 independently referenced identifiers; if retained, index records reason + reconsideration condition.
+- Split by coherent responsibility/question/reader/update trigger/lifecycle, not line count alone.
+- Stable system responsibility split into multiple independently changing docs may justify responsibility subdirectory; split/count alone does not.
+- Keep `system_index.md`, `<app>_index.md`, category indexes, root `TRACEABILITY.md` as single entry points.
+- If app traceability exceeds thresholds, keep `<app>_traceability.md` entry point and move coherent detail into indexed app docs.
 
 ## Verification and Structural Changes
 
-- Run the project-defined documentation verification when documentation changes.
-- Validate changed Markdown links, required fixed files, index coverage, identifiers, and traceability with project-defined checks when available.
-- When a governance change adds, removes, or changes an allowed documentation location or hierarchy, update every project-defined validator, generator, template, example, and check whose structural assumptions are affected in the same governance migration. Validation against only the previous structure is not evidence that the changed structure is valid.
-- Project-defined index checks must enforce the direct-link, nested-reachability, and protected-instruction exclusions defined in `Structure and Indexes`; they must not assume that system documentation is flat.
-- Project-defined requirement, design, testing, and traceability checks must discover every applicable project source of truth through the supported indexed hierarchy, including reachable nested system documents, rather than assuming that the source set is flat or limited to fixed root filenames.
-- Verify that the complete documentation state matches one lifecycle row above and that project-specific statements are supported by approval or evidence.
-- Where an index, overview, entity-relationship diagram, traceability table, or other derived/summary document restates normative identifiers, primary or foreign keys, cardinalities, responsibility boundaries, contracts, or relationships, verify it against the responsible source of truth. A disagreement is a consistency defect, not an alternate source of authority. When the same structured fact is intentionally repeated and can be compared mechanically, prefer a project-defined automated consistency check; otherwise keep the manual verification responsibility explicit.
-- Do not add a document category or directory that creates a new classification when the existing model can represent the responsibility. Responsibility-based grouping under `plans/system/` does not create a new classification when it follows the `Structure and Indexes` conditions above.
-- Before creating a new directory under `plans/`, explain its responsibility and effect on existing classifications and obtain user approval. An approved initialization or change summary that explicitly includes it is sufficient.
-- When adding, renaming, moving, or deleting an indexed document, inspect inbound links, indexes, current status, traceability, workbench material, and reference-retention needs, then update all affected references in the same change.
-- Preserve identifiers when splitting or moving documents, and do not duplicate the same details between overview and detail documents.
+- Run project-defined documentation verification for doc changes.
+- Validate changed Markdown links, fixed files, index coverage, IDs, traceability with project checks when available.
+- Governance change altering allowed doc location/hierarchy must update every affected validator/generator/template/example/check in same migration; old-structure validation is not evidence for new structure.
+- Index checks must support direct-link + nested-reachability + protected-instruction exclusions; do not assume flat system docs.
+- Requirement/design/testing/traceability discovery must follow supported indexed hierarchy, including nested system docs; do not assume fixed/flat source set.
+- Verify lifecycle state matches exactly one Lifecycle row and project statements have approval/evidence.
+- Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, relationships must match responsible SoT. Repetition does not create alternate authority. Prefer automated comparison for intentionally repeated structured facts when practical; otherwise keep manual responsibility explicit.
+- Do not add a document category/directory when current model can represent the responsibility. Responsibility grouping under `plans/system/` is not a new classification when rules above are met.
+- Before new `plans/` directory: explain responsibility + effect on classifications and obtain user approval; approved init/change summary suffices.
+- Add/rename/move/delete indexed docs: inspect inbound links, indexes, status, traceability, workbench, reference-retention needs; reconcile same change.
+- Preserve identifiers when splitting/moving; do not duplicate detail between overview/detail docs.

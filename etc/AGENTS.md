@@ -2,41 +2,39 @@
 
 ## Scope
 
-This file defines placement and change rules for project-managed execution-environment configuration under `etc/` and all descendants.
-
-All repository-wide governance in the root `AGENTS.md` applies here. Also follow the project-specific source-of-truth, lifecycle, status, traceability, and verification-basis rules in `plans/AGENTS.md`.
+- Applies to `etc/` and descendants; inherits root + `plans/AGENTS.md`.
+- Owns project-managed configuration that controls execution environments from outside an application: container images/composition, external-service config, safe env examples, bootstrap, deployment, rollback, recovery, monitoring, CI environment wiring.
 
 ## Placement
 
-Place configuration here when it controls an execution environment from outside an application, including container images and composition, external-service configuration, safe environment examples, environment bootstrap, deployment, rollback, recovery, monitoring, and CI environment wiring.
+- Group by environment responsibility/target service; one project-managed source for each config responsibility.
+- Classify by ownership/role, not extension or script-ness.
+- App/formal test/lint/generator/migration/fixture programs → owning `products/` area; container invocation does not transfer ownership.
+- Supplied originals → `references/`; only adopted project-managed config belongs here.
+- No permanent generated data/cache/log/build output/dependencies.
+- Secrets: variable names/safe examples only; never actual credentials/private keys/tokens/personal/confidential values.
 
-- Group files by environment responsibility or target service, and maintain one project-managed source of truth for each configuration.
-- Classify by ownership and role, not by extension or whether a file is a script.
-- Keep application source, formal tests, lint programs, generators, migrations, and fixtures in `products/`; passing them into a container does not transfer ownership to `etc/`.
-- Preserve supplied originals in `references/`; place only adopted and project-managed configuration here.
-- Do not use `etc/` as a permanent location for generated data, caches, logs, build artifacts, or installed dependencies.
-- Represent required secrets with variable names or safe example values. Never store actual credentials, private keys, tokens, personal information, or confidential values.
+Canonical product/environment boundary:
 
-The following table is the canonical boundary guide between formal products and execution-environment configuration. It distinguishes artifact roles; it does not assign application or system ownership within `products/`:
-
-| Concern | Formal artifact | Environment-side artifact |
+| Concern | Formal artifact (`products/`) | Environment artifact (`etc/`) |
 |---|---|---|
-| E2E testing | Test and fixture in the product area that owns the verification responsibility | Compose and environment startup in `etc/` |
-| Code generation | Generator in its owning product area | Generator container and wiring in `etc/` |
-| Database change | Migration in its owning product area | Whole-environment bootstrap and invocation in `etc/` |
-| Linting | Lint program in its owning product area | CI runner and job configuration in `etc/` |
-| Seed data | Seed data in its owning product area | Startup injection mechanism in `etc/` |
-| External-service fixture | Fixture implementation in the product area that owns the verification responsibility | Emulator deployment and wiring, endpoint selection, and consuming-service configuration in `etc/` |
+| E2E | test + fixture in verification-owning product area | compose/environment startup |
+| generation | generator in owning product area | generator container/wiring |
+| DB change | migration in owning product area | environment bootstrap/invocation |
+| lint | lint program in owning product area | CI runner/job config |
+| seed | seed data in owning product area | startup injection |
+| external-service fixture | fixture implementation in verification-owning product area | emulator deployment/wiring/endpoint/consumer config |
 
-Determine formal-artifact placement from responsibility ownership before applying the table: use `products/apps/<app>/` for application-owned programs and `products/system/` for system-owned programs. The table is not an exception to this rule. Artifact category, number of application targets, cross-application execution or observation, reuse, and use of shared infrastructure do not by themselves determine product ownership. See [Formal Product Instructions](../products/AGENTS.md).
+- Within `products/`, ownership still follows RB: app-owned → `products/apps/<app>/`; system-owned → `products/system/`.
+- Artifact type, target count, cross-app execution/observation, reuse, or shared infrastructure do not determine product ownership.
 
 ## Change and Verification
 
-- When the project is uninitialized or the relevant responsibility is not approved, do not invent services, commands, topology, publication boundaries, persistence, recovery methods, or operational guarantees.
-- Keep configuration consistent with the applicable environment, development, testing, release, migration, and operation sources of truth.
-- Ensure project documentation defines reproducible prerequisites and procedures for applicable environment setup, execution, analysis, testing, documentation checks, deployment, migration, rollback, and operation.
-- Prefer automated, reproducible checks; when automation is impractical, define how the check is run and where its result is recorded.
-- When service composition, networking, persistence, publication boundaries, deployment, rollback, or recovery behavior changes, update the responsible project documentation in the same change.
-- Before deleting, recreating, or migrating existing data, confirm the effect and recovery method under the repository authority rules.
-- Verify changed configuration in proportion to impact, including applicable syntax, expanded-configuration, startup, migration, health, rollback, and recovery checks.
-- Record methods, results, verified scope, unverified matters, and remaining risk as required by `plans/AGENTS.md`; an unavailable check is not a successful check.
+- Uninitialized/unapproved responsibility: do not invent services, commands, topology, publication boundaries, persistence, recovery methods, operational guarantees.
+- Keep config consistent with applicable environment/development/testing/release/migration/operation SoTs.
+- Project docs define reproducible prerequisites/procedures for applicable setup, execution, analysis, testing, doc checks, deployment, migration, rollback, operation.
+- Prefer automated reproducible checks; when impractical, define method + result location.
+- Service composition/networking/persistence/publication/deployment/rollback/recovery behavior change → update responsible project docs same change.
+- Before destructive data delete/recreate/migration, confirm effect + recovery method under root authority rules.
+- Verify changed config proportional to impact: applicable syntax, expanded config, startup, migration, health, rollback, recovery.
+- Record method/result/verified scope/material unverified matters/risk per `plans/AGENTS.md`; unavailable check ≠ success.

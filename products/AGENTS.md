@@ -2,13 +2,10 @@
 
 ## Scope
 
-This file defines structure, placement, and change rules for formal implementations and tests under `products/` and all descendants.
-
-All repository-wide governance in the root `AGENTS.md` applies here. Also follow the project-specific source-of-truth, lifecycle, status, traceability, and verification-basis rules in `plans/AGENTS.md`.
+- Applies to `products/` and descendants; inherits root + `plans/AGENTS.md`.
+- Owns formal implementations and tests.
 
 ## Structure and Placement
-
-The clone-ready skeleton is:
 
 ```text
 products/
@@ -19,36 +16,45 @@ products/
     └── .gitkeep
 ```
 
-- Retention markers preserve empty classification directories; remove one when tracked content makes it unnecessary.
-- Place code, resources, dependency definitions, migrations, fixtures, CLIs, support programs, unit tests, and application-local integration tests owned by an application under `apps/<app>/`.
-- Place code, integration processes, E2E or contract tests, fixtures, generators, and support programs owned by a system responsibility under `system/`, including artifacts that realize or verify a system-owned responsibility spanning applications. System ownership does not require multiple application targets; artifact category, number of targets, cross-application execution or observation, reuse, and use of shared infrastructure do not by themselves establish it.
-- Use the same approved `<app>` name under `products/apps/<app>/` and `plans/apps/<app>/`. Never create a literal `<app>` directory or invent a temporary application name.
-- Keep conventional `src/`, `tests/`, `scripts/`, `tools/`, and `packages/` below their owning application or `system/`; do not create them at the repository root.
-- A local `README.md` may explain an implementation unit and its entry point, but must direct readers to the responsible project documentation rather than duplicate requirements, design, testing policy, status, or traceability.
-
-Place environment and external-service configuration in `etc/`, project sources of truth and procedures in `plans/`, working materials, verification results, and implementation handoffs in `workbench/`, and durable non-normative reference material in `references/`. The canonical product/environment boundary for E2E, generation, migrations, linting, seed data, and fixtures is in [Execution Environment Instructions](../etc/AGENTS.md#placement).
+- Remove retention marker when tracked content makes it unnecessary.
+- `apps/<app>/`: app-owned code/resources/dependencies/migrations/fixtures/CLIs/support programs/unit tests/app-local integration tests.
+- `system/`: system-owned code/processes/E2E or contract tests/fixtures/generators/support programs, including system responsibilities spanning apps.
+- Ownership follows responsibility/RB, not artifact category, target count, cross-app execution/observation, reuse, or shared infrastructure.
+- Same approved `<app>` name as `plans/apps/<app>/`; never literal `<app>` or invented temporary name.
+- Conventional `src/`, `tests/`, `scripts/`, `tools/`, `packages/` stay below owning app/system area.
+- Local `README.md` may explain implementation/entry point; link responsible project docs instead of duplicating requirements/design/testing/status/traceability.
+- Product/environment boundary for E2E, generation, migrations, linting, seeds, fixtures: `etc/AGENTS.md#placement`.
 
 ## Formalization and Completion
 
-- Begin formal implementation only when the project-defined entry criteria are satisfied, including applicable requirements and acceptance criteria, responsibility boundaries and approach, verification methods, and no unresolved blocker.
-- Resolve missing or contradictory requirements, assumptions, design, or testing policy in the responsible source of truth rather than filling the gap only in code.
-- When adopting code or tools from `workbench/` or source material from `references/`, create a project-managed formal implementation with appropriate structure, quality, and tests; do not depend on the working or reference copy as the production source.
-- Code or configuration existing is not evidence of completion. Keep unimplemented, implemented, and verified states distinct and satisfy the project-defined completion criteria.
-- Generated outputs, caches, disposable test results, build artifacts, and installed dependencies belong under their execution unit and, as a rule, are not tracked. When a test result must be retained as project-managed evidence for a current verification claim, retain it according to the verification-basis lifecycle in `plans/AGENTS.md` rather than treating it as disposable execution output.
+- Begin formal implementation only when project entry criteria are satisfied: applicable requirements/AC, RBs/approach, verification methods, no unresolved Blocker.
+- Missing/contradictory requirements/assumptions/design/testing policy → responsible SoT; do not fill only in code.
+- Adopting workbench/reference code/tools → create project-managed formal implementation with appropriate structure/quality/tests; do not depend on working/reference copy as production source.
+- Code/config presence ≠ completion. Keep unimplemented/implemented/verified states distinct and satisfy project completion criteria.
+- Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `plans/AGENTS.md` VB lifecycle.
 
-## Existing-Implementation Changes
+## Existing Implementation
 
-- Before changing an existing implementation, inspect the relevant code, tests, configuration, dependency definitions, migrations, and nearby established responsibility or dependency boundaries needed to understand the current realization.
-- Treat existing implementation structure as evidence, not normative design. Preserve material established boundaries when they are compatible with the adopted sources of truth and outside the approved change, but do not preserve technical debt, provisional structure, or a known deficiency solely because it exists.
-- Do not replace an established architecture, responsibility boundary, dependency direction, state authority, or compatibility pattern merely because another implementation could also satisfy the requirements. A material replacement requires an applicable adopted design decision or an explicitly authorized design correction/change.
-- When the intent of a material existing structure is unclear and changing it would affect compatibility, responsibility, security, persistence, state authority, or another material boundary, do not infer permission to redesign from documentation silence; resolve the design question through the applicable source-of-truth process.
-- When implementation work reveals potentially durable project knowledge, classify it before promotion. Required outcomes or constraints belong in requirements; adopted future implementation constraints belong in design; transient current-realization findings and verification material belong in `workbench/`; durable non-normative current-realization knowledge belongs in `references/` unless independently adopted as a contract or constraint.
+Before changes inspect relevant:
+- code/tests/config/dependencies/migrations;
+- established RBs/dependency directions/patterns needed to understand current realization.
+
+Rules:
+- Existing structure = current-realization evidence, not normative design.
+- Preserve material established boundaries compatible with SoTs and outside approved change; do not preserve debt/provisional structure/known deficiency merely because it exists.
+- Do not replace established architecture/RB/dependency direction/state authority/compatibility pattern merely because an alternative also satisfies requirements. Material replacement requires adopted design or explicitly authorized design correction/change.
+- If intent of material structure is unclear and change affects compatibility/responsibility/security/persistence/state authority/material boundary, documentation silence ≠ redesign permission; resolve through SoT process.
+- Newly discovered knowledge classification follows root/`plans/`: required outcome → requirements; adopted future implementation constraint → design; transient realization/verification → `workbench/`; durable non-normative realization knowledge → `references/`.
 
 ## Change and Verification
 
-- Keep changes within the approved responsibility boundary. Do not introduce direct application-to-application dependencies without an approved design change.
-- When observable behavior, public contracts, data structures, dependencies, migrations, or responsibility boundaries change, update the responsible documentation, status, and traceability in the same change.
-- Place tests in the product area that owns the verification responsibility identified by the applicable sources of truth. Put tests for system-owned guarantees under `products/system/` and tests for application-owned guarantees under the owning application, even when they invoke or observe other applications.
-- Run additional static analysis, generation-consistency, migration, compatibility, security, performance, and packaging checks required by project documentation and proportional to the change.
-- Do not treat generated artifacts or an intermediate migration state as implementation evidence. Record unavailable checks, their impact, and remaining risk instead of reporting success.
-- Before moving, promoting, or deleting formal artifacts, inspect dependents, public contracts, migrations, tests, documentation, status, traceability, current verification basis, and reference-retention needs.
+- Keep change inside approved RB; no direct app→app dependency without approved design change.
+- Observable behavior/public contracts/data structures/dependencies/migrations/RBs change → update responsible docs/status/traceability same change.
+- Test placement follows verification ownership:
+  - app-owned guarantee → owning app;
+  - system-owned guarantee → `products/system/`;
+  - cross-app invocation/observation alone does not alter ownership.
+- Run project-required + risk-proportional static analysis, generation consistency, migration, compatibility, security, performance, packaging checks.
+- Generated artifact/intermediate migration state ≠ implementation evidence.
+- Unavailable check ≠ success; report impact + remaining risk.
+- Before move/promotion/deletion inspect dependents, public contracts, migrations, tests, docs, status, traceability, current VB, reference-retention needs.
