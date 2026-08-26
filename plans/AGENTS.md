@@ -191,7 +191,8 @@ Status/traceability:
 ### Verification Basis (VB)
 
 - Execution-specific results/evidence are working material by default; verification does not require a dedicated repository evidence file.
-- Project-managed active evidence → `workbench/`; native/external execution record may remain there when sufficient and no project-managed retention need exists.
+- Project-managed active evidence → `workbench/`.
+- Native/external execution records may remain in their execution system or external medium when sufficient and no project-managed retention need exists.
 - A current verified claim requires an available, applicable VB sufficient to reassess its scope.
 - VB may be native/external record, retained workbench material, promoted reference, or proportional summary; Markdown/repository storage is not required.
 - Preserve proportionally: actual target/state, relevant conditions, method, result, directly verified scope, material unverified scope.
