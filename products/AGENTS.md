@@ -23,7 +23,7 @@ products/
 - Same approved `<app>` name as `plans/apps/<app>/`; never literal `<app>` or invented temporary name.
 - Conventional `src/`, `tests/`, `scripts/`, `tools/`, `packages/` stay below owning app/system area.
 - Local `README.md` may explain implementation/entry point; link responsible project docs instead of duplicating requirements/design/testing/status/traceability.
-- Product/environment boundary for E2E, generation, migrations, linting, seeds, fixtures: `etc/AGENTS.md#placement`.
+- Product/environment boundary for E2E, generation, migrations, linting, seeds, fixtures: [etc placement rules](../etc/AGENTS.md#placement).
 
 ## Formalization and Completion
 
