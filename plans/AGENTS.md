@@ -80,7 +80,7 @@ plans/apps/<app>/
 General:
 - `plans/system/` and `plans/apps/` are required classifications. Remove `.gitkeep` when tracked content makes it unnecessary.
 - No `plans/README.md`; use indexes for navigation, `AGENTS.md` for instructions.
-- Create `apps/<app>/` only after app name + responsibility approval; never literal `<app>` or invented temporary name.
+- Create `plans/apps/<app>/` only after app name + responsibility approval; never literal `<app>` or invented temporary name.
 - Same approved `<app>` under `plans/apps/` and `products/apps/`.
 - One purpose per project doc; split boundaries by question, reader, update trigger, lifecycle.
 - Keep fixed system entry docs directly under `plans/system/`.
@@ -107,7 +107,7 @@ General:
 
 Determine ownership from **purpose + change authority + invocation/governing decision + success/failure (or sufficiency) judgment**, not target/caller/tool/file name/operational vocabulary.
 
-- App-owned execution/diagnostic procedure → directly under `apps/<app>/`, linked from `<app>_index.md`.
+- App-owned execution/diagnostic procedure → directly under `plans/apps/<app>/`, linked from `<app>_index.md`.
 - System-owned procedure → `plans/system/`, including procedures spanning apps.
 - Multiple targets do not prove system ownership; one app target does not prove app ownership.
 - Shared tools/observability/deployment/system environments/`etc/` config do not transfer ownership.
