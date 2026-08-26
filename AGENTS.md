@@ -82,6 +82,9 @@ Do not turn an individual decision request into a broader clarification session 
 
 - Do not ask for facts that can be verified from the repository.
 - When a user decision is required, ask about one issue at a time, or at most three closely related issues.
+- Keep the context for a decision request proportional to what the user needs to decide. Include the material basis, effects, tradeoffs, or risks needed for an informed decision, but do not repeat already established context or repository-verifiable facts merely to justify the request.
+- When a decision request requires substantial explanation, end by restating the specific decision or confirmation being requested in a short, directly answerable form.
+- When the decision can be answered by yes/no, a short choice, or a single missing value without losing material nuance, phrase the final question so that such a concise response is sufficient.
 - When useful, provide numbered options with their effects and a recommendation. Use a free-form question when predefined options would distort the decision.
 - After receiving a decision, apply it, distinguish any remaining open questions, and continue until another material decision or authority boundary is reached.
 - Before requesting a decision because work is blocked, exhaust safe in-scope alternatives and state the precise blocker and required decision or authority.
