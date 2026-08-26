@@ -15,14 +15,14 @@
 - Promoted project-managed unit: record origin, purpose, promotion/observation date, represented scope, target/source identity, and material freshness/revalidation/supersession conditions.
 - Identity rules follow `plans/AGENTS.md`: prefer stable/immutable identity; mutable labels are context; without stable ID record enough time/state/conditions/scope to avoid unsafe inference.
 - Record applicable terms of use, confidentiality, redistribution, licensing, privacy, retention.
-- General supplied `docs/` collections/datasets belong here, not new top-level `docs/`/`data/`.
+- General supplied `docs/` collections/datasets → `references/`; never new top-level `docs/`/`data/`.
 - Project guidance around supplied material must remain distinguishable from the original.
 - Import supplied source as traceable snapshot/archive/pinned version when practical; avoid embedding nested VCS metadata unintentionally.
 - Never add disposable generated data/cache/build output/dependencies, credentials, personal/confidential content, or material without confirmed storage/redistribution rights.
 
 ## Use and Promotion
 
-- Process/modify/compare/transform/investigate/verify supplied/reference material in `workbench/`; preserve originals here.
+- Process/modify/compare/transform/investigate/verify supplied/reference material in `workbench/`; preserve originals in `references/`.
 - Promote project-managed workbench material only for continuing non-normative value.
 - Do not promote every run/output/log/screenshot/report. Prefer concise durable summary/stable mapping when raw transient history adds no value.
 - Adopted requirements/design/testing/procedures/decisions → responsible `plans/` SoT; reference is supporting input, not adoption record.

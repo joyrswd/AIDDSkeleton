@@ -10,7 +10,7 @@
 - Group by environment responsibility/target service; one project-managed source for each config responsibility.
 - Classify by ownership/role, not extension or script-ness.
 - App/formal test/lint/generator/migration/fixture programs → owning `products/` area; container invocation does not transfer ownership.
-- Supplied originals → `references/`; only adopted project-managed config belongs here.
+- Supplied originals → `references/`; only adopted project-managed config belongs in `etc/`.
 - No permanent generated data/cache/log/build output/dependencies.
 - Secrets: variable names/safe examples only; never actual credentials/private keys/tokens/personal/confidential values.
 
