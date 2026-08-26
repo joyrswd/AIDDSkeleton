@@ -8,19 +8,19 @@
 
 ## Lifecycle and Initialization
 
-| State | `CURRENT_STATUS.md`, `GLOSSARY.md`, `TRACEABILITY.md` | `system/system_index.md`, `system/documentation_language.md` | Markers |
+| State | `plans/CURRENT_STATUS.md`, `plans/GLOSSARY.md`, `plans/TRACEABILITY.md` | `plans/system/system_index.md`, `plans/system/documentation_language.md` | Markers |
 |---|---|---|---|
-| Uninitialized | present, zero bytes | absent | `system/.gitkeep`, `apps/.gitkeep` present |
-| Initialized | present, approved-language content | both present | `system/.gitkeep` absent; `apps/.gitkeep` only while no app docs exist |
+| Uninitialized | present, zero bytes | absent | `plans/system/.gitkeep`, `plans/apps/.gitkeep` present |
+| Initialized | present, approved-language content | both present | `plans/system/.gitkeep` absent; `plans/apps/.gitkeep` only while no app docs exist |
 | Inconsistent | any other combination | any other combination | reconcile before formal work |
 
 - Fixed skeleton files/markers alone ≠ project facts or initialization.
 - Do not infer project facts from uninitialized/inconsistent state.
 - Initialization content must come from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
 - Initialize atomically:
-  - create `system/documentation_language.md` and `system/system_index.md`;
+  - create `plans/system/documentation_language.md` and `plans/system/system_index.md`;
   - populate the three cross-cutting files in approved language;
-  - remove `system/.gitkeep`.
+  - remove `plans/system/.gitkeep`.
 - Define at least:
   - purpose, users, scope, exclusions;
   - system/app RBs;
@@ -35,7 +35,7 @@
 - Completion criteria: implementation/configuration, required verification, requirements/design/tests/implementation consistency, status + traceability updates.
 - Do not delete either fixed system document independently.
 - Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty three cross-cutting files, restore both markers, verify whole state.
-- Initialized read order: `CURRENT_STATUS.md` → `system/system_index.md` → `system/documentation_language.md` → `GLOSSARY.md` → `TRACEABILITY.md` → target indexes.
+- Initialized read order: `plans/CURRENT_STATUS.md` → `plans/system/system_index.md` → `plans/system/documentation_language.md` → `plans/GLOSSARY.md` → `plans/TRACEABILITY.md` → target indexes.
 
 ## Structure and Indexes
 
