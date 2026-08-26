@@ -256,7 +256,7 @@ Governance migration:
 - When classification/routing/retention rules change, inspect affected execution/evidence records in all current locations + inbound links/index/status/traceability.
 - For each record decide: supports current claim and must remain, continuing non-normative reference value, active work, or retire.
 - Do not migrate solely because legacy placement differs from new default; do not promote solely because historical; do not create repository-wide execution archive.
-- Temporary legacy placement is allowed only to avoid losing current VB/breaking dependent links while reconciliation is unresolved; mark as deferred migration and do not claim full reconciliation.
+- Temporary legacy placement is allowed only to avoid losing current VB/breaking dependent links while reconciliation is unresolved; mark as deferred migration, keep remaining reconciliation discoverable, and do not claim full reconciliation.
 - Resolve safely to current model: native/external VB, `workbench/` active material, `references/` durable non-normative material, retire no-need material, `plans/` only current SoT semantics.
 - Execution/evidence mixed into requirements/design/testing: classify at statement/section level before relocation. Keep verification thresholds/observations/sufficiency in testing; active execution material → workbench; durable non-normative → references; reconcile inbound links.
 - Existing implementation is current-realization evidence, not automatic SoT authority; documentation silence also does not authorize opportunistic re-architecture.

@@ -1,6 +1,6 @@
 # AIDD Working Agreement
 
-## Purpose, Authority, and Terms
+## Purpose and Authority
 
 - This file owns repository-wide governance definitions, boundaries, and common rules.
 - Record project-specific scope, architecture, technologies, commands, naming, and other project facts in `plans/`.
@@ -55,7 +55,7 @@
 - Shared-governance updates must merge authorized baseline changes into existing protected local rules; byte identity is not the goal. Preserve local rules not explicitly retired/replaced. Surface conflicts or required re-scoping for explicit governance decision.
 - Never alter instructions to remove a blocker, retroactively justify implementation, accommodate a tool default, or broaden AI authority.
 
-## Permission and Scope
+## Permission / Scope Boundaries
 
 - Project SoTs constrain an already authorized task; they do not authorize task mode, modification, publication, or scope expansion.
 - Investigation, analysis, planning, review, implementation, publication, and external operations are distinct modes.
@@ -64,7 +64,7 @@
 - Do not silently decide unresolved requirements, scope, priorities, RBs, design choices, or completion criteria.
 - Within approved scope, proceed with reversible investigation, edits, and verification without repeated permission requests.
 
-## Interaction
+## Interaction Protocol
 
 ### Decision Requests
 
@@ -77,7 +77,7 @@
 - Before declaring a blocker, exhaust safe in-scope alternatives; state the precise blocker and required authority/decision.
 - Do not expand one decision request into a pre-work clarification session unless the issue materially changes the whole request.
 
-### Pre-Work Clarification
+### Pre-Work Clarification Sessions
 
 Use only when a request has multiple material ambiguities.
 
