@@ -158,6 +158,7 @@ Determine ownership from **purpose + change authority + invocation/governing dec
 - After approval: BCP 47 default in `plans/system/documentation_language.md`; only explicit app overrides.
 - System/cross-app docs use default; app docs inherit unless explicit override.
 - Never infer language/override from code, supplied material, later conversation language, or environment.
+- On adoption/promotion into `plans/`, preserve semantics, not source wording/language: express prose, headings, table/diagram labels in the destination's effective documentation language; preserve identifiers, code/protocol literals, proper names, standard technical notation, and any content whose wording or language is intentionally fixed.
 - Conversation language is independent after initialization.
 - Change documentation language only on explicit user request; do not infer whether existing docs are translated vs future-only.
 - Supplied originals under `references/` need not be translated.
