@@ -1,6 +1,8 @@
 # AIDD Formal Product Instructions
 
-## Scope
+## General Provisions
+
+### Scope and Responsibility
 
 - Applies to `products/` and descendants; inherits root + `plans/AGENTS.md`.
 - Owns formal implementations and tests.
@@ -23,9 +25,11 @@ products/
 - Same approved `<app>` name as `plans/apps/<app>/`; never literal `<app>` or invented temporary name.
 - Conventional `src/`, `tests/`, `scripts/`, `tools/`, `packages/` stay below owning app/system area.
 - Local `README.md` may explain implementation/entry point; link responsible project docs instead of duplicating requirements/design/testing/status/traceability.
-- Product/environment boundary for E2E, generation, migrations, linting, seeds, fixtures: [etc placement rules](../etc/AGENTS.md#placement).
+- Product/environment boundary for E2E, generation, migrations, linting, seeds, fixtures: [etc placement rules](../etc/AGENTS.md#structure-and-placement).
 
-## Formalization and Completion
+## Authority and Formalization
+
+### Formalization and Completion
 
 - Begin formal implementation only when project entry criteria are satisfied: applicable requirements/AC, RBs/approach, verification methods, no unresolved Blocker.
 - Missing/contradictory requirements/assumptions/design/testing policy → responsible SoT; do not fill only in code.
@@ -33,7 +37,7 @@ products/
 - Code/config presence ≠ completion. Keep unimplemented/implemented/verified states distinct and satisfy project completion criteria.
 - Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `plans/AGENTS.md` VB lifecycle.
 
-## Existing Implementation
+### Existing Implementation
 
 Before changes inspect relevant:
 - code/tests/config/dependencies/migrations;
