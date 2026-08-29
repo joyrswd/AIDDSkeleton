@@ -1,9 +1,10 @@
 # AIDD Working Agreement
 
-## Purpose and Authority
+## General Provisions
+
+### Purpose and Authority
 
 - This file owns repository-wide governance definitions, boundaries, and common rules.
-- Record project-specific scope, architecture, technologies, commands, naming, and other project facts in `plans/`.
 - The AI may investigate, propose, change, and verify within authorized scope. The user retains final authority over intent, priorities, material scope changes, responsibility boundaries, and accepted outcomes.
 - Repository-wide abbreviations used by descendant instructions:
   - **SoT** = source of truth
@@ -11,24 +12,29 @@
   - **VB** = verification basis
   - **RB** = responsibility boundary
 
-## Governance Model
+### Governance Concepts
 
-| Area | Responsibility |
+| Concept | Meaning |
 |---|---|
 | **Authority** | What may constrain future implementation/judgment; normative vs supporting material |
 | **Lifecycle** | Investigation → proposal → adoption → implementation → verification → retention/supersession/disposal |
 | **Evidence** | Basis required for claims; existence, implementation, execution, verification, acceptance |
 | **Permission / Scope** | What work may begin/expand; approved intent vs implementation discretion |
 | **Structure / Placement** | Ownership/RB, lifecycle, and authority determine placement |
-| **Interaction / Review** | Clarification, approval, implementation, verification, review, handoff, reporting |
 | **Safety / Compliance** | Repository-wide safety plus subtree-owned compliance |
 
-- A rule may serve multiple areas, but must have one authoritative owner; do not redefine it independently elsewhere.
+### Common Principles
+
+- A rule may relate to multiple concepts or sections, but must have one authoritative owner; do not redefine it independently elsewhere.
 - Proposal/assumption/observation/implementation/test/result/reference existence or linkage ≠ SoT adoption.
 - Moving/promoting information ≠ authority change; authority changes only through the applicable adoption/SoT process.
 - Claim scope ≤ supporting basis: presence ≠ implementation ≠ execution ≠ verification ≠ acceptance/completion.
 
-## Repository Model
+## Project Structure and Instruction Hierarchy
+
+### Ownership and Placement
+
+- Record project-specific scope, architecture, technologies, commands, naming, and other project facts in `plans/`.
 
 | Area | Owns |
 |---|---|
@@ -44,27 +50,45 @@
 - Framework/tool directories (`src/`, `apps/`, `packages/`, `scripts/`, `infra/`, `docs/`, `tests/`, etc.) belong below the responsible area. Hidden paths/top-level files must not bypass the model.
 - `README.md` is human guidance only: not instructions or project SoT; do not duplicate/replace requirements, design, testing, status, or agent instructions.
 
-## Instruction Hierarchy and Protection
+### Instruction Hierarchy and Protection
 
 - Before changing a target, read: root `AGENTS.md` → every descendant `AGENTS.md` through the target → `plans/AGENTS.md` → applicable project SoTs.
-- Root owns repository-wide governance. Descendant `AGENTS.md` files inherit it and may add subtree rules; they must not redefine, weaken, contradict, or override inherited boundaries.
+- Descendant `AGENTS.md` files inherit root governance and may add subtree rules; they must not redefine, weaken, contradict, or override inherited boundaries.
 - Add descendant `AGENTS.md` only for genuine subtree-specific instructions.
 - Existing `AGENTS.md` files are protected governance. Ordinary code/docs/config/structure authorization does not authorize changing them.
 - Changing/moving/renaming/replacing/deleting protected instructions requires an explicit user request identifying the governance change and affected file/scope.
 - Authorized instruction changes: smallest coherent change; reconcile inheritance/links and verify the hierarchy.
 - Shared-governance updates must merge authorized baseline changes into existing protected local rules; byte identity is not the goal. Preserve local rules not explicitly retired/replaced. Surface conflicts or required re-scoping for explicit governance decision.
 - Never alter instructions to remove a blocker, retroactively justify implementation, accommodate a tool default, or broaden AI authority.
+- Repository instructions + approved project decisions override general conventions/tool defaults where they differ.
 
-## Permission / Scope Boundaries
+### Project Initialization
+
+- A tracked skeleton is uninitialized until purpose, scope, RBs, and required project SoTs are approved and recorded.
+- Start read-only. Before project-specific changes, present one initialization summary: verified facts, user decisions, proposed assumptions, open questions, blockers, files/directories to change, target lifecycle state, and work left unstarted.
+- Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
+- If immediate initialization from supplied information + reasonable assumptions is explicitly requested, advance discussion may be omitted; report every adopted assumption at completion.
+- Detailed lifecycle, initialization outputs, transitions, entry/completion criteria, and verification rules: `plans/AGENTS.md`.
+
+## Action Boundaries
+
+### Permission / Scope
 
 - Project SoTs constrain an already authorized task; they do not authorize task mode, modification, publication, or scope expansion.
 - Investigation, analysis, planning, review, implementation, publication, and external operations are distinct modes.
 - Investigation/analysis/planning/review-only requests must not modify repository state.
 - Plan approval authorizes only its recorded decisions/scope; implementation also requires implementation authorization.
-- Do not silently decide unresolved requirements, scope, priorities, RBs, design choices, or completion criteria.
+- Do not silently decide unresolved requirements, scope, priorities, RBs, material design choices, or completion criteria; routine reversible implementation choices within approved scope are AI discretion.
 - Within approved scope, proceed with reversible investigation, edits, and verification without repeated permission requests.
+- Preserve unrelated user changes; do not expand scope for merely adjacent work.
+- Add discovered work only when required by approved AC or needed to prevent direct regression, corruption, security failure, or irreversible damage; otherwise record follow-up.
 
-## Interaction Protocol
+### Safety / Compliance
+
+- Ask before destructive/irreversible operations, external publication, out-of-scope effects on people/systems, or decisions substantially changing the requested outcome.
+- Never expose credentials, personal information, or confidential values in code, docs, logs, or reports.
+
+## Interaction
 
 ### Decision Requests
 
@@ -77,7 +101,7 @@
 - Before declaring a blocker, exhaust safe in-scope alternatives; state the precise blocker and required authority/decision.
 - Do not expand one decision request into a pre-work clarification session unless the issue materially changes the whole request.
 
-### Pre-Work Clarification Sessions
+### Pre-Work Clarification
 
 Use only when a request has multiple material ambiguities.
 
@@ -97,12 +121,7 @@ Use only when a request has multiple material ambiguities.
 - User decisions in a report follow Decision Requests.
 - Update required status/traceability/VB/SoTs per `plans/AGENTS.md`; conversation does not replace them.
 
-## Safety / Compliance
-
-- Ask before destructive/irreversible operations, external publication, out-of-scope effects on people/systems, or decisions substantially changing the requested outcome.
-- Never expose credentials, personal information, or confidential values in code, docs, logs, or reports.
-
-## Conversation Language
+### Conversation Language
 
 - Per conversation, determine language from: explicit instruction → first request's primary language → execution-environment language → English.
 - Ignore code, quotes, attachments, URLs, and paths when detecting request language.
@@ -110,16 +129,9 @@ Use only when a request has multiple material ambiguities.
 - Treat result as BCP 47. Later language changes apply only as explicitly requested.
 - Conversation language ≠ project documentation language; follow `plans/AGENTS.md`. Do not store conversation language in the repository.
 
-## Project Initialization
-
-- A tracked skeleton is uninitialized until purpose, scope, RBs, and required project SoTs are approved and recorded.
-- Start read-only. Before project-specific changes, present one initialization summary: verified facts, user decisions, proposed assumptions, open questions, blockers, files/directories to change, target lifecycle state, and work left unstarted.
-- Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
-- If immediate initialization from supplied information + reasonable assumptions is explicitly requested, advance discussion may be omitted; report every adopted assumption at completion.
-- After approval, ask again only when crossing Permission/Scope or Safety boundaries, changing protected `AGENTS.md`, or changing the top-level model.
-- Detailed lifecycle, initialization outputs, transitions, entry/completion criteria, and verification rules: `plans/AGENTS.md`.
-
 ## Working Principles
+
+### Core Principles
 
 1. Understand outcome, constraints, observable AC, current lifecycle state, target state.
 2. Inspect applicable instructions, SoTs, implementation, tests, config, evidence, and existing user changes.
@@ -127,10 +139,7 @@ Use only when a request has multiple material ambiguities.
 4. Verify proportionally to risk; reconcile implementation/docs/tests/status/traceability.
 5. Report per Interaction.
 
-- Preserve unrelated user changes; do not expand scope for merely adjacent work.
-- Add discovered work only when required by approved AC or needed to prevent direct regression, corruption, security failure, or irreversible damage; otherwise record follow-up.
 - Prefer simple maintainable changes over speculative abstractions.
-- Repository instructions + approved project decisions override general conventions/tool defaults where they differ.
 - Requirements = required outcomes; design = adopted implementation approach/constraints; testing = verification requirements. Code/config/tests/results are evidence, not substitutes.
 - Existing implementation: inspect relevant code/tests/config/dependencies/RBs/dependency directions/patterns. Treat them as current-realization evidence, not normative authority. Do not casually replace material established structure or preserve it solely because it exists.
 - Newly discovered durable knowledge: classify before promotion—required outcome/constraint → requirements; adopted implementation constraint → design; durable non-normative knowledge → `references/`; transient investigation/verification → `workbench/`.
@@ -141,7 +150,18 @@ Use only when a request has multiple material ambiguities.
 - Recorded fact/relationship changes: update responsible project docs in the same change.
 - Record important decisions/reasons, assumptions, material rejected alternatives, and reconsideration conditions in the responsible SoT.
 
-## Review Principles
+### Coherent Correction
+
+- On a discovered deficiency, determine whether the cause is local or shared.
+- Inspect far enough to understand cause and impact; investigation does not expand modification scope.
+- Correct required same-cause deficiencies coherently within authorized scope; handle the rest under applicable scope, decision, safety, or follow-up rules.
+
+### Challenge Check
+
+- Before completing material planning or creation work, perform one proportional challenge check for incorrect assumptions, contradictions, missed impact/root causes, scope drift, and verification gaps; correct findings within authorized scope.
+- Repeat the full challenge only when new evidence, failed verification, material correction, or contradiction warrants it.
+
+### Review Principles
 
 Review against approved purpose, scope, exclusions, and observable AC. For disagreements:
 
@@ -149,7 +169,8 @@ Review against approved purpose, scope, exclusions, and observable AC. For disag
 2. Check implementation against validated SoTs.
 3. Check verification method/evidence against required conformity.
 
-Root-cause class (independent of severity):
+#### Root-Cause Classification (Independent of Severity)
+
 - **SoT deficiency**
 - **Implementation deficiency**
 - **Verification deficiency**
@@ -157,12 +178,17 @@ Root-cause class (independent of severity):
 
 Correct/report SoT deficiency before deriving implementation changes; get user decision when correction materially changes approved intent, scope, AC, RB, or design.
 
-Severity:
+#### Severity and Scope
+
 - **Blocker:** cannot safely accept/continue due to corruption, security failure, irreversible damage, major regression, or direction-determining unresolved decision.
 - **In-scope deficiency:** approved scope/AC unsatisfied but not Blocker.
 - **Follow-up:** useful improvement not required for current acceptance.
 
-- Follow-up does not enter scope without approval.
-- Re-review: previous Blockers/in-scope deficiencies first; identify new criteria and scope fit; separate new follow-ups; state acceptability within approved scope.
+#### Re-review
+
+- Previous Blockers/in-scope deficiencies first; identify new criteria and scope fit; separate new follow-ups; state acceptability within approved scope.
+
+#### Consumer Regression
+
 - Shared-governance consumer regression is black-box only when results follow from candidate governance + consumer's pre-existing protected local rules. Externally prescribed classifications/changes make it a guided diagnostic.
 - Consumer regression evaluates candidate governance; it neither adopts it nor authorizes consumer changes.
