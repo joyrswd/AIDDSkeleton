@@ -183,8 +183,6 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Normative Authority
 
-#### Normative Content
-
 - Normative content constrains future valid implementations and must remain usable without current `products/`.
 - Applicable normative requirements/design/testing together must support independent implementation with the same intended outcomes, adopted contracts/RBs, fixed algorithms/invariants, and equivalent acceptance intent.
 - Goal = semantic reconstruction, not source reproduction/operational restoration.
@@ -240,7 +238,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
   - without current realization/external source, retained references preserve enough provenance/observation context to re-investigate mappings without becoming normative.
 - Brownfield authority cleanup includes affected responsibility's entry points/summaries (indexes, scope/overview, active transition/migration design, traceability, testing indexes/catalogs, status, retained verification/reference links) for the same leakage/stale duplication; keep sweep scoped.
 
-#### Governance Migration
+### Governance Migration
 
 - Covers changed semantics + all materially affected existing cases. Unresolved cases remain explicit debt/unverified; do not claim migration complete while any remain.
 - Unrelated discovered issues do not expand migration scope and retain root severity/escalation.
@@ -255,9 +253,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Docs/implementation/tests disagreement → root Review Principles; update responsible SoT within authority.
 - Adopted facts from `references/` and settled workbench decisions must be reflected in responsible SoT; neither is adoption record.
 
-### Evidence
-
-#### State Documents
+### State Documents
 
 Only these non-hidden files directly under `plans/`:
 

@@ -38,10 +38,6 @@ Canonical product/environment boundary:
 - Keep config consistent with applicable environment/development/testing/release/migration/operation SoTs.
 - Service composition/networking/persistence/publication/deployment/rollback/recovery behavior change → update responsible project docs same change.
 
-### Procedures
-
-- Project docs define reproducible prerequisites/procedures for applicable setup, execution, analysis, testing, doc checks, deployment, migration, rollback, operation.
-
 ### Safety
 
 - Before destructive data delete/recreate/migration, confirm effect + recovery method under root authority rules.

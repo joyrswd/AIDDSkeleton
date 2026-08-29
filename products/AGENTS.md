@@ -36,28 +36,12 @@ products/
 
 ## Lifecycle
 
-### Entry
-
-- Formal implementation requires applicable requirements/AC, RBs/approach, verification methods, and no unresolved Blocker.
-- Missing/contradictory requirements/assumptions/design/testing policy → responsible SoT; do not fill only in code.
-
 ### Formalization
 
 - Adopting workbench/reference code/tools → create project-managed formal implementation with appropriate structure/quality/tests; do not depend on working/reference copy as production source.
 - Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `plans/AGENTS.md` VB lifecycle.
 
-### Completion
-
-- Code/config presence ≠ completion. Keep unimplemented/implemented/verified states distinct and satisfy project completion criteria.
-
 ## Local Governance
-
-### Current Realization
-
-- Before changes inspect relevant code/tests/config/dependencies/migrations and established RBs/dependency directions/patterns.
-- Existing structure = current-realization evidence, not normative design.
-- Do not preserve debt/provisional structure/known deficiency merely because it exists.
-- Classify newly discovered knowledge under root/`plans/` governance.
 
 ### Change Boundaries
 

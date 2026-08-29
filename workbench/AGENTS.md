@@ -103,7 +103,3 @@ Formal promotion = **classification + integration of semantics**, not file migra
 
 - Workbench material has no adoption/formalization authority by presence or decision-readiness; adoption requires applicable authority under root and `plans/` governance.
 - Workbench presence does not establish completion; verification claims follow `plans/AGENTS.md` for method/result/identity/conditions/scope + status/traceability updates.
-
-### Change Boundaries
-
-- Preserve unrelated work; no scope expansion without authorized need.
