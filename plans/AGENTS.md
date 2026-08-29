@@ -69,8 +69,8 @@ plans/apps/<app>/
   - responsibility-based subdirectory only when one stable system responsibility owns multiple independently changing docs;
   - never group merely by count, tidiness, requirements/design/testing type, tool, or framework.
 - Verification responsibility always exists for formal implementation; if no app testing detail doc, testing index names inherited/cross-cutting policy.
-- `requirements/`, `design/`, `testing/` are normative boundaries. Execution results/evidence do not belong there merely because verification produced them. Mixed docs: classify constraining statements first; keep normative verification intent in testing; active execution material follows VB lifecycle.
-- Testing index may link current VB for coverage; never make execution history a normative testing spec/catalog.
+- Content under `requirements/`, `design/`, and `testing/` follows Local Governance → Normative Authority and Sources of Truth.
+- Execution/evidence placement follows Verification Basis lifecycle. Testing indexes may link current VB for coverage but must not contain execution history.
 
 ### Navigation
 
@@ -183,7 +183,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ## Local Governance
 
-### Authority
+### Normative Authority
 
 #### Normative Content
 
@@ -222,6 +222,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Classify by responsibility, not technicality:
   - requirements: required outcomes, external conditions, compatibility obligations, AC;
   - design: adopted choice among otherwise valid implementation approaches.
+- Requirements/design/testing are normative categories; execution results/evidence do not become normative by being produced by or stored near verification specifications.
+- Mixed normative/execution content must be classified at statement/section level: keep normative verification intent in testing; active execution material follows Verification Basis lifecycle.
 - Do not reclassify just to normalize taxonomy. Move only when current placement materially obscures responsibility, duplicates harmfully, or wrongly constrains/frees future implementations. If ambiguous intent, preserve placement pending decision.
 
 #### Current-Realization Authority
@@ -247,14 +249,14 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 - Covers changed semantics + all materially affected existing cases. Unresolved cases remain explicit debt/unverified; do not claim migration complete while any remain.
 - Unrelated discovered issues do not expand migration scope and retain root severity/escalation.
-- Changing/removing/consolidating verification material must keep claims ≤ remaining applicable VB.
+- Verification-material migration follows Verification Basis rules.
 - When classification/routing/retention rules change, inspect affected execution/evidence records in all current locations + inbound links/index/status/traceability.
 - For each record decide: supports current claim and must remain, continuing non-normative reference value, active work, or retire.
 - Do not migrate solely because legacy placement differs from new default; do not promote solely because historical; do not create repository-wide execution archive.
 - Temporary legacy placement is allowed only to avoid losing current VB/breaking dependent links while reconciliation is unresolved; mark as deferred migration, keep remaining reconciliation discoverable, and do not claim full reconciliation.
 - Resolve safely to current model: native/external VB, `workbench/` active material, `references/` durable non-normative material, retire no-need material, `plans/` only current SoT semantics.
-- Execution/evidence mixed into requirements/design/testing: classify at statement/section level before relocation. Keep verification thresholds/observations/sufficiency in testing; active execution material → workbench; durable non-normative → references; reconcile inbound links.
-- Existing implementation is current-realization evidence, not automatic SoT authority; documentation silence also does not authorize opportunistic re-architecture.
+- Legacy mixed normative/execution material must be reconciled using Classification and Verification Basis rules, including inbound links.
+- Implementation-derived material follows Current-Realization Authority; documentation silence does not authorize opportunistic re-architecture.
 - Docs/implementation/tests disagreement → root Review Principles; update responsible SoT within authority.
 - Adopted facts from `references/` and settled workbench decisions must be reflected in responsible SoT; neither is adoption record.
 
@@ -332,7 +334,7 @@ Only these non-hidden files directly under `plans/`:
 - Add/rename/move/delete indexed docs: inspect inbound links, indexes, status, traceability, workbench, reference-retention needs; reconcile same change.
 - Preserve identifiers when splitting/moving; do not duplicate detail between overview/detail docs.
 
-### Verification
+### Governance Validation
 
 - Run project-defined documentation verification for doc changes.
 - Validate changed Markdown links, fixed files, index coverage, IDs, traceability with project checks when available.

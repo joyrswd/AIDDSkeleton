@@ -27,6 +27,10 @@ products/
 - Ownership follows responsibility/RB, not artifact category, target count, cross-app execution/observation, reuse, or shared infrastructure.
 - Same approved `<app>` name as `plans/apps/<app>/`; never literal `<app>` or invented temporary name.
 - Conventional `src/`, `tests/`, `scripts/`, `tools/`, `packages/` stay below owning app/system area.
+- Test placement follows verification ownership:
+  - app-owned guarantee → owning app;
+  - system-owned guarantee → `products/system/`;
+  - cross-app invocation/observation alone does not alter ownership.
 - Local `README.md` may explain implementation/entry point; link responsible project docs instead of duplicating requirements/design/testing/status/traceability.
 - Product/environment boundary for E2E, generation, migrations, linting, seeds, fixtures: [etc placement rules](../etc/AGENTS.md#structure-and-placement).
 
@@ -56,22 +60,19 @@ Before changes inspect relevant:
 
 Rules:
 - Existing structure = current-realization evidence, not normative design.
-- Preserve material established boundaries compatible with SoTs and outside approved change; do not preserve debt/provisional structure/known deficiency merely because it exists.
-- Do not replace established architecture/RB/dependency direction/state authority/compatibility pattern merely because an alternative also satisfies requirements. Material replacement requires adopted design or explicitly authorized design correction/change.
+- Do not preserve debt/provisional structure/known deficiency merely because it exists.
 - If intent of material structure is unclear and change affects compatibility/responsibility/security/persistence/state authority/material boundary, documentation silence ≠ redesign permission; resolve through SoT process.
 - Newly discovered knowledge classification follows root/`plans/`: required outcome → requirements; adopted future implementation constraint → design; transient realization/verification → `workbench/`; durable non-normative realization knowledge → `references/`.
 
-### Change Scope
+### Change Boundaries
 
 - Keep change inside approved RB; no direct app→app dependency without approved design change.
+- Preserve material established boundaries compatible with SoTs and outside approved change.
+- Do not replace established architecture/RB/dependency direction/state authority/compatibility pattern merely because an alternative also satisfies requirements. Material replacement requires adopted design or explicitly authorized design correction/change.
 - Observable behavior/public contracts/data structures/dependencies/migrations/RBs change → update responsible docs/status/traceability same change.
-- Test placement follows verification ownership:
-  - app-owned guarantee → owning app;
-  - system-owned guarantee → `products/system/`;
-  - cross-app invocation/observation alone does not alter ownership.
 - Before move/promotion/deletion inspect dependents, public contracts, migrations, tests, docs, status, traceability, current VB, reference-retention needs.
 
-### Verification
+### Implementation Verification
 
 - Run project-required + risk-proportional static analysis, generation consistency, migration, compatibility, security, performance, packaging checks.
 - Generated artifact/intermediate migration state ≠ implementation evidence.

@@ -16,7 +16,7 @@
 
 ### Reference Classes
 
-- Keep supplied originals distinct from project-managed references; never silently transform/overwrite/mix them.
+- Keep supplied originals distinct from project-managed references; never silently mix them.
 - Supplied unit: preserve supplier, applicable version/commit, receipt date, supplied structure/paths/names/content/README where practical.
 - Promoted project-managed unit: record origin, purpose, promotion/observation date, represented scope, target/source identity, and material freshness/revalidation/supersession conditions.
 - General supplied `docs/` collections/datasets → `references/`; never new top-level `docs/`/`data/`.
@@ -73,8 +73,9 @@ Before promoting workbench material:
 ### Use
 
 - Process/modify/compare/transform/investigate/verify supplied/reference material in `workbench/`; preserve originals in `references/`.
-- Before using a reference for implementation, acceptance, or current verified claim, verify relevant content, provenance, freshness, applicability, and VB sufficiency.
+- Before using a reference for implementation, acceptance, or current verified claim, perform Reference Validation and confirm any required VB sufficiency.
 
-### Verification
+### Reference Validation
 
-- Verify provenance, available integrity/version info, links, usage references, applicability conditions, and absence of prohibited sensitive content.
+- Verify provenance, available integrity/version info, freshness, applicability conditions, links, usage references, and absence of prohibited sensitive content.
+- When a reference is used as VB, verify its sufficiency for the asserted scope under `plans/AGENTS.md`.

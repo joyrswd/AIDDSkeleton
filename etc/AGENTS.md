@@ -49,7 +49,7 @@ Canonical product/environment boundary:
 
 - Before destructive data delete/recreate/migration, confirm effect + recovery method under root authority rules.
 
-### Verification
+### Configuration Verification
 
 - Prefer automated reproducible checks; when impractical, define method + result location.
 - Verify changed config proportional to impact: applicable syntax, expanded config, startup, migration, health, rollback, recovery.

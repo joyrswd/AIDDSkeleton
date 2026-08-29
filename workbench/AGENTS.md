@@ -97,20 +97,20 @@ Formal promotion = **classification + integration of semantics**, not file migra
 - Never delete workbench material while a current verified claim materially depends on it unless remaining/replacement VB is sufficient or the claim is downgraded.
 - Workbench VB is transitional only under the conditions defined in `plans/AGENTS.md` (active work, handoff/reconciliation, or bounded post-work transition).
 - Do not redefine bounded-transition/durable-VB rules here; follow `plans/AGENTS.md`.
-- After adoption, candidate artifacts must not look like active alternate SoT: delete, mark superseded/historical, promote durable non-normative value, or explicitly relate them to resulting SoT.
 
 ### Exit
 
+- After adoption, candidate artifacts must not look like active alternate SoT: delete, mark superseded/historical, promote durable non-normative value, or explicitly relate them to resulting SoT.
 - After unit purpose is served: delete; promote durable reference; retain only for unresolved work/handoff/reconciliation/valid transitional VB; or mark superseded.
 - Before delete/promotion inspect inbound references, unresolved work, traceability, current verified claims, continuing evidence/maintenance need.
 
 ## Local Governance
 
-### Authority
+### Adoption Authority
 
-- If decision-ready but adoption/formalization authority is missing, request the decision/authority; do not treat result as adopted.
+- Workbench material has no adoption/formalization authority by presence or decision-readiness; adoption requires applicable authority under root and `plans/` governance.
 - Workbench presence ≠ adoption/completion. Verification claims follow `plans/AGENTS.md` for method/result/identity/conditions/scope + status/traceability updates.
 
-### Change Scope
+### Change Boundaries
 
 - Preserve unrelated work; no scope expansion without authorized need.
