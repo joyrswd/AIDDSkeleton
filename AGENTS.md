@@ -172,6 +172,8 @@ Review against approved purpose, scope, exclusions, and observable AC. For disag
 
 #### Root-Cause Classification
 
+Root-cause class is independent of severity:
+
 - **SoT deficiency**
 - **Implementation deficiency**
 - **Verification deficiency**
