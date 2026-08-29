@@ -253,6 +253,10 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Docs/implementation/tests disagreement → root Review Principles; update responsible SoT within authority.
 - Adopted facts from `references/` and settled workbench decisions must be reflected in responsible SoT; neither is adoption record.
 
+### Procedures
+
+- Applicable project procedures define reproducible prerequisites and steps for setup, execution, analysis, testing, documentation checks, deployment, migration, rollback, and operation.
+
 ### State Documents
 
 Only these non-hidden files directly under `plans/`:
@@ -326,6 +330,6 @@ Only these non-hidden files directly under `plans/`:
 
 ### Governance Validation
 
-- Run project-defined documentation checks for changed Markdown links, fixed files, index coverage, IDs, and traceability when available.
+- Run all project-defined documentation verification for documentation changes when available; at minimum cover changed Markdown links, fixed files, index coverage, IDs, and traceability.
 - Verify lifecycle state matches exactly one Lifecycle row and project statements have approval/evidence.
 - Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, relationships must match responsible SoT. Repetition does not create alternate authority. Prefer automated comparison for intentionally repeated structured facts when practical; otherwise keep manual responsibility explicit.

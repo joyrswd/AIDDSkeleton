@@ -74,5 +74,5 @@
 
 ### Reference Validation
 
-- Verify provenance, available integrity/version info, freshness, applicability conditions, links, usage references, and absence of prohibited sensitive content.
+- Verify relevant claim-bearing content, provenance, available integrity/version info, freshness, applicability conditions, links, usage references, and absence of prohibited sensitive content.
 - When a reference is used as VB, verify its sufficiency for the asserted scope under `plans/AGENTS.md`.
