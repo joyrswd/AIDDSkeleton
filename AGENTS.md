@@ -161,7 +161,7 @@ Use only when a request has multiple material ambiguities.
 - Before completing material planning or creation work, perform one proportional challenge check for incorrect assumptions, contradictions, missed impact/root causes, scope drift, and verification gaps; correct findings within authorized scope.
 - Repeat the full challenge only when new evidence, failed verification, material correction, or contradiction warrants it.
 
-### Review
+### Review Principles
 
 Review against approved purpose, scope, exclusions, and observable AC. For disagreements:
 
