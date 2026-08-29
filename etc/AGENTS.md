@@ -2,9 +2,12 @@
 
 ## General Provisions
 
-### Scope and Responsibility
+### Scope
 
 - Applies to `etc/` and descendants; inherits root + `plans/AGENTS.md`.
+
+### Responsibility
+
 - Owns project-managed configuration that controls execution environments from outside an application: container images/composition, external-service config, safe env examples, bootstrap, deployment, rollback, recovery, monitoring, CI environment wiring.
 
 ## Structure and Placement
@@ -30,16 +33,24 @@ Canonical product/environment boundary:
 - Within `products/`, ownership still follows RB: app-owned → `products/apps/<app>/`; system-owned → `products/system/`.
 - Artifact type, target count, cross-app execution/observation, reuse, or shared infrastructure do not determine product ownership.
 
-## Environment Changes
+## Local Governance
+
+### Change Authority
 
 - Uninitialized/unapproved responsibility: do not invent services, commands, topology, publication boundaries, persistence, recovery methods, operational guarantees.
 - Keep config consistent with applicable environment/development/testing/release/migration/operation SoTs.
-- Project docs define reproducible prerequisites/procedures for applicable setup, execution, analysis, testing, doc checks, deployment, migration, rollback, operation.
-- Prefer automated reproducible checks; when impractical, define method + result location.
 - Service composition/networking/persistence/publication/deployment/rollback/recovery behavior change → update responsible project docs same change.
+
+### Procedures
+
+- Project docs define reproducible prerequisites/procedures for applicable setup, execution, analysis, testing, doc checks, deployment, migration, rollback, operation.
+
+### Safety
+
 - Before destructive data delete/recreate/migration, confirm effect + recovery method under root authority rules.
 
-## Verification
+### Verification
 
+- Prefer automated reproducible checks; when impractical, define method + result location.
 - Verify changed config proportional to impact: applicable syntax, expanded config, startup, migration, health, rollback, recovery.
 - Record method/result/verified scope/material unverified matters/risk per `plans/AGENTS.md`; unavailable check ≠ success.

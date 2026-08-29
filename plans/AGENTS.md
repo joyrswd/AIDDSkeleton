@@ -2,15 +2,18 @@
 
 ## General Provisions
 
-### Scope and Responsibility
+### Scope
 
 - Applies to `plans/` and descendants; inherits root governance.
+
+### Responsibility
+
 - `plans/` owns project-specific adopted definition, lifecycle/status/traceability, procedures, identifiers, commands, constraints, and VB rules.
 - Other repository-area ownership is defined by root `AGENTS.md`.
 
 ## Structure and Placement
 
-### Required Structure and Indexes
+### Required Structure
 
 Clone-ready:
 ```text
@@ -50,23 +53,27 @@ plans/apps/<app>/
 | `design/` | Adopted implementation structure/approach/contracts/algorithms/invariants/constraints |
 | `testing/` | Verification strategy/specifications: what must be shown and sufficient evidence |
 
-#### General
-
 - `plans/system/` and `plans/apps/` are required classifications. Remove `.gitkeep` when tracked content makes it unnecessary.
 - No `plans/README.md`; use indexes for navigation, `AGENTS.md` for instructions.
 - Create `plans/apps/<app>/` only after app name + responsibility approval; never literal `<app>` or invented temporary name.
 - Same approved `<app>` under `plans/apps/` and `products/apps/`.
-- One purpose per project doc; split boundaries by question, reader, update trigger, lifecycle.
 - Keep fixed system entry docs directly under `plans/system/`.
+- Required app category dirs/indexes do not require detail docs. If none: index states explicit absence/inherited or cross-cutting source.
+- Do not create detail docs just to fill a category. Design may explicitly state no additional normative implementation constraints.
+
+### Placement
+
+- One purpose per project doc; split boundaries by question, reader, update trigger, lifecycle.
 - Other system docs:
   - flat while responsibility is small;
   - responsibility-based subdirectory only when one stable system responsibility owns multiple independently changing docs;
   - never group merely by count, tidiness, requirements/design/testing type, tool, or framework.
-- Required app category dirs/indexes do not require detail docs. If none: index states explicit absence/inherited or cross-cutting source.
-- Do not create detail docs just to fill a category. Design may explicitly state no additional normative implementation constraints.
 - Verification responsibility always exists for formal implementation; if no app testing detail doc, testing index names inherited/cross-cutting policy.
 - `requirements/`, `design/`, `testing/` are normative boundaries. Execution results/evidence do not belong there merely because verification produced them. Mixed docs: classify constraining statements first; keep normative verification intent in testing; active execution material follows VB lifecycle.
 - Testing index may link current VB for coverage; never make execution history a normative testing spec/catalog.
+
+### Navigation
+
 - Indexes = navigation + concise absence/inheritance/coverage context, not duplicated detailed requirements/design/testing/procedures/results.
 - System navigation:
   - `system_index.md` is primary;
@@ -76,8 +83,9 @@ plans/apps/<app>/
   - local index only when responsibility needs navigation;
   - do not duplicate the same detailed list at multiple levels.
 - App navigation: `<app>_index.md` → three category indexes + app traceability; category index → its docs.
+- Initialized read order: `plans/CURRENT_STATUS.md` → `plans/system/system_index.md` → `plans/system/documentation_language.md` → `plans/GLOSSARY.md` → `plans/TRACEABILITY.md` → target indexes.
 
-#### Responsibility Placement
+### Responsibility Placement
 
 Determine ownership from **purpose + change authority + invocation/governing decision + success/failure (or sufficiency) judgment**, not target/caller/tool/file name/operational vocabulary.
 
@@ -131,7 +139,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ## Lifecycle
 
-### Initialization and Project Lifecycle
+### Initialization
 
 | State | `plans/CURRENT_STATUS.md`, `plans/GLOSSARY.md`, `plans/TRACEABILITY.md` | `plans/system/system_index.md`, `plans/system/documentation_language.md` | Markers |
 |---|---|---|---|
@@ -154,17 +162,30 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
   - lifecycle identifiers/states/transitions/end boundary;
   - implementation entry/completion criteria, standard verification, VB retention expectations;
   - applicability + reasons for security, privacy, accessibility, performance, availability, monitoring, retention, recovery, licensing.
+
+### Lifecycle Boundary
+
 - Open questions require a decision point + blocking effect.
 - If release/operation/retirement is outside lifecycle: record end boundary + handoff. If inside: define transitions/completion + feedback route.
+
+### Implementation Entry
+
 - Implementation entry criteria: applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, no unresolved Blocker.
+
+### Completion
+
 - Completion criteria: implementation/configuration, required verification, requirements/design/tests/implementation consistency, status + traceability updates.
+
+### Reset
+
 - Do not delete either fixed system document independently.
 - Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty three cross-cutting files, restore both markers, verify whole state.
-- Initialized read order: `plans/CURRENT_STATUS.md` → `plans/system/system_index.md` → `plans/system/documentation_language.md` → `plans/GLOSSARY.md` → `plans/TRACEABILITY.md` → target indexes.
 
-## Authority and Sources of Truth
+## Local Governance
 
-### Normative Content and Semantic Reconstruction
+### Authority
+
+#### Normative Content
 
 - Requirements/design/testing are normative and must remain usable without current `products/`.
 - Together they must support independent implementation with the same intended outcomes, adopted contracts/RBs, fixed algorithms/invariants, and equivalent acceptance intent.
@@ -185,9 +206,9 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Semantic exhaustive domains/matrices/transitions/enumerations remain normative even if they imply cardinality.
 - Verification may be automated, manual, visual, live-system, performance, security, operational, or other evidence appropriate to AC.
 
-### SoT Management
+### Sources of Truth
 
-#### Core
+#### Ownership
 
 - One responsible document per project fact; do not duplicate details.
 - Responsible `plans/` docs are adopted SoTs for their responsibility. No parallel `current`/`target` variants or equivalent views.
@@ -196,7 +217,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Distinguish assumed/decided/open. Proposal/unapproved assumption ≠ settled fact.
 - AC/completion criteria observable; split requirements that cannot be implemented, verified, and completed together.
 
-#### Requirements vs Design
+#### Classification
 
 - Classify by responsibility, not technicality:
   - requirements: required outcomes, external conditions, compatibility obligations, AC;
@@ -213,7 +234,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Concrete provenance/intent doubt → root Review Principles; preserve current authority while unresolved. Do not silently delete/generalize/reconfirm.
 - Do not research history routinely; investigate when specific evidence creates material doubt (implementation-first sync, conflicting adoption record, unexplained realization-specific precision). Later explicit adoption can validly make CR detail normative.
 
-#### Brownfield / Current Design
+#### Brownfield Reconciliation
 
 - Active normative design describes adopted end state, not stale transition steps. After completed migration/refactor/rename/rollout, remove obsolete stages/names/temp compatibility/superseded targets from active design; retain useful history non-normatively.
 - Mixed normative + CR/maintenance content: prevent authority leakage. Separate when readers/update triggers/authority differ and usability survives; otherwise mark sections/authority explicitly. Do not duplicate facts just to separate.
@@ -237,9 +258,9 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Docs/implementation/tests disagreement → root Review Principles; update responsible SoT within authority.
 - Adopted facts from `references/` and settled workbench decisions must be reflected in responsible SoT; neither is adoption record.
 
-## Evidence and Verification
+### Evidence
 
-### Status and Traceability
+#### Project State Documents
 
 Only these non-hidden files directly under `plans/`:
 
@@ -250,21 +271,28 @@ Only these non-hidden files directly under `plans/`:
 | `GLOSSARY.md` | shared terms/abbreviations/state expressions | shared meaning change |
 | `TRACEABILITY.md` | system/cross-app relationships, concise coverage, app traceability index | relationship/link/coverage change |
 
-#### Status and Traceability Rules
-
 - Before initialization, three project-specific files remain zero bytes; after, approved language.
+- Update status/traceability when lifecycle/verification state, material limitations, priority work, relationships, links, or summarized completion basis changes.
+- Conversation report ≠ required status/traceability/SoT update.
+
+#### Status
+
 - `CURRENT_STATUS.md`: distinguish unimplemented/implemented/verified; no speculation. Keep capability, material limits/blockers, next work, links to traceability/VB. Remove/relocate stale execution narratives, run/version IDs, counts, output/history.
+
+#### Glossary
+
 - `GLOSSARY.md`: only project-wide shared meanings.
+
+#### Traceability
+
 - Root `TRACEABILITY.md`: system/cross-app relationships, app links, concise coverage, unresolved/unverified summary.
 - App detail → `<app>_traceability.md`, linked from root traceability + app index.
 - Trace independently approved requirement/AC → responsible design/implementation/VB. Prefer responsibility/module/directory granularity; file/class/function/line only when needed.
 - Aggregate trace entries only when design responsibility, implementation responsibility, VB, and coverage materially match and each item remains independently judgeable.
 - Traceability may show concise unimplemented/implemented/partially verified/verified state; no detailed run history, exact counts/hashes/output/long narratives.
-- Update status/traceability when lifecycle/verification state, material limitations, priority work, relationships, links, or summarized completion basis changes.
 - No placeholder IDs or unsettled relationships presented as settled.
-- Conversation report ≠ required status/traceability/SoT update.
 
-### Verification Basis (VB)
+### Verification Basis
 
 - Execution-specific results/evidence are working material by default; verification does not require a dedicated repository evidence file.
 - Project-managed active evidence → `workbench/`.
@@ -294,18 +322,19 @@ Only these non-hidden files directly under `plans/`:
 - At exit event: retire/replace/re-evaluate VB or downgrade claim. Expired bounded-transition rationale cannot alone support verified state.
 - Do not dispose of current effective VB until no current verified claim depends on it, or replacement/downgrade is complete.
 
-## Structural Maintenance and Verification
+### Structural Maintenance
 
-### Verification and Structural Changes
-
-- Run project-defined documentation verification for doc changes.
-- Validate changed Markdown links, fixed files, index coverage, IDs, traceability with project checks when available.
 - Governance change altering allowed doc location/hierarchy must update every affected validator/generator/template/example/check in same migration; old-structure validation is not evidence for new structure.
 - Index checks must support direct-link + nested-reachability + protected-instruction exclusions; do not assume flat system docs.
 - Requirement/design/testing/traceability discovery must follow supported indexed hierarchy, including nested system docs; do not assume fixed/flat source set.
-- Verify lifecycle state matches exactly one Lifecycle row and project statements have approval/evidence.
-- Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, relationships must match responsible SoT. Repetition does not create alternate authority. Prefer automated comparison for intentionally repeated structured facts when practical; otherwise keep manual responsibility explicit.
 - Do not add a document category/directory when current model can represent the responsibility. Responsibility grouping under `plans/system/` is not a new classification when rules above are met.
 - Before new `plans/` directory: explain responsibility + effect on classifications and obtain user approval; approved init/change summary suffices.
 - Add/rename/move/delete indexed docs: inspect inbound links, indexes, status, traceability, workbench, reference-retention needs; reconcile same change.
 - Preserve identifiers when splitting/moving; do not duplicate detail between overview/detail docs.
+
+### Verification
+
+- Run project-defined documentation verification for doc changes.
+- Validate changed Markdown links, fixed files, index coverage, IDs, traceability with project checks when available.
+- Verify lifecycle state matches exactly one Lifecycle row and project statements have approval/evidence.
+- Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, relationships must match responsible SoT. Repetition does not create alternate authority. Prefer automated comparison for intentionally repeated structured facts when practical; otherwise keep manual responsibility explicit.
