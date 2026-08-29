@@ -53,7 +53,7 @@
 ### Instruction Hierarchy and Protection
 
 - Before changing a target, read: root `AGENTS.md` → every descendant `AGENTS.md` through the target → `plans/AGENTS.md` → applicable project SoTs.
-- Root owns repository-wide governance. Descendant `AGENTS.md` files inherit it and may add subtree rules; they must not redefine, weaken, contradict, or override inherited boundaries.
+- Descendant `AGENTS.md` files inherit root governance and may add subtree rules; they must not redefine, weaken, contradict, or override inherited boundaries.
 - Add descendant `AGENTS.md` only for genuine subtree-specific instructions.
 - Existing `AGENTS.md` files are protected governance. Ordinary code/docs/config/structure authorization does not authorize changing them.
 - Changing/moving/renaming/replacing/deleting protected instructions requires an explicit user request identifying the governance change and affected file/scope.
@@ -68,7 +68,6 @@
 - Start read-only. Before project-specific changes, present one initialization summary: verified facts, user decisions, proposed assumptions, open questions, blockers, files/directories to change, target lifecycle state, and work left unstarted.
 - Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
 - If immediate initialization from supplied information + reasonable assumptions is explicitly requested, advance discussion may be omitted; report every adopted assumption at completion.
-- After approval, ask again only when crossing Permission/Scope or Safety boundaries, changing protected `AGENTS.md`, or changing the top-level model.
 - Detailed lifecycle, initialization outputs, transitions, entry/completion criteria, and verification rules: `plans/AGENTS.md`.
 
 ## Action Boundaries
@@ -170,9 +169,7 @@ Review against approved purpose, scope, exclusions, and observable AC. For disag
 2. Check implementation against validated SoTs.
 3. Check verification method/evidence against required conformity.
 
-#### Root-Cause Classification
-
-Root-cause class is independent of severity:
+#### Root-Cause Classification (Independent of Severity)
 
 - **SoT deficiency**
 - **Implementation deficiency**
@@ -186,7 +183,6 @@ Correct/report SoT deficiency before deriving implementation changes; get user d
 - **Blocker:** cannot safely accept/continue due to corruption, security failure, irreversible damage, major regression, or direction-determining unresolved decision.
 - **In-scope deficiency:** approved scope/AC unsatisfied but not Blocker.
 - **Follow-up:** useful improvement not required for current acceptance.
-- Follow-up does not enter scope without approval.
 
 #### Re-review
 
