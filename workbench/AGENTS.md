@@ -9,7 +9,6 @@
 ### Responsibility
 
 - Owns non-authoritative working material: investigations, comparisons, drafts, preparation, prototypes/spikes, transformation outputs, implementation plans, handoffs, and project-managed verification material.
-- Not SoT, formal implementation, managed environment config, or durable reference storage.
 - Conversational clarification need not be retained; keep only when continuing work/handoff value exists.
 
 ## Structure and Placement
@@ -47,7 +46,6 @@
 
 - Verification ≠ mandatory evidence file. Use native/external output or proportional workbench retention as needed for the claim/VB lifecycle.
 - Retained execution-specific verification material records proportionally: actual target/state, environment/conditions, method/commands when material, result, directly verified scope, material unverified scope.
-- Stable target identity and evidence-scope rules are owned by `plans/AGENTS.md`; do not restate weaker alternatives here.
 
 ### Handoff
 
@@ -102,4 +100,3 @@ Formal promotion = **classification + integration of semantics**, not file migra
 ### Adoption Authority
 
 - Workbench material has no adoption/formalization authority by presence or decision-readiness; adoption requires applicable authority under root and `plans/` governance.
-- Workbench presence does not establish completion; verification claims follow `plans/AGENTS.md` for method/result/identity/conditions/scope + status/traceability updates.

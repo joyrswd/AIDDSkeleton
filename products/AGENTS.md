@@ -46,7 +46,6 @@ products/
 ### Change Boundaries
 
 - Keep change inside approved RB; no direct app→app dependency without approved design change.
-- Preserve material established boundaries compatible with SoTs and outside approved change.
 - Do not replace established architecture/RB/dependency direction/state authority/compatibility pattern merely because an alternative also satisfies requirements. Material replacement requires adopted design or explicitly authorized design correction/change.
 - Documentation silence does not authorize redesign when change affects compatibility/responsibility/security/persistence/state authority/material boundary; resolve through the SoT process.
 - Observable behavior/public contracts/data structures/dependencies/migrations/RBs change → update responsible docs/status/traceability same change.
