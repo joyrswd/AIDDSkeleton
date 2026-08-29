@@ -50,7 +50,7 @@ plans/apps/<app>/
 | category indexes | Category docs, questions answered, order, absence/inheritance |
 | `requirements/` | Required outcomes/constraints |
 | `design/` | Adopted implementation structure/approach/contracts/algorithms/invariants/constraints |
-| `testing/` | Verification strategy/specifications: what must be shown and sufficient evidence |
+| `testing/` | Verification strategy/specifications: what must be shown and what evidence is sufficient |
 
 - `plans/system/` and `plans/apps/` are required classifications. Remove `.gitkeep` when tracked content makes it unnecessary.
 - No `plans/README.md`; use indexes for navigation, `AGENTS.md` for instructions.
