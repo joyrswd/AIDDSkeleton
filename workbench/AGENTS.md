@@ -67,8 +67,6 @@ Decision-ready ≠ implementation-entry complete; details that can be decided co
 - When decision-ready and adoption/formalization is not already authorized: surface candidate + material basis + remaining open questions using root Decision Requests.
 - Do not keep elaborating solely to avoid the adoption decision.
 - A coherent decision-ready subset may be adopted independently.
-- Integrate only adopted semantics into responsible `plans/` SoTs.
-- After integration, do not keep the same semantics as active candidate content merely because other questions remain.
 - Unit-level exit condition does not delay independent adoption of a decision-ready subset.
 
 ### Promotion
@@ -84,9 +82,8 @@ Formal promotion = **classification + integration of semantics**, not file migra
 | durable non-normative finding/mapping/summary/artifact | `references/` only when continuing value exists |
 
 - Workbench filenames/splits/directories do not prescribe formal SoT structure.
+- Integrate only adopted semantics into the responsible destination.
 - If an adopted fact is within authorized formalization scope, update responsible SoT; do not leave it only in workbench.
-- After adoption, reduce active unit to unresolved questions/alternatives/prototypes/feasibility or verification evidence/decision or handoff context/other remaining workbench responsibility.
-- Residual work depending on adopted semantics references SoT instead of retaining duplicate candidate spec.
 - Formal open question/decision point/blocking effect goes in `plans/` when required, without copying surrounding investigation.
 - Complete normative detail in `plans/` when authorized. Return to workbench only when investigation/comparison/prototyping/feasibility/verification/handoff work is still needed.
 - Processing supplied material: preserve original in `references/`; copy only needed material into workbench.
@@ -100,7 +97,9 @@ Formal promotion = **classification + integration of semantics**, not file migra
 
 ### Exit
 
-- After adoption, candidate artifacts must not look like active alternate SoT: delete, mark superseded/historical, promote durable non-normative value, or explicitly relate them to resulting SoT.
+- After adoption, reduce active unit to unresolved questions/alternatives/prototypes/feasibility, verification evidence, decision/handoff context, or other remaining workbench responsibility.
+- Residual work depending on adopted semantics references the responsible SoT instead of retaining duplicate candidate specification.
+- Candidate artifacts must not look like active alternate SoT: delete, mark superseded/historical, promote durable non-normative value, or explicitly relate them to resulting SoT.
 - After unit purpose is served: delete; promote durable reference; retain only for unresolved work/handoff/reconciliation/valid transitional VB; or mark superseded.
 - Before delete/promotion inspect inbound references, unresolved work, traceability, current verified claims, continuing evidence/maintenance need.
 

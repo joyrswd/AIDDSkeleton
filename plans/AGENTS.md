@@ -133,7 +133,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Review split at ≥150 lines, ≥12 independently referenced identifiers, or ≥3 independently changing functional areas.
 - As a rule split >250 lines or >20 independently referenced identifiers; if retained, index records reason + reconsideration condition.
 - Split by coherent responsibility/question/reader/update trigger/lifecycle, not line count alone.
-- Stable system responsibility split into multiple independently changing docs may justify responsibility subdirectory; split/count alone does not.
+- Any subdirectory introduced by splitting must satisfy Placement; splitting or document count alone does not justify one.
 - Keep `system_index.md`, `<app>_index.md`, category indexes, root `TRACEABILITY.md` as single entry points.
 - If app traceability exceeds thresholds, keep `<app>_traceability.md` entry point and move coherent detail into indexed app docs.
 
@@ -187,8 +187,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 #### Normative Content
 
-- Requirements/design/testing are normative and must remain usable without current `products/`.
-- Together they must support independent implementation with the same intended outcomes, adopted contracts/RBs, fixed algorithms/invariants, and equivalent acceptance intent.
+- Normative content constrains future valid implementations and must remain usable without current `products/`.
+- Applicable normative requirements/design/testing together must support independent implementation with the same intended outcomes, adopted contracts/RBs, fixed algorithms/invariants, and equivalent acceptance intent.
 - Goal = semantic reconstruction, not source reproduction/operational restoration.
 - Incidental implementation details are not required unless independently adopted constraints/contracts: source tree, private file/class/function/state names, exact lock, migration history, fixtures/scripts/artifacts, etc.
 - Before removing/abstracting/relocating/changing authority of normative content:
@@ -197,10 +197,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Treat loss of adopted timezone/unit/protocol-version/transaction-isolation/identity/cardinality/ordering/security/compatibility or similar invariant as normative change, not cleanup.
 - Moving between normative/non-normative locations changes authority; verify future valid implementations are not unintentionally broadened/narrowed.
 - Design may be concrete when intentionally constraining future valid implementations (schema/contracts/protocol paths/transaction rules/security/RBs/algorithms/runtime/stable IDs).
-- Admit current implementation detail into design only when the project intends that future constraint. Indicators: changing it alters an adopted contract, RB, dependency direction, security/correctness/operational property, chosen algorithm, or permits a reimplementation the project would reject.
-- Source path/private helper/class/function/state-field/DOM ID/current directory layout/implementation status ≠ design unless independently adopted.
 - State design constraints normatively; do not delegate design authority to current source/config/test/generated artifact. Map current realization via traceability or non-normative workbench/reference material.
-- Durable current-realization knowledge may remain non-normative in `references/`; record scope/freshness and do not let it constrain future implementations without adoption.
 - Testing specs define required verification, method/observation, and sufficient evidence.
 - Current test implementation details (private names/paths/migration filenames/fixture paths/test layout/current case/run counts/artifacts) are non-normative unless independently adopted.
 - Semantic exhaustive domains/matrices/transitions/enumerations remain normative even if they imply cardinality.
@@ -231,7 +228,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Discovery in implementation/tests ≠ normative adoption.
 - First classify CR fact vs required outcome/constraint vs adopted implementation constraint.
 - Promote only independently adopted required outcomes → requirements; adopted implementation constraints → design. Transient CR → `workbench/`; durable non-normative CR → `references/`.
-- New realization-specific precision narrowing future valid implementations requires adoption evidence independent of mere implementation/test presence.
+- Source paths/private helpers/classes/functions/state fields/DOM IDs/current directory layout/implementation status remain current-realization detail unless independently adopted.
+- Adopting implementation-derived detail into design requires evidence independent of mere implementation/test presence that the project intends the detail as a future constraint. Indicators include effect on an adopted contract, RB, dependency direction, security/correctness/operational property, chosen algorithm, or whether a reimplementation would otherwise be rejected.
 - Existing normative statement remains effective until explicitly changed/retired, but placement alone does not prove intentional adoption of implementation-derived detail.
 - Concrete provenance/intent doubt → root Review Principles; preserve current authority while unresolved. Do not silently delete/generalize/reconfirm.
 - Do not research history routinely; investigate when specific evidence creates material doubt (implementation-first sync, conflicting adoption record, unexplained realization-specific precision). Later explicit adoption can validly make CR detail normative.

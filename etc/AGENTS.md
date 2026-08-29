@@ -31,7 +31,6 @@ Canonical product/environment boundary:
 | external-service fixture | fixture implementation in verification-owning product area | emulator deployment/wiring/endpoint/consumer config |
 
 - Within `products/`, ownership still follows RB: app-owned → `products/apps/<app>/`; system-owned → `products/system/`.
-- Artifact type, target count, cross-app execution/observation, reuse, or shared infrastructure do not determine product ownership.
 
 ## Local Governance
 

@@ -37,14 +37,15 @@
 ### Entry
 
 Before adding supplied material:
-- confirm purpose, provenance/version, terms/confidentiality/storage/redistribution rights, relation to existing references/decisions.
+- confirm purpose and relation to existing references/decisions;
+- satisfy Provenance and Storage requirements.
 
 ### Promotion
 
 Before promoting workbench material:
-- confirm continuing value and understandable provenance/scope/applicability/reconsideration or revalidation conditions.
+- confirm continuing non-normative value;
+- satisfy Reference Classes and Provenance requirements for promoted project-managed material.
 
-- Promote project-managed workbench material only for continuing non-normative value.
 - Do not promote every run/output/log/screenshot/report. Prefer concise durable summary/stable mapping when raw transient history adds no value.
 
 ### Supersession
