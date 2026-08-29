@@ -9,7 +9,7 @@
 - Not SoT, formal implementation, managed environment config, or durable reference storage.
 - Conversational clarification need not be retained; keep only when continuing work/handoff value exists.
 
-## Structure and Entry
+## Structure and Placement
 
 ### Workbench Units
 
@@ -24,7 +24,7 @@
 - Do not use workbench as permanent substitute for `plans/`, `products/`, `etc/`, `references/`.
 - Do not track disposable cache/dependency/log/generated output without continuing working/evidential value.
 
-## Working Lifecycle
+## Lifecycle
 
 ### Investigation, Verification, Prototype, Handoff
 

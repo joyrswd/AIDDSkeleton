@@ -15,7 +15,7 @@
 - Adopted requirements/design/testing/procedures/decisions → responsible `plans/` SoT; reference is supporting input, not adoption record.
 - Adopted source/code → project-managed `products/`; adopted environment config → `etc/`.
 
-## Structure and Provenance
+## Structure and Placement
 
 ### Reference Classes
 
@@ -32,14 +32,7 @@
 - Record applicable terms of use, confidentiality, redistribution, licensing, privacy, retention.
 - Never add disposable generated data/cache/build output/dependencies, credentials, personal/confidential content, or material without confirmed storage/redistribution rights.
 
-## Use and Lifecycle
-
-### Use and Promotion
-
-- Process/modify/compare/transform/investigate/verify supplied/reference material in `workbench/`; preserve originals in `references/`.
-- Promote project-managed workbench material only for continuing non-normative value.
-- Do not promote every run/output/log/screenshot/report. Prefer concise durable summary/stable mapping when raw transient history adds no value.
-- Before using a reference for implementation, acceptance, or current verified claim, verify relevant content, provenance, freshness, applicability, and VB sufficiency.
+## Lifecycle
 
 ### Change, Supersession, and Retention
 
@@ -56,6 +49,13 @@ Changes:
 - Keep materially different supplied versions distinguishable; inspect effects on decisions, implementation, verification, references.
 - Before move/delete inspect SoTs, workbench, implementation, active work, provenance, licensing, usage links, and continuing evidential/maintenance needs.
 - Never remove the only adequate VB for a current verified claim without replacement or claim downgrade per `plans/AGENTS.md`.
+
+## Use and Promotion
+
+- Process/modify/compare/transform/investigate/verify supplied/reference material in `workbench/`; preserve originals in `references/`.
+- Promote project-managed workbench material only for continuing non-normative value.
+- Do not promote every run/output/log/screenshot/report. Prefer concise durable summary/stable mapping when raw transient history adds no value.
+- Before using a reference for implementation, acceptance, or current verified claim, verify relevant content, provenance, freshness, applicability, and VB sufficiency.
 
 ## Verification
 

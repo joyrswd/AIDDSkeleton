@@ -8,39 +8,6 @@
 - `plans/` owns project-specific adopted definition, lifecycle/status/traceability, procedures, identifiers, commands, constraints, and VB rules.
 - Other repository-area ownership is defined by root `AGENTS.md`.
 
-## Lifecycle
-
-### Initialization and Project Lifecycle
-
-| State | `plans/CURRENT_STATUS.md`, `plans/GLOSSARY.md`, `plans/TRACEABILITY.md` | `plans/system/system_index.md`, `plans/system/documentation_language.md` | Markers |
-|---|---|---|---|
-| Uninitialized | present, zero bytes | absent | `plans/system/.gitkeep`, `plans/apps/.gitkeep` present |
-| Initialized | present, approved-language content | both present | `plans/system/.gitkeep` absent; `plans/apps/.gitkeep` only while no app docs exist |
-| Inconsistent | any other combination | any other combination | reconcile before formal work |
-
-- Fixed skeleton files/markers alone ≠ project facts or initialization.
-- Do not infer project facts from uninitialized/inconsistent state.
-- Initialization content must come from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
-- Initialize atomically:
-  - create `plans/system/documentation_language.md` and `plans/system/system_index.md`;
-  - populate the three cross-cutting files in approved language;
-  - remove `plans/system/.gitkeep`.
-- Define at least:
-  - purpose, users, scope, exclusions;
-  - system/app RBs;
-  - requirements/design/testing SoTs;
-  - observable AC + open questions;
-  - lifecycle identifiers/states/transitions/end boundary;
-  - implementation entry/completion criteria, standard verification, VB retention expectations;
-  - applicability + reasons for security, privacy, accessibility, performance, availability, monitoring, retention, recovery, licensing.
-- Open questions require a decision point + blocking effect.
-- If release/operation/retirement is outside lifecycle: record end boundary + handoff. If inside: define transitions/completion + feedback route.
-- Implementation entry criteria: applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, no unresolved Blocker.
-- Completion criteria: implementation/configuration, required verification, requirements/design/tests/implementation consistency, status + traceability updates.
-- Do not delete either fixed system document independently.
-- Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty three cross-cutting files, restore both markers, verify whole state.
-- Initialized read order: `plans/CURRENT_STATUS.md` → `plans/system/system_index.md` → `plans/system/documentation_language.md` → `plans/GLOSSARY.md` → `plans/TRACEABILITY.md` → target indexes.
-
 ## Structure and Placement
 
 ### Required Structure and Indexes
@@ -161,6 +128,39 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Stable system responsibility split into multiple independently changing docs may justify responsibility subdirectory; split/count alone does not.
 - Keep `system_index.md`, `<app>_index.md`, category indexes, root `TRACEABILITY.md` as single entry points.
 - If app traceability exceeds thresholds, keep `<app>_traceability.md` entry point and move coherent detail into indexed app docs.
+
+## Lifecycle
+
+### Initialization and Project Lifecycle
+
+| State | `plans/CURRENT_STATUS.md`, `plans/GLOSSARY.md`, `plans/TRACEABILITY.md` | `plans/system/system_index.md`, `plans/system/documentation_language.md` | Markers |
+|---|---|---|---|
+| Uninitialized | present, zero bytes | absent | `plans/system/.gitkeep`, `plans/apps/.gitkeep` present |
+| Initialized | present, approved-language content | both present | `plans/system/.gitkeep` absent; `plans/apps/.gitkeep` only while no app docs exist |
+| Inconsistent | any other combination | any other combination | reconcile before formal work |
+
+- Fixed skeleton files/markers alone ≠ project facts or initialization.
+- Do not infer project facts from uninitialized/inconsistent state.
+- Initialization content must come from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
+- Initialize atomically:
+  - create `plans/system/documentation_language.md` and `plans/system/system_index.md`;
+  - populate the three cross-cutting files in approved language;
+  - remove `plans/system/.gitkeep`.
+- Define at least:
+  - purpose, users, scope, exclusions;
+  - system/app RBs;
+  - requirements/design/testing SoTs;
+  - observable AC + open questions;
+  - lifecycle identifiers/states/transitions/end boundary;
+  - implementation entry/completion criteria, standard verification, VB retention expectations;
+  - applicability + reasons for security, privacy, accessibility, performance, availability, monitoring, retention, recovery, licensing.
+- Open questions require a decision point + blocking effect.
+- If release/operation/retirement is outside lifecycle: record end boundary + handoff. If inside: define transitions/completion + feedback route.
+- Implementation entry criteria: applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, no unresolved Blocker.
+- Completion criteria: implementation/configuration, required verification, requirements/design/tests/implementation consistency, status + traceability updates.
+- Do not delete either fixed system document independently.
+- Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty three cross-cutting files, restore both markers, verify whole state.
+- Initialized read order: `plans/CURRENT_STATUS.md` → `plans/system/system_index.md` → `plans/system/documentation_language.md` → `plans/GLOSSARY.md` → `plans/TRACEABILITY.md` → target indexes.
 
 ## Authority and Sources of Truth
 
