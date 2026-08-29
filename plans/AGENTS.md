@@ -1,12 +1,16 @@
 # AIDD Plans and Sources of Truth Instructions
 
-## Scope
+## General Provisions
+
+### Scope and Responsibility
 
 - Applies to `plans/` and descendants; inherits root governance.
 - `plans/` owns project-specific adopted definition, lifecycle/status/traceability, procedures, identifiers, commands, constraints, and VB rules.
 - Other repository-area ownership is defined by root `AGENTS.md`.
 
-## Lifecycle and Initialization
+## Lifecycle
+
+### Initialization and Project Lifecycle
 
 | State | `plans/CURRENT_STATUS.md`, `plans/GLOSSARY.md`, `plans/TRACEABILITY.md` | `plans/system/system_index.md`, `plans/system/documentation_language.md` | Markers |
 |---|---|---|---|
@@ -37,7 +41,9 @@
 - Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty three cross-cutting files, restore both markers, verify whole state.
 - Initialized read order: `plans/CURRENT_STATUS.md` → `plans/system/system_index.md` → `plans/system/documentation_language.md` → `plans/GLOSSARY.md` → `plans/TRACEABILITY.md` → target indexes.
 
-## Structure and Indexes
+## Structure and Placement
+
+### Required Structure and Indexes
 
 Clone-ready:
 ```text
@@ -77,7 +83,8 @@ plans/apps/<app>/
 | `design/` | Adopted implementation structure/approach/contracts/algorithms/invariants/constraints |
 | `testing/` | Verification strategy/specifications: what must be shown and sufficient evidence |
 
-General:
+#### General
+
 - `plans/system/` and `plans/apps/` are required classifications. Remove `.gitkeep` when tracked content makes it unnecessary.
 - No `plans/README.md`; use indexes for navigation, `AGENTS.md` for instructions.
 - Create `plans/apps/<app>/` only after app name + responsibility approval; never literal `<app>` or invented temporary name.
@@ -103,7 +110,7 @@ General:
   - do not duplicate the same detailed list at multiple levels.
 - App navigation: `<app>_index.md` → three category indexes + app traceability; category index → its docs.
 
-### Responsibility Placement
+#### Responsibility Placement
 
 Determine ownership from **purpose + change authority + invocation/governing decision + success/failure (or sufficiency) judgment**, not target/caller/tool/file name/operational vocabulary.
 
@@ -118,7 +125,46 @@ Determine ownership from **purpose + change authority + invocation/governing dec
 - Durable non-normative current-realization knowledge (e.g. source mappings, adapter notes, DOM/XPath mappings, observed operational facts) → `references/` when continuing value exists; link from plans only when needed. Preserve provenance/scope/freshness/revalidation per `references/AGENTS.md`.
 - Application test code → `products/`. Formal doc generators/viewers/verifiers → `products/`; their environment config → `etc/`.
 
-## Normative Content and Semantic Reconstruction
+### Overview Diagrams
+
+- Initialized project:
+  - one overview diagram directly under `plans/system/`;
+  - one directly under each approved `plans/apps/<app>/`;
+  - if app has persistent entities, one ER diagram directly under that app.
+- Link each from corresponding index.
+- System overview: main users, RBs, app relationships. App overview: main processing/structural relationships.
+- Choose the clearest minimal Mermaid/UML type; do not default to flowchart. Move detail to responsible docs.
+- ER diagram: Mermaid `erDiagram`; entity names + PKs + FKs + relationships only.
+- Keep each overview/ER diagram in one document; exempt from Document Splitting thresholds. If unreadable, simplify/change type/remove detail, not split.
+- Show adopted definition. Clearly distinguish implementation state/approved future intent only when itself part of SoT. Candidate targets/unresolved alternatives → `workbench/`.
+
+### Documentation Language
+
+- Initialization summary proposes default; absent user choice, propose current conversation language.
+- After approval: BCP 47 default in `plans/system/documentation_language.md`; only explicit app overrides.
+- System/cross-app docs use default; app docs inherit unless explicit override.
+- Never infer language/override from code, supplied material, later conversation language, or environment.
+- On adoption/promotion into `plans/`, preserve semantics, not source wording/language: express prose, headings, table/diagram labels in the destination's effective documentation language; preserve identifiers, code/protocol literals, proper names, standard technical notation, and any content whose wording or language is intentionally fixed.
+- Conversation language is independent after initialization.
+- Change documentation language only on explicit user request; do not infer whether existing docs are translated vs future-only.
+- Supplied originals under `references/` need not be translated.
+- Do not duplicate language setting in another machine-readable file.
+- Language-setting changes update relevant index guidance.
+
+### Document Splitting
+
+Applies only to initialized project-specific SoT docs; excludes protected `AGENTS.md`, overview, ER diagrams.
+
+- Review split at ≥150 lines, ≥12 independently referenced identifiers, or ≥3 independently changing functional areas.
+- As a rule split >250 lines or >20 independently referenced identifiers; if retained, index records reason + reconsideration condition.
+- Split by coherent responsibility/question/reader/update trigger/lifecycle, not line count alone.
+- Stable system responsibility split into multiple independently changing docs may justify responsibility subdirectory; split/count alone does not.
+- Keep `system_index.md`, `<app>_index.md`, category indexes, root `TRACEABILITY.md` as single entry points.
+- If app traceability exceeds thresholds, keep `<app>_traceability.md` entry point and move coherent detail into indexed app docs.
+
+## Authority and Sources of Truth
+
+### Normative Content and Semantic Reconstruction
 
 - Requirements/design/testing are normative and must remain usable without current `products/`.
 - Together they must support independent implementation with the same intended outcomes, adopted contracts/RBs, fixed algorithms/invariants, and equivalent acceptance intent.
@@ -139,33 +185,61 @@ Determine ownership from **purpose + change authority + invocation/governing dec
 - Semantic exhaustive domains/matrices/transitions/enumerations remain normative even if they imply cardinality.
 - Verification may be automated, manual, visual, live-system, performance, security, operational, or other evidence appropriate to AC.
 
-## Overview Diagrams
+### SoT Management
 
-- Initialized project:
-  - one overview diagram directly under `plans/system/`;
-  - one directly under each approved `plans/apps/<app>/`;
-  - if app has persistent entities, one ER diagram directly under that app.
-- Link each from corresponding index.
-- System overview: main users, RBs, app relationships. App overview: main processing/structural relationships.
-- Choose the clearest minimal Mermaid/UML type; do not default to flowchart. Move detail to responsible docs.
-- ER diagram: Mermaid `erDiagram`; entity names + PKs + FKs + relationships only.
-- Keep each overview/ER diagram in one document; exempt from Document Splitting thresholds. If unreadable, simplify/change type/remove detail, not split.
-- Show adopted definition. Clearly distinguish implementation state/approved future intent only when itself part of SoT. Candidate targets/unresolved alternatives → `workbench/`.
+#### Core
 
-## Documentation Language
+- One responsible document per project fact; do not duplicate details.
+- Responsible `plans/` docs are adopted SoTs for their responsibility. No parallel `current`/`target` variants or equivalent views.
+- Candidate replacements/target states/alternatives → `workbench/`; prefer delta against current SoT over copied current view.
+- Approved future intent may live in `plans/` when it is itself the document's responsibility (e.g. lifecycle boundary/roadmap), not as a parallel candidate SoT.
+- Distinguish assumed/decided/open. Proposal/unapproved assumption ≠ settled fact.
+- AC/completion criteria observable; split requirements that cannot be implemented, verified, and completed together.
 
-- Initialization summary proposes default; absent user choice, propose current conversation language.
-- After approval: BCP 47 default in `plans/system/documentation_language.md`; only explicit app overrides.
-- System/cross-app docs use default; app docs inherit unless explicit override.
-- Never infer language/override from code, supplied material, later conversation language, or environment.
-- On adoption/promotion into `plans/`, preserve semantics, not source wording/language: express prose, headings, table/diagram labels in the destination's effective documentation language; preserve identifiers, code/protocol literals, proper names, standard technical notation, and any content whose wording or language is intentionally fixed.
-- Conversation language is independent after initialization.
-- Change documentation language only on explicit user request; do not infer whether existing docs are translated vs future-only.
-- Supplied originals under `references/` need not be translated.
-- Do not duplicate language setting in another machine-readable file.
-- Language-setting changes update relevant index guidance.
+#### Requirements vs Design
 
-## Status, Traceability, and Verification
+- Classify by responsibility, not technicality:
+  - requirements: required outcomes, external conditions, compatibility obligations, AC;
+  - design: adopted choice among otherwise valid implementation approaches.
+- Do not reclassify just to normalize taxonomy. Move only when current placement materially obscures responsibility, duplicates harmfully, or wrongly constrains/frees future implementations. If ambiguous intent, preserve placement pending decision.
+
+#### Current-Realization Authority
+
+- Discovery in implementation/tests ≠ normative adoption.
+- First classify CR fact vs required outcome/constraint vs adopted implementation constraint.
+- Promote only independently adopted required outcomes → requirements; adopted implementation constraints → design. Transient CR → `workbench/`; durable non-normative CR → `references/`.
+- New realization-specific precision narrowing future valid implementations requires adoption evidence independent of mere implementation/test presence.
+- Existing normative statement remains effective until explicitly changed/retired, but placement alone does not prove intentional adoption of implementation-derived detail.
+- Concrete provenance/intent doubt → root Review Principles; preserve current authority while unresolved. Do not silently delete/generalize/reconfirm.
+- Do not research history routinely; investigate when specific evidence creates material doubt (implementation-first sync, conflicting adoption record, unexplained realization-specific precision). Later explicit adoption can validly make CR detail normative.
+
+#### Brownfield / Current Design
+
+- Active normative design describes adopted end state, not stale transition steps. After completed migration/refactor/rename/rollout, remove obsolete stages/names/temp compatibility/superseded targets from active design; retain useful history non-normatively.
+- Mixed normative + CR/maintenance content: prevent authority leakage. Separate when readers/update triggers/authority differ and usability survives; otherwise mark sections/authority explicitly. Do not duplicate facts just to separate.
+- After separation validate both:
+  - without `products/`, normative sources still support semantic reconstruction;
+  - without current realization/external source, retained references preserve enough provenance/observation context to re-investigate mappings without becoming normative.
+- Brownfield authority cleanup includes affected responsibility's entry points/summaries (indexes, scope/overview, active transition/migration design, traceability, testing indexes/catalogs, status, retained verification/reference links) for the same leakage/stale duplication; keep sweep scoped.
+
+#### Governance Migration
+
+- Covers changed semantics + all materially affected existing cases. Unresolved cases remain explicit debt/unverified; do not claim migration complete while any remain.
+- Unrelated discovered issues do not expand migration scope and retain root severity/escalation.
+- Changing/removing/consolidating verification material must keep claims ≤ remaining applicable VB.
+- When classification/routing/retention rules change, inspect affected execution/evidence records in all current locations + inbound links/index/status/traceability.
+- For each record decide: supports current claim and must remain, continuing non-normative reference value, active work, or retire.
+- Do not migrate solely because legacy placement differs from new default; do not promote solely because historical; do not create repository-wide execution archive.
+- Temporary legacy placement is allowed only to avoid losing current VB/breaking dependent links while reconciliation is unresolved; mark as deferred migration, keep remaining reconciliation discoverable, and do not claim full reconciliation.
+- Resolve safely to current model: native/external VB, `workbench/` active material, `references/` durable non-normative material, retire no-need material, `plans/` only current SoT semantics.
+- Execution/evidence mixed into requirements/design/testing: classify at statement/section level before relocation. Keep verification thresholds/observations/sufficiency in testing; active execution material → workbench; durable non-normative → references; reconcile inbound links.
+- Existing implementation is current-realization evidence, not automatic SoT authority; documentation silence also does not authorize opportunistic re-architecture.
+- Docs/implementation/tests disagreement → root Review Principles; update responsible SoT within authority.
+- Adopted facts from `references/` and settled workbench decisions must be reflected in responsible SoT; neither is adoption record.
+
+## Evidence and Verification
+
+### Status and Traceability
 
 Only these non-hidden files directly under `plans/`:
 
@@ -176,7 +250,8 @@ Only these non-hidden files directly under `plans/`:
 | `GLOSSARY.md` | shared terms/abbreviations/state expressions | shared meaning change |
 | `TRACEABILITY.md` | system/cross-app relationships, concise coverage, app traceability index | relationship/link/coverage change |
 
-Status/traceability:
+#### Status and Traceability Rules
+
 - Before initialization, three project-specific files remain zero bytes; after, approved language.
 - `CURRENT_STATUS.md`: distinguish unimplemented/implemented/verified; no speculation. Keep capability, material limits/blockers, next work, links to traceability/VB. Remove/relocate stale execution narratives, run/version IDs, counts, output/history.
 - `GLOSSARY.md`: only project-wide shared meanings.
@@ -207,7 +282,8 @@ Status/traceability:
 - Carrying earlier evidence to later target/state requires evidence that relevant differences do not affect verified scope, environment/config/conditions, applicable requirements/AC, or testing sufficiency rules. Identity lineage or “unrelated change” assumption alone is insufficient; compare appropriate implementation/config/deployment/snapshot state or reverify.
 - Status/traceability/index links to evidence/reference must point to material applicable to asserted state.
 
-Retention:
+#### Retention
+
 - Durable non-normative knowledge/artifact with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`; do not promote every run/history.
 - Any normative result → responsible requirements/design/testing SoT, not reference authority.
 - Workbench VB is transitional while serving active work, immediate handoff, unresolved reconciliation, or a **bounded post-work transition** with a specific exit event (e.g. identified re-verification, lifecycle transition, basis replacement/reconciliation).
@@ -218,65 +294,9 @@ Retention:
 - At exit event: retire/replace/re-evaluate VB or downgrade claim. Expired bounded-transition rationale cannot alone support verified state.
 - Do not dispose of current effective VB until no current verified claim depends on it, or replacement/downgrade is complete.
 
-## SoT Management
+## Structural Maintenance and Verification
 
-Core:
-- One responsible document per project fact; do not duplicate details.
-- Responsible `plans/` docs are adopted SoTs for their responsibility. No parallel `current`/`target` variants or equivalent views.
-- Candidate replacements/target states/alternatives → `workbench/`; prefer delta against current SoT over copied current view.
-- Approved future intent may live in `plans/` when it is itself the document's responsibility (e.g. lifecycle boundary/roadmap), not as a parallel candidate SoT.
-- Distinguish assumed/decided/open. Proposal/unapproved assumption ≠ settled fact.
-- AC/completion criteria observable; split requirements that cannot be implemented, verified, and completed together.
-
-Requirements vs design:
-- Classify by responsibility, not technicality:
-  - requirements: required outcomes, external conditions, compatibility obligations, AC;
-  - design: adopted choice among otherwise valid implementation approaches.
-- Do not reclassify just to normalize taxonomy. Move only when current placement materially obscures responsibility, duplicates harmfully, or wrongly constrains/frees future implementations. If ambiguous intent, preserve placement pending decision.
-
-Current-realization (CR) authority:
-- Discovery in implementation/tests ≠ normative adoption.
-- First classify CR fact vs required outcome/constraint vs adopted implementation constraint.
-- Promote only independently adopted required outcomes → requirements; adopted implementation constraints → design. Transient CR → `workbench/`; durable non-normative CR → `references/`.
-- New realization-specific precision narrowing future valid implementations requires adoption evidence independent of mere implementation/test presence.
-- Existing normative statement remains effective until explicitly changed/retired, but placement alone does not prove intentional adoption of implementation-derived detail.
-- Concrete provenance/intent doubt → root Review Principles; preserve current authority while unresolved. Do not silently delete/generalize/reconfirm.
-- Do not research history routinely; investigate when specific evidence creates material doubt (implementation-first sync, conflicting adoption record, unexplained realization-specific precision). Later explicit adoption can validly make CR detail normative.
-
-Brownfield/current design:
-- Active normative design describes adopted end state, not stale transition steps. After completed migration/refactor/rename/rollout, remove obsolete stages/names/temp compatibility/superseded targets from active design; retain useful history non-normatively.
-- Mixed normative + CR/maintenance content: prevent authority leakage. Separate when readers/update triggers/authority differ and usability survives; otherwise mark sections/authority explicitly. Do not duplicate facts just to separate.
-- After separation validate both:
-  - without `products/`, normative sources still support semantic reconstruction;
-  - without current realization/external source, retained references preserve enough provenance/observation context to re-investigate mappings without becoming normative.
-- Brownfield authority cleanup includes affected responsibility's entry points/summaries (indexes, scope/overview, active transition/migration design, traceability, testing indexes/catalogs, status, retained verification/reference links) for the same leakage/stale duplication; keep sweep scoped.
-
-Governance migration:
-- Covers changed semantics + all materially affected existing cases. Unresolved cases remain explicit debt/unverified; do not claim migration complete while any remain.
-- Unrelated discovered issues do not expand migration scope and retain root severity/escalation.
-- Changing/removing/consolidating verification material must keep claims ≤ remaining applicable VB.
-- When classification/routing/retention rules change, inspect affected execution/evidence records in all current locations + inbound links/index/status/traceability.
-- For each record decide: supports current claim and must remain, continuing non-normative reference value, active work, or retire.
-- Do not migrate solely because legacy placement differs from new default; do not promote solely because historical; do not create repository-wide execution archive.
-- Temporary legacy placement is allowed only to avoid losing current VB/breaking dependent links while reconciliation is unresolved; mark as deferred migration, keep remaining reconciliation discoverable, and do not claim full reconciliation.
-- Resolve safely to current model: native/external VB, `workbench/` active material, `references/` durable non-normative material, retire no-need material, `plans/` only current SoT semantics.
-- Execution/evidence mixed into requirements/design/testing: classify at statement/section level before relocation. Keep verification thresholds/observations/sufficiency in testing; active execution material → workbench; durable non-normative → references; reconcile inbound links.
-- Existing implementation is current-realization evidence, not automatic SoT authority; documentation silence also does not authorize opportunistic re-architecture.
-- Docs/implementation/tests disagreement → root Review Principles; update responsible SoT within authority.
-- Adopted facts from `references/` and settled workbench decisions must be reflected in responsible SoT; neither is adoption record.
-
-## Document Splitting
-
-Applies only to initialized project-specific SoT docs; excludes protected `AGENTS.md`, overview, ER diagrams.
-
-- Review split at ≥150 lines, ≥12 independently referenced identifiers, or ≥3 independently changing functional areas.
-- As a rule split >250 lines or >20 independently referenced identifiers; if retained, index records reason + reconsideration condition.
-- Split by coherent responsibility/question/reader/update trigger/lifecycle, not line count alone.
-- Stable system responsibility split into multiple independently changing docs may justify responsibility subdirectory; split/count alone does not.
-- Keep `system_index.md`, `<app>_index.md`, category indexes, root `TRACEABILITY.md` as single entry points.
-- If app traceability exceeds thresholds, keep `<app>_traceability.md` entry point and move coherent detail into indexed app docs.
-
-## Verification and Structural Changes
+### Verification and Structural Changes
 
 - Run project-defined documentation verification for doc changes.
 - Validate changed Markdown links, fixed files, index coverage, IDs, traceability with project checks when available.
