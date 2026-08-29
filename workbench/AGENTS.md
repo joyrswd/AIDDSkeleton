@@ -1,13 +1,17 @@
 # AIDD Workbench Instructions
 
-## Scope
+## General Provisions
+
+### Scope and Responsibility
 
 - Applies to `workbench/` and descendants; inherits root + `plans/AGENTS.md`.
 - Owns non-authoritative working material: investigations, comparisons, drafts, preparation, prototypes/spikes, transformation outputs, implementation plans, handoffs, and project-managed verification material.
 - Not SoT, formal implementation, managed environment config, or durable reference storage.
 - Conversational clarification need not be retained; keep only when continuing work/handoff value exists.
 
-## Workbench Units
+## Structure and Entry
+
+### Workbench Units
 
 - One purpose/question/experiment/verification activity/handoff per unit where practical; keep units independently understandable/removable.
 - Organize by purpose/unit, not fixed artifact-type directories.
@@ -20,7 +24,9 @@
 - Do not use workbench as permanent substitute for `plans/`, `products/`, `etc/`, `references/`.
 - Do not track disposable cache/dependency/log/generated output without continuing working/evidential value.
 
-## Investigation, Verification, Prototype, Handoff
+## Working Lifecycle
+
+### Investigation, Verification, Prototype, Handoff
 
 - State question/claim/hypothesis + evaluation method/evidence.
 - Verification ≠ mandatory evidence file. Use native/external output or proportional workbench retention as needed for the claim/VB lifecycle.
@@ -33,8 +39,6 @@
 - Proposed SoT change: use current SoT as basis + proposed delta/decision context. Create full candidate view only when needed for coherent evaluation; mark clearly non-authoritative.
 - If an adopted fact is within authorized formalization scope, update responsible SoT; do not leave it only in workbench.
 - If decision-ready but adoption/formalization authority is missing, request the decision/authority; do not treat result as adopted.
-
-## Adoption and Exit
 
 ### Decision-ready
 
