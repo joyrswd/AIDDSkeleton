@@ -30,8 +30,6 @@ Canonical product/environment boundary:
 | seed | seed data in owning product area | startup injection |
 | external-service fixture | fixture implementation in verification-owning product area | emulator deployment/wiring/endpoint/consumer config |
 
-- Within `products/`, ownership still follows RB: app-owned → `products/apps/<app>/`; system-owned → `products/system/`.
-
 ## Local Governance
 
 ### Change Authority
@@ -52,4 +50,4 @@ Canonical product/environment boundary:
 
 - Prefer automated reproducible checks; when impractical, define method + result location.
 - Verify changed config proportional to impact: applicable syntax, expanded config, startup, migration, health, rollback, recovery.
-- Record method/result/verified scope/material unverified matters/risk per `plans/AGENTS.md`; unavailable check ≠ success.
+- Record verification scope/limits/risk per `plans/AGENTS.md`; unavailable check ≠ success.

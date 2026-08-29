@@ -24,8 +24,6 @@
 - Do not require SoT-equivalent completeness. Elaborate unresolved detail only when material to decision/coherence/feasibility/unit purpose.
 - Use proportional entry point (short note/header/local README/etc.); no heavyweight template for small/obvious units.
 - Exploratory code stays inside its unit even when tools generate `src/`, `app/`, `tests/`, `packages/`.
-- Do not use workbench as permanent substitute for `plans/`, `products/`, `etc/`, `references/`.
-- Do not track disposable cache/dependency/log/generated output without continuing working/evidential value.
 
 ## Lifecycle
 
@@ -82,18 +80,14 @@ Formal promotion = **classification + integration of semantics**, not file migra
 | durable non-normative finding/mapping/summary/artifact | `references/` only when continuing value exists |
 
 - Workbench filenames/splits/directories do not prescribe formal SoT structure.
-- Integrate only adopted semantics into the responsible destination.
-- If an adopted fact is within authorized formalization scope, update responsible SoT; do not leave it only in workbench.
+- Integrate only adopted semantics into the responsible destination; authorized adopted facts must not remain only in workbench.
 - Formal open question/decision point/blocking effect goes in `plans/` when required, without copying surrounding investigation.
-- Complete normative detail in `plans/` when authorized. Return to workbench only when investigation/comparison/prototyping/feasibility/verification/handoff work is still needed.
-- Processing supplied material: preserve original in `references/`; copy only needed material into workbench.
 
 ### Retention
 
-- Do not retain a run merely because it occurred. After claim/handoff needs: delete disposable output or leave in native system unless continuing evidential/diagnostic/audit/maintenance value justifies project retention.
+- Do not retain runs, caches, dependencies, logs, or generated/disposable output merely because they occurred or are present; keep only when continuing evidential/diagnostic/audit/maintenance value justifies project retention.
 - Never delete workbench material while a current verified claim materially depends on it unless remaining/replacement VB is sufficient or the claim is downgraded.
 - Workbench VB is transitional only under the conditions defined in `plans/AGENTS.md` (active work, handoff/reconciliation, or bounded post-work transition).
-- Do not redefine bounded-transition/durable-VB rules here; follow `plans/AGENTS.md`.
 
 ### Exit
 
@@ -108,7 +102,7 @@ Formal promotion = **classification + integration of semantics**, not file migra
 ### Adoption Authority
 
 - Workbench material has no adoption/formalization authority by presence or decision-readiness; adoption requires applicable authority under root and `plans/` governance.
-- Workbench presence ≠ adoption/completion. Verification claims follow `plans/AGENTS.md` for method/result/identity/conditions/scope + status/traceability updates.
+- Workbench presence does not establish completion; verification claims follow `plans/AGENTS.md` for method/result/identity/conditions/scope + status/traceability updates.
 
 ### Change Boundaries
 

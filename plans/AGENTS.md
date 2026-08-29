@@ -9,7 +9,6 @@
 ### Responsibility
 
 - `plans/` owns project-specific adopted definition, lifecycle/status/traceability, procedures, identifiers, commands, constraints, and VB rules.
-- Other repository-area ownership is defined by root `AGENTS.md`.
 
 ## Structure and Placement
 
@@ -69,8 +68,7 @@ plans/apps/<app>/
   - responsibility-based subdirectory only when one stable system responsibility owns multiple independently changing docs;
   - never group merely by count, tidiness, requirements/design/testing type, tool, or framework.
 - Verification responsibility always exists for formal implementation; if no app testing detail doc, testing index names inherited/cross-cutting policy.
-- Content under `requirements/`, `design/`, and `testing/` follows Local Governance → Normative Authority and Sources of Truth.
-- Execution/evidence placement follows Verification Basis lifecycle. Testing indexes may link current VB for coverage but must not contain execution history.
+- Testing indexes may link current VB for coverage but must not contain execution history.
 
 ### Navigation
 
@@ -133,7 +131,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Review split at ≥150 lines, ≥12 independently referenced identifiers, or ≥3 independently changing functional areas.
 - As a rule split >250 lines or >20 independently referenced identifiers; if retained, index records reason + reconsideration condition.
 - Split by coherent responsibility/question/reader/update trigger/lifecycle, not line count alone.
-- Any subdirectory introduced by splitting must satisfy Placement; splitting or document count alone does not justify one.
+- Splitting or document count alone does not justify a subdirectory.
 - Keep `system_index.md`, `<app>_index.md`, category indexes, root `TRACEABILITY.md` as single entry points.
 - If app traceability exceeds thresholds, keep `<app>_traceability.md` entry point and move coherent detail into indexed app docs.
 
@@ -170,11 +168,11 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Implementation Entry
 
-- Implementation entry criteria: applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, no unresolved Blocker.
+- Requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, and no unresolved Blocker.
 
 ### Completion
 
-- Completion criteria: implementation/configuration, required verification, requirements/design/tests/implementation consistency, status + traceability updates.
+- Requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, and status + traceability updates.
 
 ### Reset
 
@@ -207,8 +205,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 #### Ownership
 
-- One responsible document per project fact; do not duplicate details.
-- Responsible `plans/` docs are adopted SoTs for their responsibility. No parallel `current`/`target` variants or equivalent views.
+- One responsible adopted SoT per project fact; no duplicate detail or parallel `current`/`target` variants/equivalent views.
 - Candidate replacements/target states/alternatives → `workbench/`; prefer delta against current SoT over copied current view.
 - Approved future intent may live in `plans/` when it is itself the document's responsibility (e.g. lifecycle boundary/roadmap), not as a parallel candidate SoT.
 - Distinguish assumed/decided/open. Proposal/unapproved assumption ≠ settled fact.
@@ -219,11 +216,11 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Classify by responsibility, not technicality:
   - requirements: required outcomes, external conditions, compatibility obligations, AC;
   - design: adopted choice among otherwise valid implementation approaches.
-- Requirements/design/testing are normative categories; execution results/evidence do not become normative by being produced by or stored near verification specifications.
+- Execution results/evidence do not become normative by being produced by or stored near verification specifications.
 - Mixed normative/execution content must be classified at statement/section level: keep normative verification intent in testing; active execution material follows Verification Basis lifecycle.
 - Do not reclassify just to normalize taxonomy. Move only when current placement materially obscures responsibility, duplicates harmfully, or wrongly constrains/frees future implementations. If ambiguous intent, preserve placement pending decision.
 
-#### Current-Realization Authority
+#### Realization Authority
 
 - Discovery in implementation/tests ≠ normative adoption.
 - First classify CR fact vs required outcome/constraint vs adopted implementation constraint.
@@ -254,13 +251,13 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Temporary legacy placement is allowed only to avoid losing current VB/breaking dependent links while reconciliation is unresolved; mark as deferred migration, keep remaining reconciliation discoverable, and do not claim full reconciliation.
 - Resolve safely to current model: native/external VB, `workbench/` active material, `references/` durable non-normative material, retire no-need material, `plans/` only current SoT semantics.
 - Legacy mixed normative/execution material must be reconciled using Classification and Verification Basis rules, including inbound links.
-- Implementation-derived material follows Current-Realization Authority; documentation silence does not authorize opportunistic re-architecture.
+- Documentation silence does not authorize opportunistic re-architecture.
 - Docs/implementation/tests disagreement → root Review Principles; update responsible SoT within authority.
 - Adopted facts from `references/` and settled workbench decisions must be reflected in responsible SoT; neither is adoption record.
 
 ### Evidence
 
-#### Project State Documents
+#### State Documents
 
 Only these non-hidden files directly under `plans/`:
 
@@ -272,7 +269,6 @@ Only these non-hidden files directly under `plans/`:
 | `TRACEABILITY.md` | system/cross-app relationships, concise coverage, app traceability index | relationship/link/coverage change |
 
 - Before initialization, three project-specific files remain zero bytes; after, approved language.
-- Update status/traceability when lifecycle/verification state, material limitations, priority work, relationships, links, or summarized completion basis changes.
 - Conversation report ≠ required status/traceability/SoT update.
 
 #### Status
@@ -334,7 +330,6 @@ Only these non-hidden files directly under `plans/`:
 
 ### Governance Validation
 
-- Run project-defined documentation verification for doc changes.
-- Validate changed Markdown links, fixed files, index coverage, IDs, traceability with project checks when available.
+- Run project-defined documentation checks for changed Markdown links, fixed files, index coverage, IDs, and traceability when available.
 - Verify lifecycle state matches exactly one Lifecycle row and project statements have approval/evidence.
 - Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, relationships must match responsible SoT. Repetition does not create alternate authority. Prefer automated comparison for intentionally repeated structured facts when practical; otherwise keep manual responsibility explicit.

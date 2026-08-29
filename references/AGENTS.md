@@ -36,16 +36,12 @@
 
 ### Entry
 
-Before adding supplied material:
-- confirm purpose and relation to existing references/decisions;
-- satisfy Provenance and Storage requirements.
+- Confirm purpose and relation to existing references/decisions.
+- Satisfy Provenance and Storage requirements.
 
 ### Promotion
 
-Before promoting workbench material:
-- confirm continuing non-normative value;
-- satisfy Reference Classes and Provenance requirements for promoted project-managed material.
-
+- Promote only material with continuing non-normative value that satisfies Reference Classes and Provenance requirements.
 - Do not promote every run/output/log/screenshot/report. Prefer concise durable summary/stable mapping when raw transient history adds no value.
 
 ### Supersession
@@ -61,7 +57,7 @@ Before promoting workbench material:
 
 ### Disposal
 
-- Before move/delete inspect SoTs, workbench, implementation, active work, provenance, licensing, usage links, and continuing evidential/maintenance needs.
+- Inspect SoTs, workbench, implementation, active work, provenance, licensing, usage links, and continuing evidential/maintenance needs before move/delete.
 
 ## Local Governance
 
@@ -73,8 +69,8 @@ Before promoting workbench material:
 
 ### Use
 
-- Process/modify/compare/transform/investigate/verify supplied/reference material in `workbench/`; preserve originals in `references/`.
-- Before using a reference for implementation, acceptance, or current verified claim, perform Reference Validation and confirm any required VB sufficiency.
+- Preserve supplied originals in `references/`; process/modify/compare/transform/investigate/verify only needed copies in `workbench/`.
+- Implementation, acceptance, or current verified-claim use requires Reference Validation.
 
 ### Reference Validation
 

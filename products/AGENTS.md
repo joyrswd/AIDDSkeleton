@@ -38,7 +38,7 @@ products/
 
 ### Entry
 
-- Begin formal implementation only when project entry criteria are satisfied: applicable requirements/AC, RBs/approach, verification methods, no unresolved Blocker.
+- Formal implementation requires applicable requirements/AC, RBs/approach, verification methods, and no unresolved Blocker.
 - Missing/contradictory requirements/assumptions/design/testing policy → responsible SoT; do not fill only in code.
 
 ### Formalization
@@ -54,14 +54,10 @@ products/
 
 ### Current Realization
 
-Before changes inspect relevant:
-- code/tests/config/dependencies/migrations;
-- established RBs/dependency directions/patterns needed to understand current realization.
-
-Rules:
+- Before changes inspect relevant code/tests/config/dependencies/migrations and established RBs/dependency directions/patterns.
 - Existing structure = current-realization evidence, not normative design.
 - Do not preserve debt/provisional structure/known deficiency merely because it exists.
-- Newly discovered knowledge classification follows root/`plans/`: required outcome → requirements; adopted future implementation constraint → design; transient realization/verification → `workbench/`; durable non-normative realization knowledge → `references/`.
+- Classify newly discovered knowledge under root/`plans/` governance.
 
 ### Change Boundaries
 
