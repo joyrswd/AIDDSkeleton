@@ -172,7 +172,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Completion
 
-- Requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, and status + traceability updates.
+- Requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, status + traceability updates, and no unresolved Blocker or In-scope deficiency.
+- Disposition alone cannot waive approved scope, adopted AC, or another completion condition. Dispositioned Follow-ups do not block completion unless new evidence justifies reclassification or they expose another unmet completion condition.
 
 ### Reset
 
@@ -180,6 +181,49 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty three cross-cutting files, restore both markers, verify whole state.
 
 ## Local Governance
+
+### Review
+
+Formal review evaluates adopted project definition and its realization/verification against approved purpose, scope, exclusions, observable AC, and applicable decisions. Under this governance, the **reviewer** is the party responsible for judging acceptability across the assigned review scope. A person, tool, or other source that supplies a finding, comment, checklist, or suggestion without assuming that scope-wide judgment role is an assessment-input provider, not thereby the reviewer. Review findings remain assessment inputs under root Assessment and Feedback; they are not commands, adoption records, or modification authority by themselves.
+
+#### Review Map
+
+- For a substantial initial review under this governance, the reviewer establishes a proportional review map before detailed findings: target/scope, governing SoTs/approved decisions, major review areas, known exclusions, and materially unreviewed/uncertain areas.
+- Supplied findings, review comments, or checklists may inform the map but do not transfer the reviewer's responsibility to establish and maintain it.
+- Present the review map before detailed findings when the output contract permits it. If the transport accepts findings only or otherwise forbids additional review-map prose, keep the map internal and preserve relevant scope/exclusion/uncertainty information through available output fields when practical.
+- Review breadth-first enough to expose material concerns reasonably discoverable from the current state before entering iterative remediation; do not intentionally serialize discoverable findings into avoidable review rounds.
+- Update the map when new evidence or a material change legitimately expands or alters what must be checked.
+
+#### Review Order and Root Cause
+
+For disagreement among project definition, realization, and evidence:
+
+1. Validate applicable requirements/design/testing/approved decisions for completeness, consistency, currency, and applicability.
+2. Check implementation/configuration against validated SoTs.
+3. Check verification method/evidence against required conformity.
+
+Classify root cause independently of root severity/disposition:
+
+- **SoT deficiency**
+- **Implementation deficiency**
+- **Verification deficiency**
+- **Unresolved decision**
+
+For SoT deficiency, apply root Coherent Correction; get user decision when correction materially changes approved intent, scope, AC, RB, or design.
+
+#### Findings and Disposition
+
+- Classify severity/scope and current handling under root Assessment and Feedback.
+- A valid improvement can remain Follow-up/Defer/Observe and need not become current acceptance work.
+- If a finding requires a material user-owned decision, surface that decision instead of changing SoT/implementation to satisfy the reviewer.
+- Closing a review means judging acceptability within the approved scope, not implementing every suggestion.
+
+#### Re-review and Closure
+
+- Re-review previous Blockers/In-scope deficiencies first, then the changed areas and materially affected criteria; separate new Follow-ups and state current acceptability within approved scope.
+- A new Blocker/In-scope deficiency in a later round is legitimate when introduced/exposed by the change, new evidence, previously unavailable state, or a concern not reasonably discoverable in the earlier review.
+- If a material issue was reasonably discoverable earlier but appears only later, identify it as late-discovered and explain its impact; do not hide it, but do not treat serial discovery as a required review workflow.
+- Dispositioned Follow-ups do not keep review open unless new evidence justifies reclassification.
 
 ### Normative Authority
 
@@ -225,7 +269,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Source paths/private helpers/classes/functions/state fields/DOM IDs/current directory layout/implementation status remain current-realization detail unless independently adopted.
 - Adopting implementation-derived detail into design requires evidence independent of mere implementation/test presence that the project intends the detail as a future constraint. Indicators include effect on an adopted contract, RB, dependency direction, security/correctness/operational property, chosen algorithm, or whether a reimplementation would otherwise be rejected.
 - Existing normative statement remains effective until explicitly changed/retired, but placement alone does not prove intentional adoption of implementation-derived detail.
-- Concrete provenance/intent doubt → root Review Principles; preserve current authority while unresolved. Do not silently delete/generalize/reconfirm.
+- Concrete provenance/intent doubt → Review above; preserve current authority while unresolved. Do not silently delete/generalize/reconfirm.
 - Do not research history routinely; investigate when specific evidence creates material doubt (implementation-first sync, conflicting adoption record, unexplained realization-specific precision). Later explicit adoption can validly make CR detail normative.
 
 #### Brownfield Reconciliation
@@ -249,7 +293,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Resolve safely to current model: native/external VB, `workbench/` active material, `references/` durable non-normative material, retire no-need material, `plans/` only current SoT semantics.
 - Legacy mixed normative/execution material must be reconciled using Classification and Verification Basis rules, including inbound links.
 - Documentation silence does not authorize opportunistic re-architecture.
-- Docs/implementation/tests disagreement → root Review Principles; change the responsible SoT only when root-cause classification and authority require it.
+- Docs/implementation/tests disagreement → Review above; change the responsible SoT only when root-cause classification and authority require it.
 - Adopted facts from `references/` and settled workbench decisions must be reflected in responsible SoT; neither is adoption record.
 
 ### Procedures
@@ -273,6 +317,7 @@ Only these non-hidden files directly under `plans/`:
 #### Status
 
 - `CURRENT_STATUS.md`: distinguish unimplemented/implemented/verified; no speculation. Keep capability, material limits/blockers, next work, links to traceability/VB. Remove/relocate stale execution narratives, run/version IDs, counts, output/history.
+- Do not convert retained workbench Defer/Observe items into `next work` merely because they exist; include them only when adopted/currently prioritized or when they materially constrain current state.
 
 #### Glossary
 

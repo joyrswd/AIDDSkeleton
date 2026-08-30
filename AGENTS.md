@@ -42,7 +42,7 @@
 |---|---|
 | [`plans/`](plans/AGENTS.md) | Adopted project definition, status, traceability, project-specific lifecycle/VB rules |
 | [`etc/`](etc/AGENTS.md) | Project-managed execution-environment configuration |
-| [`workbench/`](workbench/AGENTS.md) | Non-authoritative investigation, proposals, prototypes, handoffs, transitional verification material |
+| [`workbench/`](workbench/AGENTS.md) | Non-authoritative investigation, proposals, deferred/observed follow-up, prototypes, handoffs, transitional verification material |
 | [`references/`](references/AGENTS.md) | Durable non-normative supplied/promoted reference material |
 | [`products/`](products/AGENTS.md) | Formal implementations and tests |
 
@@ -83,7 +83,7 @@
 - Do not silently decide unresolved requirements, scope, priorities, RBs, material design choices, or completion criteria; routine reversible implementation choices within approved scope are AI discretion.
 - Within approved scope, proceed with reversible investigation, edits, and verification without repeated permission requests.
 - Preserve unrelated user changes; do not expand scope for merely adjacent work.
-- Add discovered work only when required by approved AC or needed to prevent direct regression, corruption, security failure, or irreversible damage; otherwise record follow-up.
+- Add discovered work only when required by approved AC or needed to prevent direct regression, corruption, security failure, or irreversible damage; otherwise disposition it under Assessment and Feedback and retain follow-up only when continuing value exists.
 
 ### Safety / Compliance
 
@@ -159,29 +159,31 @@ Use only when a request has multiple material ambiguities.
   - If the SoT is valid, correct the implementation/configuration against it.
   - If the SoT is deficient, correct it through the applicable authority/decision/adoption process before changing formal implementation/configuration to embody the new definition.
   - Do not change formal implementation/configuration first and then revise normative SoTs to justify or match that change.
-- Correct required same-cause deficiencies coherently within authorized scope; handle the rest under applicable scope, decision, safety, or follow-up rules.
+- Correct required same-cause deficiencies coherently within authorized scope; disposition the rest under applicable Assessment and Feedback, scope, decision, and safety rules.
 
 ### Challenge Check
 
 - Before completing material planning or creation work, perform one proportional challenge check for incorrect assumptions, contradictions, missed impact/root causes, scope drift, and verification gaps; correct findings within authorized scope.
 - Repeat the full challenge only when new evidence, failed verification, material correction, or contradiction warrants it.
 
-### Review Principles
+### Assessment and Feedback
 
-Review against approved purpose, scope, exclusions, and observable AC. For disagreements:
+Feedback, review findings, suggestions, observations, failed verification, external findings, and AI-discovered opportunities are assessment inputs. Their presence or apparent validity does not by itself require a current change. Explicit user instructions retain their authority under Purpose and Authority and Permission / Scope.
 
-1. Validate applicable requirements/design/testing/approved decisions for completeness, consistency, currency, applicability.
-2. Check implementation against validated SoTs.
-3. Check verification method/evidence against required conformity.
+- Assess an input against approved intent, scope/exclusions, observable AC, applicable authority/SoTs, supporting evidence, urgency/risk, dependencies, and material scope/cost effects.
+- Separate whether an input is valid/useful from what should happen now; a valid concern may still be non-blocking or intentionally deferred.
+- Do not turn a possible improvement into current scope merely to make all feedback disappear.
 
-#### Root-Cause Classification (Independent of Severity)
+#### Disposition
 
-- **SoT deficiency**
-- **Implementation deficiency**
-- **Verification deficiency**
-- **Unresolved decision**
+Classify the current handling independently of severity:
 
-For SoT deficiency, apply Coherent Correction; get user decision when correction materially changes approved intent, scope, AC, RB, or design.
+- **Accept now:** address within current work when already authorized/required; if it materially changes user-owned intent, priority, scope, AC, RB, or design, request the applicable decision first.
+- **Reject:** do not adopt or change for this input because the basis is insufficient, it conflicts with approved intent/authority, the concern is already satisfied, or change is otherwise not justified.
+- **Defer:** preserve a potentially useful input for later reassessment because it is not required or timely now; deferral ≠ adoption, priority, promise, or planned work.
+- **Observe:** retain or gather context without committing to change when evidence is insufficient or a future condition determines relevance.
+
+Disposition does not itself grant modification or adoption authority.
 
 #### Severity and Scope
 
@@ -189,9 +191,15 @@ For SoT deficiency, apply Coherent Correction; get user decision when correction
 - **In-scope deficiency:** approved scope/AC unsatisfied but not Blocker.
 - **Follow-up:** useful improvement not required for current acceptance.
 
-#### Re-review
+Severity and disposition are independent: a Follow-up may be Defer/Observe/Reject, while a Blocker or In-scope deficiency may still require a user-owned decision before it can be Accepted now.
 
-- Previous Blockers/in-scope deficiencies first; identify new criteria and scope fit; separate new follow-ups; state acceptability within approved scope.
+#### Reassessment
+
+- Retain Defer/Observe inputs only when continuing value justifies retention; repository-managed retention follows `workbench/AGENTS.md`.
+- Reassess when new evidence or a recorded revisit condition materially changes relevance, urgency, feasibility, or scope fit.
+- When current work materially matches a retained revisit condition, proactively surface the item at a useful decision point; do not silently add it to scope.
+- Do not repeatedly resurface an item merely because it exists or has aged.
+- Current work may complete only when approved scope/AC are satisfied, required verification is complete, and no unresolved Blocker or In-scope deficiency remains. Disposition alone does not make an unresolved Blocker/In-scope deficiency non-blocking; dispositioned Follow-ups do not by themselves keep work open.
 
 #### Consumer Regression
 
