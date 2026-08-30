@@ -188,7 +188,8 @@ Formal review evaluates adopted project definition and its realization/verificat
 
 #### Review Map
 
-- For a substantial initial review, present a proportional review map before detailed findings: target/scope, governing SoTs/approved decisions, major review areas, known exclusions, and materially unreviewed/uncertain areas.
+- For a substantial initial review, establish a proportional review map before detailed findings: target/scope, governing SoTs/approved decisions, major review areas, known exclusions, and materially unreviewed/uncertain areas.
+- Present the review map before detailed findings when the output contract permits it. If the transport accepts findings only or otherwise forbids additional review-map prose, keep the map internal and preserve relevant scope/exclusion/uncertainty information through available output fields when practical.
 - Review breadth-first enough to expose material concerns reasonably discoverable from the current state before entering iterative remediation; do not intentionally serialize discoverable findings into avoidable review rounds.
 - Update the map when new evidence or a material change legitimately expands or alters what must be checked.
 
