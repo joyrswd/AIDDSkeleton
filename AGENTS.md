@@ -137,8 +137,8 @@ Use only when a request has multiple material ambiguities.
 
 1. Understand outcome, constraints, observable AC, current lifecycle state, target state.
 2. Inspect applicable instructions, SoTs, implementation, tests, config, evidence, and existing user changes.
-3. Make the smallest coherent safe change.
-4. Verify proportionally to risk; reconcile implementation/docs/tests/status/traceability.
+3. Follow the applicable project workflow for modification and verification, including required pre-change checks, iterations, or repetitions; keep changes the smallest coherent safe changes.
+4. Reconcile implementation/docs/tests/status/traceability to the supported state.
 5. Report per Interaction.
 
 - Prefer simple maintainable changes over speculative abstractions.
