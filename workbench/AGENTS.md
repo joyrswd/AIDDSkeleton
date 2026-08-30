@@ -8,7 +8,7 @@
 
 ### Responsibility
 
-- Owns non-authoritative working material: investigations, comparisons, drafts, preparation, prototypes/spikes, transformation outputs, implementation plans, handoffs, deferred/observed assessment inputs, knowledge candidates, and project-managed verification material.
+- Owns non-authoritative working material: investigations, comparisons, drafts, preparation, prototypes/spikes, transformation outputs, implementation plans, handoffs, deferred/observed assessment inputs, and project-managed verification material.
 - Conversational clarification need not be retained; keep only when continuing work/handoff/reconsideration value exists.
 
 ## Structure and Placement
@@ -38,14 +38,6 @@
 - State question/claim/hypothesis + evaluation method/evidence.
 - Reference SoTs; distinguish approved decisions from suggestions/assumptions.
 - Proposed SoT change: use current SoT as basis + proposed delta/decision context. Create full candidate view only when needed for coherent evaluation; mark clearly non-authoritative.
-
-### Knowledge Candidates
-
-- A review finding, failed verification, incident, investigation result, implementation experience, or other observation may be worked as a knowledge candidate when its reusable meaning, applicability, or formulation is not yet clear.
-- Separate the source event from the learned point. Preserve enough concrete context, conditions, counterexamples, and limitations to keep the learning useful; do not force abstraction when specificity carries the detection value.
-- Apply the learned detection perspective to materially related current work under root Adversarial Self-Review before treating the candidate as archival knowledge.
-- When the learned point is sufficiently understood and durable, promote it to `references/knowledge-base/`. If it is already sufficiently understood and supported, a separate workbench artifact is not required.
-- A knowledge candidate or its promotion does not adopt a requirement/design/testing rule, prioritize future work, or prove a current claim.
 
 ### Prototype
 
@@ -98,11 +90,9 @@ Formal promotion = **classification + integration of semantics**, not file migra
 | formal code/tests/tools/support programs | `products/` |
 | managed environment config | `etc/` |
 | supplied original | `references/` |
-| durable reusable non-normative lesson/heuristic/pitfall/technical or verification insight | `references/knowledge-base/` |
-| other durable non-normative finding/mapping/summary/artifact | `references/` only when continuing value exists |
+| durable non-normative finding/mapping/summary/artifact | `references/` only when continuing value exists |
 
 - Workbench filenames/splits/directories do not prescribe formal SoT structure.
-- Do not promote a raw assessment input to the knowledge base merely because it was valid; retain the reusable learned point with enough source context to understand its basis.
 - Integrate only adopted semantics into the responsible destination; authorized adopted facts must not remain only in workbench.
 - Formal open question/decision point/blocking effect goes in `plans/` when required, without copying surrounding investigation.
 - Deferred/observed non-adopted work does not move to `plans/` merely to preserve it; reassessment and applicable adoption/authority must occur first.

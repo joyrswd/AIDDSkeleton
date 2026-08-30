@@ -43,7 +43,7 @@
 | [`plans/`](plans/AGENTS.md) | Adopted project definition, status, traceability, project-specific lifecycle/VB rules |
 | [`etc/`](etc/AGENTS.md) | Project-managed execution-environment configuration |
 | [`workbench/`](workbench/AGENTS.md) | Non-authoritative investigation, proposals, deferred/observed follow-up, prototypes, handoffs, transitional verification material |
-| [`references/`](references/AGENTS.md) | Durable non-normative supplied/promoted reference material and reusable project knowledge |
+| [`references/`](references/AGENTS.md) | Durable non-normative supplied/promoted reference material |
 | [`products/`](products/AGENTS.md) | Formal implementations and tests |
 
 - Every artifact belongs to the area owning its responsibility.
@@ -144,7 +144,7 @@ Use only when a request has multiple material ambiguities.
 - Prefer simple maintainable changes over speculative abstractions.
 - Requirements = required outcomes; design = adopted implementation approach/constraints; testing = verification requirements. Code/config/tests/results are evidence, not substitutes.
 - Existing implementation: inspect relevant code/tests/config/dependencies/RBs/dependency directions/patterns. Treat them as current-realization evidence, not normative authority. Do not casually replace material established structure or preserve it solely because it exists.
-- Newly discovered durable knowledge: classify before promotion—independently adopted required outcome/constraint → requirements; adopted implementation constraint → design; reusable experience-derived non-normative knowledge → `references/knowledge-base/`; other durable non-normative knowledge/material → `references/`; transient investigation/verification → `workbench/`.
+- Newly discovered durable knowledge: classify before promotion—independently adopted required outcome/constraint → requirements; adopted implementation constraint → design; durable non-normative knowledge → `references/`; transient investigation/verification → `workbench/`.
 - Distinguish facts, assumptions, decisions, open questions.
 - AC must be observable; prefer behavioral verification where practical.
 - Requirement/assumption changes: inspect documentation, implementation, tests, environment, migration, operation effects.
@@ -169,15 +169,6 @@ Use only when a request has multiple material ambiguities.
 - Correct required discovered deficiencies under Coherent Correction and Assessment and Feedback; disposition optional or unauthorized work normally rather than silently expanding scope.
 - A material correction that introduces or materially changes a mechanism, fallback, boundary, assumption, dependency, or verification method creates a fresh adversarial surface. Challenge how that correction itself can fail, partially fail, race, degrade, or bypass the invariant/outcome it is intended to protect; do not treat the correction as proof of resolution merely because it addresses the previous finding.
 - Continue targeted adversarial review while a correction or new evidence creates a materially new plausible failure surface. Stop when the latest material corrections introduce no such unexamined surface; do not repeat unchanged checks merely to satisfy a review count. Repeat a full self-review only when new evidence, failed verification, broad correction, or contradiction materially changes what must be examined.
-- Use materially relevant `references/knowledge-base/` entries as additional sensors when available; retrieve contextually rather than scanning the whole knowledge base by default.
-
-### Knowledge Reuse
-
-- `references/knowledge-base/` is durable non-normative project memory for reusable lessons, heuristics, pitfalls, failure patterns, technical observations, and verification insights; detailed retention/use rules belong to `references/AGENTS.md`.
-- For material work, consult knowledge-base entries when the current responsibility, technology, invariant, failure mode, or verification concern makes them materially relevant. Absence of an obvious match does not require a repository-wide scan.
-- A newly learned point may go directly to the knowledge base when its meaning and basis are already clear; use `workbench/` when interpretation, applicability, or useful formulation still needs investigation.
-- Preserve useful specificity. Generalization is not a goal by itself, and a concrete lesson may be more reusable than a broad principle when its conditions are what make it effective.
-- Knowledge-base material is supporting input, not SoT, scope authority, an acceptance decision, or verification proof; validate applicability and currentness before relying on it.
 
 ### Assessment and Feedback
 
@@ -187,7 +178,6 @@ Feedback, review findings, suggestions, observations, failed verification, exter
 - Separate whether an input is valid/useful from what should happen now; a valid concern may still be non-blocking or intentionally deferred.
 - Do not turn a possible improvement into current scope merely to make all feedback disappear.
 - For a valid input Accepted now, a local patch is not sufficient when the finding reveals a missed consideration that can materially recur in the affected scope; apply Adversarial Self-Review to assimilate and propagate the detection signal before closure.
-- When assessment produces a distinct reusable lesson, evaluate it for Knowledge Reuse; do not copy raw feedback into the knowledge base as a substitute for understanding it.
 
 #### Disposition
 
