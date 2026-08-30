@@ -199,7 +199,7 @@ Severity and disposition are independent: a Follow-up may be Defer/Observe/Rejec
 - Reassess when new evidence or a recorded revisit condition materially changes relevance, urgency, feasibility, or scope fit.
 - When current work materially matches a retained revisit condition, proactively surface the item at a useful decision point; do not silently add it to scope.
 - Do not repeatedly resurface an item merely because it exists or has aged.
-- Current work may complete when its approved AC/required verification are satisfied and no unresolved Blocker remains; dispositioned Follow-up/Defer/Observe/Reject inputs do not by themselves keep work open.
+- Current work may complete only when approved scope/AC are satisfied, required verification is complete, and no unresolved Blocker or In-scope deficiency remains. Disposition alone does not make an unresolved Blocker/In-scope deficiency non-blocking; dispositioned Follow-ups do not by themselves keep work open.
 
 #### Consumer Regression
 

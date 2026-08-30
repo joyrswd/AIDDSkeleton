@@ -172,8 +172,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Completion
 
-- Requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, and status + traceability updates.
-- Dispositioned Follow-up/Defer/Observe/Reject inputs do not block completion unless they expose an unresolved Blocker, unsatisfied adopted AC, or unmet lifecycle transition condition.
+- Requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, status + traceability updates, and no unresolved Blocker or In-scope deficiency.
+- Disposition alone cannot waive approved scope, adopted AC, or another completion condition. Dispositioned Follow-ups do not block completion unless new evidence justifies reclassification or they expose another unmet completion condition.
 
 ### Reset
 
@@ -184,11 +184,12 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Review
 
-Formal review evaluates adopted project definition and its realization/verification against approved purpose, scope, exclusions, observable AC, and applicable decisions. Review findings remain assessment inputs under root Assessment and Feedback; they are not commands, adoption records, or modification authority by themselves.
+Formal review evaluates adopted project definition and its realization/verification against approved purpose, scope, exclusions, observable AC, and applicable decisions. Under this governance, the **reviewer** is the party responsible for judging acceptability across the assigned review scope. A person, tool, or other source that supplies a finding, comment, checklist, or suggestion without assuming that scope-wide judgment role is an assessment-input provider, not thereby the reviewer. Review findings remain assessment inputs under root Assessment and Feedback; they are not commands, adoption records, or modification authority by themselves.
 
 #### Review Map
 
-- For a substantial initial review, establish a proportional review map before detailed findings: target/scope, governing SoTs/approved decisions, major review areas, known exclusions, and materially unreviewed/uncertain areas.
+- For a substantial initial review under this governance, the reviewer establishes a proportional review map before detailed findings: target/scope, governing SoTs/approved decisions, major review areas, known exclusions, and materially unreviewed/uncertain areas.
+- Supplied findings, review comments, or checklists may inform the map but do not transfer the reviewer's responsibility to establish and maintain it.
 - Present the review map before detailed findings when the output contract permits it. If the transport accepts findings only or otherwise forbids additional review-map prose, keep the map internal and preserve relevant scope/exclusion/uncertainty information through available output fields when practical.
 - Review breadth-first enough to expose material concerns reasonably discoverable from the current state before entering iterative remediation; do not intentionally serialize discoverable findings into avoidable review rounds.
 - Update the map when new evidence or a material change legitimately expands or alters what must be checked.
