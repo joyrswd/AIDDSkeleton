@@ -36,7 +36,7 @@ Canonical product/environment boundary:
 
 - Uninitialized/unapproved responsibility: do not invent services, commands, topology, publication boundaries, persistence, recovery methods, operational guarantees.
 - Keep config consistent with applicable environment/development/testing/release/migration/operation SoTs.
-- Service composition/networking/persistence/publication/deployment/rollback/recovery behavior change → update responsible project docs same change.
+- Service composition/networking/persistence/publication/deployment/rollback/recovery behavior changes must respect root authority: complete any required project-definition change/authorization first, then keep config and responsible project docs/status/traceability consistent in the same change.
 
 ### Safety
 

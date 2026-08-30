@@ -220,7 +220,6 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 #### Realization Authority
 
-- Discovery in implementation/tests ≠ normative adoption.
 - First classify CR fact vs required outcome/constraint vs adopted implementation constraint.
 - Promote only independently adopted required outcomes → requirements; adopted implementation constraints → design. Transient CR → `workbench/`; durable non-normative CR → `references/`.
 - Source paths/private helpers/classes/functions/state fields/DOM IDs/current directory layout/implementation status remain current-realization detail unless independently adopted.
@@ -250,7 +249,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Resolve safely to current model: native/external VB, `workbench/` active material, `references/` durable non-normative material, retire no-need material, `plans/` only current SoT semantics.
 - Legacy mixed normative/execution material must be reconciled using Classification and Verification Basis rules, including inbound links.
 - Documentation silence does not authorize opportunistic re-architecture.
-- Docs/implementation/tests disagreement → root Review Principles; update responsible SoT within authority.
+- Docs/implementation/tests disagreement → root Review Principles; change the responsible SoT only when root-cause classification and authority require it.
 - Adopted facts from `references/` and settled workbench decisions must be reflected in responsible SoT; neither is adoption record.
 
 ### Procedures

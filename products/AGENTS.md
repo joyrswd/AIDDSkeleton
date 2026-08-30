@@ -46,9 +46,9 @@ products/
 ### Change Boundaries
 
 - Keep change inside approved RB; no direct app→app dependency without approved design change.
-- Do not replace established architecture/RB/dependency direction/state authority/compatibility pattern merely because an alternative also satisfies requirements. Material replacement requires adopted design or explicitly authorized design correction/change.
+- Do not replace established architecture/RB/dependency direction/state authority/compatibility pattern merely because an alternative also satisfies requirements.
 - Documentation silence does not authorize redesign when change affects compatibility/responsibility/security/persistence/state authority/material boundary; resolve through the SoT process.
-- Observable behavior/public contracts/data structures/dependencies/migrations/RBs change → update responsible docs/status/traceability same change.
+- Observable behavior/public contracts/data structures/dependencies/migrations/RBs changes must respect root authority: complete any required project-definition change/authorization first, then keep implementation/tests/docs/status/traceability consistent in the same change.
 - Before move/promotion/deletion inspect dependents, public contracts, migrations, tests, docs, status, traceability, current VB, reference-retention needs.
 
 ### Implementation Verification
