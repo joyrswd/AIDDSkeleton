@@ -17,7 +17,7 @@
 | Concept | Meaning |
 |---|---|
 | **Authority** | What may constrain future implementation/judgment; normative vs supporting material |
-| **Lifecycle** | Investigation → proposal → adoption → implementation → verification → retention/supersession/disposal |
+| **Lifecycle** | How information, artifacts, claims, and project state change, iterate, reopen, and conclude under rules owned by their responsible area |
 | **Evidence** | Basis required for claims; existence, implementation, execution, verification, acceptance |
 | **Permission / Scope** | What work may begin/expand; approved intent vs implementation discretion |
 | **Structure / Placement** | Ownership/RB, lifecycle, and authority determine placement |
@@ -28,6 +28,8 @@
 - A rule may relate to multiple concepts or sections, but must have one authoritative owner; do not redefine it independently elsewhere.
 - Proposal/assumption/observation/implementation/test/result/reference existence or linkage ≠ SoT adoption.
 - Moving/promoting information ≠ authority change; authority changes only through the applicable adoption/SoT process.
+- Lifecycle concepts do not impose a repository-wide execution order. Responsible area/project rules own applicable states, transitions, prerequisites, repetition, and reopening; those explicit constraints remain binding.
+- New evidence may require repeating or reopening applicable lifecycle work and revising prior completion/verification claims to the scope still supported.
 - Claim scope ≤ supporting basis: presence ≠ implementation ≠ execution ≠ verification ≠ acceptance/completion.
 
 ## Project Structure and Instruction Hierarchy
@@ -142,8 +144,7 @@ Use only when a request has multiple material ambiguities.
 - Prefer simple maintainable changes over speculative abstractions.
 - Requirements = required outcomes; design = adopted implementation approach/constraints; testing = verification requirements. Code/config/tests/results are evidence, not substitutes.
 - Existing implementation: inspect relevant code/tests/config/dependencies/RBs/dependency directions/patterns. Treat them as current-realization evidence, not normative authority. Do not casually replace material established structure or preserve it solely because it exists.
-- Newly discovered durable knowledge: classify before promotion—required outcome/constraint → requirements; adopted implementation constraint → design; durable non-normative knowledge → `references/`; transient investigation/verification → `workbench/`.
-- Do not rewrite requirements to match implementation or silently resolve contradictions; reconcile the responsible SoT within authority.
+- Newly discovered durable knowledge: classify before promotion—independently adopted required outcome/constraint → requirements; adopted implementation constraint → design; durable non-normative knowledge → `references/`; transient investigation/verification → `workbench/`.
 - Distinguish facts, assumptions, decisions, open questions.
 - AC must be observable; prefer behavioral verification where practical.
 - Requirement/assumption changes: inspect documentation, implementation, tests, environment, migration, operation effects.
@@ -154,6 +155,10 @@ Use only when a request has multiple material ambiguities.
 
 - On a discovered deficiency, determine whether the cause is local or shared.
 - Inspect far enough to understand cause and impact; investigation does not expand modification scope.
+- When implementation, tests, configuration, or verification reveal a possible deficiency in adopted project definition, validate the applicable SoTs before changing formal behavior/configuration.
+  - If the SoT is valid, correct the implementation/configuration against it.
+  - If the SoT is deficient, correct it through the applicable authority/decision/adoption process before changing formal implementation/configuration to embody the new definition.
+  - Do not change formal implementation/configuration first and then revise normative SoTs to justify or match that change.
 - Correct required same-cause deficiencies coherently within authorized scope; handle the rest under applicable scope, decision, safety, or follow-up rules.
 
 ### Challenge Check
@@ -176,7 +181,7 @@ Review against approved purpose, scope, exclusions, and observable AC. For disag
 - **Verification deficiency**
 - **Unresolved decision**
 
-Correct/report SoT deficiency before deriving implementation changes; get user decision when correction materially changes approved intent, scope, AC, RB, or design.
+For SoT deficiency, apply Coherent Correction; get user decision when correction materially changes approved intent, scope, AC, RB, or design.
 
 #### Severity and Scope
 
