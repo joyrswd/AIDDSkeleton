@@ -163,11 +163,12 @@ Use only when a request has multiple material ambiguities.
 
 ### Adversarial Self-Review
 
-- Before completing a material work product, perform one proportional adversarial self-review with the aim of disproving its correctness rather than confirming it. Challenge assumptions, contradictions, boundary/failure conditions, missed impact/root causes, scope drift, and evidence/verification gaps.
+- Before completing a material work product, perform proportional adversarial self-review with the aim of disproving its correctness rather than confirming it. Challenge assumptions, contradictions, boundary/failure conditions, missed impact/root causes, scope drift, and evidence/verification gaps.
 - Do not limit the challenge to edited lines or the exact reported symptom. Inspect materially relevant same-responsibility, same-invariant, dependency, sibling-path, boundary, and failure-family cases in proportion to the change and risk; investigation does not expand modification authority.
 - When a valid review finding, failed verification, incident, or other assessment exposes a missed consideration, treat it as a new detection signal: determine why it was missed, extract the useful checking perspective without discarding valuable concrete context, and apply that perspective to materially related current work before treating the stated instance as resolved.
 - Correct required discovered deficiencies under Coherent Correction and Assessment and Feedback; disposition optional or unauthorized work normally rather than silently expanding scope.
-- After a material correction, rerun a targeted adversarial check over changed and materially affected surfaces. Repeat a full self-review only when new evidence, failed verification, broad correction, or contradiction materially changes what must be examined.
+- A material correction that introduces or materially changes a mechanism, fallback, boundary, assumption, dependency, or verification method creates a fresh adversarial surface. Challenge how that correction itself can fail, partially fail, race, degrade, or bypass the invariant/outcome it is intended to protect; do not treat the correction as proof of resolution merely because it addresses the previous finding.
+- Continue targeted adversarial review while a correction or new evidence creates a materially new plausible failure surface. Stop when the latest material corrections introduce no such unexamined surface; do not repeat unchanged checks merely to satisfy a review count. Repeat a full self-review only when new evidence, failed verification, broad correction, or contradiction materially changes what must be examined.
 - Use materially relevant `references/knowledge-base/` entries as additional sensors when available; retrieve contextually rather than scanning the whole knowledge base by default.
 
 ### Knowledge Reuse
