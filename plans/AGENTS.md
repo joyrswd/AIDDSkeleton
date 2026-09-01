@@ -332,5 +332,6 @@ Only these non-hidden files directly under `plans/`:
 ### Governance Validation
 
 - Run all project-defined documentation verification for documentation changes when available; at minimum cover changed Markdown links, fixed files, index coverage, IDs, and traceability.
-- Verify lifecycle state matches exactly one Lifecycle row and project statements have approval/evidence.
+- Manually verify repository initialization state matches exactly one Lifecycle row. For project lifecycle claims, verify every lifecycle state identifier used in `CURRENT_STATUS.md`, root/app traceability, or equivalent status claims is defined by the responsible lifecycle SoT and maps to exactly one applicable state; project statements must have approval/evidence. Prefer automated comparison for mechanically detectable identifier/state matches when practical; absence of automation does not waive this manual check.
+- For `CURRENT_STATUS.md` and traceability, manually verify status content remains aggregate/current and excludes stale execution narratives, run/version IDs, exact counts, output/history; use automated detection when available, but semantic classification remains manual responsibility.
 - Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, relationships must match responsible SoT. Repetition does not create alternate authority. Prefer automated comparison for intentionally repeated structured facts when practical; otherwise keep manual responsibility explicit.

@@ -141,6 +141,8 @@ Use only when a request has multiple material ambiguities.
 4. Reconcile implementation/docs/tests/status/traceability to the supported state.
 5. Report per Interaction.
 
+- For Core Principle 3, before implementation entry and again when work materially expands, assess whether the authorized scope can be implemented, verified, and adversarially reviewed as one coherent execution unit. If materially distinct responsibilities, boundaries, dependencies, or verification surfaces make one unit too broad, split it into coherent increments and apply required verification and Adversarial Self-Review to each increment before relying on it in broader completion claims.
+- Execution-unit assessment is a manual responsibility. Use project-defined automation when available for mechanically detectable conditions, but absence of automation does not waive the assessment.
 - Prefer simple maintainable changes over speculative abstractions.
 - Requirements = required outcomes; design = adopted implementation approach/constraints; testing = verification requirements. Code/config/tests/results are evidence, not substitutes.
 - Existing implementation: inspect relevant code/tests/config/dependencies/RBs/dependency directions/patterns. Treat them as current-realization evidence, not normative authority. Do not casually replace material established structure or preserve it solely because it exists.

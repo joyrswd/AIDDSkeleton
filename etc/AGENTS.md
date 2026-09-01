@@ -41,6 +41,7 @@ Canonical product/environment boundary:
 ### Safety
 
 - Before destructive data delete/recreate/migration, confirm effect + recovery method under root authority rules.
+- Before treating container/image build configuration as verified or complete, manually inspect the effective build context and exclusion mechanism so credentials/private configuration, user or persistent data, and other sensitive local artifacts not intended for the image (for example `.env*`, private keys/tokens, or persistent data directories when present) are excluded. Prefer automated/reproducible checks when practical; absence of such tooling does not waive this manual inspection.
 
 ### Configuration Verification
 
