@@ -42,8 +42,9 @@ Canonical product/environment boundary:
 
 - Before destructive data delete/recreate/migration, confirm effect + recovery method under root authority rules.
 
-### Configuration Verification
+### Configuration Boundaries and Verification
 
-- Prefer automated reproducible checks; when impractical, define method + result location.
-- Verify changed config proportional to impact: applicable syntax, expanded config, startup, migration, health, rollback, recovery.
+- Verify changed config proportional to impact, including applicable syntax/expanded config and the material input, exposure, persistence, and publication boundaries it establishes or crosses; then exercise applicable startup, migration, health, rollback, and recovery behavior.
+- For build, packaging, deployment, or similar transfer boundaries, verify only intended inputs are included and credentials/private configuration, user or persistent data, and other sensitive local artifacts are excluded unless explicitly required and safely handled.
+- Prefer automated reproducible checks when practical; when unavailable or impractical, manual verification remains required and the method + result location must be defined.
 - Record verification scope/limits/risk per `plans/AGENTS.md`; unavailable check ≠ success.

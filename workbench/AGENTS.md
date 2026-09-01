@@ -73,7 +73,7 @@ A candidate/subset is **decision-ready** when:
 - major intent + applicable RBs are coherent enough to judge as a unit;
 - remaining questions are separable and not expected to invalidate/materially reshape it.
 
-Decision-ready ≠ implementation-entry complete; details that can be decided consistently after adoption may remain open.
+Decision-ready ≠ implementation-readiness complete; details that can be decided consistently after adoption may remain open.
 
 - When decision-ready and adoption/formalization is not already authorized: surface candidate + material basis + remaining open questions using root Decision Requests.
 - Do not keep elaborating solely to avoid the adoption decision.

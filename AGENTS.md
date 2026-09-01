@@ -12,6 +12,9 @@
   - **VB** = verification basis
   - **RB** = responsibility boundary
 
+AIDDSkeleton governs how project rules are established and applied, not just how they are followed.
+Rules, constraints, and verification methods should follow from evidence, applicable authority, and explicit adoption rather than be assumed or prescribed in advance.
+
 ### Governance Concepts
 
 | Concept | Meaning |
@@ -70,7 +73,7 @@
 - Start read-only. Before project-specific changes, present one initialization summary: verified facts, user decisions, proposed assumptions, open questions, blockers, files/directories to change, target lifecycle state, and work left unstarted.
 - Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
 - If immediate initialization from supplied information + reasonable assumptions is explicitly requested, advance discussion may be omitted; report every adopted assumption at completion.
-- Detailed lifecycle, initialization outputs, transitions, entry/completion criteria, and verification rules: `plans/AGENTS.md`.
+- Detailed lifecycle, initialization outputs, transitions, readiness/completion criteria, and verification rules: `plans/AGENTS.md`.
 
 ## Action Boundaries
 
@@ -133,13 +136,14 @@ Use only when a request has multiple material ambiguities.
 
 ## Working Principles
 
-### Core Principles
+### Execution Principles
 
 1. Understand outcome, constraints, observable AC, current lifecycle state, target state.
 2. Inspect applicable instructions, SoTs, implementation, tests, config, evidence, and existing user changes.
-3. Follow the applicable project workflow for modification and verification, including required pre-change checks, iterations, or repetitions; keep changes the smallest coherent safe changes.
-4. Reconcile implementation/docs/tests/status/traceability to the supported state.
-5. Report per Interaction.
+3. Before implementation begins, shape authorized work into coherent execution units that preserve the intended behavior and necessary cross-boundary context while remaining small enough for meaningful implementation, verification, and Adversarial Self-Review. Reassess when work materially expands; split an overly broad unit rather than carrying materially distinct responsibilities, boundaries, dependencies, or verification surfaces together.
+4. Follow the applicable project workflow for modification and verification, including required pre-change checks, iterations, or repetitions; keep changes within the smallest coherent safe execution units rather than maximizing either breadth or fragmentation.
+5. Reconcile implementation/docs/tests/status/traceability to the supported state.
+6. Report per Interaction.
 
 - Prefer simple maintainable changes over speculative abstractions.
 - Requirements = required outcomes; design = adopted implementation approach/constraints; testing = verification requirements. Code/config/tests/results are evidence, not substitutes.

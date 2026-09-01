@@ -158,7 +158,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
   - requirements/design/testing SoTs;
   - observable AC + open questions;
   - lifecycle identifiers/states/transitions/end boundary;
-  - implementation entry/completion criteria, standard verification, VB retention expectations;
+  - implementation readiness/completion criteria, standard verification, VB retention expectations;
   - applicability + reasons for security, privacy, accessibility, performance, availability, monitoring, retention, recovery, licensing.
 
 ### Lifecycle Boundary
@@ -166,9 +166,9 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Open questions require a decision point + blocking effect.
 - If release/operation/retirement is outside lifecycle: record end boundary + handoff. If inside: define transitions/completion + feedback route.
 
-### Implementation Entry
+### Implementation Readiness
 
-- Requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, and no unresolved Blocker.
+- Requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, no unresolved Blocker, and a next execution unit within authorized scope that is coherent enough to implement, verify, and adversarially review under root Execution Principles.
 
 ### Completion
 
@@ -270,6 +270,7 @@ Only these non-hidden files directly under `plans/`:
 
 - Before initialization, three project-specific files remain zero bytes; after, approved language.
 - Conversation report ≠ required status/traceability/SoT update.
+- Lifecycle state claims in status/traceability must use identifiers defined by the responsible lifecycle SoT; state documents do not invent alternate lifecycle vocabulary.
 
 #### Status
 
@@ -329,8 +330,8 @@ Only these non-hidden files directly under `plans/`:
 - Add/rename/move/delete indexed docs: inspect inbound links, indexes, status, traceability, workbench, reference-retention needs; reconcile same change.
 - Preserve identifiers when splitting/moving; do not duplicate detail between overview/detail docs.
 
-### Governance Validation
+### Governance Consistency and Validation
 
+- Verify repository initialization state matches exactly one Initialization row; verify governed documentation remains consistent with applicable instructions and responsible SoTs. For State Documents this includes the lifecycle-state vocabulary and content constraints defined above, and project statements must have approval/evidence.
 - Run all project-defined documentation verification for documentation changes when available; at minimum cover changed Markdown links, fixed files, index coverage, IDs, and traceability.
-- Verify lifecycle state matches exactly one Lifecycle row and project statements have approval/evidence.
-- Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, relationships must match responsible SoT. Repetition does not create alternate authority. Prefer automated comparison for intentionally repeated structured facts when practical; otherwise keep manual responsibility explicit.
+- Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, relationships must match responsible SoT. Repetition does not create alternate authority. Prefer automated comparison for intentionally repeated structured facts when practical; otherwise keep manual responsibility explicit. Absence of automation does not waive required consistency checks.
