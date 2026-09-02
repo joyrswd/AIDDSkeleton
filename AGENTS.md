@@ -36,13 +36,13 @@
 
 ### Ownership and Placement
 
-- Record project-specific scope, architecture, technologies, commands, naming, and other project facts in `plans/`.
+- Record project-specific scope, architecture, technologies, commands, naming, and other project facts in `definition/`.
 
 | Area | Owns |
 |---|---|
-| [`plans/`](plans/AGENTS.md) | Adopted project definition, status, traceability, project-specific lifecycle/VB rules |
+| [`definition/`](definition/AGENTS.md) | Adopted project definition, status, traceability, project-specific lifecycle/VB rules |
 | [`etc/`](etc/AGENTS.md) | Project-managed execution-environment configuration |
-| [`workbench/`](workbench/AGENTS.md) | Non-authoritative investigation, proposals, deferred/observed follow-up, prototypes, handoffs, transitional verification material |
+| [`jobs/`](jobs/AGENTS.md) | Non-authoritative investigation, proposals, deferred/observed follow-up, prototypes, handoffs, transitional verification material |
 | [`references/`](references/AGENTS.md) | Durable non-normative supplied/promoted reference material |
 | [`products/`](products/AGENTS.md) | Formal implementations and tests |
 
@@ -54,7 +54,7 @@
 
 ### Instruction Hierarchy and Protection
 
-- Before changing a target, read: root `AGENTS.md` → every descendant `AGENTS.md` through the target → `plans/AGENTS.md` → applicable project SoTs.
+- Before changing a target, read: root `AGENTS.md` → every descendant `AGENTS.md` through the target → `definition/AGENTS.md` → applicable project SoTs.
 - Descendant `AGENTS.md` files inherit root governance and may add subtree rules; they must not redefine, weaken, contradict, or override inherited boundaries.
 - Add descendant `AGENTS.md` only for genuine subtree-specific instructions.
 - Existing `AGENTS.md` files are protected governance. Ordinary code/docs/config/structure authorization does not authorize changing them.
@@ -70,7 +70,7 @@
 - Start read-only. Before project-specific changes, present one initialization summary: verified facts, user decisions, proposed assumptions, open questions, blockers, files/directories to change, target lifecycle state, and work left unstarted.
 - Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
 - If immediate initialization from supplied information + reasonable assumptions is explicitly requested, advance discussion may be omitted; report every adopted assumption at completion.
-- Detailed lifecycle, initialization outputs, transitions, entry/completion criteria, and verification rules: `plans/AGENTS.md`.
+- Detailed lifecycle, initialization outputs, transitions, entry/completion criteria, and verification rules: `definition/AGENTS.md`.
 
 ## Action Boundaries
 
@@ -121,7 +121,7 @@ Use only when a request has multiple material ambiguities.
 - Report proportionally: changed, verified, material unverified matter/blocker/risk/remaining work.
 - Never claim completion/verification beyond evidence.
 - User decisions in a report follow Decision Requests.
-- Update required status/traceability/VB/SoTs per `plans/AGENTS.md`; conversation does not replace them.
+- Update required status/traceability/VB/SoTs per `definition/AGENTS.md`; conversation does not replace them.
 
 ### Conversation Language
 
@@ -129,7 +129,7 @@ Use only when a request has multiple material ambiguities.
 - Ignore code, quotes, attachments, URLs, and paths when detecting request language.
 - Environment fallback: platform language → `LC_ALL` → `LC_MESSAGES` → `LANGUAGE` → `LANG`; ignore `C`, `POSIX`, `C.UTF-8`.
 - Treat result as BCP 47. Later language changes apply only as explicitly requested.
-- Conversation language ≠ project documentation language; follow `plans/AGENTS.md`. Do not store conversation language in the repository.
+- Conversation language ≠ project documentation language; follow `definition/AGENTS.md`. Do not store conversation language in the repository.
 
 ## Working Principles
 
@@ -144,7 +144,7 @@ Use only when a request has multiple material ambiguities.
 - Prefer simple maintainable changes over speculative abstractions.
 - Requirements = required outcomes; design = adopted implementation approach/constraints; testing = verification requirements. Code/config/tests/results are evidence, not substitutes.
 - Existing implementation: inspect relevant code/tests/config/dependencies/RBs/dependency directions/patterns. Treat them as current-realization evidence, not normative authority. Do not casually replace material established structure or preserve it solely because it exists.
-- Newly discovered durable knowledge: classify before promotion—independently adopted required outcome/constraint → requirements; adopted implementation constraint → design; durable non-normative knowledge → `references/`; transient investigation/verification → `workbench/`.
+- Newly discovered durable knowledge: classify before promotion—independently adopted required outcome/constraint → requirements; adopted implementation constraint → design; durable non-normative knowledge → `references/`; transient investigation/verification → `jobs/`.
 - Distinguish facts, assumptions, decisions, open questions.
 - AC must be observable; prefer behavioral verification where practical.
 - Requirement/assumption changes: inspect documentation, implementation, tests, environment, migration, operation effects.
@@ -199,7 +199,7 @@ Severity and disposition are independent: a Follow-up may be Defer/Observe/Rejec
 
 #### Reassessment
 
-- Retain Defer/Observe inputs only when continuing value justifies retention; repository-managed retention follows `workbench/AGENTS.md`.
+- Retain Defer/Observe inputs only when continuing value justifies retention; repository-managed retention follows `jobs/AGENTS.md`.
 - Reassess when new evidence or a recorded revisit condition materially changes relevance, urgency, feasibility, or scope fit.
 - When current work materially matches a retained revisit condition, proactively surface the item at a useful decision point; do not silently add it to scope.
 - Do not repeatedly resurface an item merely because it exists or has aged.

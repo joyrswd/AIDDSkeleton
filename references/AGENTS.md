@@ -4,13 +4,13 @@
 
 ### Scope
 
-- Applies to `references/` and descendants; inherits root + `plans/AGENTS.md`.
+- Applies to `references/` and descendants; inherits root + `definition/AGENTS.md`.
 
 ### Responsibility
 
 - Owns durable **non-normative** material for future consultation:
   - externally supplied originals;
-  - project-managed material promoted from `workbench/` for continuing evidential, diagnostic, maintenance, interoperability, audit, or re-investigation value.
+  - project-managed material promoted from `jobs/` for continuing evidential, diagnostic, maintenance, interoperability, audit, or re-investigation value.
 
 ## Structure and Placement
 
@@ -25,7 +25,7 @@
 
 ### Provenance
 
-- Identity rules follow `plans/AGENTS.md`: prefer stable/immutable identity; mutable labels are context; without stable ID record enough time/state/conditions/scope to avoid unsafe inference.
+- Identity rules follow `definition/AGENTS.md`: prefer stable/immutable identity; mutable labels are context; without stable ID record enough time/state/conditions/scope to avoid unsafe inference.
 - Record applicable terms of use, confidentiality, redistribution, licensing, privacy, retention.
 
 ### Storage
@@ -53,26 +53,26 @@
 
 ### Retention
 
-- Never remove the only adequate VB for a current verified claim without replacement or claim downgrade per `plans/AGENTS.md`.
+- Never remove the only adequate VB for a current verified claim without replacement or claim downgrade per `definition/AGENTS.md`.
 
 ### Disposal
 
-- Inspect SoTs, workbench, implementation, active work, provenance, licensing, usage links, and continuing evidential/maintenance needs before move/delete.
+- Inspect SoTs, `jobs/`, implementation, active work, provenance, licensing, usage links, and continuing evidential/maintenance needs before move/delete.
 
 ## Local Governance
 
 ### Authority Boundary
 
 - Reference presence/linkage ≠ requirement/design/testing/implementation constraint/verification conclusion beyond recorded scope.
-- Adopted requirements/design/testing/procedures/decisions → responsible `plans/` SoT; reference is supporting input, not adoption record.
+- Adopted requirements/design/testing/procedures/decisions → responsible `definition/` SoT; reference is supporting input, not adoption record.
 - Adopted source/code → project-managed `products/`; adopted environment config → `etc/`.
 
 ### Use
 
-- Preserve supplied originals in `references/`; process/modify/compare/transform/investigate/verify only needed copies in `workbench/`.
+- Preserve supplied originals in `references/`; process/modify/compare/transform/investigate/verify only needed copies in `jobs/`.
 - Implementation, acceptance, or current verified-claim use requires Reference Validation.
 
 ### Reference Validation
 
 - Verify relevant claim-bearing content, provenance, available integrity/version info, freshness, applicability conditions, links, usage references, and absence of prohibited sensitive content.
-- When a reference is used as VB, verify its sufficiency for the asserted scope under `plans/AGENTS.md`.
+- When a reference is used as VB, verify its sufficiency for the asserted scope under `definition/AGENTS.md`.

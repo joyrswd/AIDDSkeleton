@@ -19,7 +19,7 @@ AIDD Skeleton is provided as-is as a reusable repository template. Pull requests
 
 ## Repository rules
 
-AIDD Skeleton uses five top-level responsibility areas: `plans/`, `etc/`, `workbench/`, `references/`, and `products/`.
+AIDD Skeleton uses five top-level responsibility areas: `definition/`, `etc/`, `jobs/`, `references/`, and `products/`.
 
 Do not add another top-level non-hidden directory unless the repository model is intentionally being changed. Existing `AGENTS.md` files are protected governance documents; changing them requires an explicit request that identifies the intended governance change and affected scope.
 

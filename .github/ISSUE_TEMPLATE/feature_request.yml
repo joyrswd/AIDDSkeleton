@@ -29,9 +29,9 @@ body:
       options:
         - Repository structure
         - Agent instructions
-        - Plans and documentation
+        - Definitions and documentation
         - Execution environment
-        - Workbench or references
+        - Jobs or references
         - Products and verification
         - README or contribution guidance
         - Other

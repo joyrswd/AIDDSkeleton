@@ -4,7 +4,7 @@
 
 ### Scope
 
-- Applies to `products/` and descendants; inherits root + `plans/AGENTS.md`.
+- Applies to `products/` and descendants; inherits root + `definition/AGENTS.md`.
 
 ### Responsibility
 
@@ -25,7 +25,7 @@ products/
 - `products/apps/<app>/`: app-owned code/resources/dependencies/migrations/fixtures/CLIs/support programs/unit tests/app-local integration tests.
 - `products/system/`: system-owned code/processes/E2E or contract tests/fixtures/generators/support programs, including system responsibilities spanning apps.
 - Ownership follows responsibility/RB, not artifact category, target count, cross-app execution/observation, reuse, or shared infrastructure.
-- Same approved `<app>` name as `plans/apps/<app>/`; never literal `<app>` or invented temporary name.
+- Same approved `<app>` name as `definition/apps/<app>/`; never literal `<app>` or invented temporary name.
 - Conventional `src/`, `tests/`, `scripts/`, `tools/`, `packages/` stay below owning app/system area.
 - Test placement follows verification ownership:
   - app-owned guarantee → owning app;
@@ -38,8 +38,8 @@ products/
 
 ### Formalization
 
-- Adopting workbench/reference code/tools → create project-managed formal implementation with appropriate structure/quality/tests; do not depend on working/reference copy as production source.
-- Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `plans/AGENTS.md` VB lifecycle.
+- Adopting code/tools from `jobs/` or `references/` → create project-managed formal implementation with appropriate structure/quality/tests; do not depend on working/reference copy as production source.
+- Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `definition/AGENTS.md` VB lifecycle.
 
 ## Local Governance
 

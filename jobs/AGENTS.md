@@ -1,10 +1,10 @@
-# AIDD Workbench Instructions
+# AIDD Jobs Instructions
 
 ## General Provisions
 
 ### Scope
 
-- Applies to `workbench/` and descendants; inherits root + `plans/AGENTS.md`.
+- Applies to `jobs/` and descendants; inherits root + `definition/AGENTS.md`.
 
 ### Responsibility
 
@@ -13,7 +13,7 @@
 
 ## Structure and Placement
 
-### Workbench Units
+### Job Units
 
 - One purpose/question/experiment/verification activity/handoff per unit where practical; keep units independently understandable/removable.
 - Related lightweight deferred/observed items may share a unit or registry when each item remains independently judgeable/removable; do not create a repository-wide dumping ground.
@@ -45,7 +45,7 @@
 
 ### Verification
 
-- Verification ≠ mandatory evidence file. Use native/external output or proportional workbench retention as needed for the claim/VB lifecycle.
+- Verification ≠ mandatory evidence file. Use native/external output or proportional `jobs/` retention as needed for the claim/VB lifecycle.
 - Retained execution-specific verification material records proportionally: actual target/state, environment/conditions, method/commands when material, result, directly verified scope, material unverified scope.
 
 ### Handoff
@@ -55,7 +55,7 @@
 
 ### Deferred / Observed Inputs
 
-- Workbench may retain a root-dispositioned Defer/Observe input when it has plausible continuing decision, follow-up, diagnostic, or reconsideration value.
+- `jobs/` may retain a root-dispositioned Defer/Observe input when it has plausible continuing decision, follow-up, diagnostic, or reconsideration value.
 - Retention does not make an item adopted work, a project requirement, a priority, or a promise to implement it.
 - Record proportionally enough to reassess later: the observation/proposal, source/provenance when material, current disposition, reason, relevant scope/context, and a revisit condition.
 - A revisit condition should be concrete enough to recognize useful timing; it may be a related scope becoming active, prerequisite resolution, recurrence/new evidence, lifecycle event, or another context condition rather than a date.
@@ -86,28 +86,28 @@ Formal promotion = **classification + integration of semantics**, not file migra
 
 | Adopted/retained material | Destination |
 |---|---|
-| requirements/design/testing/procedures/decisions/project facts | responsible `plans/` SoT |
+| requirements/design/testing/procedures/decisions/project facts | responsible `definition/` SoT |
 | formal code/tests/tools/support programs | `products/` |
 | managed environment config | `etc/` |
 | supplied original | `references/` |
 | durable non-normative finding/mapping/summary/artifact | `references/` only when continuing value exists |
 
-- Workbench filenames/splits/directories do not prescribe formal SoT structure.
-- Integrate only adopted semantics into the responsible destination; authorized adopted facts must not remain only in workbench.
-- Formal open question/decision point/blocking effect goes in `plans/` when required, without copying surrounding investigation.
-- Deferred/observed non-adopted work does not move to `plans/` merely to preserve it; reassessment and applicable adoption/authority must occur first.
+- `jobs/` filenames/splits/directories do not prescribe formal SoT structure.
+- Integrate only adopted semantics into the responsible destination; authorized adopted facts must not remain only in `jobs/`.
+- Formal open question/decision point/blocking effect goes in `definition/` when required, without copying surrounding investigation.
+- Deferred/observed non-adopted work does not move to `definition/` merely to preserve it; reassessment and applicable adoption/authority must occur first.
 
 ### Retention
 
 - Do not retain runs, caches, dependencies, logs, generated/disposable output, or suggestions merely because they occurred or are present; keep only when continuing evidential/diagnostic/audit/maintenance/decision/reconsideration value justifies project retention.
 - For retained Defer/Observe items, keep disposition/rationale/revisit condition discoverable enough to know why the item still exists and when it is worth reassessing.
 - If no plausible continuing value or revisit condition remains, dispose rather than accumulating an indefinite backlog.
-- Never delete workbench material while a current verified claim materially depends on it unless remaining/replacement VB is sufficient or the claim is downgraded.
-- Workbench VB is transitional only under the conditions defined in `plans/AGENTS.md` (active work, handoff/reconciliation, or bounded post-work transition).
+- Never delete `jobs/` material while a current verified claim materially depends on it unless remaining/replacement VB is sufficient or the claim is downgraded.
+- `jobs/` VB is transitional only under the conditions defined in `definition/AGENTS.md` (active work, handoff/reconciliation, or bounded post-work transition).
 
 ### Exit
 
-- After adoption, reduce active unit to unresolved questions/alternatives/prototypes/feasibility, verification evidence, decision/handoff context, or other remaining workbench responsibility.
+- After adoption, reduce active unit to unresolved questions/alternatives/prototypes/feasibility, verification evidence, decision/handoff context, or other remaining `jobs/` responsibility.
 - Residual work depending on adopted semantics references the responsible SoT instead of retaining duplicate candidate specification.
 - Candidate artifacts must not look like active alternate SoT: delete, mark superseded/historical, promote durable non-normative value, or explicitly relate them to resulting SoT.
 - Reassessed deferred/observed items must reflect the new disposition; do not leave stale TODO-like state after Accept/Reject or a materially changed revisit condition.
@@ -118,4 +118,4 @@ Formal promotion = **classification + integration of semantics**, not file migra
 
 ### Adoption Authority
 
-- Workbench material has no adoption/formalization authority by presence, retention, revisit-trigger match, or decision-readiness; adoption requires applicable authority under root and `plans/` governance.
+- `jobs/` material has no adoption/formalization authority by presence, retention, revisit-trigger match, or decision-readiness; adoption requires applicable authority under root and `definition/` governance.

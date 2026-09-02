@@ -1,14 +1,14 @@
-# AIDD Plans and Sources of Truth Instructions
+# AIDD Definition and Sources of Truth Instructions
 
 ## General Provisions
 
 ### Scope
 
-- Applies to `plans/` and descendants; inherits root governance.
+- Applies to `definition/` and descendants; inherits root governance.
 
 ### Responsibility
 
-- `plans/` owns project-specific adopted definition, lifecycle/status/traceability, procedures, identifiers, commands, constraints, and VB rules.
+- `definition/` owns project-specific adopted definition, lifecycle/status/traceability, procedures, identifiers, commands, constraints, and VB rules.
 
 ## Structure and Placement
 
@@ -16,7 +16,7 @@
 
 Clone-ready:
 ```text
-plans/
+definition/
 ├── AGENTS.md
 ├── CURRENT_STATUS.md
 ├── GLOSSARY.md
@@ -29,7 +29,7 @@ plans/
 
 Per approved app:
 ```text
-plans/apps/<app>/
+definition/apps/<app>/
 ├── <app>_index.md
 ├── <app>_traceability.md
 ├── requirements/
@@ -42,9 +42,9 @@ plans/apps/<app>/
 
 | Location | Responsibility |
 |---|---|
-| `plans/system/system_index.md` | System overview, RBs, documentation map, reading order |
-| `plans/system/documentation_language.md` | Default documentation language + explicit app overrides |
-| other `plans/system/` docs | System-owned purpose, requirements, structure, constraints, development/operational methods |
+| `definition/system/system_index.md` | System overview, RBs, documentation map, reading order |
+| `definition/system/documentation_language.md` | Default documentation language + explicit app overrides |
+| other `definition/system/` docs | System-owned purpose, requirements, structure, constraints, development/operational methods |
 | `<app>_index.md` | App overview, RBs, reading order, category entries, traceability |
 | `<app>_traceability.md` | Normative → implementation/VB relationships + concise coverage |
 | category indexes | Category docs, questions answered, order, absence/inheritance |
@@ -52,11 +52,11 @@ plans/apps/<app>/
 | `design/` | Adopted implementation structure/approach/contracts/algorithms/invariants/constraints |
 | `testing/` | Verification strategy/specifications: what must be shown and what evidence is sufficient |
 
-- `plans/system/` and `plans/apps/` are required classifications. Remove `.gitkeep` when tracked content makes it unnecessary.
-- No `plans/README.md`; use indexes for navigation, `AGENTS.md` for instructions.
-- Create `plans/apps/<app>/` only after app name + responsibility approval; never literal `<app>` or invented temporary name.
-- Same approved `<app>` under `plans/apps/` and `products/apps/`.
-- Keep fixed system entry docs directly under `plans/system/`.
+- `definition/system/` and `definition/apps/` are required classifications. Remove `.gitkeep` when tracked content makes it unnecessary.
+- No `definition/README.md`; use indexes for navigation, `AGENTS.md` for instructions.
+- Create `definition/apps/<app>/` only after app name + responsibility approval; never literal `<app>` or invented temporary name.
+- Same approved `<app>` under `definition/apps/` and `products/apps/`.
+- Keep fixed system entry docs directly under `definition/system/`.
 - Required app category dirs/indexes do not require detail docs. If none: index states explicit absence/inherited or cross-cutting source.
 - Do not create detail docs just to fill a category. Design may explicitly state no additional normative implementation constraints.
 
@@ -75,49 +75,49 @@ plans/apps/<app>/
 - Indexes = navigation + concise absence/inheritance/coverage context, not duplicated detailed requirements/design/testing/procedures/results.
 - System navigation:
   - `system_index.md` is primary;
-  - directly link each Markdown doc directly under `plans/system/` except itself;
+  - directly link each Markdown doc directly under `definition/system/` except itself;
   - nested docs may route through a local index but must remain reachable from `system_index.md`;
   - protected `AGENTS.md` excluded;
   - local index only when responsibility needs navigation;
   - do not duplicate the same detailed list at multiple levels.
 - App navigation: `<app>_index.md` → three category indexes + app traceability; category index → its docs.
-- Initialized read order: `plans/CURRENT_STATUS.md` → `plans/system/system_index.md` → `plans/system/documentation_language.md` → `plans/GLOSSARY.md` → `plans/TRACEABILITY.md` → target indexes.
+- Initialized read order: `definition/CURRENT_STATUS.md` → `definition/system/system_index.md` → `definition/system/documentation_language.md` → `definition/GLOSSARY.md` → `definition/TRACEABILITY.md` → target indexes.
 
 ### Responsibility Placement
 
 Determine ownership from **purpose + change authority + invocation/governing decision + success/failure (or sufficiency) judgment**, not target/caller/tool/file name/operational vocabulary.
 
-- App-owned execution/diagnostic procedure → directly under `plans/apps/<app>/`, linked from `<app>_index.md`.
-- System-owned procedure → `plans/system/`, including procedures spanning apps.
+- App-owned execution/diagnostic procedure → directly under `definition/apps/<app>/`, linked from `<app>_index.md`.
+- System-owned procedure → `definition/system/`, including procedures spanning apps.
 - Multiple targets do not prove system ownership; one app target does not prove app ownership.
 - Shared tools/observability/deployment/system environments/`etc/` config do not transfer ownership.
 - Never choose one participating app as representative owner or duplicate a system-owned procedure per app.
 - For system-owned shared execution with app-specific prerequisites/commands/AC/constraints: keep shared responsibility in system procedure; record only app-owned delta with app + link.
 - Normative testing uses the same ownership test: verification purpose, change authority, governing conditions, sufficiency judgment.
-- Operational terminology ≠ `etc/` ownership: adopted procedures/policy/constraints → `plans/`; execution-environment config → `etc/`.
-- Durable non-normative current-realization knowledge (e.g. source mappings, adapter notes, DOM/XPath mappings, observed operational facts) → `references/` when continuing value exists; link from plans only when needed. Preserve provenance/scope/freshness/revalidation per `references/AGENTS.md`.
+- Operational terminology ≠ `etc/` ownership: adopted procedures/policy/constraints → `definition/`; execution-environment config → `etc/`.
+- Durable non-normative current-realization knowledge (e.g. source mappings, adapter notes, DOM/XPath mappings, observed operational facts) → `references/` when continuing value exists; link from definition only when needed. Preserve provenance/scope/freshness/revalidation per `references/AGENTS.md`.
 - Application test code → `products/`. Formal doc generators/viewers/verifiers → `products/`; their environment config → `etc/`.
 
 ### Overview Diagrams
 
 - Initialized project:
-  - one overview diagram directly under `plans/system/`;
-  - one directly under each approved `plans/apps/<app>/`;
+  - one overview diagram directly under `definition/system/`;
+  - one directly under each approved `definition/apps/<app>/`;
   - if app has persistent entities, one ER diagram directly under that app.
 - Link each from corresponding index.
 - System overview: main users, RBs, app relationships. App overview: main processing/structural relationships.
 - Choose the clearest minimal Mermaid/UML type; do not default to flowchart. Move detail to responsible docs.
 - ER diagram: Mermaid `erDiagram`; entity names + PKs + FKs + relationships only.
 - Keep each overview/ER diagram in one document; exempt from Document Splitting thresholds. If unreadable, simplify/change type/remove detail, not split.
-- Show adopted definition. Clearly distinguish implementation state/approved future intent only when itself part of SoT. Candidate targets/unresolved alternatives → `workbench/`.
+- Show adopted definition. Clearly distinguish implementation state/approved future intent only when itself part of SoT. Candidate targets/unresolved alternatives → `jobs/`.
 
 ### Documentation Language
 
 - Initialization summary proposes default; absent user choice, propose current conversation language.
-- After approval: BCP 47 default in `plans/system/documentation_language.md`; only explicit app overrides.
+- After approval: BCP 47 default in `definition/system/documentation_language.md`; only explicit app overrides.
 - System/cross-app docs use default; app docs inherit unless explicit override.
 - Never infer language/override from code, supplied material, later conversation language, or environment.
-- On adoption/promotion into `plans/`, preserve semantics, not source wording/language: express prose, headings, table/diagram labels in the destination's effective documentation language; preserve identifiers, code/protocol literals, proper names, standard technical notation, and any content whose wording or language is intentionally fixed.
+- On adoption/promotion into `definition/`, preserve semantics, not source wording/language: express prose, headings, table/diagram labels in the destination's effective documentation language; preserve identifiers, code/protocol literals, proper names, standard technical notation, and any content whose wording or language is intentionally fixed.
 - Conversation language is independent after initialization.
 - Change documentation language only on explicit user request; do not infer whether existing docs are translated vs future-only.
 - Supplied originals under `references/` need not be translated.
@@ -139,19 +139,19 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Initialization
 
-| State | `plans/CURRENT_STATUS.md`, `plans/GLOSSARY.md`, `plans/TRACEABILITY.md` | `plans/system/system_index.md`, `plans/system/documentation_language.md` | Markers |
+| State | `definition/CURRENT_STATUS.md`, `definition/GLOSSARY.md`, `definition/TRACEABILITY.md` | `definition/system/system_index.md`, `definition/system/documentation_language.md` | Markers |
 |---|---|---|---|
-| Uninitialized | present, zero bytes | absent | `plans/system/.gitkeep`, `plans/apps/.gitkeep` present |
-| Initialized | present, approved-language content | both present | `plans/system/.gitkeep` absent; `plans/apps/.gitkeep` only while no app docs exist |
+| Uninitialized | present, zero bytes | absent | `definition/system/.gitkeep`, `definition/apps/.gitkeep` present |
+| Initialized | present, approved-language content | both present | `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` only while no app docs exist |
 | Inconsistent | any other combination | any other combination | reconcile before formal work |
 
 - Fixed skeleton files/markers alone ≠ project facts or initialization.
 - Do not infer project facts from uninitialized/inconsistent state.
 - Initialization content must come from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
 - Initialize atomically:
-  - create `plans/system/documentation_language.md` and `plans/system/system_index.md`;
+  - create `definition/system/documentation_language.md` and `definition/system/system_index.md`;
   - populate the three cross-cutting files in approved language;
-  - remove `plans/system/.gitkeep`.
+  - remove `definition/system/.gitkeep`.
 - Define at least:
   - purpose, users, scope, exclusions;
   - system/app RBs;
@@ -194,7 +194,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Treat loss of adopted timezone/unit/protocol-version/transaction-isolation/identity/cardinality/ordering/security/compatibility or similar invariant as normative change, not cleanup.
 - Moving between normative/non-normative locations changes authority; verify future valid implementations are not unintentionally broadened/narrowed.
 - Design may be concrete when intentionally constraining future valid implementations (schema/contracts/protocol paths/transaction rules/security/RBs/algorithms/runtime/stable IDs).
-- State design constraints normatively; do not delegate design authority to current source/config/test/generated artifact. Map current realization via traceability or non-normative workbench/reference material.
+- State design constraints normatively; do not delegate design authority to current source/config/test/generated artifact. Map current realization via traceability or non-normative job/reference material.
 - Testing specs define required verification, method/observation, and sufficient evidence.
 - Current test implementation details (private names/paths/migration filenames/fixture paths/test layout/current case/run counts/artifacts) are non-normative unless independently adopted.
 - Semantic exhaustive domains/matrices/transitions/enumerations remain normative even if they imply cardinality.
@@ -205,8 +205,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 #### Ownership
 
 - One responsible adopted SoT per project fact; no duplicate detail or parallel `current`/`target` variants/equivalent views.
-- Candidate replacements/target states/alternatives → `workbench/`; prefer delta against current SoT over copied current view.
-- Approved future intent may live in `plans/` when it is itself the document's responsibility (e.g. lifecycle boundary/roadmap), not as a parallel candidate SoT.
+- Candidate replacements/target states/alternatives → `jobs/`; prefer delta against current SoT over copied current view.
+- Approved future intent may live in `definition/` when it is itself the document's responsibility (e.g. lifecycle boundary/roadmap), not as a parallel candidate SoT.
 - Distinguish assumed/decided/open. Proposal/unapproved assumption ≠ settled fact.
 - AC/completion criteria observable; split requirements that cannot be implemented, verified, and completed together.
 
@@ -222,7 +222,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 #### Realization Authority
 
 - First classify CR fact vs required outcome/constraint vs adopted implementation constraint.
-- Promote only independently adopted required outcomes → requirements; adopted implementation constraints → design. Transient CR → `workbench/`; durable non-normative CR → `references/`.
+- Promote only independently adopted required outcomes → requirements; adopted implementation constraints → design. Transient CR → `jobs/`; durable non-normative CR → `references/`.
 - Source paths/private helpers/classes/functions/state fields/DOM IDs/current directory layout/implementation status remain current-realization detail unless independently adopted.
 - Adopting implementation-derived detail into design requires evidence independent of mere implementation/test presence that the project intends the detail as a future constraint. Indicators include effect on an adopted contract, RB, dependency direction, security/correctness/operational property, chosen algorithm, or whether a reimplementation would otherwise be rejected.
 - Existing normative statement remains effective until explicitly changed/retired, but placement alone does not prove intentional adoption of implementation-derived detail.
@@ -247,11 +247,11 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - For each record decide: supports current claim and must remain, continuing non-normative reference value, active work, or retire.
 - Do not migrate solely because legacy placement differs from new default; do not promote solely because historical; do not create repository-wide execution archive.
 - Temporary legacy placement is allowed only to avoid losing current VB/breaking dependent links while reconciliation is unresolved; mark as deferred migration, keep remaining reconciliation discoverable, and do not claim full reconciliation.
-- Resolve safely to current model: native/external VB, `workbench/` active material, `references/` durable non-normative material, retire no-need material, `plans/` only current SoT semantics.
+- Resolve safely to current model: native/external VB, `jobs/` active material, `references/` durable non-normative material, retire no-need material, `definition/` only current SoT semantics.
 - Legacy mixed normative/execution material must be reconciled using Classification and Verification Basis rules, including inbound links.
 - Documentation silence does not authorize opportunistic re-architecture.
 - Docs/implementation/tests disagreement → apply root Coherent Correction: validate the responsible SoT before changing realization, and change the SoT only through applicable authority when the adopted definition itself is deficient.
-- Adopted facts from `references/` and settled workbench decisions must be reflected in responsible SoT; neither is adoption record.
+- Adopted facts from `references/` and settled job decisions must be reflected in responsible SoT; neither is adoption record.
 
 ### Procedures
 
@@ -259,7 +259,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### State Documents
 
-Only these non-hidden files directly under `plans/`:
+Only these non-hidden files directly under `definition/`:
 
 | Document | Role | Trigger |
 |---|---|---|
@@ -274,7 +274,7 @@ Only these non-hidden files directly under `plans/`:
 #### Status
 
 - `CURRENT_STATUS.md`: distinguish unimplemented/implemented/verified; no speculation. Keep capability, material limits/blockers, next work, links to traceability/VB. Remove/relocate stale execution narratives, run/version IDs, counts, output/history.
-- Do not convert retained workbench Defer/Observe items into `next work` merely because they exist; include them only when adopted/currently prioritized or when they materially constrain current state.
+- Do not convert retained `jobs/` Defer/Observe items into `next work` merely because they exist; include them only when adopted/currently prioritized or when they materially constrain current state.
 
 #### Glossary
 
@@ -292,10 +292,10 @@ Only these non-hidden files directly under `plans/`:
 ### Verification Basis
 
 - Execution-specific results/evidence are working material by default; verification does not require a dedicated repository evidence file.
-- Project-managed active evidence → `workbench/`.
+- Project-managed active evidence → `jobs/`.
 - Native/external execution records may remain in their execution system or external medium when sufficient and no project-managed retention need exists.
 - A current verified claim requires an available, applicable VB sufficient to reassess its scope.
-- VB may be native/external record, retained workbench material, promoted reference, or proportional summary; Markdown/repository storage is not required.
+- VB may be native/external record, retained `jobs/` material, promoted reference, or proportional summary; Markdown/repository storage is not required.
 - Preserve proportionally: actual target/state, relevant conditions, method, result, directly verified scope, material unverified scope.
 - Prefer stable identity when available (commit/release/version/digest/deployment/dataset/snapshot/etc.). Mutable branch/environment/host labels are context only. Without stable ID, record time/state/conditions/scope sufficiently to prevent unsafe inference. No Git/CI/tool requirement.
 - External/expirable VB: make material retention/expiry/freshness/revalidation boundary discoverable. Recheck after boundary or when continued availability/applicability is uncertain before relying on the claim for completion/transition/status/acceptance.
@@ -311,7 +311,7 @@ Only these non-hidden files directly under `plans/`:
 
 - Durable non-normative knowledge/artifact with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`; do not promote every run/history.
 - Any normative result → responsible requirements/design/testing SoT, not reference authority.
-- Workbench VB is transitional while serving active work, immediate handoff, unresolved reconciliation, or a **bounded post-work transition** with a specific exit event (e.g. identified re-verification, lifecycle transition, basis replacement/reconciliation).
+- `jobs/` VB is transitional while serving active work, immediate handoff, unresolved reconciliation, or a **bounded post-work transition** with a specific exit event (e.g. identified re-verification, lifecycle transition, basis replacement/reconciliation).
 - “Keep for now” / “reverify later” without specific exit event is not bounded.
 - If exit event is missed/cancelled/deferred into open-ended dependency, or claim must outlive transitional responsibility and remaining basis is inadequate: use suitable durable native/external VB, promote minimum needed material to `references/`, or downgrade claim.
 - Multiple partial bases may jointly be sufficient; one proportional basis may support multiple related claims. No per-claim/per-run file requirement.
@@ -324,9 +324,9 @@ Only these non-hidden files directly under `plans/`:
 - Governance change altering allowed doc location/hierarchy must update every affected validator/generator/template/example/check in same migration; old-structure validation is not evidence for new structure.
 - Index checks must support direct-link + nested-reachability + protected-instruction exclusions; do not assume flat system docs.
 - Requirement/design/testing/traceability discovery must follow supported indexed hierarchy, including nested system docs; do not assume fixed/flat source set.
-- Do not add a document category/directory when current model can represent the responsibility. Responsibility grouping under `plans/system/` is not a new classification when rules above are met.
-- Before new `plans/` directory: explain responsibility + effect on classifications and obtain user approval; approved init/change summary suffices.
-- Add/rename/move/delete indexed docs: inspect inbound links, indexes, status, traceability, workbench, reference-retention needs; reconcile same change.
+- Do not add a document category/directory when current model can represent the responsibility. Responsibility grouping under `definition/system/` is not a new classification when rules above are met.
+- Before new `definition/` directory: explain responsibility + effect on classifications and obtain user approval; approved init/change summary suffices.
+- Add/rename/move/delete indexed docs: inspect inbound links, indexes, status, traceability, jobs, reference-retention needs; reconcile same change.
 - Preserve identifiers when splitting/moving; do not duplicate detail between overview/detail docs.
 
 ### Governance Validation

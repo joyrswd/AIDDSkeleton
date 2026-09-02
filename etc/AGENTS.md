@@ -4,7 +4,7 @@
 
 ### Scope
 
-- Applies to `etc/` and descendants; inherits root + `plans/AGENTS.md`.
+- Applies to `etc/` and descendants; inherits root + `definition/AGENTS.md`.
 
 ### Responsibility
 
@@ -46,4 +46,4 @@ Canonical product/environment boundary:
 
 - Prefer automated reproducible checks; when impractical, define method + result location.
 - Verify changed config proportional to impact: applicable syntax, expanded config, startup, migration, health, rollback, recovery.
-- Record verification scope/limits/risk per `plans/AGENTS.md`; unavailable check ≠ success.
+- Record verification scope/limits/risk per `definition/AGENTS.md`; unavailable check ≠ success.
