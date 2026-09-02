@@ -51,6 +51,12 @@ products/
 - Observable behavior/public contracts/data structures/dependencies/migrations/RBs changes must respect root authority: complete any required project-definition change/authorization first, then keep implementation/tests/docs/status/traceability consistent in the same change.
 - Before move/promotion/deletion inspect dependents, public contracts, migrations, tests, docs, status, traceability, current VB, reference-retention needs.
 
+### Artifact Structure
+
+- When repeated implementation difficulty, review findings, or verification friction concentrate in the same artifact, treat that as a signal for the root Adversarial Self-Review structural reassessment. Consider whether responsibility, invariant, lifecycle, or verification boundaries should be made clearer in the implementation structure.
+- Reorganize only when that reassessment justifies it, and choose a structure appropriate to the artifact's nature; splitting is one possible outcome, not the default.
+- Artifact size, line count, or similar magnitude alone does not require restructuring or splitting.
+
 ### Implementation Verification
 
 - Run project-required + risk-proportional static analysis, generation consistency, migration, compatibility, security, performance, packaging checks.
