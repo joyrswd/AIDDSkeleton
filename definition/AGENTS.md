@@ -18,7 +18,6 @@ Clone-ready:
 ```text
 definition/
 ├── AGENTS.md
-├── CURRENT_STATUS.md
 ├── GLOSSARY.md
 ├── TRACEABILITY.md
 ├── system/
@@ -42,10 +41,10 @@ definition/apps/<app>/
 
 | Location | Responsibility |
 |---|---|
-| `definition/system/system_index.md` | System overview, RBs, documentation map, reading order |
+| `definition/system/system_index.md` | System overview, RBs, current system/cross-app state, material limits/blockers, documentation map, reading order |
 | `definition/system/documentation_language.md` | Default documentation language + explicit app overrides |
 | other `definition/system/` docs | System-owned purpose, requirements, structure, constraints, development/operational methods |
-| `<app>_index.md` | App overview, RBs, reading order, category entries, traceability |
+| `<app>_index.md` | App overview, RBs, current app state, material limits/blockers, reading order, category entries, traceability |
 | `<app>_traceability.md` | Normative → implementation/VB relationships + concise coverage |
 | category indexes | Category docs, questions answered, order, absence/inheritance |
 | `requirements/` | Required outcomes/constraints |
@@ -72,7 +71,7 @@ definition/apps/<app>/
 
 ### Navigation
 
-- Indexes = navigation + concise absence/inheritance/coverage context, not duplicated detailed requirements/design/testing/procedures/results.
+- Indexes = navigation + concise owned current-state/absence/inheritance/coverage context, not duplicated detailed requirements/design/testing/procedures/results.
 - System navigation:
   - `system_index.md` is primary;
   - directly link each Markdown doc directly under `definition/system/` except itself;
@@ -81,7 +80,7 @@ definition/apps/<app>/
   - local index only when responsibility needs navigation;
   - do not duplicate the same detailed list at multiple levels.
 - App navigation: `<app>_index.md` → three category indexes + app traceability; category index → its docs.
-- Initialized read order: `definition/CURRENT_STATUS.md` → `definition/system/system_index.md` → `definition/system/documentation_language.md` → `definition/GLOSSARY.md` → `definition/TRACEABILITY.md` → target indexes.
+- Initialized read order: `definition/system/system_index.md` → `definition/system/documentation_language.md` → `definition/GLOSSARY.md` → `definition/TRACEABILITY.md` → target indexes.
 
 ### Responsibility Placement
 
@@ -139,7 +138,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Initialization
 
-| State | `definition/CURRENT_STATUS.md`, `definition/GLOSSARY.md`, `definition/TRACEABILITY.md` | `definition/system/system_index.md`, `definition/system/documentation_language.md` | Markers |
+| State | `definition/GLOSSARY.md`, `definition/TRACEABILITY.md` | `definition/system/system_index.md`, `definition/system/documentation_language.md` | Markers |
 |---|---|---|---|
 | Uninitialized | present, zero bytes | absent | `definition/system/.gitkeep`, `definition/apps/.gitkeep` present |
 | Initialized | present, approved-language content | both present | `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` only while no app docs exist |
@@ -150,7 +149,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Initialization content must come from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
 - Initialize atomically:
   - create `definition/system/documentation_language.md` and `definition/system/system_index.md`;
-  - populate the three cross-cutting files in approved language;
+  - populate the two cross-cutting files in approved language;
   - remove `definition/system/.gitkeep`.
 - Define at least:
   - purpose, users, scope, exclusions;
@@ -172,13 +171,13 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Completion
 
-- Requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, status + traceability updates, and no unresolved Blocker or In-scope deficiency.
+- Requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, responsible index current-state + traceability updates, and no unresolved Blocker or In-scope deficiency.
 - Disposition alone cannot waive approved scope, adopted AC, or another completion condition. Dispositioned Follow-ups do not block completion unless new evidence justifies reclassification or they expose another unmet completion condition.
 
 ### Reset
 
 - Do not delete either fixed system document independently.
-- Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty three cross-cutting files, restore both markers, verify whole state.
+- Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty two cross-cutting files, restore both markers, verify whole state.
 
 ## Local Governance
 
@@ -236,14 +235,14 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - After separation validate both:
   - without `products/`, normative sources still support semantic reconstruction;
   - without current realization/external source, retained references preserve enough provenance/observation context to re-investigate mappings without becoming normative.
-- Brownfield authority cleanup includes affected responsibility's entry points/summaries (indexes, scope/overview, active transition/migration design, traceability, testing indexes/catalogs, status, retained verification/reference links) for the same leakage/stale duplication; keep sweep scoped.
+- Brownfield authority cleanup includes affected responsibility's entry points/summaries (indexes, scope/overview, active transition/migration design, traceability, testing indexes/catalogs, current-state summaries, retained verification/reference links) for the same leakage/stale duplication; keep sweep scoped.
 
 ### Governance Migration
 
 - Covers changed semantics + all materially affected existing cases. Unresolved cases remain explicit debt/unverified; do not claim migration complete while any remain.
 - Unrelated discovered issues do not expand migration scope and retain root severity/escalation.
 - Verification-material migration follows Verification Basis rules.
-- When classification/routing/retention rules change, inspect affected execution/evidence records in all current locations + inbound links/index/status/traceability.
+- When classification/routing/retention rules change, inspect affected execution/evidence records in all current locations + inbound links/index/current-state/traceability.
 - For each record decide: supports current claim and must remain, continuing non-normative reference value, active work, or retire.
 - Do not migrate solely because legacy placement differs from new default; do not promote solely because historical; do not create repository-wide execution archive.
 - Temporary legacy placement is allowed only to avoid losing current VB/breaking dependent links while reconciliation is unresolved; mark as deferred migration, keep remaining reconciliation discoverable, and do not claim full reconciliation.
@@ -264,17 +263,20 @@ Only these non-hidden files directly under `definition/`:
 | Document | Role | Trigger |
 |---|---|---|
 | `AGENTS.md` | protected instructions | explicit governance change |
-| `CURRENT_STATUS.md` | aggregate lifecycle/implementation/verification state, material limits/blockers, next work | state/limit/blocker/priority change |
 | `GLOSSARY.md` | shared terms/abbreviations/state expressions | shared meaning change |
 | `TRACEABILITY.md` | system/cross-app relationships, concise coverage, app traceability index | relationship/link/coverage change |
 
-- Before initialization, three project-specific files remain zero bytes; after, approved language.
-- Conversation report ≠ required status/traceability/SoT update.
+- Before initialization, two project-specific files remain zero bytes; after, approved language.
+- Conversation report ≠ required index/traceability/SoT update.
 
-#### Status
+#### Current State
 
-- `CURRENT_STATUS.md`: distinguish unimplemented/implemented/verified; no speculation. Keep capability, material limits/blockers, next work, links to traceability/VB. Remove/relocate stale execution narratives, run/version IDs, counts, output/history.
-- Do not convert retained `jobs/` Defer/Observe items into `next work` merely because they exist; include them only when adopted/currently prioritized or when they materially constrain current state.
+- `system_index.md` owns concise current lifecycle/implementation/verification state and material limits/blockers for system-owned or cross-app responsibilities.
+- Each `<app>_index.md` owns the same current-state summary for its app responsibility.
+- Distinguish unimplemented/implemented/verified; no speculation. Link applicable traceability/VB when needed to support the summary.
+- Index state is a responsibility-level summary; relationship/coverage detail remains in traceability. Keep them consistent without duplicating detailed entries, run/version IDs, counts, output, or execution history.
+- Active execution sequence, priority, next work, and transient job-specific blockers are not project-definition state; retain them under `jobs/` only when continuing work/handoff value exists.
+- A limitation/blocker belongs in the responsible definition index only when it materially describes the current accepted state of that responsibility, not merely because an active job encountered it.
 
 #### Glossary
 
@@ -305,7 +307,7 @@ Only these non-hidden files directly under `definition/`:
 - Advance lifecycle only with documented transition conditions + required evidence.
 - Record method/result/verified scope/evidence type/material unverified matters proportionally; fixture/mock/real DB/manual/live/historical evidence are not interchangeable.
 - Carrying earlier evidence to later target/state requires evidence that relevant differences do not affect verified scope, environment/config/conditions, applicable requirements/AC, or testing sufficiency rules. Identity lineage or “unrelated change” assumption alone is insufficient; compare appropriate implementation/config/deployment/snapshot state or reverify.
-- Status/traceability/index links to evidence/reference must point to material applicable to asserted state.
+- Index/traceability links to evidence/reference must point to material applicable to asserted state.
 
 #### Retention
 
@@ -326,7 +328,7 @@ Only these non-hidden files directly under `definition/`:
 - Requirement/design/testing/traceability discovery must follow supported indexed hierarchy, including nested system docs; do not assume fixed/flat source set.
 - Do not add a document category/directory when current model can represent the responsibility. Responsibility grouping under `definition/system/` is not a new classification when rules above are met.
 - Before new `definition/` directory: explain responsibility + effect on classifications and obtain user approval; approved init/change summary suffices.
-- Add/rename/move/delete indexed docs: inspect inbound links, indexes, status, traceability, jobs, reference-retention needs; reconcile same change.
+- Add/rename/move/delete indexed docs: inspect inbound links, indexes, current-state summaries, traceability, jobs, reference-retention needs; reconcile same change.
 - Preserve identifiers when splitting/moving; do not duplicate detail between overview/detail docs.
 
 ### Governance Validation
