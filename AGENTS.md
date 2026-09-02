@@ -98,7 +98,7 @@
   - contains a part whose expected verification difficulty or failure-surface breadth materially exceeds the rest;
   - contains both a normative SoT change and its implementation where the SoT change is separately adoptable.
 - A part that satisfies its AC and can be verified and accepted on its own must not be withheld for an unrelated part of the same unit.
-- A change unit's scope is fixed when its implementation begins. Outcomes discovered afterwards form follow-up units unless they are Blockers of the current unit; they do not silently join it.
+- A change unit's scope is fixed when its implementation begins: work required by its approved AC stays in the unit even when first discovered during implementation, while outcomes beyond that AC form follow-up units unless they are Blockers of the current unit. Discovered work does not silently redefine the unit's AC.
 - Splitting does not change authority, adopted scope, or AC; it changes only what is implemented, verified, and accepted together.
 - Completing a change unit is not completion of a requirement, AC, or lifecycle state spanning several units; those follow their own completion rules and stay open until every constituent unit is complete.
 
