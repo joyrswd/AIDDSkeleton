@@ -33,21 +33,22 @@
 - Every retained top-level job unit uses one lifecycle marker:
   - `@<purpose>` = authorized work that remains active in the `jobs/` lifecycle, including currently executing, pending, blocked, handoff/reconciliation, or required transitional verification work;
   - `_<purpose>` = retained but inactive job material. It may include a root-dispositioned Defer input, a not-yet-activated future plan, dormant handoff/restart context, or other material retained for later evaluation or reconsideration.
-- The marker applies whether the job unit is a single file or a directory. Repository governance/instruction files such as `AGENTS.md` are not job units and are exempt.
+- The marker applies whether the job unit is a single file or a directory. The top-level `jobs/AGENTS.md` governance file is not a job unit and is exempt.
 - Do not create unmarked retained top-level job units. Supporting handoffs, future plans, logs, evidence, prototypes, drafts, and similar material belong inside the owning `@` or `_` job unit.
 - These markers describe current jobs lifecycle only. `@` does not grant authority, set priority, prove completion/verification, or describe a Change Unit's state. `_` does not by itself mean Defer, rejection, adoption, priority, or future commitment. Their lexical/display order must not be interpreted as priority.
 - Lifecycle movement is bidirectional when justified by current state:
   - `_` → `@` only when the unit has a current approved basis and any required assessment, decision, or authority permits active work. A Defer revisit-condition match alone is insufficient; root reassessment and required authority come first.
   - `@` → `_` when current active lifecycle work has ended or been withdrawn from active continuation, but the unit still has justified retention/evaluation/reconsideration value. Record any required disposition or future evaluation basis before relying on it as inactive retained work.
 - A blocked or pending Change Unit remains under `@` while its enclosing job remains active. If the job itself is no longer active and only later evaluation/reconsideration remains, move/restructure it under `_` after any required assessment/disposition.
-- Change Unit state belongs in the active job `INDEX.md`; do not encode `pending`/`active`/`blocked`/`done` by repeatedly renaming Change Unit files/directories. Keep unit identifiers/material paths stable where practical.
+- Current-claim-dependent transitional VB remains under `@` while preservation, replacement, reconciliation, or claim-downgrade is still an active lifecycle obligation, even when implementation work is otherwise complete. It is not `_` merely because no code change is executing.
+- When an active job has `INDEX.md`, Change Unit state belongs there; do not encode `pending`/`active`/`blocked`/`done` by repeatedly renaming Change Unit files/directories. Work that needs no retained active control need not create an index solely to store transient unit state. Keep unit identifiers/material paths stable where practical.
 - For a continuation/resumption request when the relevant active job is not already identified, inspect `jobs/@*` as the discovery entry point, then read the job entry point/`INDEX.md` and match its approved basis to the request. Do not treat unrelated `@` units as scope merely because they exist.
-- `_` units are not active-task candidates merely by presence. Root-dispositioned Defer items surface through their revisit conditions and reassessment rules; other inactive units require a current request/basis and any applicable assessment or decision before activation.
+- `_` units are not active-task candidates merely by presence. Use targeted discovery when the current request, evidence, or affected responsibility plausibly matches a retained evaluation/revisit basis; inspect only the relevant `_` unit(s). Root-dispositioned Defer items then follow their revisit conditions and reassessment rules; other inactive units require a current request/basis and any applicable assessment or decision before activation.
 
 ### Active Work Control
 
-- When authorized repository-modification work has multiple Change Units, represent it in one `@<purpose>/` directory with `INDEX.md` before the first constituent Change Unit begins.
-- When single-Change-Unit repository-modification work is retained for continuation or handoff across sessions, represent it in `@<purpose>/INDEX.md` as well. Single-unit work that needs no retained active control does not require `INDEX.md`.
+- Use `@<purpose>/INDEX.md` when authorized repository-modification work needs repository-retained decomposition/progress for continuation, handoff, or coordination across sessions. Multiple Change Units alone do not require an index when the work completes in one session without retained active control.
+- Single-Change-Unit work follows the same rule: use `INDEX.md` only when its active control must persist for continuation or handoff. Do not create an index solely because work has been decomposed into one or several Change Units.
 - `INDEX.md` is the active control state for that job. Keep proportionally discoverable:
   - purpose and approved basis;
   - constituent Change Units and the approved scope/AC basis each serves;
@@ -106,7 +107,7 @@
   - Accept now → obtain any required authority/adoption; if repository work becomes active and retained, move/restructure it under `@` and create/update `INDEX.md` when Active Work Control requires it;
   - Defer again → retain `_` and refresh rationale/revisit condition when materially changed;
   - Reject → delete unless rationale/provenance has continuing value independent of the rejected change, in which case classify that continuing value under the responsible area rather than retaining the rejected input as an active candidate.
-- Do not scan or surface every inactive retained item on every task; relevance comes from current context and recorded evaluation/revisit basis, not mere presence or age.
+- Do not scan or surface every inactive retained item on every task; when current context plausibly matches a recorded evaluation/revisit basis, inspect the relevant `_` unit(s) selectively. Relevance comes from current request/evidence/responsibility, not mere presence or age.
 
 ### Decision Readiness
 
