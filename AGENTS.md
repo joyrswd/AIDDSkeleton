@@ -87,9 +87,9 @@
 
 ### Change Unit
 
-- A **change unit** is the smallest coherent body of work whose approved AC can be implemented, verified, and accepted together, and whose acceptance does not depend on other unstarted work.
+- A **change unit** is the smallest coherent body of work whose approved AC can be satisfied, verified, and accepted together, and whose acceptance does not depend on other unstarted work.
 - Authorization and change unit are distinct: one authorization may cover several change units, and covering them does not make them one unit.
-- Before implementation begins, decompose an authorization covering multiple independently completable outcomes into change units with a delivery order, and state that decomposition. Unit boundaries within an approved scope are AI discretion; changes to user-owned intent, priority, scope, AC, RB, or design follow Decision Requests.
+- Before work begins in any mode, decompose an authorization covering multiple independently completable outcomes into change units with a delivery order, and state that decomposition. Decomposing does not authorize a mode or expand what Permission / Scope allows. Unit boundaries within an approved scope are AI discretion; changes to user-owned intent, priority, scope, AC, RB, or design follow Decision Requests.
 - One change unit is one review and acceptance boundary. Do not combine independently completable outcomes into one unit merely because one authorization, session, branch, dependency, or adjacent file set covers them.
 - Review a split, and prefer separate units, when a candidate unit:
   - spans more than one RB or area ownership;
@@ -98,8 +98,8 @@
   - contains a part whose expected verification difficulty or failure-surface breadth materially exceeds the rest;
   - contains both a normative SoT change and its implementation where the SoT change is separately adoptable.
 - A part that satisfies its AC and can be verified and accepted on its own must not be withheld for an unrelated part of the same unit.
-- A change unit's scope is fixed when its implementation begins: discovered work that Permission / Scope allows adding stays in the unit, and other discovered outcomes form follow-up units. Discovered work does not silently redefine the unit's AC.
-- Splitting does not change authority, adopted scope, or AC; it changes only what is implemented, verified, and accepted together.
+- A change unit's scope is fixed when its work begins: discovered work that Permission / Scope allows adding stays in the unit, and other discovered outcomes form follow-up units. Discovered work does not silently redefine the unit's AC.
+- Splitting does not change authority, adopted scope, or AC; it changes only what is delivered, verified, and accepted together.
 - Completing a change unit is not completion of a requirement, AC, or lifecycle state spanning several units; those follow their own completion rules and stay open until every constituent unit is complete.
 
 ### Safety / Compliance
