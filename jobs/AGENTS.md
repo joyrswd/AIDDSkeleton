@@ -31,23 +31,23 @@
 ### Lifecycle Discovery
 
 - Every retained top-level job unit uses one lifecycle marker:
-  - `@<purpose>` = authorized work that remains active in the `jobs/` lifecycle, including currently executing, pending, blocked, handoff/reconciliation, or required transitional verification work;
+  - `+<purpose>` = authorized work that remains active in the `jobs/` lifecycle, including currently executing, pending, blocked, handoff/reconciliation, or required transitional verification work;
   - `_<purpose>` = retained but inactive job material. It may include a root-dispositioned Defer input, a not-yet-activated future plan, dormant handoff/restart context, or other material retained for later evaluation or reconsideration.
 - The marker applies whether the job unit is a single file or a directory. The top-level `jobs/AGENTS.md` governance file is not a job unit and is exempt.
-- Do not create unmarked retained top-level job units. Supporting handoffs, future plans, logs, evidence, prototypes, drafts, and similar material belong inside the owning `@` or `_` job unit.
-- These markers describe current jobs lifecycle only. `@` does not grant authority, set priority, prove completion/verification, or describe a Change Unit's state. `_` does not by itself mean Defer, rejection, adoption, priority, or future commitment. Their lexical/display order must not be interpreted as priority.
+- Do not create unmarked retained top-level job units. Supporting handoffs, future plans, logs, evidence, prototypes, drafts, and similar material belong inside the owning `+` or `_` job unit.
+- These markers describe current jobs lifecycle only. `+` does not grant authority, set priority, prove completion/verification, or describe a Change Unit's state. `_` does not by itself mean Defer, rejection, adoption, priority, or future commitment. Their lexical/display order must not be interpreted as priority.
 - Lifecycle movement is bidirectional when justified by current state:
-  - `_` → `@` only when the unit has a current approved basis and any required assessment, decision, or authority permits active work. A Defer revisit-condition match alone is insufficient; root reassessment and required authority come first.
-  - `@` → `_` when current active lifecycle work has ended or been withdrawn from active continuation, but the unit still has justified retention/evaluation/reconsideration value. Record any required disposition or future evaluation basis before relying on it as inactive retained work.
-- A blocked or pending Change Unit remains under `@` while its enclosing job remains active. If the job itself is no longer active and only later evaluation/reconsideration remains, move/restructure it under `_` after any required assessment/disposition.
-- Current-claim-dependent transitional VB remains under `@` while preservation, replacement, reconciliation, or claim-downgrade is still an active lifecycle obligation, even when implementation work is otherwise complete. It is not `_` merely because no code change is executing.
+  - `_` → `+` only when the unit has a current approved basis and any required assessment, decision, or authority permits active work. A Defer revisit-condition match alone is insufficient; root reassessment and required authority come first.
+  - `+` → `_` when current active lifecycle work has ended or been withdrawn from active continuation, but the unit still has justified retention/evaluation/reconsideration value. Record any required disposition or future evaluation basis before relying on it as inactive retained work.
+- A blocked or pending Change Unit remains under `+` while its enclosing job remains active. If the job itself is no longer active and only later evaluation/reconsideration remains, move/restructure it under `_` after any required assessment/disposition.
+- Current-claim-dependent transitional VB remains under `+` while preservation, replacement, reconciliation, or claim-downgrade is still an active lifecycle obligation, even when implementation work is otherwise complete. It is not `_` merely because no code change is executing.
 - When an active job has `INDEX.md`, Change Unit state belongs there; do not encode `pending`/`active`/`blocked`/`done` by repeatedly renaming Change Unit files/directories. Work that needs no retained active control need not create an index solely to store transient unit state. Keep unit identifiers/material paths stable where practical.
-- For a continuation/resumption request when the relevant active job is not already identified, inspect `jobs/@*` as the discovery entry point, then read the job entry point/`INDEX.md` and match its approved basis to the request. Do not treat unrelated `@` units as scope merely because they exist.
+- For a continuation/resumption request when the relevant active job is not already identified, inspect `jobs/+*` as the discovery entry point, then read the job entry point/`INDEX.md` and match its approved basis to the request. Do not treat unrelated `+` units as scope merely because they exist.
 - `_` units are not active-task candidates merely by presence. Use targeted discovery when the current request, evidence, or affected responsibility plausibly matches a retained evaluation/revisit basis; inspect only the relevant `_` unit(s). Root-dispositioned Defer items then follow their revisit conditions and reassessment rules; other inactive units require a current request/basis and any applicable assessment or decision before activation.
 
 ### Active Work Control
 
-- Use `@<purpose>/INDEX.md` when authorized repository-modification work needs repository-retained decomposition/progress for continuation, handoff, or coordination across sessions. Multiple Change Units alone do not require an index when the work completes in one session without retained active control.
+- Use `+<purpose>/INDEX.md` when authorized repository-modification work needs repository-retained decomposition/progress for continuation, handoff, or coordination across sessions. Multiple Change Units alone do not require an index when the work completes in one session without retained active control.
 - Single-Change-Unit work follows the same rule: use `INDEX.md` only when its active control must persist for continuation or handoff. Do not create an index solely because work has been decomposed into one or several Change Units.
 - `INDEX.md` is the active control state for that job. Keep proportionally discoverable:
   - purpose and approved basis;
@@ -89,7 +89,7 @@
 ### Handoff
 
 - Handoff may package authorized scope/exclusions, completion conditions, blockers, decisions, assumptions, open questions, order, working context.
-- A handoff that carries current continuation remains inside the owning `@` job. If it is retained only as possible future restart context, the owning job uses `_`; this inactive marker does not by itself classify the handoff as Defer.
+- A handoff that carries current continuation remains inside the owning `+` job. If it is retained only as possible future restart context, the owning job uses `_`; this inactive marker does not by itself classify the handoff as Defer.
 - For an active job with `INDEX.md`, prefer keeping decomposition/progress in the index; use a separate handoff only for context that does not fit the control state cleanly.
 - Handoff does not authorize implementation and cannot override instructions/SoTs.
 
@@ -100,11 +100,11 @@
 - Retention does not make an item adopted work, a project requirement, a priority, a Change Unit, or a promise to implement it.
 - Record proportionally enough to understand why the unit remains: the retained input/context, source/provenance when material, relevant scope, retention/evaluation basis, and the condition or request under which reevaluation/restart would be useful when applicable. A root Defer item additionally follows root Defer disposition and revisit-condition requirements.
 - When current work materially matches a retained Defer revisit condition, surface the item for root reassessment at a useful decision point; do not silently expand current scope or add it to an active `INDEX.md`. Other `_` units likewise require a current request/basis and any applicable assessment/decision before activation.
-- Evidence/context gathering that is authorized to happen now is active work and belongs under `@`; do not use `_` merely as a quieter state for ongoing investigation.
-- `_` → `@` activation requires a current approved basis and applicable authority. For a Defer input, reassess under root governance before activation; for material not yet dispositioned, perform the applicable assessment/decision rather than treating retention as approval.
-- `@` → `_` deactivation is allowed when current active lifecycle work no longer continues but retention remains justified. Preserve enough basis to know why it is inactive and what could make reevaluation useful; when the reason is root Defer, record/refresh that disposition and revisit condition.
+- Evidence/context gathering that is authorized to happen now is active work and belongs under `+`; do not use `_` merely as a quieter state for ongoing investigation.
+- `_` → `+` activation requires a current approved basis and applicable authority. For a Defer input, reassess under root governance before activation; for material not yet dispositioned, perform the applicable assessment/decision rather than treating retention as approval.
+- `+` → `_` deactivation is allowed when current active lifecycle work no longer continues but retention remains justified. Preserve enough basis to know why it is inactive and what could make reevaluation useful; when the reason is root Defer, record/refresh that disposition and revisit condition.
 - Reassessment of a root Defer input follows root governance:
-  - Accept now → obtain any required authority/adoption; if repository work becomes active and retained, move/restructure it under `@` and create/update `INDEX.md` when Active Work Control requires it;
+  - Accept now → obtain any required authority/adoption; if repository work becomes active and retained, move/restructure it under `+` and create/update `INDEX.md` when Active Work Control requires it;
   - Defer again → retain `_` and refresh rationale/revisit condition when materially changed;
   - Reject → delete unless rationale/provenance has continuing value independent of the rejected change, in which case classify that continuing value under the responsible area rather than retaining the rejected input as an active candidate.
 - Do not scan or surface every inactive retained item on every task; when current context plausibly matches a recorded evaluation/revisit basis, inspect the relevant `_` unit(s) selectively. Relevance comes from current request/evidence/responsibility, not mere presence or age.
@@ -155,8 +155,8 @@ Formal promotion = **classification + integration of semantics**, not file migra
 - Candidate artifacts must not look like active alternate SoT: delete, mark superseded/historical, promote durable non-normative value, or explicitly relate them to resulting SoT.
 - Reassessed/dispositioned inactive items must reflect material handling changes in retained metadata and lifecycle marker; do not leave stale TODO-like state after activation, Reject, or a materially changed disposition.
 - If an active-job `INDEX.md` exists, job exit requires reconciling the recorded Change Units and linked material: completed/adopted outcomes are reflected in responsible destinations, remaining authorized work stays explicitly active/handoff, inactive retained inputs follow their retention/disposition rules, and temporary material is retained/disposed deliberately.
-- A job remains `@` while required handoff/reconciliation/transitional verification is still active even if its implementation Change Units are complete; those lifecycle obligations do not create a third top-level state.
-- Do not leave `@` on a job with no active lifecycle work. When the active purpose and required transition work are served, remove the job, promote/retain any durable material under its responsible area, or move/restructure a justified inactive remainder under `_` after any required assessment/disposition.
+- A job remains `+` while required handoff/reconciliation/transitional verification is still active even if its implementation Change Units are complete; those lifecycle obligations do not create a third top-level state.
+- Do not leave `+` on a job with no active lifecycle work. When the active purpose and required transition work are served, remove the job, promote/retain any durable material under its responsible area, or move/restructure a justified inactive remainder under `_` after any required assessment/disposition.
 - Do not leave a completed or superseded `INDEX.md` presenting stale work as active. After job purpose is served: delete it with the job, reduce it to still-active/handoff context, or retain only when it has independent continuing value and is clearly no longer active control state.
 - After job purpose is served: delete; promote durable reference; retain only for unresolved active work/handoff/reconciliation/valid transitional VB or justified inactive evaluation/reconsideration value; or mark superseded.
 - Before delete/promotion inspect inbound references, unresolved work, traceability, current verified claims, continuing evidence/maintenance/reconsideration need.
