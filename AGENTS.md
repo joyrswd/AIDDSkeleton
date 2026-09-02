@@ -42,7 +42,7 @@
 |---|---|
 | [`definition/`](definition/AGENTS.md) | Adopted project definition, status, traceability, project-specific lifecycle/VB rules |
 | [`etc/`](etc/AGENTS.md) | Project-managed execution-environment configuration |
-| [`jobs/`](jobs/AGENTS.md) | Non-authoritative investigation, proposals, deferred/observed follow-up, prototypes, handoffs, transitional verification material |
+| [`jobs/`](jobs/AGENTS.md) | Non-authoritative active-work control, investigation, proposals, deferred follow-up, prototypes, handoffs, transitional verification material |
 | [`references/`](references/AGENTS.md) | Durable non-normative supplied/promoted reference material |
 | [`products/`](products/AGENTS.md) | Formal implementations and tests |
 
@@ -84,6 +84,14 @@
 - Within approved scope, proceed with reversible investigation, edits, and verification without repeated permission requests.
 - Preserve unrelated user changes; do not expand scope for merely adjacent work.
 - Add discovered work only when required by approved AC or needed to prevent direct regression, corruption, security failure, or irreversible damage; otherwise disposition it under Assessment and Feedback and retain follow-up only when continuing value exists.
+
+### Change Unit
+
+- A **Change Unit** is the smallest coherent body of authorized work that can be executed, verified, reviewed, and accepted as one outcome. It is an execution/review boundary, not authority or SoT.
+- Authorization, requirement/AC, and Change Unit are distinct. Independently completable and acceptable outcomes should not be combined merely because one authorization or surrounding task covers them.
+- Each Change Unit has an acceptance basis derived from applicable approved scope/AC. Its scope is fixed when work begins except for discovered work that Permission / Scope permits adding; splitting or creating units does not change authority, adopted scope, or AC.
+- Review, In-scope deficiency, Follow-up, and unit completion are judged against the current Change Unit. Completing a Change Unit does not complete a requirement, AC, authorization, or lifecycle state that spans additional work.
+- Repository-managed Change Unit decomposition, continuity, ordering, and state follow `jobs/AGENTS.md`.
 
 ### Safety / Compliance
 
@@ -164,10 +172,12 @@ Use only when a request has multiple material ambiguities.
 ### Adversarial Self-Review
 
 - Before completing material work, perform adversarial self-review proportionate to the change and risk, aiming to disprove correctness rather than confirm it. Challenge assumptions, contradictions, boundary/failure conditions, missed impact/root causes, scope drift, and evidence/verification gaps. Do not limit the challenge to edited lines or the exact reported symptom; inspect materially relevant same-responsibility, same-invariant, dependency, sibling-path, boundary, and failure-family cases in proportion to the change and risk. Investigation does not expand modification authority.
+- Bound the review surface to the current Change Unit's acceptance basis and protected invariants. Investigate beyond it far enough to judge impact, then route the result through Permission / Scope and Assessment and Feedback; a finding outside the unit does not extend the unit by itself.
 - When a valid review finding, failed verification, incident, or other assessment exposes a missed consideration, treat it as a detection signal. Diagnose the missed consideration, why it escaped detection, and the material concrete context that exposed it; preserve that context while applying the resulting perspective proportionally to materially related current work before treating the stated instance as resolved. Correct or disposition resulting work under Coherent Correction and Assessment and Feedback.
 - Treat a material correction that introduces or materially changes a mechanism, fallback, boundary, assumption, dependency, or verification method as a new adversarial surface. Challenge how that correction itself can fail, partially fail, race, degrade, or bypass the protected invariant/outcome; do not treat the correction itself as proof of resolution.
 - Continue targeted adversarial review while a correction or new evidence creates a materially new plausible failure surface. Stop when the latest material corrections introduce no such unexamined surface; do not repeat unchanged checks merely to satisfy a review count. Repeat the full proportional self-review only when new evidence, failed verification, broad correction, or contradiction materially changes what must be examined.
 - When materially related findings or corrections repeatedly expose the same or closely related cause or protected invariant across different surfaces, stop treating them as isolated instances and reassess the affected work structurally. Consider whether an implicit invariant, responsibility split, abstraction boundary, verification/evidence model, or scope structure should be made explicit; treat resulting material corrections or changed review basis under the same review rules, and stop when no materially new unexamined surface remains.
+- Treat a Change Unit that keeps producing materially new In-scope deficiencies across successive review rounds as not converging. Reassess its boundary and protected invariants; split or narrow the unit when needed to reach a coherent acceptance boundary. Non-convergence never converts an unresolved Blocker into a Follow-up.
 
 ### Assessment and Feedback
 
@@ -182,28 +192,29 @@ Feedback, review findings, suggestions, observations, failed verification, exter
 
 Classify the current handling independently of severity:
 
-- **Accept now:** address within current work when already authorized/required; if it materially changes user-owned intent, priority, scope, AC, RB, or design, request the applicable decision first.
-- **Reject:** do not adopt or change for this input because the basis is insufficient, it conflicts with approved intent/authority, the concern is already satisfied, or change is otherwise not justified.
-- **Defer:** preserve a potentially useful input for later reassessment because it is not required or timely now; deferral ≠ adoption, priority, promise, or planned work.
-- **Observe:** retain or gather context without committing to change when evidence is insufficient or a future condition determines relevance.
+- **Accept now:** address within the current Change Unit when it is an In-scope deficiency of that unit or Permission / Scope has added the work to that unit, or address a Blocker wherever its subject lies, when already authorized/required; if it materially changes user-owned intent, priority, scope, AC, RB, or design, request the applicable decision first.
+- **Reject:** do not adopt or retain the input when the basis is insufficient, it conflicts with approved intent/authority, the concern is already satisfied, or continuing value is absent.
+- **Defer:** retain a potentially useful input for later reassessment when it is not active/timely now or current evidence/future conditions do not justify action yet; deferral ≠ adoption, priority, promise, or planned work. Work already accepted into another Change Unit is not Defer merely because that unit is not current. Evidence/context gathering performed now is active work, not Defer.
 
 Disposition does not itself grant modification or adoption authority.
 
 #### Severity and Scope
 
 - **Blocker:** cannot safely accept/continue due to corruption, security failure, irreversible damage, major regression, or direction-determining unresolved decision.
-- **In-scope deficiency:** approved scope/AC unsatisfied but not Blocker.
-- **Follow-up:** useful improvement not required for current acceptance.
+- **In-scope deficiency:** the current Change Unit's acceptance basis or approved unit scope is unsatisfied but not Blocker.
+- **Follow-up:** useful work not required for the current Change Unit's acceptance; it may be another authorized Change Unit or an input dispositioned Defer/Reject.
 
-Severity and disposition are independent: a Follow-up may be Defer/Observe/Reject, while a Blocker or In-scope deficiency may still require a user-owned decision before it can be Accepted now.
+In-scope deficiency is judged against the current Change Unit; a Blocker remains a Blocker wherever its subject lies. An input's validity is independent of which unit it belongs to; validity alone does not extend the current unit.
+
+Severity and disposition are independent: a Follow-up may be scheduled in another authorized Change Unit or dispositioned Defer/Reject, while a Blocker or In-scope deficiency may still require a user-owned decision before it can be Accepted now.
 
 #### Reassessment
 
-- Retain Defer/Observe inputs only when continuing value justifies retention; repository-managed retention follows `jobs/AGENTS.md`.
+- Retain Defer inputs only when continuing value justifies retention; repository-managed retention follows `jobs/AGENTS.md`.
 - Reassess when new evidence or a recorded revisit condition materially changes relevance, urgency, feasibility, or scope fit.
 - When current work materially matches a retained revisit condition, proactively surface the item at a useful decision point; do not silently add it to scope.
 - Do not repeatedly resurface an item merely because it exists or has aged.
-- Current work may complete only when approved scope/AC are satisfied, required verification is complete, and no unresolved Blocker or In-scope deficiency remains. Disposition alone does not make an unresolved Blocker/In-scope deficiency non-blocking; dispositioned Follow-ups do not by themselves keep work open.
+- A Change Unit may complete only when its acceptance basis is satisfied, required verification is complete, and no unresolved Blocker or In-scope deficiency of that unit remains. Disposition alone does not make an unresolved Blocker/In-scope deficiency non-blocking; Follow-ups and other units' open work do not by themselves keep it open.
 
 #### Consumer Regression
 
