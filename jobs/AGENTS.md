@@ -43,12 +43,13 @@
 - Current-claim-dependent transitional VB remains under `+` while preservation, replacement, reconciliation, or claim-downgrade is still an active lifecycle obligation, even when implementation work is otherwise complete. It is not `_` merely because no code change is executing.
 - When an active job has `INDEX.md`, Change Unit state belongs there; do not encode `pending`/`active`/`blocked`/`done` by repeatedly renaming Change Unit files/directories. Work that needs no retained active control need not create an index solely to store transient unit state. Keep unit identifiers/material paths stable where practical.
 - For a continuation/resumption request when the relevant active job is not already identified, inspect `jobs/+*` as the discovery entry point, then read the job entry point/`INDEX.md` and match its approved basis to the request. Do not treat unrelated `+` units as scope merely because they exist.
-- `_` units are not active-task candidates merely by presence. Use targeted discovery when the current request, evidence, or affected responsibility plausibly matches a retained evaluation/revisit basis; inspect only the relevant `_` unit(s). Root-dispositioned Defer items then follow their revisit conditions and reassessment rules; other inactive units require a current request/basis and any applicable assessment or decision before activation.
+- `_` units are not active-task candidates merely by presence. Use the `<purpose>` portion of top-level `_<purpose>` names as the first discovery screen against the current request, evidence, or affected responsibility; only then inspect the retained evaluation/revisit basis of plausible matches. Root-dispositioned Defer items then follow their revisit conditions and reassessment rules; other inactive units require a current request/basis and any applicable assessment or decision before activation.
 
 ### Active Work Control
 
 - Use `+<purpose>/INDEX.md` when authorized repository-modification work needs repository-retained decomposition/progress for continuation, handoff, or coordination across sessions. Multiple Change Units alone do not require an index when the work completes in one session without retained active control.
 - Single-Change-Unit work follows the same rule: use `INDEX.md` only when its active control must persist for continuation or handoff. Do not create an index solely because work has been decomposed into one or several Change Units.
+- If work starts without `INDEX.md` but later requires repository-retained continuation, handoff, or coordination, create `+<purpose>/INDEX.md` at that point and reconcile the current Change Units, state, and material links before relying on repository state for continuation.
 - `INDEX.md` is the active control state for that job. Keep proportionally discoverable:
   - purpose and approved basis;
   - constituent Change Units and the approved scope/AC basis each serves;
@@ -107,7 +108,7 @@
   - Accept now → obtain any required authority/adoption; if repository work becomes active and retained, move/restructure it under `+` and create/update `INDEX.md` when Active Work Control requires it;
   - Defer again → retain `_` and refresh rationale/revisit condition when materially changed;
   - Reject → delete unless rationale/provenance has continuing value independent of the rejected change, in which case classify that continuing value under the responsible area rather than retaining the rejected input as an active candidate.
-- Do not scan or surface every inactive retained item on every task; when current context plausibly matches a recorded evaluation/revisit basis, inspect the relevant `_` unit(s) selectively. Relevance comes from current request/evidence/responsibility, not mere presence or age.
+- Do not scan or surface every inactive retained item on every task. Use top-level `_<purpose>` names for first-pass relevance screening as defined in Lifecycle Discovery, then inspect recorded evaluation/revisit basis only for plausible matches; mere presence or age is not relevance.
 
 ### Decision Readiness
 
