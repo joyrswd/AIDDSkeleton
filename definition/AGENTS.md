@@ -18,9 +18,9 @@
 - Per approved app, create:
   - `definition/apps/<app>/<app>_index.md`;
   - `definition/apps/<app>/<app>_traceability.md`;
-  - `requirements/<app>_requirements_index.md`;
-  - `design/<app>_design_index.md`;
-  - `testing/<app>_testing_index.md`.
+  - `definition/apps/<app>/requirements/<app>_requirements_index.md`;
+  - `definition/apps/<app>/design/<app>_design_index.md`;
+  - `definition/apps/<app>/testing/<app>_testing_index.md`.
 
 | Location | Responsibility |
 |---|---|
@@ -85,7 +85,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 | Initialized | present, approved-language content | both present | `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` only while no app docs exist |
 | Inconsistent | any other combination | any other combination | reconcile before formal work |
 
-- Fixed skeleton files/markers alone ≠ project facts or initialization; do not infer project facts from uninitialized/inconsistent state.
+- Initialized requires purpose, scope, RBs, and required project SoTs to be approved and recorded; fixed skeleton files/markers alone do not establish project facts or initialization, and uninitialized/inconsistent state must not be used to infer project facts.
 - Initialization content comes from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
 - Initialize atomically: create `documentation_language.md` and `system_index.md`, populate the two cross-cutting files in approved language, and remove `definition/system/.gitkeep`.
 - Define at least:
