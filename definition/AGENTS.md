@@ -134,7 +134,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Treat loss of adopted timezone/unit/protocol-version/transaction-isolation/identity/cardinality/ordering/security/compatibility or similar invariant as normative change, not cleanup.
 - State design constraints normatively; do not delegate design authority to current source/config/test/generated artifacts. Current test implementation details and execution results remain non-normative unless independently adopted.
 
-#### Current Realization Classification
+#### Realization Authority
 
 - First classify a realization-derived fact as current realization, required outcome/constraint, or adopted implementation constraint.
 - Promote only independently adopted required outcomes → requirements and adopted implementation constraints → design. Transient current realization → `jobs/`; durable non-normative current realization → `references/`.
