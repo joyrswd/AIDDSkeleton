@@ -56,14 +56,6 @@
   - Adopted procedures/policy/constraints → `definition/`; environment configuration → `etc/`; application tests and formal generators/viewers/verifiers → `products/`.
   - Durable non-normative current-realization knowledge → `references/` when continuing value exists; preserve provenance/scope/freshness/revalidation per `references/AGENTS.md`.
 
-### Overview Diagrams
-
-- Initialized project: one overview diagram directly under `definition/system/`, one under each approved app, and one app ER diagram when that app has persistent entities; link each from its index.
-- System overview shows main users, RBs, app relationships; app overview shows main processing/structural relationships.
-- Choose the clearest minimal Mermaid/UML type; do not default to flowchart. ER uses Mermaid `erDiagram` with entity names, PKs, FKs, and relationships only.
-- Keep each overview/ER diagram in one document and exempt it from Document Splitting thresholds. If unreadable, simplify/change type/remove detail rather than split.
-- Show adopted definition; distinguish implementation state/approved future intent only when itself part of SoT. Candidate targets/unresolved alternatives → `jobs/`.
-
 ### Documentation Language
 
 - Initialization summary proposes a default; absent user choice, propose current conversation language.
@@ -75,7 +67,7 @@
 
 ### Document Splitting
 
-Applies only to initialized project-specific SoT docs; excludes protected `AGENTS.md`, overview, and ER diagrams.
+Applies only to initialized project-specific SoT docs; excludes protected `AGENTS.md`.
 
 - Review split at ≥150 lines, ≥12 independently referenced identifiers, or ≥3 independently changing functional areas.
 - As a rule split >250 lines or >20 independently referenced identifiers; if retained, the index records reason + reconsideration condition.
