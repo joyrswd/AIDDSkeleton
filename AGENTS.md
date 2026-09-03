@@ -67,11 +67,11 @@
 
 ### Project Initialization
 
-- A tracked skeleton is uninitialized until purpose, scope, RBs, and required project SoTs are approved and recorded.
+- Project initialization state and required definition outputs are governed by `definition/AGENTS.md`.
 - Start read-only. Before project-specific changes, present one initialization summary: verified facts, user decisions, proposed assumptions, open questions, blockers, files/directories to change, target lifecycle state, and work left unstarted.
 - Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
 - If immediate initialization from supplied information + reasonable assumptions is explicitly requested, advance discussion may be omitted; report every adopted assumption at completion.
-- Detailed lifecycle, initialization outputs, transitions, entry/completion criteria, and verification rules: `definition/AGENTS.md`.
+- Detailed lifecycle transitions, entry/completion criteria, and verification rules: `definition/AGENTS.md`.
 
 ## Action Boundaries
 
@@ -151,9 +151,9 @@ Use only when a request has multiple material ambiguities.
 5. Report per Interaction.
 
 - Prefer simple maintainable changes over speculative abstractions.
-- Requirements = required outcomes; design = adopted implementation approach/constraints; testing = verification requirements. Code/config/tests/results are evidence, not substitutes.
-- Existing implementation: inspect relevant code/tests/config/dependencies/RBs/dependency directions/patterns. Treat them as current-realization evidence, not normative authority. Do not casually replace material established structure or preserve it solely because it exists.
-- Newly discovered durable knowledge: classify before promotion—independently adopted required outcome/constraint → requirements; adopted implementation constraint → design; durable non-normative knowledge → `references/`; transient investigation/verification → `jobs/`.
+- Project-definition authority and requirements/design/testing responsibility boundaries follow `definition/AGENTS.md`.
+- Existing implementation: inspect relevant code/tests/config/dependencies/RBs/dependency directions/patterns. Apply `definition/AGENTS.md` authority rules before treating realization-derived detail as normative; do not casually replace material established structure or preserve it solely because it exists.
+- Classify newly discovered knowledge under `definition/AGENTS.md` before adoption or promotion; resulting material follows the responsible area's governance.
 - Distinguish facts, assumptions, decisions, open questions.
 - AC must be observable; prefer behavioral verification where practical.
 - Requirement/assumption changes: inspect documentation, implementation, tests, environment, migration, operation effects.
