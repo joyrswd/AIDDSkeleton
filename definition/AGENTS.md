@@ -120,9 +120,9 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - One responsible adopted SoT per project fact; no duplicate detail or parallel `current`/`target` variants/equivalent views. Candidate replacements/target states/alternatives → `jobs/`, preferably as delta against current SoT.
 - Approved future intent may live in `definition/` when it is itself the document's responsibility, not as a parallel candidate SoT. Distinguish assumed/decided/open; proposal/unapproved assumption ≠ settled fact.
 - Requirements own required outcomes, external conditions, compatibility obligations, and AC; design owns adopted choices among otherwise valid implementation approaches; testing owns required verification, method/observation, and sufficient evidence.
-- AC/completion criteria must be observable; split requirements that cannot be implemented, verified, and completed together.
+- Completion criteria must be observable; split requirements that cannot be implemented, verified, and completed together.
 - Semantic exhaustive domains/matrices/transitions/enumerations remain normative even when they imply cardinality; verification may use any evidence form appropriate to AC.
-- Moving between normative/non-normative locations changes authority. Before removing/abstracting/relocating/changing authority of materially constraining content, classify it and preserve its semantics in the responsible SoT or explicitly change/retire it.
+- Before removing, abstracting, or relocating materially constraining content, preserve its adopted semantics in the responsible SoT unless the applicable authority process explicitly changes or retires it.
 - Treat loss of adopted timezone/unit/protocol-version/transaction-isolation/identity/cardinality/ordering/security/compatibility or similar invariant as normative change, not cleanup.
 - State design constraints normatively; do not delegate design authority to current source/config/test/generated artifacts. Current test implementation details and execution results remain non-normative unless independently adopted.
 
@@ -132,7 +132,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Promote only independently adopted required outcomes → requirements and adopted implementation constraints → design. Transient current realization → `jobs/`; durable non-normative current realization → `references/`.
 - Source paths/private helpers/classes/functions/state fields/DOM IDs/current directory layout/implementation status remain current-realization detail unless independently adopted.
 - Adoption of implementation-derived detail into design requires evidence independent of implementation/test presence that the project intends it as a future constraint, such as effect on an adopted contract, RB, dependency direction, security/correctness/operational property, chosen algorithm, or reimplementation acceptability.
-- Existing normative statements remain effective until explicitly changed/retired; placement alone does not prove intentional adoption of realization-derived detail.
+- Existing normative statements remain effective until explicitly changed/retired.
 - Do not reclassify merely to normalize taxonomy. Move only when current placement materially obscures responsibility, duplicates harmfully, or wrongly constrains/frees future implementations; if intent is ambiguous, preserve current authority/placement pending decision.
 - When concrete provenance/intent evidence creates material doubt, preserve current authority while unresolved and use root correction/assessment rules. Investigate history only when such evidence makes it relevant; later explicit adoption may validly make realization detail normative.
 - Mixed normative/execution content is classified at statement/section level: normative verification intent stays in testing; execution material follows Verification Basis lifecycle.
@@ -164,7 +164,6 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Trace independently approved requirement/AC → responsible design/implementation/VB. Prefer responsibility/module/directory granularity; use file/class/function/line only when needed.
 - Aggregate trace entries only when design responsibility, implementation responsibility, VB, and coverage materially match and each item remains independently judgeable.
 - Traceability may show concise unimplemented/implemented/partially verified/verified state but not detailed run history, exact counts/hashes/output/long narratives; no placeholder IDs or unsettled relationships presented as settled.
-- Conversation reports do not replace required index/traceability/SoT updates.
 
 ### Verification Basis
 
