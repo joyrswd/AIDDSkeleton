@@ -97,6 +97,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
   - implementation entry/completion criteria, standard verification, VB retention expectations;
   - applicability + reasons for security, privacy, accessibility, performance, availability, monitoring, retention, recovery, licensing.
 - Open questions require a decision point + blocking effect. If release/operation/retirement is outside lifecycle, record end boundary + handoff; if inside, define transitions/completion + feedback route.
+
 ### Entry and Completion
 
 - Implementation entry requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, and no unresolved Blocker.
