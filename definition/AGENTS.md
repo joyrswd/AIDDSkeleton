@@ -129,7 +129,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 #### Realization Authority
 
 - First classify a realization-derived fact as current realization, required outcome/constraint, or adopted implementation constraint.
-- Independently adopted required outcomes → `requirements/`; independently adopted implementation constraints → `design/`; transient current realization → `jobs/`; durable non-normative current realization → `references/`.
+- Independently adopted required outcomes → responsible requirements SoT; independently adopted implementation constraints → responsible design SoT; transient current realization → `jobs/`; durable non-normative current realization → `references/`.
 - Source paths/private helpers/classes/functions/state fields/DOM IDs/current directory layout/implementation status remain current-realization detail unless independently adopted.
 - Adoption of implementation-derived detail into design requires evidence independent of implementation/test presence that the project intends it as a future constraint, such as effect on an adopted contract, RB, dependency direction, security/correctness/operational property, chosen algorithm, or reimplementation acceptability.
 - Existing normative statements remain effective until explicitly changed/retired.
