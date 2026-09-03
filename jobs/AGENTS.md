@@ -128,13 +128,11 @@ Decision-ready ≠ implementation-entry complete; details that can be decided co
 
 Formal promotion = **classification + integration of semantics**, not file migration.
 
-| Adopted/retained material | Destination |
-|---|---|
-| requirements/design/testing/procedures/decisions/project facts | responsible `definition/` SoT |
-| formal code/tests/tools/support programs | `products/` |
-| managed environment config | `etc/` |
-| supplied original | `references/` |
-| durable non-normative finding/mapping/summary/artifact | `references/` only when continuing value exists |
+- Adopted requirements/design/testing/procedures/decisions/project facts → responsible `definition/` SoT.
+- Formal code/tests/tools/support programs → `products/`.
+- Managed environment config → `etc/`.
+- Supplied original → `references/`.
+- Durable non-normative finding/mapping/summary/artifact → `references/`; only when continuing value exists.
 
 - `jobs/` filenames/splits/directories/INDEX structure do not prescribe formal SoT structure.
 - Integrate only adopted semantics into the responsible destination; authorized adopted facts must not remain only in `jobs/`.
@@ -144,7 +142,7 @@ Formal promotion = **classification + integration of semantics**, not file migra
 ### Retention
 
 - Do not retain runs, caches, dependencies, logs, generated/disposable output, or suggestions merely because they occurred or are present; keep only when continuing evidential/diagnostic/audit/maintenance/decision/reconsideration value justifies project retention.
-- Retained supporting material remains inside the owning marked job unit; if its only continuing value is durable non-normative knowledge independent of active/inactive work, promote it to `references/` rather than creating a third `jobs/` lifecycle category.
+- Supporting material whose only continuing value is durable non-normative knowledge independent of active/inactive work → `references/`; otherwise retain it inside the owning marked job unit.
 - For `_` units, keep the retention/evaluation basis discoverable enough to know why the unit still exists and what could make it useful again. Root Defer items additionally keep their disposition rationale/revisit condition current.
 - If no plausible continuing value or future evaluation/revisit basis remains, dispose rather than accumulating an indefinite backlog.
 - Never delete `jobs/` material while a current verified claim materially depends on it unless remaining/replacement VB is sufficient or the claim is downgraded.

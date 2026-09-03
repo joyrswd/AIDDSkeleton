@@ -19,7 +19,7 @@
 - Keep supplied originals distinct from project-managed references; never silently mix them.
 - Supplied unit: preserve supplier, applicable version/commit, receipt date, supplied structure/paths/names/content/README where practical.
 - Promoted project-managed unit: record origin, purpose, promotion/observation date, represented scope, target/source identity, and material freshness/revalidation/supersession conditions.
-- General supplied `docs/` collections/datasets → `references/`; never new top-level `docs/`/`data/`.
+- General supplied `docs/` collections/datasets → `references/`; never create new top-level `docs/`/`data/`.
 - Project guidance around supplied material must remain distinguishable from the original.
 - Import supplied source as traceable snapshot/archive/pinned version when practical; avoid embedding nested VCS metadata unintentionally.
 
@@ -46,7 +46,7 @@
 
 ### Supersession
 
-- Never overwrite supplied content; derived result goes to the area owning its responsibility.
+- Derived result → area owning its responsibility; never overwrite supplied content.
 - Observation-bound evidence (screenshot/captured response/measurement/execution result) records that observation; do not edit it into a different observation. Record new observation separately, or supersede while preserving prior record when a current claim/audit/continuing need depends on it.
 - Derived summaries/mappings/compatibility/maintenance knowledge may be revised/superseded; preserve provenance and distinguish them from underlying observations.
 - Keep materially different supplied versions distinguishable; inspect effects on decisions, implementation, verification, references.
@@ -64,12 +64,12 @@
 ### Authority Boundary
 
 - Reference presence/linkage ≠ requirement/design/testing/implementation constraint/verification conclusion beyond recorded scope.
-- Adopted requirements/design/testing/procedures/decisions → responsible `definition/` SoT; reference is supporting input, not adoption record.
+- Adopted requirements/design/testing/procedures/decisions → responsible `definition/` SoT; the reference remains supporting input, not an adoption record.
 - Adopted source/code → project-managed `products/`; adopted environment config → `etc/`.
 
 ### Use
 
-- Preserve supplied originals in `references/`; process/modify/compare/transform/investigate/verify only needed copies in `jobs/`.
+- Needed working copies for processing/modification/comparison/transformation/investigation/verification → `jobs/`; preserve supplied originals in `references/`.
 - Implementation, acceptance, or current verified-claim use requires Reference Validation.
 
 ### Reference Validation
