@@ -92,6 +92,7 @@
 - Authorization, requirement/AC, and Change Unit are distinct. Independently completable and acceptable outcomes should not be combined merely because one authorization or surrounding task covers them.
 - Each Change Unit has an acceptance basis derived from applicable approved scope/AC. Its scope is fixed when work begins except for discovered work that Permission / Scope permits adding. A unit may be split or narrowed only to re-express a coherent execution/acceptance boundary; boundary changes do not remove approved scope/AC or reclassify still-required unsatisfied work. Any cut-out work still required by approved scope/AC remains unresolved and must remain covered by another Change Unit.
 - Review, In-scope deficiency, Follow-up, and unit completion are judged against the current Change Unit. Completing a Change Unit does not complete a requirement, AC, authorization, or lifecycle state that spans additional work. Requirement/AC/lifecycle completion remains judged against its full approved scope/AC and applicable lifecycle conditions; Change Unit boundaries cannot narrow that completion basis.
+- A Change Unit may complete only when its acceptance basis is satisfied, required verification is complete, and no unresolved Blocker or In-scope deficiency of that unit remains. Disposition alone does not make an unresolved Blocker/In-scope deficiency non-blocking; Follow-ups and other units' open work do not by themselves keep it open.
 - Repository-managed Change Unit decomposition, continuity, ordering, and state follow `jobs/AGENTS.md`.
 
 ### Safety / Compliance
@@ -216,7 +217,7 @@ Severity and disposition are independent: a Follow-up may be scheduled in anothe
 - When current work materially matches a retained revisit condition, proactively surface the item at a useful decision point; do not silently add it to scope.
 - Repository-managed inactive-item discovery follows `jobs/AGENTS.md`; do not routinely enumerate inactive material merely to search for possible relevance.
 - Do not repeatedly resurface an item merely because it exists or has aged.
-- Before completing a Change Unit, apply its completion semantics under Change Unit; disposition does not override an unresolved Blocker/In-scope deficiency, while Follow-ups and other units' open work do not by themselves keep that unit open.
+- Before completing a Change Unit, apply its completion semantics under Change Unit.
 
 #### Consumer Regression
 
