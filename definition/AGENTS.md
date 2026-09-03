@@ -106,7 +106,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
   - applicability + reasons for security, privacy, accessibility, performance, availability, monitoring, retention, recovery, licensing.
 - Open questions require a decision point + blocking effect. If release/operation/retirement is outside lifecycle, record end boundary + handoff; if inside, define transitions/completion + feedback route.
 
-### Implementation Entry and Completion
+### Entry and Completion
 
 - Implementation entry requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, and no unresolved Blocker.
 - Completion requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, responsible index current-state + traceability updates, and no unresolved Blocker or In-scope deficiency.
@@ -196,7 +196,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - For bounded transition, make the effective exit event + intended disposition discoverable enough to judge its state; no fixed date/ID/metadata file/history archive is required. At the event, retire/replace/re-evaluate VB or downgrade the claim.
 - Do not dispose of current effective VB until no current verified claim depends on it, or replacement/downgrade is complete.
 
-### Structural Maintenance and Validation
+### Maintenance and Validation
 
 - Governance changes altering allowed doc location/hierarchy must update every affected validator/generator/template/example/check in the same migration; old-structure validation is not evidence for the new structure.
 - Index checks must support direct-link + nested reachability + protected-instruction exclusions; requirement/design/testing/traceability discovery must follow the supported indexed hierarchy rather than assume a flat source set.
