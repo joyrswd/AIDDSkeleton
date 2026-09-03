@@ -214,7 +214,7 @@ Severity and disposition are independent: a Follow-up may be scheduled in anothe
 - Retain Defer inputs only when continuing value justifies retention; repository-managed retention follows `jobs/AGENTS.md`.
 - Reassess when new evidence or a recorded revisit condition materially changes relevance, urgency, feasibility, or scope fit.
 - When current work materially matches a retained revisit condition, proactively surface the item at a useful decision point; do not silently add it to scope.
-- Use targeted inactive-item discovery: when the current request, evidence, or affected responsibility plausibly matches a retained evaluation/revisit basis, inspect the relevant `_` item(s); do not routinely enumerate all inactive items.
+- Repository-managed inactive-item discovery follows `jobs/AGENTS.md`; do not routinely enumerate inactive material merely to search for possible relevance.
 - Do not repeatedly resurface an item merely because it exists or has aged.
 - A Change Unit may complete only when its acceptance basis is satisfied, required verification is complete, and no unresolved Blocker or In-scope deficiency of that unit remains. Disposition alone does not make an unresolved Blocker/In-scope deficiency non-blocking; Follow-ups and other units' open work do not by themselves keep it open.
 

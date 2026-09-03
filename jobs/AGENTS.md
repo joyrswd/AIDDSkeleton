@@ -34,6 +34,7 @@
   - `+<purpose>` = authorized work that remains active in the `jobs/` lifecycle, including currently executing, pending, blocked, handoff/reconciliation, or required transitional verification work;
   - `_<purpose>` = retained but inactive job material. It may include a root-dispositioned Defer input, a not-yet-activated future plan, dormant handoff/restart context, or other material retained for later evaluation or reconsideration.
 - The marker applies whether the job unit is a single file or a directory. The top-level `jobs/AGENTS.md` governance file is not a job unit and is exempt.
+- Choose `<purpose>` so the job's subject or responsibility is identifiable enough for first-pass relevance screening; do not rely on an opaque generic name that requires opening the unit to know what it concerns.
 - Do not create unmarked retained top-level job units. Supporting handoffs, future plans, logs, evidence, prototypes, drafts, and similar material belong inside the owning `+` or `_` job unit.
 - These markers describe current jobs lifecycle only. `+` does not grant authority, set priority, prove completion/verification, or describe a Change Unit's state. `_` does not by itself mean Defer, rejection, adoption, priority, or future commitment. Their lexical/display order must not be interpreted as priority.
 - Lifecycle movement is bidirectional when justified by current state:
