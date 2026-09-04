@@ -54,7 +54,7 @@ Repository-wide and directory-specific `AGENTS.md` files define the working agre
 
 ## Contributing to This Template
 
-Clone this repository only when you intend to propose a change to AIDD Skeleton itself. Start from the latest `main` branch and review [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+Clone this repository only when you intend to propose a change to AIDD Skeleton itself. Start from the latest `main` branch and open a pull request with a focused change.
 
 AIDD Skeleton is provided as-is. Maintenance, support, responses, reviews, and acceptance of contributions are not guaranteed.
 
