@@ -36,8 +36,6 @@ products/
 
 ## Lifecycle
 
-### Formalization
-
 - When formalizing adopted code/tools, create a project-managed formal implementation with appropriate structure/quality/tests rather than depending on a working/reference copy as production source.
 - Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `definition/AGENTS.md` VB lifecycle.
 

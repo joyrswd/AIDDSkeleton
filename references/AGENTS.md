@@ -48,12 +48,9 @@
 - Derived summaries/mappings/compatibility/maintenance knowledge may be revised/superseded; preserve provenance and distinguish them from underlying observations.
 - Keep materially different supplied versions distinguishable; inspect effects on decisions, implementation, verification, references.
 
-### Retention
+### Retention and Disposal
 
 - Never remove the only adequate VB for a current verified claim without replacement or claim downgrade per `definition/AGENTS.md`.
-
-### Disposal
-
 - Inspect SoTs, `jobs/`, implementation, active work, provenance, licensing, usage links, and continuing evidential/maintenance needs before move/delete.
 
 ## Outbound Transfer

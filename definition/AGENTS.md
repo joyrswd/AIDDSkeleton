@@ -186,9 +186,6 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Advance lifecycle only with documented transition conditions + required evidence. Record method/result/verified scope/evidence type/material unverified matters proportionally; materially different evidence conditions are not interchangeable.
 - Carry earlier evidence to a later target/state only when evidence shows relevant differences do not affect verified scope, environment/config/conditions, applicable requirements/AC, or testing sufficiency; identity lineage or an “unrelated change” assumption alone is insufficient.
 - Index/traceability links to evidence/reference must point to material applicable to the asserted state.
-
-#### Retention
-
 - Normative results → responsible requirements/design/testing SoT.
 - Multiple partial bases may jointly suffice and one proportional basis may support multiple related claims; no per-claim/per-run file requirement.
 - Do not dispose of current effective VB until no current verified claim depends on it, or replacement/downgrade is complete.
