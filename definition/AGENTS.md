@@ -10,7 +10,7 @@
 
 - `definition/` owns project-specific adopted definition, lifecycle/status/traceability, procedures, identifiers, commands, constraints, and VB rules.
 
-## Documentation Organization
+## Structure and Placement
 
 ### Required Structure
 
@@ -144,6 +144,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - After separation validate both: normative sources still support semantic reconstruction without `products/`, and retained references preserve enough provenance/observation context to re-investigate without becoming normative.
 - Reconciliation affecting authority, ownership, navigation, current state, traceability, or verification claims must inspect and reconcile the affected SoTs, indexes, traceability, VB, inbound links, and retained job/reference material in the same coherent change.
 - Governance migration covers changed semantics and all materially affected existing cases; unresolved cases remain explicit debt/unverified. Unrelated discoveries do not expand migration scope.
+- Documentation silence does not authorize opportunistic re-architecture.
 - When classification/routing/retention rules change, classify affected execution/evidence records as current claim-supporting basis, durable non-normative reference, active work, or retire; do not migrate solely because legacy placement differs or content is historical.
 - Temporary legacy placement is allowed only to avoid losing current VB or breaking dependent links while reconciliation is unresolved; mark remaining reconciliation discoverably and do not claim full reconciliation.
 - Active material → `jobs/`; durable non-normative material → `references/`; current SoT semantics → `definition/`; use native/external VB when suitable for current claim support and retire no-need material.
@@ -194,5 +195,5 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Do not add a document category/directory when the current model can represent the responsibility; responsibility grouping under `definition/system/` is not a new classification when the placement rules are met. Before a new `definition/` directory, explain responsibility + classification effects and obtain user approval; approved init/change summary suffices.
 - Add/rename/move/delete indexed docs using Reconciliation and Migration; preserve identifiers when splitting/moving and do not duplicate detail between overview/detail docs.
 - Run all project-defined documentation verification for documentation changes when available; at minimum cover changed Markdown links, fixed files, index coverage, IDs, and traceability.
-- Verify lifecycle state matches exactly one Initialization row and project statements have approval/evidence.
+- Verify lifecycle state matches exactly one row in Initialization and project statements have approval/evidence.
 - Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, or relationships must match the responsible SoT. Repetition does not create alternate authority; prefer automated comparison for intentionally repeated structured facts when practical, otherwise keep manual responsibility explicit.

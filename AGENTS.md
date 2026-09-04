@@ -187,7 +187,7 @@ Feedback, review findings, suggestions, observations, failed verification, exter
 
 - Assess an input against approved intent, scope/exclusions, observable AC, applicable authority/SoTs, supporting evidence, urgency/risk, dependencies, and material scope/cost effects.
 - Separate whether an input is valid/useful from what should happen now; a valid concern may still be non-blocking or intentionally deferred.
-- A possible improvement remains assessment input unless Permission / Scope makes it current work.
+- A possible improvement remains assessment input unless Permission / Scope makes it current work; do not expand scope merely to make feedback disappear.
 - For a valid input Accepted now, a local patch is not sufficient when the finding reveals a missed consideration that can materially recur in the affected scope; apply Adversarial Self-Review to assimilate and propagate the detection signal before closure.
 
 #### Disposition

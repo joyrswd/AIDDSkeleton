@@ -132,7 +132,7 @@ Formal promotion = **classification + integration of semantics**, not file migra
 - Formal code/tests/tools/support programs → `products/`.
 - Managed environment config → `etc/`.
 - Supplied original → `references/`.
-- Durable non-normative finding/mapping/summary/artifact → `references/`; only when continuing value exists.
+- Durable non-normative finding/mapping/summary/artifact with continuing value → `references/`.
 
 - `jobs/` filenames/splits/directories/INDEX structure do not prescribe formal SoT structure.
 - Integrate only adopted semantics into the responsible destination; authorized adopted facts must not remain only in `jobs/`.

@@ -46,7 +46,7 @@
 
 ### Supersession
 
-- Derived result → area owning its responsibility; never overwrite supplied content.
+- Never overwrite supplied content; derived result → area owning its responsibility.
 - Observation-bound evidence (screenshot/captured response/measurement/execution result) records that observation; do not edit it into a different observation. Record new observation separately, or supersede while preserving prior record when a current claim/audit/continuing need depends on it.
 - Derived summaries/mappings/compatibility/maintenance knowledge may be revised/superseded; preserve provenance and distinguish them from underlying observations.
 - Keep materially different supplied versions distinguishable; inspect effects on decisions, implementation, verification, references.
@@ -69,7 +69,7 @@
 
 ### Use
 
-- Needed working copies for processing/modification/comparison/transformation/investigation/verification → `jobs/`; preserve supplied originals in `references/`.
+- Preserve supplied originals in `references/`; needed working copies for processing/modification/comparison/transformation/investigation/verification → `jobs/`.
 - Implementation, acceptance, or current verified-claim use requires Reference Validation.
 
 ### Reference Validation
