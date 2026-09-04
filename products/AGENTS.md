@@ -38,7 +38,7 @@ products/
 
 ### Formalization
 
-- Adopting code/tools from `jobs/` or `references/` → create project-managed formal implementation with appropriate structure/quality/tests; do not depend on working/reference copy as production source.
+- Adopted code/tools from `jobs/` or `references/` → `products/`; create a project-managed formal implementation with appropriate structure/quality/tests rather than depending on the working/reference copy as production source.
 - Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `definition/AGENTS.md` VB lifecycle.
 
 ## Local Governance

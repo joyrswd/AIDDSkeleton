@@ -48,7 +48,7 @@
 | [`products/`](products/AGENTS.md) | Formal implementations and tests |
 
 - Every artifact belongs to the area owning its responsibility.
-- Placement alone ≠ adoption, authority, completion, or verification.
+- Placement follows responsibility; location alone does not satisfy the applicable adoption, authority, completion, or verification process.
 - No additional top-level non-hidden directory without an explicit user decision changing this model.
 - Framework/tool directories (`src/`, `apps/`, `packages/`, `scripts/`, `infra/`, `docs/`, `tests/`, etc.) belong below the responsible area. Hidden paths/top-level files must not bypass the model.
 - `README.md` is human guidance only: not instructions or project SoT; do not duplicate/replace requirements, design, testing, status, or agent instructions.
@@ -67,11 +67,11 @@
 
 ### Project Initialization
 
-- A tracked skeleton is uninitialized until purpose, scope, RBs, and required project SoTs are approved and recorded.
+- Project initialization state and required definition outputs are governed by `definition/AGENTS.md`.
 - Start read-only. Before project-specific changes, present one initialization summary: verified facts, user decisions, proposed assumptions, open questions, blockers, files/directories to change, target lifecycle state, and work left unstarted.
 - Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
 - If immediate initialization from supplied information + reasonable assumptions is explicitly requested, advance discussion may be omitted; report every adopted assumption at completion.
-- Detailed lifecycle, initialization outputs, transitions, entry/completion criteria, and verification rules: `definition/AGENTS.md`.
+- Detailed lifecycle transitions, entry/completion criteria, and verification rules: `definition/AGENTS.md`.
 
 ## Action Boundaries
 
@@ -88,10 +88,11 @@
 
 ### Change Unit
 
-- A **Change Unit** is the smallest coherent body of authorized work that can be executed, verified, reviewed, and accepted as one outcome. It is an execution/review boundary, not authority or SoT.
+- A **Change Unit** is the smallest coherent body of authorized work that can be executed, verified, reviewed, and accepted as one outcome. It is an execution/review boundary, not authority or SoT; this section owns Change Unit boundary and completion semantics.
 - Authorization, requirement/AC, and Change Unit are distinct. Independently completable and acceptable outcomes should not be combined merely because one authorization or surrounding task covers them.
 - Each Change Unit has an acceptance basis derived from applicable approved scope/AC. Its scope is fixed when work begins except for discovered work that Permission / Scope permits adding. A unit may be split or narrowed only to re-express a coherent execution/acceptance boundary; boundary changes do not remove approved scope/AC or reclassify still-required unsatisfied work. Any cut-out work still required by approved scope/AC remains unresolved and must remain covered by another Change Unit.
 - Review, In-scope deficiency, Follow-up, and unit completion are judged against the current Change Unit. Completing a Change Unit does not complete a requirement, AC, authorization, or lifecycle state that spans additional work. Requirement/AC/lifecycle completion remains judged against its full approved scope/AC and applicable lifecycle conditions; Change Unit boundaries cannot narrow that completion basis.
+- A Change Unit may complete only when its acceptance basis is satisfied, required verification is complete, and no unresolved Blocker or In-scope deficiency of that unit remains. Disposition alone does not make an unresolved Blocker/In-scope deficiency non-blocking; Follow-ups and other units' open work do not by themselves keep it open.
 - Repository-managed Change Unit decomposition, continuity, ordering, and state follow `jobs/AGENTS.md`.
 
 ### Safety / Compliance
@@ -151,9 +152,9 @@ Use only when a request has multiple material ambiguities.
 5. Report per Interaction.
 
 - Prefer simple maintainable changes over speculative abstractions.
-- Requirements = required outcomes; design = adopted implementation approach/constraints; testing = verification requirements. Code/config/tests/results are evidence, not substitutes.
-- Existing implementation: inspect relevant code/tests/config/dependencies/RBs/dependency directions/patterns. Treat them as current-realization evidence, not normative authority. Do not casually replace material established structure or preserve it solely because it exists.
-- Newly discovered durable knowledge: classify before promotion—independently adopted required outcome/constraint → requirements; adopted implementation constraint → design; durable non-normative knowledge → `references/`; transient investigation/verification → `jobs/`.
+- Project-definition authority and requirements/design/testing responsibility boundaries follow `definition/AGENTS.md`.
+- Existing implementation: inspect relevant code/tests/config/dependencies/RBs/dependency directions/patterns. Apply `definition/AGENTS.md` authority rules before treating realization-derived detail as normative; do not casually replace material established structure or preserve it solely because it exists.
+- Classify newly discovered knowledge by authority and responsibility before adoption or promotion; project-definition and realization-derived material follows `definition/AGENTS.md`, while other material follows the responsible area's governance.
 - Distinguish facts, assumptions, decisions, open questions.
 - AC must be observable; prefer behavioral verification where practical.
 - Requirement/assumption changes: inspect documentation, implementation, tests, environment, migration, operation effects.
@@ -163,22 +164,22 @@ Use only when a request has multiple material ambiguities.
 ### Coherent Correction
 
 - On a discovered deficiency, determine whether the cause is local or shared.
-- Inspect far enough to understand cause and impact; investigation does not expand modification scope.
+- Inspect far enough to understand cause and impact; resulting modification remains governed by Permission / Scope.
 - When implementation, tests, configuration, or verification reveal a possible deficiency in adopted project definition, validate the applicable SoTs before changing formal behavior/configuration.
   - If the SoT is valid, correct the implementation/configuration against it.
   - If the SoT is deficient, correct it through the applicable authority/decision/adoption process before changing formal implementation/configuration to embody the new definition.
   - Do not change formal implementation/configuration first and then revise normative SoTs to justify or match that change.
-- Correct required same-cause deficiencies coherently within authorized scope; disposition the rest under applicable Assessment and Feedback, scope, decision, and safety rules.
+- Correct required same-cause deficiencies coherently within authorized scope; route other findings through Permission / Scope and Assessment and Feedback, then applicable decision and safety rules.
 
 ### Adversarial Self-Review
 
-- Before completing material work, perform adversarial self-review proportionate to the change and risk, aiming to disprove correctness rather than confirm it. Challenge assumptions, contradictions, boundary/failure conditions, missed impact/root causes, scope drift, and evidence/verification gaps. Do not limit the challenge to edited lines or the exact reported symptom; inspect materially relevant same-responsibility, same-invariant, dependency, sibling-path, boundary, and failure-family cases in proportion to the change and risk. Investigation does not expand modification authority.
-- Bound the review surface to the current Change Unit's acceptance basis and protected invariants. Investigate beyond it far enough to judge impact, then route the result through Permission / Scope and Assessment and Feedback; a finding outside the unit does not extend the unit by itself.
+- Before completing material work, perform adversarial self-review proportionate to the change and risk, aiming to disprove correctness rather than confirm it. Challenge assumptions, contradictions, boundary/failure conditions, missed impact/root causes, scope drift, and evidence/verification gaps. Do not limit the challenge to edited lines or the exact reported symptom; inspect materially relevant same-responsibility, same-invariant, dependency, sibling-path, boundary, and failure-family cases in proportion to the change and risk. Review breadth does not alter modification authority; resulting work follows Permission / Scope.
+- Bound the review surface to the current Change Unit's acceptance basis and protected invariants. Investigate beyond it far enough to judge impact, then classify resulting work under Change Unit, Permission / Scope, and Assessment and Feedback.
 - When a valid review finding, failed verification, incident, or other assessment exposes a missed consideration, treat it as a detection signal. Diagnose the missed consideration, why it escaped detection, and the material concrete context that exposed it; preserve that context while applying the resulting perspective proportionally to materially related current work before treating the stated instance as resolved. Correct or disposition resulting work under Coherent Correction and Assessment and Feedback.
 - Treat a material correction that introduces or materially changes a mechanism, fallback, boundary, assumption, dependency, or verification method as a new adversarial surface. Challenge how that correction itself can fail, partially fail, race, degrade, or bypass the protected invariant/outcome; do not treat the correction itself as proof of resolution.
 - Continue targeted adversarial review while a correction or new evidence creates a materially new plausible failure surface. Stop when the latest material corrections introduce no such unexamined surface; do not repeat unchanged checks merely to satisfy a review count. Repeat the full proportional self-review only when new evidence, failed verification, broad correction, or contradiction materially changes what must be examined.
 - When materially related findings or corrections repeatedly expose the same or closely related cause or protected invariant across different surfaces, stop treating them as isolated instances and reassess the affected work structurally. Consider whether an implicit invariant, responsibility split, abstraction boundary, verification/evidence model, or scope structure should be made explicit; treat resulting material corrections or changed review basis under the same review rules, and stop when no materially new unexamined surface remains.
-- Treat a Change Unit that keeps producing materially new In-scope deficiencies across successive review rounds as not converging. Reassess its boundary and protected invariants; split or narrow the unit when needed to reach a coherent acceptance boundary. Boundary changes never turn still-required approved work or an unresolved In-scope deficiency into a Follow-up; cut-out required work remains unresolved under another Change Unit. Non-convergence never converts an unresolved Blocker into a Follow-up.
+- Treat a Change Unit that keeps producing materially new In-scope deficiencies across successive review rounds as not converging. Reassess its boundary and protected invariants; split or narrow the unit when needed under Change Unit rules. Non-convergence does not alter the classification of still-required work, an unresolved In-scope deficiency, or a Blocker.
 
 ### Assessment and Feedback
 
@@ -186,14 +187,14 @@ Feedback, review findings, suggestions, observations, failed verification, exter
 
 - Assess an input against approved intent, scope/exclusions, observable AC, applicable authority/SoTs, supporting evidence, urgency/risk, dependencies, and material scope/cost effects.
 - Separate whether an input is valid/useful from what should happen now; a valid concern may still be non-blocking or intentionally deferred.
-- Do not turn a possible improvement into current scope merely to make all feedback disappear.
+- A possible improvement remains assessment input unless Permission / Scope makes it current work; do not expand scope merely to make feedback disappear.
 - For a valid input Accepted now, a local patch is not sufficient when the finding reveals a missed consideration that can materially recur in the affected scope; apply Adversarial Self-Review to assimilate and propagate the detection signal before closure.
 
 #### Disposition
 
 Classify the current handling independently of severity:
 
-- **Accept now:** address within the current Change Unit when it is an In-scope deficiency of that unit or Permission / Scope has added the work to that unit, or address a Blocker wherever its subject lies, when already authorized/required; if it materially changes user-owned intent, priority, scope, AC, RB, or design, request the applicable decision first.
+- **Accept now:** treat the input as current work when the current Change Unit already requires it, Permission / Scope adds it, or a Blocker requires action within existing authority; if it materially changes user-owned intent, priority, scope, AC, RB, or design, request the applicable decision first.
 - **Reject:** do not adopt the input as current or future work when the basis is insufficient, it conflicts with approved intent/authority, the concern is already satisfied, the change is otherwise not justified, or no continuing work value remains. Retain rationale/provenance only when it has independent continuing value under the responsible area; that retention does not keep the rejected input as an active or deferred candidate.
 - **Defer:** retain a potentially useful input for later reassessment when it is not active/timely now or current evidence/future conditions do not justify action yet; deferral ≠ adoption, priority, promise, or planned work. Work already accepted into another Change Unit is not Defer merely because that unit is not current. Evidence/context gathering performed now is active work, not Defer.
 
@@ -205,7 +206,7 @@ Disposition does not itself grant modification or adoption authority.
 - **In-scope deficiency:** the current Change Unit's acceptance basis or approved unit scope is unsatisfied but not Blocker.
 - **Follow-up:** useful work not required for the current Change Unit's acceptance; it may be another authorized Change Unit or an input dispositioned Defer/Reject.
 
-In-scope deficiency is judged against the current Change Unit; a Blocker remains a Blocker wherever its subject lies. An input's validity is independent of which unit it belongs to; validity alone does not extend the current unit. `In-scope deficiency` is Change-Unit-local terminology; requirement/AC/lifecycle completion still evaluates the full approved scope/AC and applicable lifecycle conditions.
+Apply these labels under Change Unit semantics: In-scope deficiency is unit-local; a Blocker remains a Blocker wherever its subject lies; input validity alone does not alter unit membership. Requirement/AC/lifecycle completion remains judged against its full approved basis.
 
 Severity and disposition are independent: a Follow-up may be scheduled in another authorized Change Unit or dispositioned Defer/Reject, while a Blocker or In-scope deficiency may still require a user-owned decision before it can be Accepted now.
 
@@ -216,7 +217,7 @@ Severity and disposition are independent: a Follow-up may be scheduled in anothe
 - When current work materially matches a retained revisit condition, proactively surface the item at a useful decision point; do not silently add it to scope.
 - Repository-managed inactive-item discovery follows `jobs/AGENTS.md`; do not routinely enumerate inactive material merely to search for possible relevance.
 - Do not repeatedly resurface an item merely because it exists or has aged.
-- A Change Unit may complete only when its acceptance basis is satisfied, required verification is complete, and no unresolved Blocker or In-scope deficiency of that unit remains. Disposition alone does not make an unresolved Blocker/In-scope deficiency non-blocking; Follow-ups and other units' open work do not by themselves keep it open.
+- Before completing a Change Unit, apply its completion semantics under Change Unit.
 
 #### Consumer Regression
 
