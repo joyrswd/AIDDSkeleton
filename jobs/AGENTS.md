@@ -128,6 +128,8 @@ Decision-ready ≠ implementation-entry complete; details that can be decided co
 
 Formal promotion = **classification + integration of semantics**, not file migration.
 
+Destinations:
+
 - Adopted requirements/design/testing/procedures/decisions/project facts → responsible `definition/` SoT.
 - Formal code/tests/tools/support programs → `products/`.
 - Managed environment config → `etc/`.

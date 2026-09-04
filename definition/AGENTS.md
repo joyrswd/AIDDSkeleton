@@ -45,7 +45,7 @@
 - One purpose per project doc; split by coherent responsibility/question/reader/update trigger/lifecycle, not tidiness or count alone.
 - Other system docs stay flat while responsibility is small; use a responsibility-based subdirectory only when one stable system responsibility owns multiple independently changing docs.
 - Indexes provide navigation plus concise owned current-state/absence/inheritance/coverage context; do not duplicate detailed requirements/design/testing/procedures/results.
-- System navigation: `system_index.md` is primary; directly link each Markdown doc directly under `definition/system/` except itself. Nested docs may route through a local index but must remain reachable; protected `AGENTS.md` is excluded.
+- System navigation: `system_index.md` is primary; directly link each Markdown doc directly under `definition/system/` except itself. A local index is allowed only when the responsibility needs navigation; nested docs routed through it must remain reachable from `system_index.md`; protected `AGENTS.md` is excluded.
 - App navigation: `<app>_index.md` → three category indexes + app traceability; category index → its docs.
 - Initialized read order: `definition/system/system_index.md` → `definition/system/documentation_language.md` → `definition/GLOSSARY.md` → `definition/TRACEABILITY.md` → target indexes.
 - Determine ownership from purpose + change authority + invocation/governing decision + success/failure (or sufficiency) judgment, not target/caller/tool/file name/operational vocabulary.
@@ -123,6 +123,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Completion criteria must be observable; split requirements that cannot be implemented, verified, and completed together.
 - Semantic exhaustive domains/matrices/transitions/enumerations remain normative even when they imply cardinality; verification may use any evidence form appropriate to AC.
 - Before removing, abstracting, or relocating materially constraining content, preserve its adopted semantics in the responsible SoT unless the applicable authority process explicitly changes or retires it.
+- For relocation or reclassification without an explicit authority change, verify future valid implementations are not unintentionally broadened or narrowed.
 - Treat loss of adopted timezone/unit/protocol-version/transaction-isolation/identity/cardinality/ordering/security/compatibility or similar invariant as normative change, not cleanup.
 - State design constraints normatively; do not delegate design authority to current source/config/test/generated artifacts. Current test implementation details and execution results remain non-normative unless independently adopted.
 
