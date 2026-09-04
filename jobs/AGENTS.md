@@ -49,7 +49,7 @@
 
 - Use `+<purpose>/INDEX.md` only when authorized repository-modification work needs repository-retained decomposition/progress for continuation, handoff, or cross-session coordination. This rule is independent of Change Unit count; single- or multi-unit work completing without retained active control needs no index.
 - If that need arises after work starts, create the index then and reconcile current Change Units, state, and material links before relying on repository state for continuation.
-- `INDEX.md` is the job's non-authoritative active control state. Keep proportionally discoverable: purpose/approved basis; constituent Change Units and their scope/AC basis; order/dependencies; state sufficient to distinguish active/complete/blocked/remaining; material working/evidence links; and job-level exit/promotion/retention/disposal conditions.
+- `INDEX.md` is the job's non-authoritative active control state. Keep proportionally discoverable: purpose/approved basis; constituent Change Units and their scope/AC basis; order/dependencies; each Change Unit's state sufficient to distinguish active/complete/blocked/remaining; material working/evidence links; and job-level exit/promotion/retention/disposal conditions.
 - Exact unit identifiers, status vocabulary, table/layout are local choices. Account for meaningful outcomes/Change Units, not reads, searches, edits, commands, test invocations, or other low-level operations.
 - Once `INDEX.md` exists, constituent Change Unit execution starts from it. Before a newly accepted/re-split unit begins, update decomposition; newly discovered work follows root Permission / Scope and Assessment and Feedback and must not become an unapproved backlog.
 - `INDEX.md` grants no implementation/adoption/priority authority and does not make retained material committed work. Keep it current enough for resumption without conversational memory; a separate handoff is optional when the index plus linked material is sufficient.
@@ -116,8 +116,8 @@ Destinations:
 
 ### Retention
 
-- Do not retain runs, caches, dependencies, logs, generated/disposable output, or suggestions merely because they occurred; keep only material with continuing evidential/diagnostic/audit/maintenance/decision/reconsideration value.
-- Durable non-normative knowledge whose continuing value is independent of active/inactive work → `references/`; otherwise keep justified material inside its marked job. If no plausible continuing value/evaluation/revisit basis remains, dispose rather than build an indefinite backlog.
+- Do not retain runs, caches, dependencies, logs, generated/disposable output, or suggestions merely because they occurred or are present; keep only material with continuing evidential/diagnostic/audit/maintenance/decision/reconsideration value.
+- Supporting material whose only continuing value is durable non-normative knowledge independent of active/inactive work → `references/`; otherwise keep justified material inside its marked job. If no plausible continuing value/evaluation/revisit basis remains, dispose rather than build an indefinite backlog.
 - For `_`, keep the evaluation/retention basis discoverable; root Defer additionally keeps its disposition rationale/revisit condition current.
 - Never delete `jobs/` material while a current verified claim materially depends on it unless remaining/replacement VB is sufficient or the claim is downgraded. `jobs/` VB is transitional only during active work, handoff/reconciliation, or bounded post-work transition as defined in `definition/AGENTS.md`.
 
@@ -126,7 +126,7 @@ Destinations:
 - After adoption, reduce a job to unresolved questions/alternatives/prototypes/feasibility, verification evidence, decision/handoff context, or other remaining `jobs/` responsibility; residual work references responsible SoTs instead of duplicating adopted candidate specification.
 - Candidate artifacts must not look like active alternate SoT: delete, mark superseded/historical, promote durable non-normative value, or explicitly relate them to the resulting SoT. Reassessed/dispositioned inactive items must likewise reflect material handling/marker changes rather than stale TODO state.
 - If active `INDEX.md` exists, exit requires reconciling Change Units and linked material: reflect completed/adopted outcomes in responsible destinations; leave remaining authorized work explicitly active/handoff; handle inactive retained inputs by their rules; deliberately retain/dispose temporary material.
-- Keep `+` while handoff/reconciliation/transitional verification remains active even after implementation units complete; otherwise do not leave `+` with no active lifecycle work. Remove the job, promote/retain durable material under its responsible area, or move/restructure justified inactive remainder under `_` after applicable assessment/disposition.
+- Keep `+` while handoff/reconciliation/transitional verification remains active even after implementation units complete; otherwise do not leave `+` with no active lifecycle work. Remove the job, mark it superseded, promote/retain durable material under its responsible area, or move/restructure justified inactive remainder under `_` after applicable assessment/disposition.
 - Do not leave a completed/superseded `INDEX.md` presenting stale active work; delete it with the job, reduce it to remaining active/handoff context, or retain it only for independent continuing value clearly no longer presented as active control state.
 - Before delete/promotion inspect inbound references, unresolved work, traceability, current verified claims, and continuing evidence/maintenance/reconsideration need.
 
