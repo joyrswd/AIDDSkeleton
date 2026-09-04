@@ -10,7 +10,7 @@
 
 - Owns durable **non-normative** material for future consultation:
   - externally supplied originals;
-  - project-managed material promoted from `jobs/` for continuing evidential, diagnostic, maintenance, interoperability, audit, or re-investigation value.
+  - project-managed material with continuing evidential, diagnostic, maintenance, interoperability, audit, or re-investigation value.
 
 ## Structure and Placement
 
@@ -18,7 +18,7 @@
 
 - Keep supplied originals distinct from project-managed references; never silently mix them.
 - Supplied unit: preserve supplier, applicable version/commit, receipt date, supplied structure/paths/names/content/README where practical.
-- Promoted project-managed unit: record origin, purpose, promotion/observation date, represented scope, target/source identity, and material freshness/revalidation/supersession conditions.
+- Project-managed unit: record origin, purpose, retention/observation date, represented scope, target/source identity, and material freshness/revalidation/supersession conditions.
 - General supplied `docs/` collections/datasets → `references/`; never create new top-level `docs/`/`data/`.
 - Project guidance around supplied material must remain distinguishable from the original.
 - Import supplied source as traceable snapshot/archive/pinned version when practical; avoid embedding nested VCS metadata unintentionally.
@@ -37,16 +37,13 @@
 ### Entry
 
 - Confirm purpose and relation to existing references/decisions.
-- Satisfy Provenance and Storage requirements.
-
-### Promotion
-
-- Promote only material with continuing non-normative value that satisfies Reference Classes and Provenance requirements.
-- Do not promote every run/output/log/screenshot/report. Prefer concise durable summary/stable mapping when raw transient history adds no value.
+- Satisfy Reference Classes, Provenance, and Storage requirements.
+- Retain project-managed material only when it has continuing non-normative value.
+- Do not retain every run/output/log/screenshot/report; prefer a concise durable summary/stable mapping when raw transient history adds no value.
 
 ### Supersession
 
-- Never overwrite supplied content; derived result → area owning its responsibility.
+- Never overwrite supplied content.
 - Observation-bound evidence (screenshot/captured response/measurement/execution result) records that observation; do not edit it into a different observation. Record new observation separately, or supersede while preserving prior record when a current claim/audit/continuing need depends on it.
 - Derived summaries/mappings/compatibility/maintenance knowledge may be revised/superseded; preserve provenance and distinguish them from underlying observations.
 - Keep materially different supplied versions distinguishable; inspect effects on decisions, implementation, verification, references.
@@ -59,17 +56,24 @@
 
 - Inspect SoTs, `jobs/`, implementation, active work, provenance, licensing, usage links, and continuing evidential/maintenance needs before move/delete.
 
+## Outbound Transfer
+
+- Adopted requirements/design/testing/procedures/decisions → responsible `definition/` SoT.
+- Adopted source/code → project-managed `products/`.
+- Adopted environment config → `etc/`.
+- Working copies needed for processing/modification/comparison/transformation/investigation/verification → `jobs/`; preserve the supplied original in `references/`.
+- Derived results whose responsibility no longer belongs to `references/` → the area owning that responsibility.
+
 ## Local Governance
 
 ### Authority Boundary
 
 - Reference presence/linkage ≠ requirement/design/testing/implementation constraint/verification conclusion beyond recorded scope.
-- Adopted requirements/design/testing/procedures/decisions → responsible `definition/` SoT; the reference remains supporting input, not an adoption record.
-- Adopted source/code → project-managed `products/`; adopted environment config → `etc/`.
+- A reference remains supporting input, not an adoption record.
 
 ### Use
 
-- Preserve supplied originals in `references/`; needed working copies for processing/modification/comparison/transformation/investigation/verification → `jobs/`.
+- Preserve supplied originals in `references/`.
 - Implementation, acceptance, or current verified-claim use requires Reference Validation.
 
 ### Reference Validation

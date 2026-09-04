@@ -19,7 +19,7 @@
 - Prefer one purpose/question/experiment/verification activity/handoff per job unit and keep units independently understandable/removable. A unit may be a single file or purpose directory; use proportional structure/entry point and do not create a directory, control document, or heavyweight template solely for uniformity.
 - Related lightweight inactive items may share a unit or registry only when each remains independently judgeable/removable; do not create a repository-wide dumping ground.
 - Organize by purpose/job unit, not fixed artifact-type directories. Co-locate needed inputs, dependencies, notes, evidence, reproduction instructions where practical; handoffs, future plans, logs, evidence, prototypes, drafts, and similar material stay inside the owning unit unless they are themselves the complete small unit.
-- A substantial unit must make discoverable: purpose, approved basis or retention/disposition basis, evaluation/consumption method when applicable, and adoption/retention/supersession/promotion/deletion condition.
+- A substantial unit must make discoverable: purpose, approved basis or retention/disposition basis, evaluation/consumption method when applicable, and adoption/retention/supersession/transfer/deletion condition.
 - Scope only far enough for a coherent decision, comparison, feasibility result, execution/handoff need, or verification purpose. Do not require SoT-equivalent completeness; elaborate unresolved detail only when material to the job purpose.
 - Exploratory code stays inside its job unit even when tools generate `src/`, `app/`, `tests/`, `packages/`.
 
@@ -49,7 +49,7 @@
 
 - Use `+<purpose>/INDEX.md` only when authorized repository-modification work needs repository-retained decomposition/progress for continuation, handoff, or cross-session coordination. This rule is independent of Change Unit count; single- or multi-unit work completing without retained active control needs no index.
 - If that need arises after work starts, create the index then and reconcile current Change Units, state, and material links before relying on repository state for continuation.
-- `INDEX.md` is the job's non-authoritative active control state. Keep proportionally discoverable: purpose/approved basis; constituent Change Units and their scope/AC basis; order/dependencies; each Change Unit's state sufficient to distinguish active/complete/blocked/remaining; material working/evidence links; and job-level exit/promotion/retention/disposal conditions.
+- `INDEX.md` is the job's non-authoritative active control state. Keep proportionally discoverable: purpose/approved basis; constituent Change Units and their scope/AC basis; order/dependencies; each Change Unit's state sufficient to distinguish active/complete/blocked/remaining; material working/evidence links; and job-level exit/transfer/retention/disposal conditions.
 - Exact unit identifiers, status vocabulary, table/layout are local choices. Account for meaningful outcomes/Change Units, not reads, searches, edits, commands, test invocations, or other low-level operations.
 - Once `INDEX.md` exists, constituent Change Unit execution starts from it. Before a newly accepted/re-split unit begins, update decomposition; newly discovered work follows root Permission / Scope and Assessment and Feedback and must not become an unapproved backlog.
 - `INDEX.md` grants no implementation/adoption/priority authority and does not make retained material committed work. Keep it current enough for resumption without conversational memory; a separate handoff is optional when the index plus linked material is sufficient.
@@ -100,35 +100,33 @@ Decision-ready ≠ implementation-entry complete; details that can be decided co
 - When decision-ready and adoption/formalization is not already authorized, surface candidate + material basis + remaining open questions using root Decision Requests; do not keep elaborating solely to avoid the decision.
 - A coherent decision-ready subset may be adopted independently; job-level exit does not delay that adoption.
 
-### Promotion
-
-Formal promotion = **classification + integration of semantics**, not file migration.
-
-Destinations:
-- adopted requirements/design/testing/procedures/decisions/project facts → responsible `definition/` SoT;
-- formal code/tests/tools/support programs → `products/`;
-- managed environment config → `etc/`;
-- supplied original → `references/`;
-- durable non-normative finding/mapping/summary/artifact with continuing value → `references/`.
-
-- `jobs/` filenames/splits/directories/INDEX structure do not prescribe formal destination structure. Integrate only adopted semantics; authorized adopted facts must not remain only in `jobs/`.
-- Formal open question/decision point/blocking effect goes in `definition/` when required, without copying surrounding investigation. Inactive non-adopted work does not move there merely for preservation; applicable assessment/adoption/authority comes first.
-
 ### Retention
 
 - Do not retain runs, caches, dependencies, logs, generated/disposable output, or suggestions merely because they occurred or are present; keep only material with continuing evidential/diagnostic/audit/maintenance/decision/reconsideration value.
-- Supporting material whose only continuing value is durable non-normative knowledge independent of active/inactive work → `references/`; otherwise keep justified material inside its marked job. If no plausible continuing value/evaluation/revisit basis remains, dispose rather than build an indefinite backlog.
+- Keep justified material inside its marked job while it remains `jobs/` responsibility. If no plausible continuing value/evaluation/revisit basis remains, dispose rather than build an indefinite backlog.
 - For `_`, keep the evaluation/retention basis discoverable; root Defer additionally keeps its disposition rationale/revisit condition current.
-- Never delete `jobs/` material while a current verified claim materially depends on it unless remaining/replacement VB is sufficient or the claim is downgraded. `jobs/` VB is transitional only during active work, handoff/reconciliation, or bounded post-work transition as defined in `definition/AGENTS.md`.
+- Never delete `jobs/` material while a current verified claim materially depends on it unless remaining/replacement VB is sufficient or the claim is downgraded.
+- `jobs/` VB is transitional only while serving active work, immediate handoff, unresolved reconciliation, or a bounded post-work transition with a specific exit event. “Keep for now” / “reverify later” without one is not bounded.
+- If that exit event is missed/cancelled/deferred into open-ended dependency, or the claim must outlive transitional responsibility and remaining basis is inadequate, use suitable durable native/external VB, apply Outbound Transfer to the minimum material needed for durable retention, or downgrade the claim.
+- For bounded transition, make the effective exit event + intended disposition discoverable enough to judge its state; no fixed date/ID/metadata file/history archive is required. At the event, retire/replace/re-evaluate VB or downgrade the claim.
 
 ### Exit
 
 - After adoption, reduce a job to unresolved questions/alternatives/prototypes/feasibility, verification evidence, decision/handoff context, or other remaining `jobs/` responsibility; residual work references responsible SoTs instead of duplicating adopted candidate specification.
-- Candidate artifacts must not look like active alternate SoT: delete, mark superseded/historical, promote durable non-normative value, or explicitly relate them to the resulting SoT. Reassessed/dispositioned inactive items must likewise reflect material handling/marker changes rather than stale TODO state.
+- Candidate artifacts must not look like active alternate SoT: delete, mark superseded/historical, handle durable non-normative value through Outbound Transfer, or explicitly relate them to the resulting SoT. Reassessed/dispositioned inactive items must likewise reflect material handling/marker changes rather than stale TODO state.
 - If active `INDEX.md` exists, exit requires reconciling Change Units and linked material: reflect completed/adopted outcomes in responsible destinations; leave remaining authorized work explicitly active/handoff; handle inactive retained inputs by their rules; deliberately retain/dispose temporary material.
-- Keep `+` while handoff/reconciliation/transitional verification remains active even after implementation units complete; otherwise do not leave `+` with no active lifecycle work. Remove the job, promote/retain durable material under its responsible area, or move/restructure justified inactive remainder under `_` after applicable assessment/disposition. A retained superseded job is such an inactive remainder: keep `_` and record its superseded status rather than leaving it unmarked.
+- Keep `+` while handoff/reconciliation/transitional verification remains active even after implementation units complete; otherwise do not leave `+` with no active lifecycle work. Remove the job, transfer durable material under Outbound Transfer, or move/restructure justified inactive remainder under `_` after applicable assessment/disposition. A retained superseded job is such an inactive remainder: keep `_` and record its superseded status rather than leaving it unmarked.
 - Do not leave a completed/superseded `INDEX.md` presenting stale active work; delete it with the job, reduce it to remaining active/handoff context, or retain it only for independent continuing value clearly no longer presented as active control state.
-- Before delete/promotion inspect inbound references, unresolved work, traceability, current verified claims, and continuing evidence/maintenance/reconsideration need.
+- Before delete/transfer inspect inbound references, unresolved work, traceability, current verified claims, and continuing evidence/maintenance/reconsideration need.
+
+## Outbound Transfer
+
+- Adopted requirements/design/testing/procedures/decisions/project facts → responsible `definition/` SoT.
+- Formal code/tests/tools/support programs → `products/`.
+- Managed environment config → `etc/`.
+- Supplied originals and durable non-normative findings/mappings/summaries/artifacts with continuing value → `references/`.
+- Formal open questions/decision points/blocking effects → `definition/` when required. Inactive non-adopted work does not transfer there merely for preservation; applicable assessment/adoption/authority comes first.
+- `jobs/` filenames/splits/directories/INDEX structure do not prescribe destination structure. Integrate adopted semantics into the responsible SoT rather than migrating the working file, and do not leave authorized adopted facts only in `jobs/`.
 
 ## Local Governance
 
