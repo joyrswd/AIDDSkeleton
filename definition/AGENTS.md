@@ -177,7 +177,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 ### Verification Basis
 
 - Execution-specific results/evidence are working material by default; verification does not require a dedicated repository evidence file. Sufficient native/external execution records may remain external.
-- A current verified claim requires an available, applicable VB sufficient to reassess its scope. VB may be native/external record, retained `jobs/` material, retained reference, or proportional summary; repository/Markdown storage is not required.
+- A current verified claim requires an available, applicable VB sufficient to reassess its scope. VB may be native/external record, retained `jobs/` material, retained reference, or proportional summary; repository/Markdown storage is not required. When retained `jobs/` material is part of the VB, its lifecycle and retention follow `jobs/AGENTS.md`.
 - Preserve proportionally: actual target/state, relevant conditions, method, result, directly verified scope, material unverified scope.
 - Prefer stable identity when available; mutable branch/environment/host labels are context only. Without stable ID, record enough time/state/conditions/scope to prevent unsafe inference; no Git/CI/tool requirement.
 - Make material retention/expiry/freshness/revalidation boundaries discoverable for external/expirable VB and recheck when required before relying on claims.
