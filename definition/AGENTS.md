@@ -123,7 +123,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Completion criteria must be observable; split requirements that cannot be implemented, verified, and completed together.
 - Semantic exhaustive domains/matrices/transitions/enumerations remain normative even when they imply cardinality; verification may use any evidence form appropriate to AC.
 - Before removing, abstracting, or relocating materially constraining content, preserve its adopted semantics in the responsible SoT unless the applicable authority process explicitly changes or retires it.
-- For relocation or reclassification without an explicit authority change, verify future valid implementations are not unintentionally broadened or narrowed.
+- For abstraction, relocation, or reclassification without an explicit authority change, verify future valid implementations are not unintentionally broadened or narrowed.
 - Treat loss of adopted timezone/unit/protocol-version/transaction-isolation/identity/cardinality/ordering/security/compatibility or similar invariant as normative change, not cleanup.
 - State design constraints normatively; do not delegate design authority to current source/config/test/generated artifacts. Current test implementation details and execution results remain non-normative unless independently adopted.
 
