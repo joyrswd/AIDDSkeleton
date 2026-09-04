@@ -47,15 +47,19 @@
 | [`references/`](references/AGENTS.md) | Durable non-normative supplied/promoted reference material |
 | [`products/`](products/AGENTS.md) | Formal implementations and tests |
 
-- Every artifact belongs to the area owning its responsibility.
+- Every artifact carrying project responsibility belongs to the area owning that responsibility.
 - Placement follows responsibility; location alone does not satisfy the applicable adoption, authority, completion, or verification process.
-- No additional top-level non-hidden directory without an explicit user decision changing this model.
-- Framework/tool directories (`src/`, `apps/`, `packages/`, `scripts/`, `infra/`, `docs/`, `tests/`, etc.) belong below the responsible area. Hidden paths/top-level files must not bypass the model.
+- Repository-level integration artifacts may remain outside the five responsibility areas when an adopted VCS/framework/tool/platform requires or directly discovers a repository-root, top-level, or hidden path for repository-scoped metadata, configuration, or instruction routing.
+- Repository-level integration placement does not create a responsibility area or authority. Tool-facing routing/translation must defer to the applicable governance/SoTs rather than become an independent owner; when an integration artifact substantively carries an existing project responsibility, assign it to that area and apply that area's governance as if the artifact were placed there.
+- No additional top-level non-hidden directory without an explicit user decision changing this model, except a repository-level integration path permitted above.
+- Ordinary framework/tool source, test, script, package, infrastructure, or documentation layout conventions do not by themselves create repository-level integration paths; keep such project content below the responsible area unless the external interface constrains the path.
+- Do not duplicate a canonical artifact under its owning area solely to mirror logical ownership.
 - `README.md` is human guidance only: not instructions or project SoT; do not duplicate/replace requirements, design, testing, status, or agent instructions.
 
 ### Instruction Hierarchy and Protection
 
-- Before changing a target, read: root `AGENTS.md` → every descendant `AGENTS.md` through the target → `definition/AGENTS.md` → applicable project SoTs.
+- Before changing a target, read: root `AGENTS.md` → `definition/AGENTS.md` → every additional descendant `AGENTS.md` through the target → for a repository-level integration artifact carrying an assigned project responsibility, the owning area's `AGENTS.md` when not already read → applicable project SoTs.
+- Repository-level instruction-routing artifacts must defer to the protected `AGENTS.md` hierarchy and preserve that routing. Ordinary code/docs/config/structure authorization does not authorize changing, bypassing, or removing instruction delivery; doing so requires an explicit user request identifying the affected tool/scope.
 - Descendant `AGENTS.md` files inherit root governance and may add subtree rules; they must not redefine, weaken, contradict, or override inherited boundaries.
 - Add descendant `AGENTS.md` only for genuine subtree-specific instructions.
 - Existing `AGENTS.md` files are protected governance. Ordinary code/docs/config/structure authorization does not authorize changing them.
