@@ -154,7 +154,7 @@ Use only when a request has multiple material ambiguities.
 - Prefer simple maintainable changes over speculative abstractions.
 - Project-definition authority and requirements/design/testing responsibility boundaries follow `definition/AGENTS.md`.
 - Existing implementation: inspect relevant code/tests/config/dependencies/RBs/dependency directions/patterns. Apply `definition/AGENTS.md` authority rules before treating realization-derived detail as normative; do not casually replace material established structure or preserve it solely because it exists.
-- Classify newly discovered knowledge under `definition/AGENTS.md` before adoption or promotion; resulting material follows the responsible area's governance.
+- Classify newly discovered knowledge by authority and responsibility before adoption or promotion; project-definition and realization-derived material follows `definition/AGENTS.md`, while other material follows the responsible area's governance.
 - Distinguish facts, assumptions, decisions, open questions.
 - AC must be observable; prefer behavioral verification where practical.
 - Requirement/assumption changes: inspect documentation, implementation, tests, environment, migration, operation effects.
@@ -206,7 +206,7 @@ Disposition does not itself grant modification or adoption authority.
 - **In-scope deficiency:** the current Change Unit's acceptance basis or approved unit scope is unsatisfied but not Blocker.
 - **Follow-up:** useful work not required for the current Change Unit's acceptance; it may be another authorized Change Unit or an input dispositioned Defer/Reject.
 
-Apply these labels under Change Unit semantics: In-scope deficiency is unit-local; a Blocker remains relevant wherever it prevents safe acceptance/continuation; input validity alone does not alter unit membership. Requirement/AC/lifecycle completion remains judged against its full approved basis.
+Apply these labels under Change Unit semantics: In-scope deficiency is unit-local; a Blocker remains a Blocker wherever its subject lies; input validity alone does not alter unit membership. Requirement/AC/lifecycle completion remains judged against its full approved basis.
 
 Severity and disposition are independent: a Follow-up may be scheduled in another authorized Change Unit or dispositioned Defer/Reject, while a Blocker or In-scope deficiency may still require a user-owned decision before it can be Accepted now.
 
