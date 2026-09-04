@@ -14,7 +14,7 @@
 
 ### Required Structure
 
-- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/GLOSSARY.md`, `definition/TRACEABILITY.md`, `definition/system/.gitkeep`, and `definition/apps/.gitkeep`.
+- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/TRACEABILITY.md`, `definition/system/.gitkeep`, and `definition/apps/.gitkeep`.
 - Per approved app, create:
   - `definition/apps/<app>/<app>_index.md`;
   - `definition/apps/<app>/<app>_traceability.md`;
@@ -47,7 +47,7 @@
 - Indexes provide navigation plus concise owned current-state/absence/inheritance/coverage context; do not duplicate detailed requirements/design/testing/procedures/results.
 - System navigation: `system_index.md` is primary; directly link each Markdown doc directly under `definition/system/` except itself. A local index is allowed only when the responsibility needs navigation; nested docs routed through it must remain reachable from `system_index.md`; protected `AGENTS.md` is excluded.
 - App navigation: `<app>_index.md` → three category indexes + app traceability; category index → its docs.
-- Initialized read order: `definition/system/system_index.md` → `definition/system/documentation_language.md` → `definition/GLOSSARY.md` → `definition/TRACEABILITY.md` → target indexes.
+- Initialized read order: `definition/system/system_index.md` → `definition/system/documentation_language.md` → `definition/TRACEABILITY.md` → target indexes.
 - Determine ownership from purpose + change authority + invocation/governing decision + success/failure (or sufficiency) judgment, not target/caller/tool/file name/operational vocabulary.
   - App-owned execution/diagnostic procedure → directly under the app, linked from `<app>_index.md`; system-owned or cross-app procedure → `definition/system/`.
   - Multiple targets do not prove system ownership; one app target does not prove app ownership; never choose a participating app as representative owner or duplicate system responsibility per app.
@@ -81,14 +81,14 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 | State | Observed state of all listed initialization artifacts taken together |
 |---|---|
-| Uninitialized | `definition/GLOSSARY.md` and `definition/TRACEABILITY.md` present and zero bytes; `definition/system/system_index.md` and `definition/system/documentation_language.md` absent; `definition/system/.gitkeep` and `definition/apps/.gitkeep` present |
-| Initialized | `definition/GLOSSARY.md` and `definition/TRACEABILITY.md` present with approved-language content; both fixed system docs present; `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` present only while no app docs exist |
+| Uninitialized | `definition/TRACEABILITY.md` present and zero bytes; `definition/system/system_index.md` and `definition/system/documentation_language.md` absent; `definition/system/.gitkeep` and `definition/apps/.gitkeep` present |
+| Initialized | `definition/TRACEABILITY.md` present with approved-language content; both fixed system docs present; `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` present only while no app docs exist |
 | Inconsistent | does not exactly match either row above |
 
 - Reconcile an Inconsistent state before formal work.
 - Initialized requires purpose, scope, RBs, and required project SoTs to be approved and recorded; fixed skeleton files/markers alone do not establish project facts or initialization, and uninitialized/inconsistent state must not be used to infer project facts.
 - Initialization content comes from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
-- Initialize atomically: create `documentation_language.md` and `system_index.md`, populate the two cross-cutting files in approved language, and remove `definition/system/.gitkeep`.
+- Initialize atomically: create `documentation_language.md` and `system_index.md`, populate `definition/TRACEABILITY.md` in the approved language, and remove `definition/system/.gitkeep`.
 - Define at least:
   - purpose, users, scope, exclusions;
   - system/app RBs;
@@ -108,7 +108,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 ### Reset
 
 - Do not delete either fixed system document independently.
-- Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty the two cross-cutting files, restore both markers, and verify whole state.
+- Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty `definition/TRACEABILITY.md`, restore both markers, and verify whole state.
 
 ## Local Governance
 
@@ -158,11 +158,11 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### State and Traceability
 
-- Only `AGENTS.md`, `GLOSSARY.md`, and `TRACEABILITY.md` are non-hidden files directly under `definition/`. Before initialization, the latter two remain zero bytes; after initialization, use the approved language.
+- Only `AGENTS.md` and `TRACEABILITY.md` are non-hidden files directly under `definition/`. Before initialization, `TRACEABILITY.md` remains zero bytes; after initialization, use the approved language.
 - `system_index.md` owns concise current lifecycle/implementation/verification state and material limits/blockers for system/cross-app responsibilities; each `<app>_index.md` owns the same for its app.
 - Distinguish unimplemented/implemented/verified with no speculation; link traceability/VB when needed. Index state is responsibility-level summary, while relationship/coverage detail remains in traceability; do not duplicate run/version IDs, counts, output, or execution history.
 - Active execution sequence, priority, next work, and transient job-specific blockers → `jobs/`; keep them out of project-definition state. A limitation/blocker belongs in a definition index only when it materially describes current accepted state of that responsibility.
-- `GLOSSARY.md` owns only project-wide shared meanings.
+- Define shared terminology in the responsible SoT where its meaning constrains interpretation; do not maintain a standalone project glossary.
 - Root `TRACEABILITY.md` owns system/cross-app relationships, app links, concise coverage, and unresolved/unverified summary. App detail → `<app>_traceability.md`, linked from root traceability + app index.
 - Trace independently approved requirement/AC → responsible design/implementation/VB. Prefer responsibility/module/directory granularity; use file/class/function/line only when needed.
 - Aggregate trace entries only when design responsibility, implementation responsibility, VB, and coverage materially match and each item remains independently judgeable.
