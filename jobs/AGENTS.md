@@ -16,7 +16,7 @@
 ### Job Units
 
 - A **job unit** is a purpose-oriented working-material container under `jobs/`; it is distinct from the root **Change Unit**, which is an execution/review/acceptance boundary. One job unit may contain one or several Change Units.
-- Prefer one purpose/question/experiment/verification activity/handoff per job unit and keep units independently understandable/removable. A unit may be a single file or purpose directory; use proportional structure and no control document solely for uniformity.
+- Prefer one purpose/question/experiment/verification activity/handoff per job unit and keep units independently understandable/removable. A unit may be a single file or purpose directory; use proportional structure/entry point and no control document solely for uniformity.
 - Related lightweight inactive items may share a unit or registry only when each remains independently judgeable/removable; do not create a repository-wide dumping ground.
 - Organize by purpose/job unit, not fixed artifact-type directories. Co-locate needed inputs, dependencies, notes, evidence, reproduction instructions where practical; handoffs, future plans, logs, evidence, prototypes, drafts, and similar material stay inside the owning unit unless they are themselves the complete small unit.
 - A substantial unit must make discoverable: purpose, approved basis or retention/disposition basis, evaluation/consumption method when applicable, and adoption/retention/supersession/promotion/deletion condition.
@@ -27,7 +27,7 @@
 
 - Every retained top-level job unit uses one marker, whether file or directory; top-level `jobs/AGENTS.md` is exempt:
   - `+<purpose>` = authorized work that remains active in the `jobs/` lifecycle, including executing, pending, blocked, handoff/reconciliation, or required transitional verification work;
-  - `_<purpose>` = retained but inactive material for later evaluation/reconsideration, including possible Defer input, not-yet-activated future work, or dormant handoff/restart context.
+  - `_<purpose>` = retained but inactive material for later evaluation/reconsideration, including a root-dispositioned Defer input, not-yet-activated future work, or dormant handoff/restart context.
 - Do not create unmarked retained top-level job units. Choose `<purpose>` clear enough for first-pass relevance screening; supporting material stays inside the owning marked unit.
 - Markers describe jobs lifecycle only. `+` does not grant authority, set priority, prove completion/verification, or encode Change Unit state; `_` does not by itself mean Defer, rejection, adoption, priority, or future commitment. Lexical/display order is not priority.
 - `_` → `+` requires a current approved basis and any applicable assessment, decision, or authority for active work; a Defer revisit match alone is insufficient. `+` → `_` applies when current active lifecycle work ends but justified retention/evaluation/reconsideration value remains; preserve the required disposition/evaluation basis.
@@ -118,7 +118,7 @@ Destinations:
 - Do not retain runs, caches, dependencies, logs, generated/disposable output, or suggestions merely because they occurred; keep only material with continuing evidential/diagnostic/audit/maintenance/decision/reconsideration value.
 - Durable non-normative knowledge whose continuing value is independent of active/inactive work → `references/`; otherwise keep justified material inside its marked job. If no plausible continuing value/evaluation/revisit basis remains, dispose rather than build an indefinite backlog.
 - For `_`, keep the evaluation/retention basis discoverable; root Defer additionally keeps its disposition rationale/revisit condition current.
-- Never delete `jobs/` material while a current verified claim materially depends on it unless remaining/replacement VB is sufficient or the claim is downgraded. `jobs/` VB is transitional only under `definition/AGENTS.md` conditions.
+- Never delete `jobs/` material while a current verified claim materially depends on it unless remaining/replacement VB is sufficient or the claim is downgraded. `jobs/` VB is transitional only during active work, handoff/reconciliation, or bounded post-work transition as defined in `definition/AGENTS.md`.
 
 ### Exit
 
