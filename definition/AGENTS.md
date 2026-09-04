@@ -83,8 +83,9 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 |---|---|---|---|
 | Uninitialized | present, zero bytes | absent | `definition/system/.gitkeep`, `definition/apps/.gitkeep` present |
 | Initialized | present, approved-language content | both present | `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` only while no app docs exist |
-| Inconsistent | any other combination | any other combination | reconcile before formal work |
+| Inconsistent | any other combination | any other combination | any other combination |
 
+- Reconcile an Inconsistent state before formal work.
 - Initialized requires purpose, scope, RBs, and required project SoTs to be approved and recorded; fixed skeleton files/markers alone do not establish project facts or initialization, and uninitialized/inconsistent state must not be used to infer project facts.
 - Initialization content comes from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
 - Initialize atomically: create `documentation_language.md` and `system_index.md`, populate the two cross-cutting files in approved language, and remove `definition/system/.gitkeep`.
