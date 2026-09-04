@@ -28,7 +28,7 @@
 
 - A rule may relate to multiple concepts or sections, but must have one authoritative owner; do not redefine it independently elsewhere.
 - Proposal/assumption/observation/implementation/test/result/reference existence or linkage ≠ SoT adoption.
-- Moving or transferring information ≠ authority change; authority changes only through the applicable adoption/SoT process. An area's Outbound Transfer rules apply only to material it currently owns; instruction inheritance does not extend those source-side triggers to material owned by another area.
+- Moving or transferring information ≠ authority change; authority changes only through the applicable adoption/SoT process. An area's Outbound Transfer rules apply when that area is the transfer source, including correction of material whose current placement does not match responsibility; instruction inheritance does not extend those source-side triggers to transfers originating in another area.
 - Lifecycle concepts do not impose a repository-wide execution order. Responsible area/project rules own applicable states, transitions, prerequisites, repetition, and reopening; those explicit constraints remain binding.
 - New evidence may require repeating or reopening applicable lifecycle work and revising prior completion/verification claims to the scope still supported.
 - Claim scope ≤ supporting basis: presence ≠ implementation ≠ execution ≠ verification ≠ acceptance/completion.
