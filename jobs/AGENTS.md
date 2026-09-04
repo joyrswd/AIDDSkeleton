@@ -124,7 +124,7 @@ Decision-ready ≠ implementation-entry complete; details that can be decided co
 - Adopted requirements/design/testing/procedures/decisions/project facts → responsible `definition/` SoT.
 - Formal code/tests/tools/support programs → `products/`.
 - Managed environment config → `etc/`.
-- Supplied originals and durable non-normative findings/mappings/summaries/artifacts with continuing value → `references/`.
+- Supplied originals, and material whose only continuing value is durable non-normative knowledge independent of active/inactive work → `references/`.
 - Formal open questions/decision points/blocking effects → `definition/` when required. Inactive non-adopted work does not transfer there merely for preservation; applicable assessment/adoption/authority comes first.
 - `jobs/` filenames/splits/directories/INDEX structure do not prescribe destination structure. Integrate adopted semantics into the responsible SoT rather than migrating the working file, and do not leave authorized adopted facts only in `jobs/`.
 

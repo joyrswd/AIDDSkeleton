@@ -112,7 +112,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 ## Outbound Transfer
 
 - Non-authoritative candidate replacements/target states/alternatives, transient current-realization or other active working material, active execution control, and project-managed active execution evidence → `jobs/`.
-- Durable non-normative current-realization knowledge/artifacts with continuing value → `references/`.
+- Durable non-normative knowledge/artifacts with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`.
 - Environment configuration → `etc/`.
 - Application tests and formal generators/viewers/verifiers → `products/`.
 
