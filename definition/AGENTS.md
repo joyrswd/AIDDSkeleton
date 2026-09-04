@@ -79,11 +79,11 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Initialization
 
-| State | Complete state of listed initialization artifacts |
+| State | Observed state of all listed initialization artifacts taken together |
 |---|---|
 | Uninitialized | `definition/GLOSSARY.md` and `definition/TRACEABILITY.md` present and zero bytes; `definition/system/system_index.md` and `definition/system/documentation_language.md` absent; `definition/system/.gitkeep` and `definition/apps/.gitkeep` present |
 | Initialized | `definition/GLOSSARY.md` and `definition/TRACEABILITY.md` present with approved-language content; both fixed system docs present; `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` present only while no app docs exist |
-| Inconsistent | any complete combination of the listed initialization artifacts that does not exactly match either row above |
+| Inconsistent | does not exactly match either row above |
 
 - Reconcile an Inconsistent state before formal work.
 - Initialized requires purpose, scope, RBs, and required project SoTs to be approved and recorded; fixed skeleton files/markers alone do not establish project facts or initialization, and uninitialized/inconsistent state must not be used to infer project facts.

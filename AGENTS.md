@@ -52,7 +52,7 @@
 - Repository-level integration artifacts may remain outside the five responsibility areas when an adopted VCS/framework/tool/platform requires or directly discovers a repository-root, top-level, or hidden path for repository-scoped metadata, configuration, or instruction routing.
 - Repository-level integration placement does not create a responsibility area or authority. Tool-facing routing/translation must defer to the applicable governance/SoTs rather than become an independent owner; when an integration artifact substantively carries an existing project responsibility, assign it to that area and apply that area's governance as if the artifact were placed there.
 - No additional top-level non-hidden directory without an explicit user decision changing this model, except a repository-level integration path permitted above.
-- Ordinary framework/tool source, test, script, package, infrastructure, or documentation layout conventions do not by themselves create repository-level integration paths; keep such project content below the responsible area unless the external interface constrains the path.
+- Ordinary framework/tool source, test, script, package, infrastructure, or documentation layout conventions do not by themselves create repository-level integration paths; keep such project content below the responsible area unless the external interface requires or directly discovers that path.
 - Do not duplicate a canonical artifact under its owning area solely to mirror logical ownership.
 - `README.md` is human guidance only: not instructions or project SoT; do not duplicate/replace requirements, design, testing, status, or agent instructions.
 
@@ -74,6 +74,7 @@
 - Project initialization state and required definition outputs are governed by `definition/AGENTS.md`.
 - Start read-only. Before project-specific changes, present one initialization summary: verified facts, user decisions, proposed assumptions, open questions, blockers, files/directories to change, target lifecycle state, and work left unstarted.
 - Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
+- If `README.md` still identifies the repository as AIDD Skeleton or contains template-use guidance, include replacement with project-specific human guidance in the initialization summary; after approval, replace that starter content during initialization.
 - If immediate initialization from supplied information + reasonable assumptions is explicitly requested, advance discussion may be omitted; report every adopted assumption at completion.
 - Detailed lifecycle transitions, entry/completion criteria, and verification rules: `definition/AGENTS.md`.
 
@@ -226,4 +227,5 @@ Severity and disposition are independent: a Follow-up may be scheduled in anothe
 #### Consumer Regression
 
 - Shared-governance consumer regression is black-box only when results follow from candidate governance + consumer's pre-existing protected local rules. Externally prescribed classifications/changes make it a guided diagnostic.
+- A claim that a potentially breaking shared-governance change is generally adoptable requires black-box evidence from at least one representative initialized consumer. A guided diagnostic does not establish that claim; without representative black-box evidence, downstream behavior remains unverified.
 - Consumer regression evaluates candidate governance; it neither adopts it nor authorizes consumer changes.

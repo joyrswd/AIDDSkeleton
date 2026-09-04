@@ -2,6 +2,8 @@
 
 AIDD Skeleton is a lightweight repository template for AI-driven development.
 
+Repositories created from this template should replace this starter README with project-specific human guidance during project initialization.
+
 It gives developers and AI coding agents a shared structure for planning work, producing deliverables, managing references and working materials, and verifying results without letting the repository drift into chaos.
 
 ## Start a New Project
@@ -51,10 +53,6 @@ Repository-wide and directory-specific `AGENTS.md` files define the working agre
 - Clear separation between definitions, formal products, durable references, job materials, and environment configuration
 - A predictable workflow for requirements, design, implementation, and verification
 - A structure designed to remain understandable as the project grows
-
-## Contributing to This Template
-
-Clone this repository only when you intend to propose a change to AIDD Skeleton itself. Start from the latest `main` branch and open a pull request with a focused change.
 
 AIDD Skeleton is provided as-is. Maintenance, support, responses, reviews, and acceptance of contributions are not guaranteed.
 
