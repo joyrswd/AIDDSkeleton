@@ -36,9 +36,7 @@ products/
 
 ## Lifecycle
 
-### Formalization
-
-- Adopted code/tools from `jobs/` or `references/` → `products/`; create a project-managed formal implementation with appropriate structure/quality/tests rather than depending on the working/reference copy as production source.
+- When formalizing adopted code/tools, create a project-managed formal implementation with appropriate structure/quality/tests rather than depending on a working/reference copy as production source.
 - Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `definition/AGENTS.md` VB lifecycle.
 
 ## Local Governance
@@ -49,7 +47,7 @@ products/
 - Do not replace established architecture/RB/dependency direction/state authority/compatibility pattern merely because an alternative also satisfies requirements.
 - Documentation silence does not authorize redesign when change affects compatibility/responsibility/security/persistence/state authority/material boundary; resolve through the SoT process.
 - Observable behavior/public contracts/data structures/dependencies/migrations/RBs changes must respect root authority: complete any required project-definition change/authorization first, then keep implementation/tests/docs/status/traceability consistent in the same change.
-- Before move/promotion/deletion inspect dependents, public contracts, migrations, tests, docs, status, traceability, current VB, reference-retention needs.
+- Before move/transfer/deletion inspect dependents, public contracts, migrations, tests, docs, status, traceability, current VB, reference-retention needs.
 
 ### Implementation Verification
 

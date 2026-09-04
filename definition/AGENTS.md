@@ -53,15 +53,14 @@
   - Multiple targets do not prove system ownership; one app target does not prove app ownership; never choose a participating app as representative owner or duplicate system responsibility per app.
   - Shared tools/observability/deployment/system environments/`etc/` config do not transfer ownership. For shared system execution with app-specific prerequisites/commands/AC/constraints, keep shared responsibility in system procedure and only app-owned delta in the app.
   - Normative testing uses the same ownership test. Testing responsibility always exists for formal implementation; if no app testing detail doc, the testing index names inherited/cross-cutting policy. Testing indexes may link current VB for coverage but contain no execution history.
-  - Adopted procedures/policy/constraints → `definition/`; environment configuration → `etc/`; application tests and formal generators/viewers/verifiers → `products/`.
-  - Durable non-normative current-realization knowledge → `references/`; retain only when continuing value exists and preserve provenance/scope/freshness/revalidation per `references/AGENTS.md`.
+  - Adopted procedures/policy/constraints belong in `definition/`.
 
 ### Documentation Language
 
 - Initialization summary proposes a default; absent user choice, propose current conversation language.
 - After approval, record one BCP 47 default in `definition/system/documentation_language.md`, with only explicit app overrides. System/cross-app docs use default; app docs inherit unless overridden.
 - Never infer language/override from code, supplied material, later conversation language, or environment; conversation language is independent after initialization.
-- On adoption/promotion into `definition/`, preserve semantics in the destination's effective documentation language while preserving identifiers, code/protocol literals, proper names, standard technical notation, and intentionally fixed wording/language.
+- On adoption into `definition/`, preserve semantics in the destination's effective documentation language while preserving identifiers, code/protocol literals, proper names, standard technical notation, and intentionally fixed wording/language.
 - Change documentation language only on explicit user request; supplied originals under `references/` need not be translated.
 - Do not duplicate the language setting in another machine-readable file; language-setting changes update relevant index guidance.
 
@@ -110,6 +109,13 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Do not delete either fixed system document independently.
 - Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, empty `definition/TRACEABILITY.md`, restore both markers, and verify whole state.
 
+## Outbound Transfer
+
+- Non-authoritative candidate replacements/target states/alternatives, transient current-realization or other active working material, active execution control, and project-managed active execution evidence → `jobs/`.
+- Durable non-normative knowledge/artifacts with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`.
+- Environment configuration → `etc/`.
+- Application tests and formal generators/viewers/verifiers → `products/`.
+
 ## Local Governance
 
 ### Definition Authority
@@ -118,7 +124,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 - Normative content constrains future valid implementations and must remain usable without current `products/`; applicable requirements/design/testing together must support independent implementation with the same intended outcomes, adopted contracts/RBs, fixed algorithms/invariants, and equivalent acceptance intent.
 - Goal is semantic reconstruction, not source reproduction/operational restoration. Incidental implementation details are not required unless independently adopted constraints/contracts; design may remain concrete when intentionally constraining future valid implementations.
-- One responsible adopted SoT per project fact; no duplicate detail or parallel `current`/`target` variants/equivalent views. Candidate replacements, target states, and alternatives → `jobs/`; keep them non-authoritative and preferably express them as deltas against the current SoT.
+- One responsible adopted SoT per project fact; no duplicate detail or parallel `current`/`target` variants/equivalent views. Candidate replacements, target states, and alternatives are non-authoritative and preferably expressed as deltas against the current SoT.
 - Approved future intent may live in `definition/` when it is itself the document's responsibility, not as a parallel candidate SoT. Distinguish assumed/decided/open; proposal/unapproved assumption ≠ settled fact.
 - Requirements own required outcomes, external conditions, compatibility obligations, and AC; design owns adopted choices among otherwise valid implementation approaches; testing owns required verification, method/observation, and sufficient evidence.
 - Completion criteria must be observable; split requirements that cannot be implemented, verified, and completed together.
@@ -131,7 +137,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 #### Realization Authority
 
 - First classify a realization-derived fact as current realization, required outcome/constraint, or adopted implementation constraint.
-- Independently adopted required outcomes → responsible requirements SoT; independently adopted implementation constraints → responsible design SoT; transient current realization → `jobs/`; durable non-normative current realization → `references/`.
+- Independently adopted required outcomes → responsible requirements SoT; independently adopted implementation constraints → responsible design SoT; non-adopted realization material follows Outbound Transfer.
 - Source paths/private helpers/classes/functions/state fields/DOM IDs/current directory layout/implementation status remain current-realization detail unless independently adopted.
 - Adoption of implementation-derived detail into design requires evidence independent of implementation/test presence that the project intends it as a future constraint, such as effect on an adopted contract, RB, dependency direction, security/correctness/operational property, chosen algorithm, or reimplementation acceptability.
 - Existing normative statements remain effective until explicitly changed/retired.
@@ -149,8 +155,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Documentation silence does not authorize opportunistic re-architecture.
 - When classification/routing/retention rules change, classify affected execution/evidence records as current claim-supporting basis, durable non-normative reference, active work, or retire; do not migrate solely because legacy placement differs or content is historical.
 - Temporary legacy placement is allowed only to avoid losing current VB or breaking dependent links while reconciliation is unresolved; mark remaining reconciliation discoverably and do not claim full reconciliation.
-- Active material → `jobs/`; durable non-normative material → `references/`; current SoT semantics → `definition/`; use native/external VB when suitable for current claim support and retire no-need material.
-- Adopted facts from `references/` and settled job decisions → responsible `definition/` SoT; neither location is an adoption record.
+- Apply Outbound Transfer to active and durable non-normative material; keep current SoT semantics in `definition/`, use native/external VB when suitable for current claim support, and retire no-need material.
+- Source location is not an adoption record; adopted facts/decisions enter responsible SoTs only through applicable adoption authority.
 
 ### Procedures
 
@@ -161,7 +167,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Only `AGENTS.md` and `TRACEABILITY.md` are non-hidden files directly under `definition/`. Before initialization, `TRACEABILITY.md` remains zero bytes; after initialization, use the approved language.
 - `system_index.md` owns concise current lifecycle/implementation/verification state and material limits/blockers for system/cross-app responsibilities; each `<app>_index.md` owns the same for its app.
 - Distinguish unimplemented/implemented/verified with no speculation; link traceability/VB when needed. Index state is responsibility-level summary, while relationship/coverage detail remains in traceability; do not duplicate run/version IDs, counts, output, or execution history.
-- Active execution sequence, priority, next work, and transient job-specific blockers → `jobs/`; keep them out of project-definition state. A limitation/blocker belongs in a definition index only when it materially describes current accepted state of that responsibility.
+- Keep active execution sequence, priority, next work, and transient job-specific blockers out of project-definition state. A limitation/blocker belongs in a definition index only when it materially describes current accepted state of that responsibility.
 - Shared terminology follows the underlying project fact's authority and ownership: keep the canonical definition in the SoT that owns that fact under Definition Authority. When one meaning is referenced across multiple SoTs, the owning responsibility remains app-owned for a single-app fact and system-owned for a system/cross-app fact; dependent SoTs reference the canonical definition instead of redefining it. Do not maintain a standalone project glossary.
 - Root `TRACEABILITY.md` owns system/cross-app relationships, app links, concise coverage, and unresolved/unverified summary. App detail → `<app>_traceability.md`, linked from root traceability + app index.
 - Trace independently approved requirement/AC → responsible design/implementation/VB. Prefer responsibility/module/directory granularity; use file/class/function/line only when needed.
@@ -170,8 +176,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Verification Basis
 
-- Execution-specific results/evidence are working material by default; verification does not require a dedicated repository evidence file. Project-managed active evidence → `jobs/`; sufficient native/external execution records may remain external.
-- A current verified claim requires an available, applicable VB sufficient to reassess its scope. VB may be native/external record, retained `jobs/` material, promoted reference, or proportional summary; repository/Markdown storage is not required.
+- Execution-specific results/evidence are working material by default; verification does not require a dedicated repository evidence file. Sufficient native/external execution records may remain external.
+- A current verified claim requires an available, applicable VB sufficient to reassess its scope. VB may be native/external record, retained `jobs/` material, retained reference, or proportional summary; repository/Markdown storage is not required. When retained `jobs/` material is part of the VB, its lifecycle and retention follow `jobs/AGENTS.md`.
 - Preserve proportionally: actual target/state, relevant conditions, method, result, directly verified scope, material unverified scope.
 - Prefer stable identity when available; mutable branch/environment/host labels are context only. Without stable ID, record enough time/state/conditions/scope to prevent unsafe inference; no Git/CI/tool requirement.
 - Make material retention/expiry/freshness/revalidation boundaries discoverable for external/expirable VB and recheck when required before relying on claims.
@@ -180,14 +186,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Advance lifecycle only with documented transition conditions + required evidence. Record method/result/verified scope/evidence type/material unverified matters proportionally; materially different evidence conditions are not interchangeable.
 - Carry earlier evidence to a later target/state only when evidence shows relevant differences do not affect verified scope, environment/config/conditions, applicable requirements/AC, or testing sufficiency; identity lineage or an “unrelated change” assumption alone is insufficient.
 - Index/traceability links to evidence/reference must point to material applicable to the asserted state.
-
-#### Retention
-
-- Durable non-normative knowledge/artifact with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`; normative results → responsible requirements/design/testing SoT.
-- `jobs/` VB is transitional only while serving active work, immediate handoff, unresolved reconciliation, or a bounded post-work transition with a specific exit event. “Keep for now” / “reverify later” without one is not bounded.
-- If that exit event is missed/cancelled/deferred into open-ended dependency, or the claim must outlive transitional responsibility and remaining basis is inadequate, use suitable durable native/external VB, promote the minimum needed material to `references/`, or downgrade the claim.
+- Normative results → responsible requirements/design/testing SoT.
 - Multiple partial bases may jointly suffice and one proportional basis may support multiple related claims; no per-claim/per-run file requirement.
-- For bounded transition, make the effective exit event + intended disposition discoverable enough to judge its state; no fixed date/ID/metadata file/history archive is required. At the event, retire/replace/re-evaluate VB or downgrade the claim.
 - Do not dispose of current effective VB until no current verified claim depends on it, or replacement/downgrade is complete.
 
 ### Maintenance and Validation

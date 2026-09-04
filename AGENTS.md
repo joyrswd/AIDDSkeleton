@@ -28,7 +28,7 @@
 
 - A rule may relate to multiple concepts or sections, but must have one authoritative owner; do not redefine it independently elsewhere.
 - Proposal/assumption/observation/implementation/test/result/reference existence or linkage ≠ SoT adoption.
-- Moving/promoting information ≠ authority change; authority changes only through the applicable adoption/SoT process.
+- Moving or transferring information ≠ authority change; authority changes only through the applicable adoption/SoT process. An area's Outbound Transfer rules apply when that area is the transfer source, including correction of material whose current placement does not match responsibility; instruction inheritance does not extend those source-side triggers to transfers originating in another area.
 - Lifecycle concepts do not impose a repository-wide execution order. Responsible area/project rules own applicable states, transitions, prerequisites, repetition, and reopening; those explicit constraints remain binding.
 - New evidence may require repeating or reopening applicable lifecycle work and revising prior completion/verification claims to the scope still supported.
 - Claim scope ≤ supporting basis: presence ≠ implementation ≠ execution ≠ verification ≠ acceptance/completion.
@@ -44,7 +44,7 @@
 | [`definition/`](definition/AGENTS.md) | Adopted project definition, status, traceability, project-specific lifecycle/VB rules |
 | [`etc/`](etc/AGENTS.md) | Project-managed execution-environment configuration |
 | [`jobs/`](jobs/AGENTS.md) | Non-authoritative active-work control, investigation, proposals, deferred follow-up, prototypes, handoffs, transitional verification material |
-| [`references/`](references/AGENTS.md) | Durable non-normative supplied/promoted reference material |
+| [`references/`](references/AGENTS.md) | Durable non-normative supplied/project-managed reference material |
 | [`products/`](products/AGENTS.md) | Formal implementations and tests |
 
 - Every artifact carrying project responsibility belongs to the area owning that responsibility.
@@ -159,7 +159,7 @@ Use only when a request has multiple material ambiguities.
 - Prefer simple maintainable changes over speculative abstractions.
 - Project-definition authority and requirements/design/testing responsibility boundaries follow `definition/AGENTS.md`.
 - Existing implementation: inspect relevant code/tests/config/dependencies/RBs/dependency directions/patterns. Apply `definition/AGENTS.md` authority rules before treating realization-derived detail as normative; do not casually replace material established structure or preserve it solely because it exists.
-- Classify newly discovered knowledge by authority and responsibility before adoption or promotion; project-definition and realization-derived material follows `definition/AGENTS.md`, while other material follows the responsible area's governance.
+- Classify newly discovered knowledge by authority and responsibility before adoption or transfer; project-definition and realization-derived material follows `definition/AGENTS.md`, while other material follows the responsible area's governance.
 - Distinguish facts, assumptions, decisions, open questions.
 - AC must be observable; prefer behavioral verification where practical.
 - Requirement/assumption changes: inspect documentation, implementation, tests, environment, migration, operation effects.

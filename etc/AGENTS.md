@@ -9,13 +9,12 @@
 ### Responsibility
 
 - Owns project-managed configuration that controls execution environments from outside an application: container images/composition, external-service config, safe env examples, bootstrap, deployment, rollback, recovery, monitoring, CI environment wiring.
+- Only adopted project-managed configuration belongs in `etc/`.
 
 ## Structure and Placement
 
 - Group by environment responsibility/target service; one project-managed source for each config responsibility.
 - Classify by ownership/role, not extension or script-ness.
-- App/formal test/lint/generator/migration/fixture programs → owning `products/` area; container invocation does not transfer ownership.
-- Supplied originals → `references/`; only adopted project-managed config belongs in `etc/`.
 - No permanent generated data/cache/log/build output/dependencies.
 - Secrets: variable names/safe examples only; never actual credentials/private keys/tokens/personal/confidential values.
 
@@ -29,6 +28,11 @@ Canonical product/environment boundary:
 | lint | lint program in owning product area | CI runner/job config |
 | seed | seed data in owning product area | startup injection |
 | external-service fixture | fixture implementation in verification-owning product area | emulator deployment/wiring/endpoint/consumer config |
+
+## Outbound Transfer
+
+- App/formal test/lint/generator/migration/fixture programs → owning `products/` area; container invocation does not transfer ownership.
+- Supplied originals → `references/`.
 
 ## Local Governance
 
