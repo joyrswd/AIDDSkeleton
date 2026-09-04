@@ -16,7 +16,7 @@
 ### Job Units
 
 - A **job unit** is a purpose-oriented working-material container under `jobs/`; it is distinct from the root **Change Unit**, which is an execution/review/acceptance boundary. One job unit may contain one or several Change Units.
-- Prefer one purpose/question/experiment/verification activity/handoff per job unit and keep units independently understandable/removable. A unit may be a single file or purpose directory; use proportional structure/entry point and no control document solely for uniformity.
+- Prefer one purpose/question/experiment/verification activity/handoff per job unit and keep units independently understandable/removable. A unit may be a single file or purpose directory; use proportional structure/entry point and do not create a directory, control document, or heavyweight template solely for uniformity.
 - Related lightweight inactive items may share a unit or registry only when each remains independently judgeable/removable; do not create a repository-wide dumping ground.
 - Organize by purpose/job unit, not fixed artifact-type directories. Co-locate needed inputs, dependencies, notes, evidence, reproduction instructions where practical; handoffs, future plans, logs, evidence, prototypes, drafts, and similar material stay inside the owning unit unless they are themselves the complete small unit.
 - A substantial unit must make discoverable: purpose, approved basis or retention/disposition basis, evaluation/consumption method when applicable, and adoption/retention/supersession/promotion/deletion condition.
@@ -28,9 +28,9 @@
 - Every retained top-level job unit uses one marker, whether file or directory; top-level `jobs/AGENTS.md` is exempt:
   - `+<purpose>` = authorized work that remains active in the `jobs/` lifecycle, including executing, pending, blocked, handoff/reconciliation, or required transitional verification work;
   - `_<purpose>` = retained but inactive material for later evaluation/reconsideration, including a root-dispositioned Defer input, not-yet-activated future work, or dormant handoff/restart context.
-- Do not create unmarked retained top-level job units. Choose `<purpose>` clear enough for first-pass relevance screening; supporting material stays inside the owning marked unit.
+- Do not create unmarked retained top-level job units. Choose `<purpose>` clear enough for first-pass relevance screening; do not rely on an opaque generic name that requires opening the unit to know what it concerns. Supporting material stays inside the owning marked unit.
 - Markers describe jobs lifecycle only. `+` does not grant authority, set priority, prove completion/verification, or encode Change Unit state; `_` does not by itself mean Defer, rejection, adoption, priority, or future commitment. Lexical/display order is not priority.
-- `_` → `+` requires a current approved basis and any applicable assessment, decision, or authority for active work; a Defer revisit match alone is insufficient. `+` → `_` applies when current active lifecycle work ends but justified retention/evaluation/reconsideration value remains; preserve the required disposition/evaluation basis.
+- `_` → `+` requires a current approved basis and any applicable assessment, decision, or authority for active work; a Defer revisit match alone is insufficient. `+` → `_` applies when current active lifecycle work has ended or been withdrawn from active continuation, but justified retention/evaluation/reconsideration value remains; record any required disposition or future evaluation basis before relying on it as inactive retained work.
 - A blocked/pending Change Unit remains under `+` while its job remains active. Current-claim-dependent transitional VB also remains `+` while preservation, replacement, reconciliation, or claim-downgrade is an active obligation, even when implementation work is complete.
 - When an active job has `INDEX.md`, Change Unit state belongs there; do not repeatedly rename unit files/directories to encode state. Keep identifiers/material paths stable where practical, and do not create an index solely for transient state.
 - For continuation/resumption when the active job is unidentified, inspect `jobs/+*`, then its entry point/`INDEX.md`, and match approved basis to the request; unrelated `+` units are not scope.
@@ -83,7 +83,7 @@
 ### Inactive Retention
 
 - Retain `_<purpose>` only for plausible continuing evaluation, decision, follow-up, diagnostic, restart, or reconsideration value. Root Defer is one possible basis, not the definition of `_`; retention does not make work adopted, required, prioritized, a Change Unit, or promised.
-- An inactive unit may be a file or directory and needs no `INDEX.md`; use a proportional entry point. Preserve enough retained input/context, material provenance/scope, retention/evaluation basis, and useful reevaluation/restart condition to understand why it remains.
+- An inactive unit may be a file or directory and needs no `INDEX.md`; use a proportional local entry point such as the file itself or a local `README.md` when a directory needs one. Preserve enough retained input/context, material provenance/scope, retention/evaluation basis, and useful reevaluation/restart condition to understand why it remains.
 - Authorized evidence/context gathering happening now is active work and belongs under `+`; do not use `_` as a quieter state for ongoing work.
 - When current work materially matches a retained Defer revisit condition, surface it for root reassessment at a useful decision point; do not silently add it to current scope/`INDEX.md`. Other `_` units likewise require current basis and applicable assessment/decision before activation.
 - Root Defer reassessment follows root governance: Accept now requires applicable authority/adoption before active retained work moves/restructures to `+`; Defer again keeps `_` and refreshes materially changed rationale/revisit condition; Reject deletes unless rationale/provenance has independent continuing value, which is then classified under its responsible area.
@@ -108,7 +108,8 @@ Destinations:
 - adopted requirements/design/testing/procedures/decisions/project facts → responsible `definition/` SoT;
 - formal code/tests/tools/support programs → `products/`;
 - managed environment config → `etc/`;
-- supplied original or durable non-normative finding/mapping/summary/artifact with continuing value → `references/`.
+- supplied original → `references/`;
+- durable non-normative finding/mapping/summary/artifact with continuing value → `references/`.
 
 - `jobs/` filenames/splits/directories/INDEX structure do not prescribe formal destination structure. Integrate only adopted semantics; authorized adopted facts must not remain only in `jobs/`.
 - Formal open question/decision point/blocking effect goes in `definition/` when required, without copying surrounding investigation. Inactive non-adopted work does not move there merely for preservation; applicable assessment/adoption/authority comes first.
