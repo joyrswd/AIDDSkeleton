@@ -15,13 +15,15 @@
 ```text
 products/
 ├── AGENTS.md
+├── .hooks/
+│   └── .gitkeep
 ├── apps/
 │   └── .gitkeep
 └── system/
     └── .gitkeep
 ```
 
-- Remove retention marker when tracked content makes it unnecessary.
+- Remove `products/apps/.gitkeep` or `products/system/.gitkeep` when tracked content makes the corresponding marker unnecessary; preserve the root-required `products/.hooks/.gitkeep`.
 - `products/apps/<app>/`: app-owned code/resources/dependencies/migrations/fixtures/CLIs/support programs/unit tests/app-local integration tests.
 - `products/system/`: system-owned code/processes/E2E or contract tests/fixtures/generators/support programs, including system responsibilities spanning apps.
 - Ownership follows responsibility/RB, not artifact category, target count, cross-app execution/observation, reuse, or shared infrastructure.

@@ -14,7 +14,7 @@
 
 ### Required Structure
 
-- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/TRACEABILITY.md`, `definition/system/.gitkeep`, and `definition/apps/.gitkeep`.
+- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/TRACEABILITY.md`, `definition/.hooks/.gitkeep`, `definition/system/.gitkeep`, and `definition/apps/.gitkeep`.
 - Per approved app, create:
   - `definition/apps/<app>/<app>_index.md`;
   - `definition/apps/<app>/<app>_traceability.md`;
