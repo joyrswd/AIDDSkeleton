@@ -20,7 +20,6 @@
 | **Lifecycle** | How information, artifacts, claims, and project state change, iterate, reopen, and conclude under rules owned by their responsible area |
 | **Evidence** | Basis required for claims; existence, implementation, execution, verification, acceptance |
 | **Permission / Scope** | What work may begin/expand; approved intent vs implementation discretion |
-| **Change Unit** | Execution/review/acceptance boundary for one coherent authorized outcome; not authority or SoT |
 | **Structure / Placement** | Ownership/RB, lifecycle, and authority determine placement |
 | **Safety / Compliance** | Repository-wide safety plus subtree-owned compliance |
 
@@ -32,6 +31,18 @@
 - Lifecycle concepts do not impose a repository-wide execution order. Responsible area/project rules own applicable states, transitions, prerequisites, repetition, and reopening; those explicit constraints remain binding.
 - New evidence may require repeating or reopening applicable lifecycle work and revising prior completion/verification claims to the scope still supported.
 - Claim scope ≤ supporting basis: presence ≠ implementation ≠ execution ≠ verification ≠ acceptance/completion.
+
+### Hooks
+
+- A **Hook** is an optional area-owned extension point exposed by a governance rule after its firing condition has been independently established. Reaching a Hook does not itself grant authority, change project/repository state, prove completion/verification, or satisfy required governance behavior.
+- Hook identifiers use `<area>.<hook>` form, where `<area>` is one of the responsibility areas listed under Ownership and Placement, and are owned by the area that defines their firing condition. A defined Hook resolves at most one **Consumer Hook** from `<area>/.hooks/<hook>.md`; an undefined Hook or absent Consumer Hook is a no-op.
+- Each responsibility area reserves `<area>/.hooks/` as a standard Consumer Hook instruction namespace and keeps the directory present with `.gitkeep`. The `.gitkeep` file has no Hook semantics and may coexist with Consumer Hooks.
+- `<area>/.hooks/` is not an artifact of the area's project responsibility; ordinary area-artifact classification, placement, lifecycle, and Outbound Transfer rules do not apply to Consumer Hooks merely because of that location. Hook-specific local rules may further constrain them.
+- Consumer Hooks are consumer-local instructions, not SoTs or generally inherited instructions. Read and apply a Consumer Hook only when its Hook is reached. Explicitly authorized inspection or maintenance of that Consumer Hook may read it outside a Hook occurrence; such access does not execute the Consumer Hook or constitute a Hook occurrence. Its instructions apply only to an actual Hook invocation and remain subordinate to applicable `AGENTS.md`, SoTs, Permission / Scope, Safety / Compliance, and required lifecycle/outbound behavior.
+- Existing Consumer Hooks are protected local instructions. Ordinary work must not create, change, move, rename, or delete a Consumer Hook merely to enable, alter, or unblock current work; Hook customization requires explicit user authorization identifying the affected Hook/scope.
+- A Consumer Hook may perform any otherwise-authorized consumer-specific processing, but must not replace or suppress the governance condition or required action that exposed the Hook. After Consumer Hook processing, re-evaluate affected state before continuing.
+- Do not re-invoke a Hook merely because its Consumer Hook completed. A Hook may run again only when its owning rule's firing condition is reached again through a new applicable occurrence or state transition.
+- Each area owns its concrete Hook points and firing conditions. Hook transport, UI signaling, scheduling, retry, external execution, and automation mechanisms are consumer concerns unless a governing rule explicitly says otherwise.
 
 ## Project Structure and Instruction Hierarchy
 
@@ -90,15 +101,7 @@
 - Within approved scope, proceed with reversible investigation, edits, and verification without repeated permission requests.
 - Preserve unrelated user changes; do not expand scope for merely adjacent work.
 - Add discovered work only when required by approved AC or needed to prevent direct regression, corruption, security failure, or irreversible damage; otherwise disposition it under Assessment and Feedback and retain follow-up only when continuing value exists.
-
-### Change Unit
-
-- A **Change Unit** is the smallest coherent body of authorized work that can be executed, verified, reviewed, and accepted as one outcome. It is an execution/review boundary, not authority or SoT; this section owns Change Unit boundary and completion semantics.
-- Authorization, requirement/AC, and Change Unit are distinct. Independently completable and acceptable outcomes should not be combined merely because one authorization or surrounding task covers them.
-- Each Change Unit has an acceptance basis derived from applicable approved scope/AC. Its scope is fixed when work begins except for discovered work that Permission / Scope permits adding. A unit may be split or narrowed only to re-express a coherent execution/acceptance boundary; boundary changes do not remove approved scope/AC or reclassify still-required unsatisfied work. Any cut-out work still required by approved scope/AC remains unresolved and must remain covered by another Change Unit.
-- Review, In-scope deficiency, Follow-up, and unit completion are judged against the current Change Unit. Completing a Change Unit does not complete a requirement, AC, authorization, or lifecycle state that spans additional work. Requirement/AC/lifecycle completion remains judged against its full approved scope/AC and applicable lifecycle conditions; Change Unit boundaries cannot narrow that completion basis.
-- A Change Unit may complete only when its acceptance basis is satisfied, required verification is complete, and no unresolved Blocker or In-scope deficiency of that unit remains. Disposition alone does not make an unresolved Blocker/In-scope deficiency non-blocking; Follow-ups and other units' open work do not by themselves keep it open.
-- Repository-managed Change Unit decomposition, continuity, ordering, and state follow `jobs/AGENTS.md`.
+- Repository-managed decomposition, continuity, ordering, acceptance state, and recursive execution of independently completable work follow `jobs/AGENTS.md`; decomposition does not grant authority or remove still-required approved scope/AC.
 
 ### Safety / Compliance
 
@@ -179,12 +182,12 @@ Use only when a request has multiple material ambiguities.
 ### Adversarial Self-Review
 
 - Before completing material work, perform adversarial self-review proportionate to the change and risk, aiming to disprove correctness rather than confirm it. Challenge assumptions, contradictions, boundary/failure conditions, missed impact/root causes, scope drift, and evidence/verification gaps. Do not limit the challenge to edited lines or the exact reported symptom; inspect materially relevant same-responsibility, same-invariant, dependency, sibling-path, boundary, and failure-family cases in proportion to the change and risk. Review breadth does not alter modification authority; resulting work follows Permission / Scope.
-- Bound the review surface to the current Change Unit's acceptance basis and protected invariants. Investigate beyond it far enough to judge impact, then classify resulting work under Change Unit, Permission / Scope, and Assessment and Feedback.
+- Bound the review surface to the current authorized outcome's acceptance basis and protected invariants. Investigate beyond it far enough to judge impact, then classify resulting work under Permission / Scope and Assessment and Feedback.
 - When a valid review finding, failed verification, incident, or other assessment exposes a missed consideration, treat it as a detection signal. Diagnose the missed consideration, why it escaped detection, and the material concrete context that exposed it; preserve that context while applying the resulting perspective proportionally to materially related current work before treating the stated instance as resolved. Correct or disposition resulting work under Coherent Correction and Assessment and Feedback.
 - Treat a material correction that introduces or materially changes a mechanism, fallback, boundary, assumption, dependency, or verification method as a new adversarial surface. Challenge how that correction itself can fail, partially fail, race, degrade, or bypass the protected invariant/outcome; do not treat the correction itself as proof of resolution.
 - Continue targeted adversarial review while a correction or new evidence creates a materially new plausible failure surface. Stop when the latest material corrections introduce no such unexamined surface; do not repeat unchanged checks merely to satisfy a review count. Repeat the full proportional self-review only when new evidence, failed verification, broad correction, or contradiction materially changes what must be examined.
 - When materially related findings or corrections repeatedly expose the same or closely related cause or protected invariant across different surfaces, stop treating them as isolated instances and reassess the affected work structurally. Consider whether an implicit invariant, responsibility split, abstraction boundary, verification/evidence model, or scope structure should be made explicit; treat resulting material corrections or changed review basis under the same review rules, and stop when no materially new unexamined surface remains.
-- Treat a Change Unit that keeps producing materially new In-scope deficiencies across successive review rounds as not converging. Reassess its boundary and protected invariants; split or narrow the unit when needed under Change Unit rules. Non-convergence does not alter the classification of still-required work, an unresolved In-scope deficiency, or a Blocker.
+- Treat current work that keeps producing materially new In-scope deficiencies across successive review rounds as not converging. Reassess its boundary and protected invariants; narrow the current outcome or decompose repository-managed work into child jobs when needed under `jobs/AGENTS.md`. Non-convergence does not alter the classification of still-required work, an unresolved In-scope deficiency, or a Blocker.
 
 ### Assessment and Feedback
 
@@ -199,21 +202,21 @@ Feedback, review findings, suggestions, observations, failed verification, exter
 
 Classify the current handling independently of severity:
 
-- **Accept now:** treat the input as current work when the current Change Unit already requires it, Permission / Scope adds it, or a Blocker requires action within existing authority; if it materially changes user-owned intent, priority, scope, AC, RB, or design, request the applicable decision first.
+- **Accept now:** treat the input as current work when the current authorized outcome already requires it, Permission / Scope adds it, or a Blocker requires action within existing authority; if it materially changes user-owned intent, priority, scope, AC, RB, or design, request the applicable decision first.
 - **Reject:** do not adopt the input as current or future work when the basis is insufficient, it conflicts with approved intent/authority, the concern is already satisfied, the change is otherwise not justified, or no continuing work value remains. Retain rationale/provenance only when it has independent continuing value under the responsible area; that retention does not keep the rejected input as an active or deferred candidate.
-- **Defer:** retain a potentially useful input for later reassessment when it is not active/timely now or current evidence/future conditions do not justify action yet; deferral ≠ adoption, priority, promise, or planned work. Work already accepted into another Change Unit is not Defer merely because that unit is not current. Evidence/context gathering performed now is active work, not Defer.
+- **Defer:** retain a potentially useful input for later reassessment when it is not active/timely now or current evidence/future conditions do not justify action yet; deferral ≠ adoption, priority, promise, or planned work. Work already accepted as separate authorized work is not Defer merely because it is not current. Evidence/context gathering performed now is active work, not Defer.
 
 Disposition does not itself grant modification or adoption authority.
 
 #### Severity and Scope
 
 - **Blocker:** cannot safely accept/continue due to corruption, security failure, irreversible damage, major regression, or direction-determining unresolved decision.
-- **In-scope deficiency:** the current Change Unit's acceptance basis or approved unit scope is unsatisfied but not Blocker.
-- **Follow-up:** useful work not required for the current Change Unit's acceptance; it may be another authorized Change Unit or an input dispositioned Defer/Reject.
+- **In-scope deficiency:** the current authorized outcome's acceptance basis or approved scope is unsatisfied but not Blocker.
+- **Follow-up:** useful work not required for the current authorized outcome's acceptance; it may be separate authorized work or an input dispositioned Defer/Reject.
 
-Apply these labels under Change Unit semantics: In-scope deficiency is unit-local; a Blocker remains a Blocker wherever its subject lies; input validity alone does not alter unit membership. Requirement/AC/lifecycle completion remains judged against its full approved basis.
+In-scope deficiency is local to the current authorized outcome; a Blocker remains a Blocker wherever its subject lies; input validity alone does not make it current scope. Requirement/AC/lifecycle completion remains judged against its full approved basis.
 
-Severity and disposition are independent: a Follow-up may be scheduled in another authorized Change Unit or dispositioned Defer/Reject, while a Blocker or In-scope deficiency may still require a user-owned decision before it can be Accepted now.
+Severity and disposition are independent: a Follow-up may become separate authorized work or be dispositioned Defer/Reject, while a Blocker or In-scope deficiency may still require a user-owned decision before it can be Accepted now.
 
 #### Reassessment
 
@@ -222,7 +225,7 @@ Severity and disposition are independent: a Follow-up may be scheduled in anothe
 - When current work materially matches a retained revisit condition, proactively surface the item at a useful decision point; do not silently add it to scope.
 - Repository-managed inactive-item discovery follows `jobs/AGENTS.md`; do not routinely enumerate inactive material merely to search for possible relevance.
 - Do not repeatedly resurface an item merely because it exists or has aged.
-- Before completing a Change Unit, apply its completion semantics under Change Unit.
+- Before reporting current work complete, confirm its approved acceptance basis, required verification, and unresolved Blocker/In-scope deficiencies; repository-managed job completion additionally follows `jobs/AGENTS.md`.
 
 #### Consumer Regression
 
