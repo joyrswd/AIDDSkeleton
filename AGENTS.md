@@ -52,7 +52,7 @@
 
 | Area | Owns |
 |---|---|
-| [`definition/`](definition/AGENTS.md) | Adopted project definition, status, traceability, project-specific lifecycle/VB rules |
+| [`definition/`](definition/AGENTS.md) | Adopted project definition, status, project-specific lifecycle/VB rules |
 | [`etc/`](etc/AGENTS.md) | Project-managed execution-environment configuration |
 | [`jobs/`](jobs/AGENTS.md) | Non-authoritative active-work control, investigation, proposals, deferred follow-up, prototypes, handoffs, transitional verification material |
 | [`references/`](references/AGENTS.md) | Durable non-normative supplied/project-managed reference material |
@@ -139,7 +139,7 @@ Use only when a request has multiple material ambiguities.
 - Report proportionally: changed, verified, material unverified matter/blocker/risk/remaining work.
 - Never claim completion/verification beyond evidence.
 - User decisions in a report follow Decision Requests.
-- Update required status/traceability/VB/SoTs per `definition/AGENTS.md`; conversation does not replace them.
+- Update required status/VB/SoTs per `definition/AGENTS.md`; conversation does not replace them.
 
 ### Conversation Language
 
@@ -156,7 +156,7 @@ Use only when a request has multiple material ambiguities.
 1. Understand outcome, constraints, observable AC, current lifecycle state, target state.
 2. Inspect applicable instructions, SoTs, implementation, tests, config, evidence, and existing user changes.
 3. Follow the applicable project workflow for modification and verification, including required pre-change checks, iterations, or repetitions; keep changes the smallest coherent safe changes.
-4. Reconcile implementation/docs/tests/status/traceability to the supported state.
+4. Reconcile implementation/docs/tests/status to the supported state.
 5. Report per Interaction.
 
 - Prefer simple maintainable changes over speculative abstractions.
