@@ -45,20 +45,21 @@ jobs/        Working, exploratory, and verification materials
 etc/         Execution-environment configuration
 ```
 
-Repository-wide and directory-specific `AGENTS.md` files define the working agreements that developers and AI agents must follow.
+Root `AGENTS.md` defines repository-wide governance and the routing protocol. Each responsibility area's `.routes/index.md` selectively loads the area governance needed for the current action; `.hooks/` remains the optional consumer-extension namespace.
 
 ## What You Get
 
 - A shared working agreement for developers and AI agents
+- Selective governance loading that keeps unrelated area rules out of the immediate work context
 - Clear separation between definitions, formal products, durable references, job materials, and environment configuration
 - A predictable workflow for requirements, design, implementation, and verification
 - A structure designed to remain understandable as the project grows
 
-## Documentation
+## Governance Entries
 
 - [Working Agreement](AGENTS.md)
-- [Definitions and Sources of Truth](definition/AGENTS.md)
-- [Execution Environment Conventions](etc/AGENTS.md)
-- [Formal Products](products/AGENTS.md)
-- [Reference Materials](references/AGENTS.md)
-- [Jobs](jobs/AGENTS.md)
+- [Definitions and Sources of Truth](definition/.routes/index.md)
+- [Execution Environment](etc/.routes/index.md)
+- [Formal Products](products/.routes/index.md)
+- [Reference Materials](references/.routes/index.md)
+- [Jobs](jobs/.routes/index.md)

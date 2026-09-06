@@ -1,0 +1,20 @@
+# Definition Governance Routes
+
+`definition/` owns project-specific adopted definition, lifecycle/status, procedures, identifiers, commands, constraints, and verification-basis rules.
+
+Evaluate every route independently against the current action. Read every match before that action. Re-evaluate when work moves to a materially different phase or new facts change authority, responsibility, state, evidence, structure, or destination.
+
+| Route | Read when | Destination |
+|---|---|---|
+| Structure / Navigation / Documentation | Work initializes or changes definition structure; creates/moves/renames/deletes/reclassifies definition docs; determines definition ownership/placement; changes indexes/navigation/cross-responsibility routing, documentation language, document splitting, or creates/changes/classifies project procedures. | `structure.md` |
+| Initialization / Reset | Project initialization state must be determined/reconciled; initialization is being performed; or an explicit reset to the uninitialized state is being considered/performed. | `initialization-reset.md` |
+| Implementation Entry | Work is about to establish a new formal implementation responsibility or begin a formal implementation phase whose entry sufficiency must be established/re-established. A local edit to an already-entered formal implementation/test does not match solely because it is formal. | `entry-completion.md` |
+| Completion | Work is about to judge implementation/project completion or advance completion/lifecycle state against project-definition conditions. | `entry-completion.md` |
+| Normative Authority | Work may adopt, change, retire, abstract, relocate, or reclassify requirements/design/testing content; or may change an observable outcome, contract, invariant, compatibility obligation, data constraint, algorithm, RB, or other future implementation constraint. | `normative-authority.md` |
+| Realization Authority | Information learned from implementation, tests, configuration, generated output, or execution may be recorded in `definition/` or used to decide whether realization detail is normative. | `realization-authority.md` |
+| Reconciliation / Transfer | Work moves/transfers/reclassifies definition material; reconciles a migration/refactor/rename/rollout; changes authority/ownership/classification/retention; or retires a definition artifact/classification. | `reconciliation-transfer.md` |
+| State / Routing | Work must resolve responsible definition entries/cross-responsibility authority/current lifecycle-implementation-verification state; or may change a responsibility index's current-state summary/routing. | `state-routing.md` |
+| Verification Basis | Work is about to rely on, create, combine, retain, discard, reuse, downgrade, or report verification evidence/claims; or evidence is unavailable, stale, superseded, expirable, or conditionally reusable. | `verification-basis.md` |
+| Maintenance / Validation | Definition docs, indexes, governance routes, hierarchy, IDs, links, or derived/summary normative facts are being changed and documentation/governance consistency must be validated. | `maintenance-validation.md` |
+
+If a destination reveals another route condition, re-evaluate this index before continuing. If another responsibility area becomes involved, apply root cross-area routing.

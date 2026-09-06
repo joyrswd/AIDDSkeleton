@@ -1,0 +1,10 @@
+# Definition Maintenance and Validation
+
+- Governance changes altering allowed doc location/hierarchy must update every affected validator/generator/template/example/check in the same migration; old-structure validation is not evidence for the new structure.
+- Index checks must support direct-link + nested reachability + protected-governance exclusions; requirement/design/testing and cross-responsibility authority discovery must follow the supported indexed hierarchy rather than assume a flat source set.
+- Do not add a document category/directory when the current model can represent the responsibility; responsibility grouping under `definition/system/` is not a new classification when placement rules are met. Before a new `definition/` project-document directory, explain responsibility + classification effects and obtain user approval; approved init/change summary suffices.
+- Add/rename/move/delete indexed docs using Reconciliation / Transfer governance; preserve identifiers when splitting/moving and do not duplicate detail between overview/detail docs.
+- Run all project-defined documentation verification for documentation changes when available; at minimum cover changed Markdown links, fixed files, index reachability, IDs, and applicable cross-responsibility routing.
+- Verify lifecycle state matches exactly one row in Initialization and project statements have approval/evidence.
+- Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, or relationships must match the responsible SoT. Repetition does not create alternate authority; prefer automated comparison for intentionally repeated structured facts when practical, otherwise keep manual responsibility explicit.
+- Governance-route changes additionally verify every area has a reachable `.routes/index.md`, every destination referenced by an index exists, and no retired area-level `AGENTS.md` dependency remains.
