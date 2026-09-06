@@ -1,11 +1,5 @@
 # Jobs Working Lifecycle
 
-## Entry
-
-- Job basis must be an explicit request, approved decision/init summary, recorded open question, applicable SoT, supplied material, authorized parent-job decomposition, or root-permitted retention/disposition basis; never unapproved assumption alone.
-- A job's acceptance basis derives from applicable approved scope/AC and parent outcome when nested. Independently completable/acceptable authorized work retained under a parent is represented as a child job; unaccepted assessment inputs and low-level execution detail are not.
-- Requirements/design investigation may precede its formal doc when another approved basis exists. When supplied material is involved, evaluate `references/.routes/index.md`.
-
 ## Investigation
 
 - State the question/claim/hypothesis plus evaluation method/evidence; reference SoTs and distinguish approved decisions from suggestions/assumptions.

@@ -32,25 +32,12 @@
 - One purpose per project doc; split by coherent responsibility/question/reader/update trigger/lifecycle, not tidiness or count alone.
 - Other system docs stay flat while responsibility is small; use a responsibility-based subdirectory only when one stable system responsibility owns multiple independently changing docs.
 - Indexes provide navigation plus concise owned current-state/absence/inheritance/coverage context; do not duplicate detailed requirements/design/testing/procedures/results or identifier-level cross-artifact correspondence matrices.
-- `system_index.md` is the primary system navigation entry. Directly link each Markdown project doc directly under `definition/system/` except itself and directly link every approved app index. Nested docs routed through a local responsibility index must remain reachable from `system_index.md`. Protected `.routes/` and `.hooks/` instructions are excluded from project navigation.
-- `system_index.md` routes system/cross-app relationships to the SoTs that own their normative meaning; it does not duplicate relationship detail.
-- App navigation: `<app>_index.md` → three category indexes + applicable cross-responsibility authority. Each app index contains an explicit cross-responsibility authority entry: link responsible system/app SoTs when applicable, otherwise state that no additional cross-responsibility authority applies. Category index → its docs.
-- Initialized project-definition read order: `definition/system/system_index.md` → `definition/system/documentation_language.md` → target indexes.
 - Determine ownership from purpose + change authority + invocation/governing decision + success/failure (or sufficiency) judgment, not target/caller/tool/file name/operational vocabulary.
   - App-owned execution/diagnostic procedure → directly under the app, linked from `<app>_index.md`; system-owned or cross-app procedure → `definition/system/`.
   - Multiple targets do not prove system ownership; one app target does not prove app ownership; never choose a participating app as representative owner or duplicate system responsibility per app.
   - Shared tools/observability/deployment/system environments/`etc/` config do not transfer ownership. For shared system execution with app-specific prerequisites/commands/AC/constraints, keep shared responsibility in system procedure and only app-owned delta in the app.
   - Normative testing uses the same ownership test. Testing responsibility always exists for formal implementation; if no app testing detail doc, the testing index names inherited/cross-cutting policy. Testing indexes may link current VB for coverage but contain no execution history.
   - Adopted procedures/policy/constraints belong in `definition/`.
-
-## Document Splitting
-
-Applies only to initialized project-specific SoT docs; protected governance routes are excluded.
-
-- Review split at ≥150 lines, ≥12 independently referenced identifiers, or ≥3 independently changing functional areas.
-- As a rule split >250 lines or >20 independently referenced identifiers; if retained, the index records reason + reconsideration condition.
-- Split by coherent responsibility/question/reader/update trigger/lifecycle, not line count alone; document count alone does not justify a subdirectory.
-- Keep `system_index.md`, `<app>_index.md`, and category indexes as single entry points.
 
 ## Procedures
 

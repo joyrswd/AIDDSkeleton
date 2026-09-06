@@ -6,7 +6,7 @@ Evaluate every route independently against the current action. Read every match 
 
 | Route | Read when | Destination |
 |---|---|---|
-| Placement / Boundary | Work may create/move/rename/delete/reclassify environment configuration; determine product-vs-environment ownership; or transfer material into/out of `etc/`. | `placement-boundary.md` |
+| Placement / Boundary | Work may create/move/rename/delete/reclassify environment configuration; modify configuration content by adding/changing embedded scripts, migrations, fixtures, generated/disposable output, persisted data/log/cache, secrets, or other material whose product-vs-environment/storage responsibility may change; determine product-vs-environment ownership; or transfer material into/out of `etc/`. | `placement-boundary.md` |
 | Change / Safety | Work is about to modify environment configuration or may change service composition, networking, persistence, publication, deployment, rollback, recovery, topology, commands, operational guarantees, or perform destructive data operations. | `change-safety.md` |
 | Verification | Work is about to choose/run configuration checks, assess environment verification scope, report verification, or handle an unavailable applicable check. | `verification.md` |
 
