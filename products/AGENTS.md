@@ -28,12 +28,13 @@ products/
 - `products/system/`: system-owned code/processes/E2E or contract tests/fixtures/generators/support programs, including system responsibilities spanning apps.
 - Ownership follows responsibility/RB, not artifact category, target count, cross-app execution/observation, reuse, or shared infrastructure.
 - Same approved `<app>` name as `definition/apps/<app>/`; never literal `<app>` or invented temporary name.
+- When app-name symmetry or system ownership does not unambiguously identify a formal implementation unit's responsible definition, make an entry point to the responsible definition discoverable from that implementation unit through a project-defined routing mechanism; do not duplicate SoT content.
 - Conventional `src/`, `tests/`, `scripts/`, `tools/`, `packages/` stay below owning app/system area.
 - Test placement follows verification ownership:
   - app-owned guarantee → owning app;
   - system-owned guarantee → `products/system/`;
   - cross-app invocation/observation alone does not alter ownership.
-- Local `README.md` may explain implementation/entry point; link responsible project docs instead of duplicating requirements/design/testing/status/traceability.
+- Local `README.md` may explain implementation/entry point; link responsible project docs instead of duplicating requirements/design/testing/status.
 - Product/environment boundary for E2E, generation, migrations, linting, seeds, fixtures: [etc placement rules](../etc/AGENTS.md#structure-and-placement).
 
 ## Lifecycle
@@ -48,8 +49,8 @@ products/
 - Keep change inside approved RB; no direct app→app dependency without approved design change.
 - Do not replace established architecture/RB/dependency direction/state authority/compatibility pattern merely because an alternative also satisfies requirements.
 - Documentation silence does not authorize redesign when change affects compatibility/responsibility/security/persistence/state authority/material boundary; resolve through the SoT process.
-- Observable behavior/public contracts/data structures/dependencies/migrations/RBs changes must respect root authority: complete any required project-definition change/authorization first, then keep implementation/tests/docs/status/traceability consistent in the same change.
-- Before move/transfer/deletion inspect dependents, public contracts, migrations, tests, docs, status, traceability, current VB, reference-retention needs.
+- Observable behavior/public contracts/data structures/dependencies/migrations/RBs changes must respect root authority: complete any required project-definition change/authorization first, then keep implementation/tests/responsible project docs/status consistent in the same change.
+- Before move/transfer/deletion inspect dependents, public contracts, migrations, tests, docs, status, current VB, reference-retention needs.
 
 ### Implementation Verification
 

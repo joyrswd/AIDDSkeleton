@@ -144,7 +144,7 @@ Decision-ready ≠ implementation-entry complete; details that can be decided co
 - A retained superseded job is an inactive remainder: keep it `_` and record its superseded status rather than leaving it unmarked or `+`.
 - Findings from completed current work that await only a user decision on whether to authorize separate follow-up do not by themselves constitute active handoff/reconciliation or justify keeping `+`; retain them under `_` only when continuing evaluation/reconsideration value justifies retention.
 - Do not leave a completed/superseded `INDEX.md` presenting stale active work; delete it with the job, reduce it to remaining active/handoff context, or retain it only for independent continuing value clearly no longer presented as active control state.
-- Before delete/transfer inspect inbound references, unresolved work, child/ancestor relationships, traceability, current verified claims, and continuing evidence/maintenance/reconsideration need. This explicit subtree operation is not ordinary lifecycle discovery and does not require changing descendant markers first.
+- Before delete/transfer inspect inbound references, unresolved work, child/ancestor relationships, responsible project state, current verified claims, and continuing evidence/maintenance/reconsideration need. This explicit subtree operation is not ordinary lifecycle discovery and does not require changing descendant markers first.
 
 ## Outbound Transfer
 
