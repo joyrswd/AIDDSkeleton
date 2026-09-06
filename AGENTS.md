@@ -11,6 +11,7 @@
 - Lifecycle rules are area/project-owned; no repository-wide execution order is implied unless explicitly defined.
 - New evidence may reopen applicable lifecycle work and reduce prior completion/verification claims.
 - Claim scope ≤ supporting basis: presence ≠ implementation ≠ execution ≠ verification ≠ acceptance/completion.
+- Repository instructions and approved project decisions override general conventions and tool defaults where they differ.
 
 ## Governance Routing
 
@@ -27,7 +28,9 @@
 - Every artifact carrying project responsibility belongs to its responsible area. Placement follows responsibility; location alone does not establish authority, completion, or verification.
 - Record project-specific scope, architecture, technologies, commands, naming, and other project facts in `definition/`.
 - Repository-level integration artifacts may remain outside the five areas only when an adopted VCS/framework/tool/platform requires or directly discovers that repository-scoped path and equivalent relocation is unavailable. Assign substantive existing responsibility to its owning area and apply that area's governance.
+- Ordinary framework/tool source, test, script, package, infrastructure, or documentation layout conventions do not by themselves create repository-level integration paths; keep project content below its responsible area unless it independently qualifies for the integration exception above.
 - No additional top-level non-hidden directory without an explicit user decision changing this model, except a permitted repository-level integration path.
+- Do not duplicate a canonical artifact under an owning area solely to mirror logical ownership; reference or route to the canonical artifact instead.
 - `README.md` is human guidance only, not instructions or project SoT.
 
 ### Route Loading
@@ -43,13 +46,16 @@
 - If work/new facts affect another area, evaluate that area's index before continuing the cross-area action.
 - Route matching/reading grants no permission, adoption, lifecycle advancement, completion, verification, or publication authority.
 
-### Governance Protection
+### Governance Protection and Migration
 
-- Root `AGENTS.md` and every `.routes/` file are protected shared governance. Ordinary code/docs/config/structure authorization does not authorize changing, bypassing, moving, renaming, replacing, or deleting them.
+- Root `AGENTS.md`, every `.routes/` file, repository-level tool-facing instruction-routing artifacts that deliver root governance, and any existing legacy descendant/area-level `AGENTS.md` awaiting route migration are protected governance. Ordinary code/docs/config/structure authorization does not authorize changing, bypassing, moving, renaming, replacing, or deleting them.
 - Do not add descendant `AGENTS.md`; area governance belongs in `.routes/`, project facts in SoTs, and consumer-specific extension behavior in `.hooks/`.
 - `.routes/` is a governance namespace, not an artifact of the area's project responsibility; ordinary area placement/lifecycle/transfer rules do not apply merely because route instructions are there.
-- Area routes inherit root and must not weaken/contradict it. Protected-governance changes require explicit user authorization identifying the affected scope; make the smallest coherent change and reconcile route reachability/cross-links.
-- Repository-level tool-facing instruction routing must preserve delivery of root `AGENTS.md`; root then owns area routing.
+- Area routes inherit root and must not weaken/contradict it. Protected-governance changes require explicit user authorization identifying the affected governance scope; make the smallest coherent change and reconcile route reachability/cross-links.
+- Repository-level tool-facing instruction routing must preserve delivery of root `AGENTS.md`; root then owns area routing. Ordinary code/docs/config/structure authorization does not authorize changing, bypassing, or removing that delivery; doing so requires an explicit user request identifying the affected tool/scope.
+- During an explicitly authorized shared-governance migration from legacy area-level `AGENTS.md`, treat those files as protected migration inputs until reconciliation is complete. Identify consumer-local rules that are not explicitly retired/replaced and migrate them, preserving semantics, into the responsible area's existing or newly justified route destination.
+- Do not leave an initialized consumer in a mixed operational governance state. The authorized new root/routes define the target shared baseline; legacy area-level `AGENTS.md` must not be used to bypass route loading. If a legacy clause cannot be confidently classified as replaced baseline vs consumer-local governance, or its destination is unclear/conflicting, surface that conflict instead of deleting or silently choosing.
+- Before deleting a migrated legacy area-level `AGENTS.md`, evaluate definition Maintenance / Validation governance and verify every retained consumer-local rule is accounted for in the route model or explicitly retired by authority.
 - Shared-governance updates merge authorized baseline changes into existing protected consumer-local instruction customizations; preserve local rules not explicitly retired/replaced and surface conflicts/re-scoping needs.
 - Never alter instructions to remove a blocker, retroactively justify implementation, accommodate a tool default, or broaden AI authority.
 
@@ -66,6 +72,7 @@
 
 ## Project Initialization
 
+- Before repository-modifying project work, definition initialization consistency must already be established for the current initialization artifacts. Evaluate the `definition/.routes/index.md` Initialization / Reset route before the first such modification, and re-evaluate only when those artifacts/state may have changed; if the state is Inconsistent, reconcile it before formal work.
 - Initialization state/required definition outputs follow matching `definition/.routes/index.md` routes.
 - Start read-only. Before project-specific changes, present one initialization summary: verified facts, user decisions, proposed assumptions, open questions, blockers, files/directories to change, target lifecycle state, and work left unstarted.
 - Approval authorizes only listed project artifacts/assumptions; protected instruction changes require explicit inclusion.
@@ -129,6 +136,7 @@
 - **Defer:** potentially useful later but not active/timely/justified now; ≠ adoption, priority, promise, or planned work. Evidence/context gathering performed now is active work.
 - Disposition grants no modification/adoption authority.
 - Severity is independent: **Blocker** = cannot safely accept/continue due to corruption/security/irreversible damage/major regression/direction-determining unresolved decision; **In-scope deficiency** = current acceptance/scope unsatisfied but not Blocker; **Follow-up** = useful but not required for current acceptance.
+- In-scope deficiency is local to the current authorized outcome; a Blocker remains a Blocker wherever its subject lies. Input validity alone does not make it current scope, and Blocker classification does not itself grant modification/scope-expansion authority. Requirement/AC/lifecycle completion remains judged against its full approved basis.
 - Retain Defer only when continuing value justifies it; evaluate jobs routes for repository retention/discovery. Reassess on material new evidence/revisit condition; surface matched retained items at useful decision points without silently adding scope. Do not routinely scan inactive material.
 - Before reporting complete, confirm approved acceptance basis, required verification, and unresolved Blocker/In-scope deficiencies; evaluate jobs completion routes when repository-managed job completion is involved.
 

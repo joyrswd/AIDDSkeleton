@@ -1,4 +1,4 @@
-# Definition Structure, Navigation, and Documentation
+# Definition Structure, Navigation, and Procedures
 
 ## Required Structure
 
@@ -42,15 +42,6 @@
   - Shared tools/observability/deployment/system environments/`etc/` config do not transfer ownership. For shared system execution with app-specific prerequisites/commands/AC/constraints, keep shared responsibility in system procedure and only app-owned delta in the app.
   - Normative testing uses the same ownership test. Testing responsibility always exists for formal implementation; if no app testing detail doc, the testing index names inherited/cross-cutting policy. Testing indexes may link current VB for coverage but contain no execution history.
   - Adopted procedures/policy/constraints belong in `definition/`.
-
-## Documentation Language
-
-- Initialization summary proposes a default; absent user choice, propose current conversation language.
-- After approval, record one BCP 47 default in `definition/system/documentation_language.md`, with only explicit app overrides. System/cross-app docs use default; app docs inherit unless overridden.
-- Never infer language/override from code, supplied material, later conversation language, or environment; conversation language is independent after initialization.
-- On adoption into `definition/`, preserve semantics in the destination's effective documentation language while preserving identifiers, code/protocol literals, proper names, standard technical notation, and intentionally fixed wording/language.
-- Change documentation language only on explicit user request; supplied originals under `references/` need not be translated.
-- Do not duplicate the language setting in another machine-readable file; language-setting changes update relevant index guidance.
 
 ## Document Splitting
 
