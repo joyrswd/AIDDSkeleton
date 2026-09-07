@@ -10,7 +10,7 @@
 - Reactivating a parent makes retained descendants discoverable again in their retained states; it does not alter descendant markers or re-fire descendant Hooks. Before selecting, continuing, or otherwise relying on newly visible descendant state, re-evaluate the jobs index for Control / Updates / Recursion and reconcile current parent control, dependencies, child completion/retention/VB state, acceptance basis, and known evidence; this reconciliation does not itself rewrite descendant markers.
 - Do not create unmarked retained job units. Supporting material at `jobs/` top level belongs inside its owning marked unit; inside a job, unmarked descendants are supporting material rather than separate jobs.
 - Choose `<purpose>` clear enough for first-pass relevance screening; do not rely on an opaque generic name requiring opening the unit to understand relevance.
-- Markers describe jobs lifecycle only. `+` does not grant authority/priority or prove completion/verification/acceptance; `_` does not itself mean Defer/rejection/adoption/priority/future commitment. Lexical/display order is not priority.
+- Markers describe jobs lifecycle only. `+` does not grant authority/priority, prove completion/verification/acceptance, or make every contained artifact active work; `_` does not itself mean Defer/rejection/adoption/priority/future commitment. Lexical/display order is not priority.
 
 ## Activation and Ordinary Continuation
 

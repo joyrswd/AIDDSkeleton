@@ -21,7 +21,7 @@
 | `testing/` | Verification strategy/specifications: what must be shown and what evidence is sufficient |
 
 - `definition/system/` and `definition/apps/` are required classifications; remove `.gitkeep` when tracked content makes it unnecessary.
-- `.routes/` and `.hooks/` are reserved governance namespaces, not project-definition artifacts. Project-specific docs belong under `definition/system/` or an approved `definition/apps/<app>/` according to responsibility.
+- `.routes/` and `.hooks/` are reserved governance namespaces, not project-definition artifacts. No non-hidden file belongs directly under `definition/`; project-specific docs belong under `definition/system/` or an approved `definition/apps/<app>/` according to responsibility.
 - No `definition/README.md`; use project indexes for project-definition navigation and `.routes/index.md` for governance routing.
 - Create `definition/apps/<app>/` only after app name + responsibility approval; use the same approved `<app>` under `definition/` and `products/`, never a literal/invented placeholder.
 - Keep fixed system entry docs directly under `definition/system/`.

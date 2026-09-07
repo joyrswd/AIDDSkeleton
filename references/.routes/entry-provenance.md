@@ -11,7 +11,7 @@
 
 ## Provenance
 
-- Prefer stable/immutable identity; mutable labels are context. Without stable ID, record enough time/state/conditions/scope to avoid unsafe inference.
+- Identity rules are owned by definition Verification Basis (`definition/.routes/index.md`): prefer stable/immutable identity; mutable labels are context; without a stable ID, record enough time/state/conditions/scope to avoid unsafe inference.
 - Record applicable terms of use, confidentiality, redistribution, licensing, privacy, and retention.
 
 ## Storage

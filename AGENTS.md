@@ -7,7 +7,7 @@
 - **SoT** = source of truth; **AC** = acceptance criteria; **VB** = verification basis; **RB** = responsibility boundary.
 - One rule/fact has one authoritative owner. Do not redefine it independently elsewhere.
 - Proposal/assumption/observation/implementation/test/result/reference presence or linkage ≠ adoption.
-- Moving information ≠ authority change; authority changes only through the applicable adoption process.
+- Moving information ≠ authority change; authority changes only through the applicable adoption process. An area's outbound-transfer rules apply when that area is the transfer source, including correction of material whose current placement does not match responsibility.
 - Lifecycle rules are area/project-owned; no repository-wide execution order is implied unless explicitly defined.
 - New evidence may reopen applicable lifecycle work and reduce prior completion/verification claims.
 - Claim scope ≤ supporting basis: presence ≠ implementation ≠ execution ≠ verification ≠ acceptance/completion.
@@ -31,7 +31,7 @@
 - Ordinary framework/tool source, test, script, package, infrastructure, or documentation layout conventions do not by themselves create repository-level integration paths; keep project content below its responsible area unless it independently qualifies for the integration exception above.
 - No additional top-level non-hidden directory without an explicit user decision changing this model, except a permitted repository-level integration path.
 - Do not duplicate a canonical artifact under an owning area solely to mirror logical ownership; reference or route to the canonical artifact instead.
-- `README.md` is human guidance only, not instructions or project SoT.
+- `README.md` is human guidance only, not instructions or project SoT; do not duplicate or replace requirements, design, testing, status, or agent instructions.
 
 ### Route Loading
 
@@ -99,15 +99,16 @@
 ### Decisions and Clarification
 
 - Ask only for user-owned decisions; verify repository facts yourself. Ask one issue at a time or ≤3 closely related issues.
-- Give only decision-relevant basis/effects/tradeoffs/risks; end substantial decision requests with a directly answerable choice/value when practical.
+- Give only decision-relevant basis/effects/tradeoffs/risks; end substantial decision requests with a directly answerable choice/value when practical. Number options and recommend when useful, and use free-form when options would distort the decision; for a delegable decision, recommend and state the default.
 - After a decision, apply it, separate remaining open questions, and continue. Before declaring a blocker, exhaust safe in-scope alternatives and state the precise blocker/required authority.
-- Use pre-work clarification only for multiple material ambiguities: identify major decision areas first, resolve contradictions/dependencies, use reversible defaults where safe, and stop when enough information exists to proceed coherently.
+- Do not expand one decision request into a pre-work clarification session unless the issue materially changes the whole request.
+- Use pre-work clarification only for multiple material ambiguities: show major decision areas first and allow correction/narrowing/reordering/delegation/stop; cover areas breadth-first before deepening unless one area is the only material issue or a prerequisite; resolve contradictions/dependencies without silently choosing between conflicting answers; resolve material inconsistency unless it is isolated and non-blocking; use reversible defaults where safe; and stop when enough information exists to proceed coherently. Clarification itself requires no repository/SoT update.
 
 ### Completion and Language
 
 - Completion reports are proportional: changed, verified, material unverified matter/blocker/risk/remaining work. Never claim beyond evidence.
 - Evaluate applicable definition routes before updating/relying on project status/VB/SoTs; conversation does not replace repository state.
-- Conversation language: explicit instruction → first request primary language → execution-environment language → English. Ignore code/quotes/attachments/URLs/paths for detection; environment fallback uses platform language then locale vars, ignoring `C`, `POSIX`, `C.UTF-8`.
+- Conversation language: explicit instruction → first request primary language → execution-environment language → English. Ignore code/quotes/attachments/URLs/paths for detection; environment fallback uses platform language then locale vars, ignoring `C`, `POSIX`, `C.UTF-8`. Treat the result as BCP 47; later language changes apply only as explicitly requested.
 - Conversation language ≠ project documentation language. Evaluate definition documentation-language routing when project documentation is created/adopted/changed; do not store conversation language in repository state.
 
 ## Working Principles
@@ -127,6 +128,7 @@
 - If implementation/tests/config/verification expose a possible definition deficiency, validate applicable SoTs first: valid SoT → correct realization; deficient SoT → change it through authority/decision/adoption before formal realization. Do not implement first then revise SoT to justify it.
 - Correct required same-cause deficiencies coherently; route adjacent findings through Assessment and Feedback.
 - Before completing material work, try to disprove correctness proportionally: challenge assumptions, contradictions, boundary/failure conditions, missed impact/root causes, scope drift, and evidence gaps across materially related surfaces, not only edited lines.
+- Bound the review surface to the current authorized outcome's acceptance basis and protected invariants; investigate beyond it far enough to judge impact, then classify resulting work under Permission / Scope and Assessment and Feedback.
 - A valid finding, failed verification, incident, or other assessment that exposes a missed consideration is a detection signal. Diagnose what was missed, why it escaped detection, and the concrete context that exposed it, then apply that perspective proportionally to materially related current work before treating the stated instance as resolved; correct or disposition the resulting work under Coherent Correction and Assessment and Feedback.
 - A material correction that creates/changes a mechanism, fallback, boundary, assumption, dependency, or verification method creates a new review surface. Continue targeted review while material corrections/evidence create materially new plausible failure surfaces; stop when none remain.
 - Repeated materially related findings indicate a structural issue; reassess invariant/RB/abstraction/evidence/scope structure. If work does not converge, narrow/decompose current outcome via jobs governance when needed; non-convergence does not waive deficiencies/blockers.
@@ -137,12 +139,12 @@
 - Assess against approved intent/scope/AC, authority/SoTs, evidence, urgency/risk, dependencies, and material scope/cost. Separate validity from current disposition.
 - **Accept now:** current authorized outcome already requires it, Permission / Scope adds it, or a Blocker requires action within existing authority; user-owned material intent/priority/scope/AC/RB/design changes still require decision.
 - For an input Accepted now, a local patch is not sufficient when the finding reveals a missed consideration that can materially recur in the affected scope; propagate the detection signal under Adversarial Review before closure.
-- **Reject:** insufficient/conflicting/already-satisfied/unjustified/no continuing value; retain rationale/provenance only when independently valuable.
+- **Reject:** insufficient/conflicting/already-satisfied/unjustified/no continuing value; retain rationale/provenance only when independently valuable, and such retention does not keep the input as an active or deferred candidate.
 - **Defer:** potentially useful later but not active/timely/justified now; ≠ adoption, priority, promise, or planned work. Evidence/context gathering performed now is active work.
 - Disposition grants no modification/adoption authority.
 - Severity is independent: **Blocker** = cannot safely accept/continue due to corruption/security/irreversible damage/major regression/direction-determining unresolved decision; **In-scope deficiency** = current acceptance/scope unsatisfied but not Blocker; **Follow-up** = useful but not required for current acceptance.
 - In-scope deficiency is local to the current authorized outcome; a Blocker remains a Blocker wherever its subject lies. Input validity alone does not make it current scope, and Blocker classification does not itself grant modification/scope-expansion authority. Requirement/AC/lifecycle completion remains judged against its full approved basis.
-- Retain Defer only when continuing value justifies it; evaluate jobs routes for repository retention/discovery. Reassess on material new evidence/revisit condition; surface matched retained items at useful decision points without silently adding scope. Do not routinely scan inactive material.
+- Retain Defer only when continuing value justifies it; evaluate jobs routes for repository retention/discovery. Reassess on material new evidence/revisit condition; surface matched retained items at useful decision points without silently adding scope. Do not routinely scan inactive material, and do not repeatedly resurface an item merely because it exists or has aged.
 - Before reporting complete, confirm approved acceptance basis, required verification, and unresolved Blocker/In-scope deficiencies; evaluate jobs completion routes when repository-managed job completion is involved.
 
 ### Consumer Regression
