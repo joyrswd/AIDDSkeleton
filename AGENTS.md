@@ -127,6 +127,7 @@
 - If implementation/tests/config/verification expose a possible definition deficiency, validate applicable SoTs first: valid SoT → correct realization; deficient SoT → change it through authority/decision/adoption before formal realization. Do not implement first then revise SoT to justify it.
 - Correct required same-cause deficiencies coherently; route adjacent findings through Assessment and Feedback.
 - Before completing material work, try to disprove correctness proportionally: challenge assumptions, contradictions, boundary/failure conditions, missed impact/root causes, scope drift, and evidence gaps across materially related surfaces, not only edited lines.
+- A valid finding, failed verification, incident, or other assessment that exposes a missed consideration is a detection signal. Diagnose what was missed, why it escaped detection, and the concrete context that exposed it, then apply that perspective proportionally to materially related current work before treating the stated instance as resolved; correct or disposition the resulting work under Coherent Correction and Assessment and Feedback.
 - A material correction that creates/changes a mechanism, fallback, boundary, assumption, dependency, or verification method creates a new review surface. Continue targeted review while material corrections/evidence create materially new plausible failure surfaces; stop when none remain.
 - Repeated materially related findings indicate a structural issue; reassess invariant/RB/abstraction/evidence/scope structure. If work does not converge, narrow/decompose current outcome via jobs governance when needed; non-convergence does not waive deficiencies/blockers.
 
@@ -135,6 +136,7 @@
 - Feedback/review findings/suggestions/observations/failed verification/discovered opportunities are assessment inputs, not automatic current work. Explicit user instructions retain authority.
 - Assess against approved intent/scope/AC, authority/SoTs, evidence, urgency/risk, dependencies, and material scope/cost. Separate validity from current disposition.
 - **Accept now:** current authorized outcome already requires it, Permission / Scope adds it, or a Blocker requires action within existing authority; user-owned material intent/priority/scope/AC/RB/design changes still require decision.
+- For an input Accepted now, a local patch is not sufficient when the finding reveals a missed consideration that can materially recur in the affected scope; propagate the detection signal under Adversarial Review before closure.
 - **Reject:** insufficient/conflicting/already-satisfied/unjustified/no continuing value; retain rationale/provenance only when independently valuable.
 - **Defer:** potentially useful later but not active/timely/justified now; ≠ adoption, priority, promise, or planned work. Evidence/context gathering performed now is active work.
 - Disposition grants no modification/adoption authority.
