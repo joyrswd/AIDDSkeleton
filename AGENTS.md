@@ -41,7 +41,7 @@
 - Evaluate every route independently against the **current** action, known facts, responsibility, lifecycle state, and verification phase; read every match. Multiple routes may match.
 - Do not preload a route merely because a later phase is expected. Re-evaluate before materially different phases such as selection, modification, adoption/reconciliation, verification, blocking, completion, retention/disposal, transfer, or publication.
 - Re-evaluate when target, operation, responsibility, discovered facts, lifecycle/verification state, completion claim, or destination responsibility materially changes.
-- If match is unclear, treat it as MATCH. Do not instead routinely read every destination.
+- If match is still unclear after applying the facts available, treat it as MATCH and record the decision as `unclear` rather than as a decided match. Do not instead routinely read every destination; route decisions that are mostly `unclear` indicate a trigger defect to surface, not a reading habit to adopt.
 - Route conditions must be decidable without first reading their destination, using the request/action, known state, root, already-read routing information, or applicable SoTs. Put detailed rules in destinations, not indexes.
 - If work/new facts affect another area, evaluate that area's index before continuing the cross-area action.
 - Route matching/reading grants no permission, adoption, lifecycle advancement, completion, verification, or publication authority.
