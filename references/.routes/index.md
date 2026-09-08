@@ -8,7 +8,7 @@ Evaluate every route independently against the current action. Read every match 
 |---|---|---|
 | Entry / Provenance / Storage | Work may import/create/retain/classify reference material, capture supplied/project-managed provenance, or determine whether material may be stored in `references/`. Reading existing reference material without importing, retaining, reclassifying, or storing anything does not match. | `entry-provenance.md` |
 | Authority / Use / Validation | A reference may be used for implementation, acceptance, project-definition adoption, or a current verification claim; or its claim-bearing content/freshness/applicability must be validated. | `authority-validation.md` |
-| Supersession / Retention | Work may revise/supersede a project-managed reference, add a new observation/version, move/delete/dispose reference material, or determine whether continuing retention remains justified. | `supersession-retention.md` |
+| Supersession / Retention | Work may modify, revise, or supersede existing reference material regardless of whether it is supplied or project-managed; add a new observation/version; move/delete/dispose reference material; or determine whether continuing retention remains justified. | `supersession-retention.md` |
 | Transfer | Reference material or derived results may be adopted/formalized or otherwise change responsibility to `definition/`, `products/`, `etc/`, or `jobs/`. | `transfer.md` |
 
 If reference use becomes a verification-basis question, evaluate `definition/.routes/index.md`. Apply root cross-area routing before transfers.
