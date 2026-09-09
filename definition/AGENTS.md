@@ -84,6 +84,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 | Inconsistent | does not exactly match either row above |
 
 - Reconcile an `Inconsistent` state before formal work.
+- Do not delete either fixed system document independently.
 - Initialized requires purpose, scope, RBs, and required project SoTs to be approved and recorded; fixed skeleton files/markers alone do not establish project facts or initialization, and uninitialized/inconsistent state must not be used to infer project facts.
 - If the observed state is `Uninitialized` or `Inconsistent`, read and apply [`definition/agents.d/initialization.md`](agents.d/initialization.md) before definition-specific initialization/reconciliation work.
 
@@ -95,7 +96,6 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Reset
 
-- Do not delete either fixed system document independently.
 - Before an explicitly authorized reset to `Uninitialized`, read and apply [`definition/agents.d/initialization.md`](agents.d/initialization.md).
 
 ## Outbound Transfer
@@ -179,5 +179,6 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Do not add a document category/directory when the current model can represent the responsibility; responsibility grouping under `definition/system/` is not a new classification when the placement rules are met. Before a new `definition/` directory, explain responsibility + classification effects and obtain user approval; approved init/change summary suffices.
 - Add/rename/move/delete indexed docs using Reconciliation and Migration; preserve identifiers when splitting/moving and do not duplicate detail between overview/detail docs.
 - Run all project-defined documentation verification for documentation changes when available; at minimum cover changed Markdown links, fixed files, index reachability, IDs, and applicable cross-responsibility routing.
+- Index checks must support direct-link + nested reachability + protected-instruction exclusions; requirement/design/testing and cross-responsibility authority discovery must follow the supported indexed hierarchy rather than assume a flat source set.
 - Verify lifecycle state matches exactly one row in Initialization and project statements have approval/evidence.
 - Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, or relationships must match the responsible SoT. Repetition does not create alternate authority; prefer automated comparison for intentionally repeated structured facts when practical, otherwise keep manual responsibility explicit.
