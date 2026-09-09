@@ -6,6 +6,8 @@
 
 - This file owns repository-wide governance definitions, boundaries, and common rules.
 - The AI may investigate, propose, change, and verify within authorized scope. The user retains final authority over intent, priorities, material scope changes, responsibility boundaries, and accepted outcomes.
+- For governance distribution, `joyrswd/AIDDSkeleton` is the **Upstream** repository. A project repository that adopts its governance is a **Consumer**. Governance supplied from a selected Upstream revision to a Consumer is **Upstream governance**.
+- **Consumer-local governance** is governance independently authorized for that Consumer rather than inherited from Upstream. Mere presence in a Consumer, including retention from an earlier Upstream revision, does not make a rule Consumer-local.
 - Repository-wide abbreviations used by descendant instructions:
   - **SoT** = source of truth
   - **AC** = acceptance criteria
@@ -82,7 +84,7 @@
 - Existing `AGENTS.md` and `agents.d/*.md` files are protected governance, and creating a new `agents.d/*.md` is a governance change. Ordinary code/docs/config/structure authorization does not authorize changing them.
 - Changing/moving/renaming/replacing/deleting protected instructions requires an explicit user request identifying the governance change and affected file/scope.
 - Authorized instruction changes: smallest coherent change; reconcile inheritance/links and verify the hierarchy.
-- Shared-governance updates must merge authorized baseline changes into existing protected local rules; byte identity is not the goal. Preserve local rules not explicitly retired/replaced. Surface conflicts or required re-scoping for explicit governance decision.
+- Upstream-governance adoption or update in a Consumer must preserve independently authorized Consumer-local governance not explicitly retired or replaced. If an Upstream-governance change conflicts with Consumer-local governance or requires moving or re-scoping it, surface the conflict for an explicit governance decision.
 - Never alter instructions to remove a blocker, retroactively justify implementation, accommodate a tool default, or broaden AI authority.
 - Repository instructions + approved project decisions override general conventions/tool defaults where they differ.
 
@@ -173,7 +175,8 @@ Use only when a request has multiple material ambiguities.
 
 ### Coherent Correction
 
-- On a discovered deficiency, determine whether the cause is local or shared.
+- On a discovered deficiency, determine the responsible authority; in a Consumer, distinguish Consumer-local or integration causes from Upstream-governance causes.
+- An Upstream-governance defect remains Upstream-owned. Consumer regression, adoption, or migration does not authorize changing Upstream-governance semantics in the Consumer to make evaluation pass or migration complete. If required correction is Upstream-owned, keep the affected Consumer adoption or migration incomplete or blocked until the defect is corrected in Upstream and a corrected revision is selected and reapplied; authorized Consumer-local integration corrections may proceed independently.
 - Inspect far enough to understand cause and impact; resulting modification remains governed by Permission / Scope.
 - When implementation, tests, configuration, or verification reveal a possible deficiency in adopted project definition, validate the applicable SoTs before changing formal behavior/configuration.
   - If the SoT is valid, correct the implementation/configuration against it.
@@ -231,4 +234,4 @@ Severity and disposition are independent: a Follow-up may become separate author
 
 #### Consumer Regression
 
-- Changes that alter authority, classification, routing, retention, lifecycle, or migration semantics are potentially breaking governance changes. When performing shared-governance consumer regression or evaluating whether such a change is generally adoptable, read and apply [`agents.d/consumer-regression.md`](agents.d/consumer-regression.md).
+- Changes that alter authority, classification, routing, retention, lifecycle, or migration semantics are potentially breaking governance changes. When performing Upstream-governance consumer regression or evaluating whether such a change is generally adoptable, read and apply [`agents.d/consumer-regression.md`](agents.d/consumer-regression.md).
