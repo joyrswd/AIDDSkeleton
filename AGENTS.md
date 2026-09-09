@@ -60,20 +60,26 @@
 
 - Every artifact carrying project responsibility belongs to the area owning that responsibility.
 - Placement follows responsibility; location alone does not satisfy the applicable adoption, authority, completion, or verification process.
+- An `agents.d/` directory is an optional conditional-governance subdivision owned by its nearest governing `AGENTS.md`; it is not a project-responsibility area or project artifact and need not exist where no conditional rules are defined.
 - Repository-level integration artifacts may remain outside the five responsibility areas when an adopted VCS/framework/tool/platform requires or directly discovers a repository-root, top-level, or hidden path for repository-scoped metadata, configuration, or instruction routing and the integration has no supported way to relocate that artifact while preserving equivalent behavior.
 - Repository-level integration placement does not create a responsibility area or authority. Tool-facing routing/translation must defer to the applicable governance/SoTs rather than become an independent owner; when an integration artifact substantively carries an existing project responsibility, assign it to that area and apply that area's governance as if the artifact were placed there.
-- No additional top-level non-hidden directory without an explicit user decision changing this model, except a repository-level integration path permitted above.
+- No additional top-level non-hidden directory without an explicit user decision changing this model, except root `agents.d/` under the conditional-governance rules below or a repository-level integration path permitted above.
 - Ordinary framework/tool source, test, script, package, infrastructure, or documentation layout conventions do not by themselves create repository-level integration paths; keep such project content below the responsible area unless it qualifies under the repository-level integration rule above.
 - Do not duplicate a canonical artifact under its owning area solely to mirror logical ownership.
 - `README.md` is human guidance only: not instructions or project SoT; do not duplicate/replace requirements, design, testing, status, or agent instructions.
 
 ### Instruction Hierarchy and Protection
 
-- Before changing a target, read: root `AGENTS.md` → `definition/AGENTS.md` → every additional descendant `AGENTS.md` through the target → for a repository-level integration artifact carrying an assigned project responsibility, the owning area's `AGENTS.md` when not already read → applicable project SoTs.
-- Repository-level instruction-routing artifacts must defer to the protected `AGENTS.md` hierarchy and preserve that routing. Ordinary code/docs/config/structure authorization does not authorize changing, bypassing, or removing instruction delivery; doing so requires an explicit user request identifying the affected tool/scope.
+- Before changing a target, read: root `AGENTS.md` → `definition/AGENTS.md` → every additional descendant `AGENTS.md` through the target → for a repository-level integration artifact carrying an assigned project responsibility, the owning area's `AGENTS.md` when not already read → every conditional instruction explicitly dispatched by those governing files once its stated condition is established → applicable project SoTs.
+- An `agents.d/` directory is optional. Do not scan it to discover applicable instructions or read its files by default. Read only a file explicitly named by a governing `AGENTS.md` when that rule's stated condition is established; incidental path discovery, filename/topic resemblance, or perceived relevance is not a dispatch condition.
+- A dispatched `agents.d/*.md` inherits its nearest governing `AGENTS.md` and ancestors, applies only within its declared trigger/scope, and must not redefine, weaken, contradict, or override inherited boundaries or create authority outside them.
+- Explicitly authorized inspection or maintenance of a specific `agents.d/*.md` may read that named file outside its operational dispatch; doing so does not apply it to unrelated work.
+- Do not place `AGENTS.md` inside `agents.d/`; conditional files inherit directly from the owning `AGENTS.md`.
+- A dispatch to a missing or unreadable conditional file is a governance inconsistency for that condition; do not silently infer substitute rules.
+- Repository-level instruction-routing artifacts must defer to the protected instruction hierarchy and preserve that routing. Ordinary code/docs/config/structure authorization does not authorize changing, bypassing, or removing instruction delivery; doing so requires an explicit user request identifying the affected tool/scope.
 - Descendant `AGENTS.md` files inherit root governance and may add subtree rules; they must not redefine, weaken, contradict, or override inherited boundaries.
 - Add descendant `AGENTS.md` only for genuine subtree-specific instructions.
-- Existing `AGENTS.md` files are protected governance. Ordinary code/docs/config/structure authorization does not authorize changing them.
+- Existing `AGENTS.md` and `agents.d/*.md` files are protected governance, and creating a new `agents.d/*.md` is a governance change. Ordinary code/docs/config/structure authorization does not authorize changing them.
 - Changing/moving/renaming/replacing/deleting protected instructions requires an explicit user request identifying the governance change and affected file/scope.
 - Authorized instruction changes: smallest coherent change; reconcile inheritance/links and verify the hierarchy.
 - Shared-governance updates must merge authorized baseline changes into existing protected local rules; byte identity is not the goal. Preserve local rules not explicitly retired/replaced. Surface conflicts or required re-scoping for explicit governance decision.
@@ -82,12 +88,8 @@
 
 ### Project Initialization
 
-- Project initialization state and required definition outputs are governed by `definition/AGENTS.md`.
-- Start read-only. Before project-specific changes, present one initialization summary: verified facts, user decisions, proposed assumptions, open questions, blockers, files/directories to change, target lifecycle state, and work left unstarted.
-- Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
-- If `README.md` still identifies the repository as AIDD Skeleton or contains template-use guidance, include replacement with project-specific human guidance in the initialization summary; after approval, replace that starter content during initialization.
-- If immediate initialization from supplied information + reasonable assumptions is explicitly requested, advance discussion may be omitted; report every adopted assumption at completion.
-- Detailed lifecycle transitions, entry/completion criteria, and verification rules: `definition/AGENTS.md`.
+- Determine project initialization state using `definition/AGENTS.md` before project-specific work.
+- If that state is `Uninitialized` or `Inconsistent`, read and apply [`agents.d/initialization.md`](agents.d/initialization.md) before project-specific modification. `definition/AGENTS.md` separately dispatches definition-owned initialization rules.
 
 ## Action Boundaries
 
@@ -229,7 +231,4 @@ Severity and disposition are independent: a Follow-up may become separate author
 
 #### Consumer Regression
 
-- Shared-governance consumer regression is black-box only when results follow from candidate governance + consumer's pre-existing protected local rules. Externally prescribed classifications/changes make it a guided diagnostic.
-- Changes that alter authority, classification, routing, retention, lifecycle, or migration semantics are potentially breaking governance changes.
-- A claim that a potentially breaking governance change is generally adoptable requires black-box evidence from at least one representative initialized consumer. A guided diagnostic does not establish that claim; without representative black-box evidence, downstream behavior remains unverified.
-- Consumer regression evaluates candidate governance; it neither adopts it nor authorizes consumer changes.
+- Changes that alter authority, classification, routing, retention, lifecycle, or migration semantics are potentially breaking governance changes. When performing shared-governance consumer regression or evaluating whether such a change is generally adoptable, read and apply [`agents.d/consumer-regression.md`](agents.d/consumer-regression.md).

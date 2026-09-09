@@ -14,7 +14,7 @@
 
 ### Required Structure
 
-- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/.hooks/.gitkeep`, `definition/system/.gitkeep`, and `definition/apps/.gitkeep`.
+- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/agents.d/initialization.md`, `definition/agents.d/governance-migration.md`, `definition/.hooks/.gitkeep`, `definition/system/.gitkeep`, and `definition/apps/.gitkeep`.
 - Per approved app, create:
   - `definition/apps/<app>/<app>_index.md`;
   - `definition/apps/<app>/requirements/<app>_requirements_index.md`;
@@ -33,6 +33,7 @@
 | `testing/` | Verification strategy/specifications: what must be shown and what evidence is sufficient |
 
 - `definition/system/` and `definition/apps/` are required classifications; remove `.gitkeep` when tracked content makes it unnecessary.
+- `definition/agents.d/` contains conditional definition governance under the root `agents.d/` loading protocol; it is not project-definition content and is excluded from project document placement/navigation.
 - `definition/AGENTS.md` is the only non-hidden file directly under `definition/`; project-specific docs belong under `definition/system/` or an approved `definition/apps/<app>/` according to responsibility.
 - No `definition/README.md`; use indexes for navigation and `AGENTS.md` for instructions.
 - Create `definition/apps/<app>/` only after app name + responsibility approval; use the same approved `<app>` under `definition/` and `products/`, never a literal/invented placeholder.
@@ -82,19 +83,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 | Initialized | both fixed system docs present; `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` present only while no app docs exist |
 | Inconsistent | does not exactly match either row above |
 
-- Reconcile an Inconsistent state before formal work.
 - Initialized requires purpose, scope, RBs, and required project SoTs to be approved and recorded; fixed skeleton files/markers alone do not establish project facts or initialization, and uninitialized/inconsistent state must not be used to infer project facts.
-- Initialization content comes from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
-- Initialize atomically: create `documentation_language.md` and `system_index.md`, and remove `definition/system/.gitkeep`.
-- Define at least:
-  - purpose, users, scope, exclusions;
-  - system/app RBs;
-  - requirements/design/testing SoTs;
-  - observable AC + open questions;
-  - lifecycle identifiers/states/transitions/end boundary;
-  - implementation entry/completion criteria, standard verification, VB retention expectations;
-  - applicability + reasons for security, privacy, accessibility, performance, availability, monitoring, retention, recovery, licensing.
-- Open questions require a decision point + blocking effect. If release/operation/retirement is outside lifecycle, record end boundary + handoff; if inside, define transitions/completion + feedback route.
+- If the observed state is `Uninitialized` or `Inconsistent`, read and apply [`definition/agents.d/initialization.md`](agents.d/initialization.md) before definition-specific initialization/reconciliation work.
 
 ### Entry and Completion
 
@@ -104,8 +94,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Reset
 
-- Do not delete either fixed system document independently.
-- Reset to uninitialized only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, restore both markers, and verify whole state.
+- Before an explicitly authorized reset to `Uninitialized`, read and apply [`definition/agents.d/initialization.md`](agents.d/initialization.md).
 
 ## Outbound Transfer
 
@@ -149,11 +138,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Prevent authority leakage in mixed normative + current-realization/maintenance content. Separate when authority/readers/update triggers differ and usability survives; otherwise mark authority explicitly. Do not duplicate facts merely to separate.
 - After separation validate both: normative sources still support semantic reconstruction without `products/`, and retained references preserve enough provenance/observation context to re-investigate without becoming normative.
 - Reconciliation affecting authority, ownership, navigation, current state, or verification claims must inspect and reconcile the affected SoTs, indexes, VB, inbound links, and retained job/reference material in the same coherent change.
-- Governance migration covers changed semantics and all materially affected existing cases; unresolved cases remain explicit debt/unverified. Unrelated discoveries do not expand migration scope.
-- When governance retires a project-definition artifact or classification, treat existing instances as migration cases: preserve only still-authoritative semantics in their responsible SoTs, reconcile affected index routing/current state/VB and all inbound links, then remove the retired artifact and stale references in the same coherent migration; do not preserve the retired structure or non-required correspondence merely for legacy compatibility.
+- When a shared-governance change alters definition authority, classification, routing, retention, migration semantics, or allowed document location/hierarchy, read and apply [`definition/agents.d/governance-migration.md`](agents.d/governance-migration.md) before its definition migration/reconciliation.
 - Documentation silence does not authorize opportunistic re-architecture.
-- When classification/routing/retention rules change, classify affected execution/evidence records as current claim-supporting basis, durable non-normative reference, active work, or retire; do not migrate solely because legacy placement differs or content is historical.
-- Temporary legacy placement is allowed only to avoid losing current VB or breaking dependent links while reconciliation is unresolved; mark remaining reconciliation discoverably and do not claim full reconciliation.
 - Apply Outbound Transfer to active and durable non-normative material; keep current SoT semantics in `definition/`, use native/external VB when suitable for current claim support, and retire no-need material.
 - Source location is not an adoption record; adopted facts/decisions enter responsible SoTs only through applicable adoption authority.
 
@@ -188,8 +174,6 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Maintenance and Validation
 
-- Governance changes altering allowed doc location/hierarchy must update every affected validator/generator/template/example/check in the same migration; old-structure validation is not evidence for the new structure.
-- Index checks must support direct-link + nested reachability + protected-instruction exclusions; requirement/design/testing and cross-responsibility authority discovery must follow the supported indexed hierarchy rather than assume a flat source set.
 - Do not add a document category/directory when the current model can represent the responsibility; responsibility grouping under `definition/system/` is not a new classification when the placement rules are met. Before a new `definition/` directory, explain responsibility + classification effects and obtain user approval; approved init/change summary suffices.
 - Add/rename/move/delete indexed docs using Reconciliation and Migration; preserve identifiers when splitting/moving and do not duplicate detail between overview/detail docs.
 - Run all project-defined documentation verification for documentation changes when available; at minimum cover changed Markdown links, fixed files, index reachability, IDs, and applicable cross-responsibility routing.

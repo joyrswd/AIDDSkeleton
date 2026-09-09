@@ -45,7 +45,7 @@ jobs/        Working, exploratory, and verification materials
 etc/         Execution-environment configuration
 ```
 
-Repository-wide and directory-specific `AGENTS.md` files define the working agreements that developers and AI agents must follow.
+Repository-wide and directory-specific `AGENTS.md` files define the working agreements that developers and AI agents must follow. Conditional instruction bodies may live in sibling `agents.d/` directories and are read only when explicitly dispatched by their governing `AGENTS.md`.
 
 ## What You Get
 
