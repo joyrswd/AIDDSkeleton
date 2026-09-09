@@ -8,7 +8,6 @@
 
 ## Initialization
 
-- Reconcile an `Inconsistent` state before formal work.
 - Initialization content comes from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
 - Initialize atomically: create `definition/system/documentation_language.md` and `definition/system/system_index.md`, and remove `definition/system/.gitkeep`.
 - Define at least:
@@ -23,5 +22,4 @@
 
 ## Reset
 
-- Do not delete either fixed system document independently.
 - Reset to `Uninitialized` only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, restore both markers, and verify whole state.

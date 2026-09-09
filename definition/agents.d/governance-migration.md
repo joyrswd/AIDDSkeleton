@@ -2,9 +2,9 @@
 
 ## Scope
 
-- Applies only when dispatched by `definition/AGENTS.md` because a shared-governance change alters definition authority, classification, routing, retention, migration semantics, or allowed document location/hierarchy.
+- Applies only when dispatched by `definition/AGENTS.md` because a governance change alters definition authority, classification, routing, retention, migration semantics, or allowed document location/hierarchy.
 - Inherits root governance and `definition/AGENTS.md`.
-- This file governs definition consequences of shared-governance changes; an ordinary project migration does not trigger it merely because the work is described as a migration.
+- This file governs definition consequences of applicable governance changes; an ordinary project migration does not trigger it merely because the work is described as a migration.
 
 ## Migration
 
@@ -16,4 +16,3 @@
 ## Validation
 
 - Governance changes altering allowed doc location/hierarchy must update every affected validator/generator/template/example/check in the same migration; old-structure validation is not evidence for the new structure.
-- Index checks must support direct-link + nested reachability + protected-instruction exclusions; requirement/design/testing and cross-responsibility authority discovery must follow the supported indexed hierarchy rather than assume a flat source set.

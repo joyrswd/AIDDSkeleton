@@ -83,6 +83,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 | Initialized | both fixed system docs present; `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` present only while no app docs exist |
 | Inconsistent | does not exactly match either row above |
 
+- Reconcile an `Inconsistent` state before formal work.
+- Do not delete either fixed system document independently.
 - Initialized requires purpose, scope, RBs, and required project SoTs to be approved and recorded; fixed skeleton files/markers alone do not establish project facts or initialization, and uninitialized/inconsistent state must not be used to infer project facts.
 - If the observed state is `Uninitialized` or `Inconsistent`, read and apply [`definition/agents.d/initialization.md`](agents.d/initialization.md) before definition-specific initialization/reconciliation work.
 
@@ -138,7 +140,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Prevent authority leakage in mixed normative + current-realization/maintenance content. Separate when authority/readers/update triggers differ and usability survives; otherwise mark authority explicitly. Do not duplicate facts merely to separate.
 - After separation validate both: normative sources still support semantic reconstruction without `products/`, and retained references preserve enough provenance/observation context to re-investigate without becoming normative.
 - Reconciliation affecting authority, ownership, navigation, current state, or verification claims must inspect and reconcile the affected SoTs, indexes, VB, inbound links, and retained job/reference material in the same coherent change.
-- When a shared-governance change alters definition authority, classification, routing, retention, migration semantics, or allowed document location/hierarchy, read and apply [`definition/agents.d/governance-migration.md`](agents.d/governance-migration.md) before its definition migration/reconciliation.
+- When a governance change alters definition authority, classification, routing, retention, migration semantics, or allowed document location/hierarchy, read and apply [`definition/agents.d/governance-migration.md`](agents.d/governance-migration.md) before its definition migration/reconciliation.
 - Documentation silence does not authorize opportunistic re-architecture.
 - Apply Outbound Transfer to active and durable non-normative material; keep current SoT semantics in `definition/`, use native/external VB when suitable for current claim support, and retire no-need material.
 - Source location is not an adoption record; adopted facts/decisions enter responsible SoTs only through applicable adoption authority.
@@ -177,5 +179,6 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Do not add a document category/directory when the current model can represent the responsibility; responsibility grouping under `definition/system/` is not a new classification when the placement rules are met. Before a new `definition/` directory, explain responsibility + classification effects and obtain user approval; approved init/change summary suffices.
 - Add/rename/move/delete indexed docs using Reconciliation and Migration; preserve identifiers when splitting/moving and do not duplicate detail between overview/detail docs.
 - Run all project-defined documentation verification for documentation changes when available; at minimum cover changed Markdown links, fixed files, index reachability, IDs, and applicable cross-responsibility routing.
+- Index checks must support direct-link + nested reachability + protected-instruction exclusions; requirement/design/testing and cross-responsibility authority discovery must follow the supported indexed hierarchy rather than assume a flat source set.
 - Verify lifecycle state matches exactly one row in Initialization and project statements have approval/evidence.
 - Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, or relationships must match the responsible SoT. Repetition does not create alternate authority; prefer automated comparison for intentionally repeated structured facts when practical, otherwise keep manual responsibility explicit.

@@ -6,6 +6,8 @@
 
 - This file owns repository-wide governance definitions, boundaries, and common rules.
 - The AI may investigate, propose, change, and verify within authorized scope. The user retains final authority over intent, priorities, material scope changes, responsibility boundaries, and accepted outcomes.
+- For governance distribution, `joyrswd/AIDDSkeleton` is the **Upstream** repository. A project repository that adopts its governance is a **Consumer**. Governance maintained in Upstream for distribution to Consumers is **Upstream governance**, whether or not a Consumer has adopted a particular revision. A **selected Upstream revision** is the concrete Upstream revision identified for the current regression, adoption, or update.
+- **Consumer-local governance** is governance independently authorized for that Consumer rather than inherited from Upstream. Mere presence in a Consumer, including retention from an earlier Upstream revision, does not make a rule Consumer-local. If whether a pre-existing rule is Consumer-local cannot be established, do not reclassify, overwrite, or delete it; surface the classification for an explicit governance decision.
 - Repository-wide abbreviations used by descendant instructions:
   - **SoT** = source of truth
   - **AC** = acceptance criteria
@@ -38,11 +40,11 @@
 - Hook identifiers use `<area>.<hook>` form, where `<area>` is one of the responsibility areas listed under Ownership and Placement, and are owned by the area that defines their firing condition. A defined Hook resolves at most one **Consumer Hook** from `<area>/.hooks/<hook>.md`; an undefined Hook or absent Consumer Hook is a no-op.
 - Each responsibility area reserves `<area>/.hooks/` as a standard Consumer Hook instruction namespace and keeps the directory present with `.gitkeep`. The `.gitkeep` file has no Hook semantics and may coexist with Consumer Hooks.
 - `<area>/.hooks/` is not an artifact of the area's project responsibility; ordinary area-artifact classification, placement, lifecycle, and Outbound Transfer rules do not apply to Consumer Hooks merely because of that location. Hook-specific local rules may further constrain them.
-- Consumer Hooks are consumer-local instructions, not SoTs or generally inherited instructions. Read and apply a Consumer Hook only when its Hook is reached. Explicitly authorized inspection or maintenance of that Consumer Hook may read it outside a Hook occurrence; such access does not execute the Consumer Hook or constitute a Hook occurrence. Its instructions apply only to an actual Hook invocation and remain subordinate to applicable `AGENTS.md`, SoTs, Permission / Scope, Safety / Compliance, and required lifecycle/outbound behavior.
+- Consumer Hooks are Consumer-local instructions, not SoTs or generally inherited instructions. Read and apply a Consumer Hook only when its Hook is reached. Explicitly authorized inspection or maintenance of that Consumer Hook may read it outside a Hook occurrence; such access does not execute the Consumer Hook or constitute a Hook occurrence. Its instructions apply only to an actual Hook invocation and remain subordinate to applicable `AGENTS.md`, SoTs, Permission / Scope, Safety / Compliance, and required lifecycle/outbound behavior.
 - Existing Consumer Hooks are protected local instructions. Ordinary work must not create, change, move, rename, or delete a Consumer Hook merely to enable, alter, or unblock current work; Hook customization requires explicit user authorization identifying the affected Hook/scope.
-- A Consumer Hook may perform any otherwise-authorized consumer-specific processing, but must not replace or suppress the governance condition or required action that exposed the Hook. After Consumer Hook processing, re-evaluate affected state before continuing.
+- A Consumer Hook may perform any otherwise-authorized Consumer-specific processing, but must not replace or suppress the governance condition or required action that exposed the Hook. After Consumer Hook processing, re-evaluate affected state before continuing.
 - Do not re-invoke a Hook merely because its Consumer Hook completed. A Hook may run again only when its owning rule's firing condition is reached again through a new applicable occurrence or state transition.
-- Each area owns its concrete Hook points and firing conditions. Hook transport, UI signaling, scheduling, retry, external execution, and automation mechanisms are consumer concerns unless a governing rule explicitly says otherwise.
+- Each area owns its concrete Hook points and firing conditions. Hook transport, UI signaling, scheduling, retry, external execution, and automation mechanisms are Consumer concerns unless a governing rule explicitly says otherwise.
 
 ## Project Structure and Instruction Hierarchy
 
@@ -81,8 +83,9 @@
 - Add descendant `AGENTS.md` only for genuine subtree-specific instructions.
 - Existing `AGENTS.md` and `agents.d/*.md` files are protected governance, and creating a new `agents.d/*.md` is a governance change. Ordinary code/docs/config/structure authorization does not authorize changing them.
 - Changing/moving/renaming/replacing/deleting protected instructions requires an explicit user request identifying the governance change and affected file/scope.
+- A **governance change** changes protected governance instructions or their dispatch/semantics.
 - Authorized instruction changes: smallest coherent change; reconcile inheritance/links and verify the hierarchy.
-- Shared-governance updates must merge authorized baseline changes into existing protected local rules; byte identity is not the goal. Preserve local rules not explicitly retired/replaced. Surface conflicts or required re-scoping for explicit governance decision.
+- Upstream-governance adoption or update in a Consumer must apply the selected Upstream governance coherently while preserving independently authorized Consumer-local governance not explicitly retired or replaced. A difference from the selected Upstream revision is not by itself Consumer-local authority. If an Upstream-governance change conflicts with Consumer-local governance or requires moving or re-scoping it, surface the conflict for an explicit governance decision.
 - Never alter instructions to remove a blocker, retroactively justify implementation, accommodate a tool default, or broaden AI authority.
 - Repository instructions + approved project decisions override general conventions/tool defaults where they differ.
 
@@ -173,7 +176,9 @@ Use only when a request has multiple material ambiguities.
 
 ### Coherent Correction
 
-- On a discovered deficiency, determine whether the cause is local or shared.
+- On a discovered deficiency, determine the responsible authority and whether the cause is repository-local or Upstream-governance. In a Consumer, **Consumer-local integration** means Consumer-specific implementation, configuration, SoTs, or Consumer-local governance needed to integrate Upstream governance; it does not include changing Upstream-governance semantics.
+- An Upstream-governance defect remains Upstream-owned. Consumer regression, adoption, or migration does not authorize changing Upstream-governance semantics in the Consumer. A Consumer-specific semantic divergence requires an explicit governance decision that reclassifies the affected rule as Consumer-local and is not completion of Upstream-governance adoption.
+- If required correction is Upstream-owned, do not claim the affected Consumer adoption or migration complete. Keep the Consumer's adopted Upstream-governance set coherent, surface the defect for Upstream correction with enough reproducible evidence/context, then select and reapply a corrected Upstream revision before completion. Authorized Consumer-local integration corrections may proceed independently.
 - Inspect far enough to understand cause and impact; resulting modification remains governed by Permission / Scope.
 - When implementation, tests, configuration, or verification reveal a possible deficiency in adopted project definition, validate the applicable SoTs before changing formal behavior/configuration.
   - If the SoT is valid, correct the implementation/configuration against it.
@@ -231,4 +236,4 @@ Severity and disposition are independent: a Follow-up may become separate author
 
 #### Consumer Regression
 
-- Changes that alter authority, classification, routing, retention, lifecycle, or migration semantics are potentially breaking governance changes. When performing shared-governance consumer regression or evaluating whether such a change is generally adoptable, read and apply [`agents.d/consumer-regression.md`](agents.d/consumer-regression.md).
+- Changes that alter authority, classification, routing, retention, lifecycle, or migration semantics are potentially breaking governance changes. When performing Upstream-governance consumer regression or evaluating whether such a change is generally adoptable, read and apply [`agents.d/consumer-regression.md`](agents.d/consumer-regression.md).
