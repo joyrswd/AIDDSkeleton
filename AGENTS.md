@@ -125,16 +125,7 @@
 
 ### Pre-Work Clarification
 
-Use only when a request has multiple material ambiguities.
-
-- First show major decision areas; allow correction, narrowing, reordering, delegation, or stop.
-- Cover areas breadth-first before deepening, unless one area is the only material issue or is prerequisite to understanding the rest.
-- Check contradictions/dependencies before deepening; do not silently choose between conflicting answers.
-- Resolve material inconsistency unless isolated and non-blocking.
-- Deepen only outcome-relevant matters that cannot safely use a reversible default.
-- For delegable decisions, recommend and state the default.
-- Stop when enough information exists to proceed coherently; do not eliminate every ambiguity.
-- Clarification itself does not require repository artifacts/SoT updates.
+- When a request has multiple material ambiguities, read and apply [`agents.d/pre-work-clarification.md`](agents.d/pre-work-clarification.md).
 
 ### Completion Reports
 
