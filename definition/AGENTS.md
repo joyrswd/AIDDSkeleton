@@ -124,6 +124,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 #### Realization Authority
 
+- Source paths/private helpers/classes/functions/state fields/DOM IDs/current directory layout/implementation status remain current-realization detail unless independently adopted.
 - When realization- or implementation-derived facts or details are used to determine project-definition authority, adoption, or transfer, or concrete provenance/intent evidence creates material doubt about their authority, read and apply [`definition/agents.d/realization-authority.md`](agents.d/realization-authority.md).
 
 ### Reconciliation and Migration
@@ -169,5 +170,6 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 ### Maintenance and Validation
 
 - Before modifying project-specific definition documentation or its structure/navigation—including creating an app/category/directory, adding/renaming/moving/deleting an indexed document, or separating mixed-authority content—read and apply [`definition/agents.d/definition-maintenance.md`](agents.d/definition-maintenance.md).
+- Run all project-defined documentation verification for documentation changes when available; at minimum cover changed Markdown links, fixed files, index reachability, IDs, and applicable cross-responsibility routing.
 - Verify lifecycle state matches exactly one row in Initialization and project statements have approval/evidence.
 - Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, or relationships must match the responsible SoT. Repetition does not create alternate authority; prefer automated comparison for intentionally repeated structured facts when practical, otherwise keep manual responsibility explicit.
