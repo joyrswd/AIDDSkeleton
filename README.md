@@ -11,7 +11,7 @@ It gives developers and AI coding agents a shared structure for planning work, p
 1. Click **Use this template** above the repository file list.
 2. Select **Create a new repository**.
 3. Choose the repository owner, name, and visibility, then create the repository.
-4. Open the new repository in your preferred AI development environment.
+4. Open the new repository in a compatible AI coding environment.
 5. Send your first message in your preferred language.
 
 For example:
@@ -23,11 +23,25 @@ Hello!
 ...
 ```
 
-The AI agent will inspect the repository instructions and guide you through initialization and the next steps.
+A compatible AI agent will inspect and follow the repository instructions, then guide you through initialization and the next steps.
 
-> Tested with GPT-5.6 on Codex and Gemini 3.6 Flash on Antigravity.
-> Fast models can be used, but results may be less reliable.
-> For best results, use a more capable model.
+### AI Agent Compatibility
+
+AIDD Skeleton assumes an AI coding environment whose agent runtime can:
+
+- discover the applicable repository instructions, including `AGENTS.md` and conditionally dispatched instructions;
+- treat those instructions as authoritative working constraints rather than optional context or hints;
+- follow repository-defined scope, lifecycle, routing, language, and artifact-placement rules even when they differ from the agent or tool defaults.
+
+Support for discovering or reading `AGENTS.md` alone is not sufficient if the runtime does not reliably apply those instructions while working.
+
+Tested combinations:
+
+- GPT-5.6 on Codex
+- Claude Opus 5 on Claude Code
+- Gemini 3.6 Flash on Antigravity
+
+Runtime compatibility is the primary requirement. Model capability still affects reliability within a compatible runtime: faster or less capable models may work, but more capable models are recommended for complex or governance-heavy tasks.
 
 ## What Is AIDD?
 
