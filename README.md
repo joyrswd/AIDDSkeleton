@@ -27,13 +27,9 @@ A compatible AI agent will inspect and follow the repository instructions, then 
 
 ### AI Agent Compatibility
 
-AIDD Skeleton assumes an AI coding environment whose agent runtime can:
+When choosing an AI coding environment, prefer one whose agent runtime reliably follows repository instructions while working. The authoritative working agreement is defined by the repository `AGENTS.md` files and any instructions they dispatch; this README intentionally does not restate that contract.
 
-- discover the applicable repository instructions, including `AGENTS.md` and conditionally dispatched instructions;
-- treat those instructions as authoritative working constraints rather than optional context or hints;
-- follow repository-defined scope, lifecycle, routing, language, and artifact-placement rules even when they differ from the agent or tool defaults.
-
-Support for discovering or reading `AGENTS.md` alone is not sufficient if the runtime does not reliably apply those instructions while working.
+Merely discovering or reading `AGENTS.md` does not by itself demonstrate reliable compatibility if those instructions are not consistently applied during work.
 
 Tested combinations:
 
@@ -41,7 +37,7 @@ Tested combinations:
 - Claude Opus 5 on Claude Code
 - Gemini 3.6 Flash on Antigravity
 
-Runtime compatibility is the primary requirement. Model capability still affects reliability within a compatible runtime: faster or less capable models may work, but more capable models are recommended for complex or governance-heavy tasks.
+Runtime behavior and model capability both affect reliability. Faster or less capable models may work, but more capable models are recommended for complex or governance-heavy tasks.
 
 ## What Is AIDD?
 
