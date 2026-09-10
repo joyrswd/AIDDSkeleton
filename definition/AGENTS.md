@@ -14,7 +14,7 @@
 
 ### Required Structure
 
-- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/agents.d/initialization.md`, `definition/agents.d/governance-migration.md`, `definition/.hooks/.gitkeep`, `definition/system/.gitkeep`, and `definition/apps/.gitkeep`.
+- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/agents.d/initialization.md`, `definition/agents.d/governance-migration.md`, `definition/agents.d/realization-authority.md`, `definition/agents.d/documentation-language.md`, `definition/agents.d/definition-maintenance.md`, `definition/.hooks/.gitkeep`, `definition/system/.gitkeep`, and `definition/apps/.gitkeep`.
 - Per approved app, create:
   - `definition/apps/<app>/<app>_index.md`;
   - `definition/apps/<app>/requirements/<app>_requirements_index.md`;
@@ -36,7 +36,6 @@
 - `definition/agents.d/` contains conditional definition governance under the root `agents.d/` loading protocol; it is not project-definition content and is excluded from project document placement/navigation.
 - `definition/AGENTS.md` is the only non-hidden file directly under `definition/`; project-specific docs belong under `definition/system/` or an approved `definition/apps/<app>/` according to responsibility.
 - No `definition/README.md`; use indexes for navigation and `AGENTS.md` for instructions.
-- Create `definition/apps/<app>/` only after app name + responsibility approval; use the same approved `<app>` under `definition/` and `products/`, never a literal/invented placeholder.
 - Keep fixed system entry docs directly under `definition/system/`.
 - Required app category dirs/indexes do not require detail docs. If none, the index states explicit absence/inheritance/cross-cutting source; design may state no additional normative implementation constraints.
 
@@ -58,11 +57,8 @@
 ### Documentation Language
 
 - Initialization summary proposes a default; absent user choice, propose current conversation language.
-- After approval, record one BCP 47 default in `definition/system/documentation_language.md`, with only explicit app overrides. System/cross-app docs use default; app docs inherit unless overridden.
-- Never infer language/override from code, supplied material, later conversation language, or environment; conversation language is independent after initialization.
-- On adoption into `definition/`, preserve semantics in the destination's effective documentation language while preserving identifiers, code/protocol literals, proper names, standard technical notation, and intentionally fixed wording/language.
-- Change documentation language only on explicit user request; supplied originals under `references/` need not be translated.
-- Do not duplicate the language setting in another machine-readable file; language-setting changes update relevant index guidance.
+- Do not duplicate the language setting in another machine-readable file.
+- When work determines, selects, records, or changes the effective project documentation language, or before creating or changing project-definition documentation text, read and apply [`definition/agents.d/documentation-language.md`](agents.d/documentation-language.md).
 
 ### Document Splitting
 
@@ -118,6 +114,9 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Requirements own required outcomes, external conditions, compatibility obligations, and AC; design owns adopted choices among otherwise valid implementation approaches; testing owns required verification, method/observation, and sufficient evidence.
 - Completion criteria must be observable; split requirements that cannot be implemented, verified, and completed together.
 - Semantic exhaustive domains/matrices/transitions/enumerations remain normative even when they imply cardinality; verification may use any evidence form appropriate to AC.
+- Existing normative statements remain effective until explicitly changed/retired.
+- Do not reclassify merely to normalize taxonomy. Move only when current placement materially obscures responsibility, duplicates harmfully, or wrongly constrains/frees future implementations; if intent is ambiguous, preserve current authority/placement pending decision.
+- Mixed normative/execution content is classified at statement/section level: normative verification intent stays in testing; execution material follows Verification Basis lifecycle.
 - Before removing, abstracting, or relocating materially constraining content, preserve its adopted semantics in the responsible SoT unless the applicable authority process explicitly changes or retires it.
 - For abstraction, relocation, or reclassification without an explicit authority change, verify future valid implementations are not unintentionally broadened or narrowed.
 - Treat loss of adopted timezone/unit/protocol-version/transaction-isolation/identity/cardinality/ordering/security/compatibility or similar invariant as normative change, not cleanup.
@@ -125,20 +124,13 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 #### Realization Authority
 
-- First classify a realization-derived fact as current realization, required outcome/constraint, or adopted implementation constraint.
-- Independently adopted required outcomes → responsible requirements SoT; independently adopted implementation constraints → responsible design SoT; non-adopted realization material follows Outbound Transfer.
 - Source paths/private helpers/classes/functions/state fields/DOM IDs/current directory layout/implementation status remain current-realization detail unless independently adopted.
-- Adoption of implementation-derived detail into design requires evidence independent of implementation/test presence that the project intends it as a future constraint, such as effect on an adopted contract, RB, dependency direction, security/correctness/operational property, chosen algorithm, or reimplementation acceptability.
-- Existing normative statements remain effective until explicitly changed/retired.
-- Do not reclassify merely to normalize taxonomy. Move only when current placement materially obscures responsibility, duplicates harmfully, or wrongly constrains/frees future implementations; if intent is ambiguous, preserve current authority/placement pending decision.
-- When concrete provenance/intent evidence creates material doubt, preserve current authority while unresolved and use root correction/assessment rules. Investigate history only when such evidence makes it relevant; later explicit adoption may validly make realization detail normative.
-- Mixed normative/execution content is classified at statement/section level: normative verification intent stays in testing; execution material follows Verification Basis lifecycle.
+- When realization- or implementation-derived facts or details are used to determine project-definition authority, adoption, or transfer, or concrete provenance/intent evidence creates material doubt about their authority, read and apply [`definition/agents.d/realization-authority.md`](agents.d/realization-authority.md).
 
 ### Reconciliation and Migration
 
 - Active normative design describes adopted end state, not stale transition stages. After completed migration/refactor/rename/rollout, remove obsolete stages/names/temp compatibility/superseded targets from active design and retain useful history non-normatively.
 - Prevent authority leakage in mixed normative + current-realization/maintenance content. Separate when authority/readers/update triggers differ and usability survives; otherwise mark authority explicitly. Do not duplicate facts merely to separate.
-- After separation validate both: normative sources still support semantic reconstruction without `products/`, and retained references preserve enough provenance/observation context to re-investigate without becoming normative.
 - Reconciliation affecting authority, ownership, navigation, current state, or verification claims must inspect and reconcile the affected SoTs, indexes, VB, inbound links, and retained job/reference material in the same coherent change.
 - When a governance change alters definition authority, classification, routing, retention, migration semantics, or allowed document location/hierarchy, read and apply [`definition/agents.d/governance-migration.md`](agents.d/governance-migration.md) before its definition migration/reconciliation.
 - Documentation silence does not authorize opportunistic re-architecture.
@@ -157,6 +149,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Shared terminology follows the underlying project fact's authority and ownership: keep the canonical definition in the SoT that owns that fact under Definition Authority. When one meaning is referenced across multiple SoTs, the owning responsibility remains app-owned for a single-app fact and system-owned for a system/cross-app fact; dependent SoTs reference the canonical definition instead of redefining it. Do not maintain a standalone project glossary.
 - System/cross-app relationship meaning belongs to the SoT that owns the underlying project fact. `system_index.md` owns routing to those responsible SoTs and to every approved app index; app indexes own routing to applicable cross-responsibility authority. Indexes must not become alternate owners of detailed relationship semantics.
 - Development routing must remain responsibility-based: resolve the responsible definition index, then use its category and cross-responsibility authority entries to reach the applicable requirements/design/testing and other governing SoTs. A dedicated cross-artifact mapping is not required for implementation entry or completion.
+- Index checks must support direct-link + nested reachability + protected-instruction exclusions; requirement/design/testing and cross-responsibility authority discovery must follow the supported indexed hierarchy rather than assume a flat source set.
 
 ### Verification Basis
 
@@ -176,9 +169,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Maintenance and Validation
 
-- Do not add a document category/directory when the current model can represent the responsibility; responsibility grouping under `definition/system/` is not a new classification when the placement rules are met. Before a new `definition/` directory, explain responsibility + classification effects and obtain user approval; approved init/change summary suffices.
-- Add/rename/move/delete indexed docs using Reconciliation and Migration; preserve identifiers when splitting/moving and do not duplicate detail between overview/detail docs.
+- Before modifying project-specific definition documentation or its structure/navigation—including creating an app/category/directory, adding/renaming/moving/deleting an indexed document, or separating mixed-authority content—read and apply [`definition/agents.d/definition-maintenance.md`](agents.d/definition-maintenance.md).
 - Run all project-defined documentation verification for documentation changes when available; at minimum cover changed Markdown links, fixed files, index reachability, IDs, and applicable cross-responsibility routing.
-- Index checks must support direct-link + nested reachability + protected-instruction exclusions; requirement/design/testing and cross-responsibility authority discovery must follow the supported indexed hierarchy rather than assume a flat source set.
 - Verify lifecycle state matches exactly one row in Initialization and project statements have approval/evidence.
 - Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, or relationships must match the responsible SoT. Repetition does not create alternate authority; prefer automated comparison for intentionally repeated structured facts when practical, otherwise keep manual responsibility explicit.
