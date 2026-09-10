@@ -31,11 +31,7 @@ When choosing an AI coding environment, prefer one whose agent runtime reliably 
 
 Merely discovering or reading `AGENTS.md` does not by itself demonstrate reliable compatibility if those instructions are not consistently applied during work.
 
-Tested combinations:
-
-- GPT-5.6 on Codex
-- Claude Opus 5 on Claude Code
-- Gemini 3.6 Flash on Antigravity
+AIDD Skeleton has been exercised with GPT-5.6 on Codex, Claude Opus 5 on Claude Code, and Gemini 3.6 Flash on Antigravity. These are examples, not compatibility guarantees.
 
 Runtime behavior and model capability both affect reliability. Faster or less capable models may work, but more capable models are recommended for complex or governance-heavy tasks.
 
