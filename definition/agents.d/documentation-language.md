@@ -2,7 +2,7 @@
 
 ## Scope
 
-- Applies only when dispatched by `definition/AGENTS.md` because work is determining, selecting, recording, or changing the effective project documentation language, or creating or changing project-definition documentation text.
+- Applies only when dispatched by `definition/AGENTS.md`; the parent dispatch entry owns this file's applicability condition.
 - Inherits root governance and `definition/AGENTS.md`. Loading this file does not itself authorize a language-setting change, adoption, or project modification.
 
 ## Documentation Language

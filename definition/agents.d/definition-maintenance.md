@@ -2,7 +2,7 @@
 
 ## Scope
 
-- Applies only when dispatched by `definition/AGENTS.md` because project-specific definition documentation or its structure/navigation is about to be modified.
+- Applies only when dispatched by `definition/AGENTS.md`; the parent dispatch entry owns this file's applicability condition.
 - Inherits root governance and `definition/AGENTS.md`. Loading this file does not itself authorize project modification, new structure, or definition adoption.
 
 ## Maintenance

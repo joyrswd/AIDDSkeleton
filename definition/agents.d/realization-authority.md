@@ -2,7 +2,7 @@
 
 ## Scope
 
-- Applies only when dispatched by `definition/AGENTS.md` because realization- or implementation-derived facts or details are being used to determine project-definition authority, adoption, or transfer, or concrete provenance/intent evidence has created material doubt about their authority.
+- Applies only when dispatched by `definition/AGENTS.md`; the parent dispatch entry owns this file's applicability condition.
 - Inherits root governance and `definition/AGENTS.md`. Loading this file does not itself authorize adoption, transfer, reclassification, or project modification.
 
 ## Realization Authority
