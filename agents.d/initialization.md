@@ -18,6 +18,8 @@
 
 - Start read-only only long enough to establish the initialization state and applicable governance, then establish the required initialization job before continuing project-specific clarification or preparation.
 - Before project-specific changes other than the initialization job, present one initialization summary: verified facts, user decisions, proposed assumptions, open questions, blockers, files/directories to change, target lifecycle state, and work left unstarted.
+- When future intent is present, classify it explicitly in the summary as decided/approved future work, proposed/assumed future direction, or an open possibility; do not infer one category from another.
 - Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
+- After summary approval, preserve the approved future-intent classification during initialization. Current-scope exclusion alone must not reopen decided/approved future intent or settle an unapproved future possibility; either reclassification requires new evidence or an explicit user decision.
 - If `README.md` still identifies the repository as AIDD Skeleton or contains template-use guidance, include replacement with project-specific human guidance in the initialization summary; after approval, replace that starter content during initialization.
 - If immediate initialization from supplied information + reasonable assumptions is explicitly requested, advance discussion may be omitted, but the initialization job is still required before initialization proceeds; report every adopted assumption at completion.
