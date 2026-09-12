@@ -1,6 +1,6 @@
 # AIDD Reference Material Instructions
 
-This file defines area-specific governance for `references/` and inherits repository governance.
+This file defines area-specific governance for `references/` and inherits repository and `definition/` governance.
 
 ## Area Foundations
 
@@ -77,7 +77,7 @@ This file defines area-specific governance for `references/` and inherits reposi
 ### Use
 
 - Preserve supplied originals in `references/`.
-- Implementation, acceptance, or current verified-claim use requires Validation.
+- Implementation, acceptance, or current verified-claim use requires the Validation rules below.
 
 ### Validation
 

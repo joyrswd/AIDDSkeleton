@@ -2,7 +2,7 @@
 
 This file defines repository-wide governance, boundaries, and common rules. Descendant area governance inherits this agreement and adds area-specific rules.
 
-Repository governance uses `Repository Foundations`, `Repository Principles`, `Repository Operations`, and `Repository Conditional Governance`. Area governance uses the corresponding `Area Foundations`, `Area Principles`, `Area Operations`, and, when needed, `Area Conditional Governance` structure.
+For this Upstream-distributed governance set, the root file is organized as `Repository Foundations`, `Repository Principles`, `Repository Operations`, and `Repository Conditional Governance`. The distributed area files use the corresponding `Area Foundations`, `Area Principles`, `Area Operations`, and, when needed, `Area Conditional Governance` headings. These organizational headings do not independently create authority, applicability, precedence, or structural requirements for Consumer-local governance; rule applicability comes from the rules themselves and the instruction hierarchy.
 
 ## Repository Foundations
 
@@ -225,6 +225,8 @@ Severity and disposition are independent: a Follow-up may become separate author
 - Before reporting current work complete, confirm its approved acceptance basis, required verification, and unresolved Blocker/In-scope deficiencies; repository-managed job completion additionally follows `jobs/AGENTS.md`.
 
 ## Repository Conditional Governance
+
+This section is always-read governance that owns dispatch rules. Only a dispatched instruction's applicability is conditional; any unconditional rule in this section applies regardless of whether a dispatch condition is satisfied.
 
 ### Project Initialization
 

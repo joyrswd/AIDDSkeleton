@@ -1,6 +1,6 @@
 # AIDD Formal Product Instructions
 
-This file defines area-specific governance for `products/` and inherits repository governance.
+This file defines area-specific governance for `products/` and inherits repository and `definition/` governance.
 
 ## Area Foundations
 

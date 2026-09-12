@@ -1,6 +1,6 @@
 # AIDD Execution Environment Instructions
 
-This file defines area-specific governance for `etc/` and inherits repository governance.
+This file defines area-specific governance for `etc/` and inherits repository and `definition/` governance.
 
 ## Area Foundations
 

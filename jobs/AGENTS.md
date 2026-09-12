@@ -1,6 +1,6 @@
 # AIDD Jobs Instructions
 
-This file defines area-specific governance for `jobs/` and inherits repository governance.
+This file defines area-specific governance for `jobs/` and inherits repository and `definition/` governance.
 
 ## Area Foundations
 
@@ -23,9 +23,6 @@ This file defines area-specific governance for `jobs/` and inherits repository g
 - **Child job**: a job unit physically contained by another job unit; nesting is recursive.
 - **Supporting material**: unmarked descendants such as notes, logs, evidence, fixtures, generated material, and ordinary execution detail.
 - `jobs/.hooks/` is the root-defined Consumer Hook namespace, not a job unit, working material, active/inactive lifecycle state, or source of job authority; `.gitkeep` has no Hook semantics.
-- Independently completable/acceptable authorized work retained under a parent is a child job, including authorized work not yet started; do not keep such work only as an informal future-task list. Low-level operations remain execution detail unless independently qualifying as a coherent authorized outcome requiring repository-managed lifecycle.
-- Decomposition never grants authority, broadens scope/AC, narrows still-required parent acceptance, or makes discovered adjacent work part of the job.
-- Filesystem containment determines parent/child relationship and job-owned descendants. A link, proximity, or INDEX entry does not transfer ownership.
 - Prefer one purpose/question/experiment/verification activity/handoff per job and make `<purpose>` sufficient for first-pass relevance screening; do not use an opaque generic name that requires opening the unit.
 - Keep jobs independently understandable/removable with proportional structure/entry points. Use file form only when no retained descendants are owned; otherwise use directory form. Do not create directories/control docs/templates solely for uniformity.
 - Related lightweight inactive assessment inputs may share a unit/registry only while they are not independently authorized work and remain independently judgeable/removable; no repository-wide dumping ground.
@@ -35,9 +32,16 @@ This file defines area-specific governance for `jobs/` and inherits repository g
 
 ## Area Principles
 
-### Adoption Authority
+### Job Invariants
 
-- Adoption/formalization authority remains external to `jobs/`: job content, markers, `INDEX.md`, completion, retention, revisit matches, and decision-readiness never grant it; adoption requires applicable root + `definition/` authority.
+1. Independently completable/acceptable authorized work retained under a parent is a child job, including authorized work not yet started; do not keep such work only as an informal future-task list. Low-level operations remain execution detail unless independently qualifying as a coherent authorized outcome requiring repository-managed lifecycle.
+2. Decomposition never grants authority, broadens scope/AC, narrows still-required parent acceptance, or makes discovered adjacent work part of the job.
+3. Job markers express lifecycle state only. `+` grants no authority/priority and proves no completion/verification/acceptance, nor does it make every contained artifact active work; `_` does not by itself mean Defer, rejection, adoption, priority, or future commitment. Lexical/display order is not priority.
+4. Markers are local and independent. Parent/child/sibling activation, deactivation, completion, or retention never cascades marker changes; active descendants do not block a parent from transitioning by its own lifecycle state.
+5. An inactive ancestor gates ordinary descendant discovery/execution. Descendant markers are preserved/frozen rather than forcing an ancestor marker change; after ancestor reactivation they become discoverable in retained states without rewriting them or re-firing unchanged descendant Hooks.
+6. Filesystem containment determines parent/child relationship and job-owned descendants. A link, proximity, or INDEX entry does not transfer ownership.
+7. Every retained job unit is marked at its own path; only top-level `jobs/AGENTS.md` and `jobs/.hooks/` are exempt. Top-level supporting material belongs inside a marked owner; unmarked descendants inside a job are supporting material.
+8. Adoption/formalization authority remains external to `jobs/`: job content, markers, `INDEX.md`, completion, retention, revisit matches, and decision-readiness never grant it; adoption requires applicable root + `definition/` authority.
 
 ### Outbound Transfer
 
@@ -55,12 +59,9 @@ This file defines area-specific governance for `jobs/` and inherits repository g
 
 ### Lifecycle
 
-#### State and Discovery
+Retention and Exit Handling govern applicable `jobs/` retention, deletion, and transfer regardless of whether the operation arose through ordinary lifecycle discovery.
 
-- Job markers express lifecycle state only. `+` grants no authority/priority and proves no completion/verification/acceptance, nor does it make every contained artifact active work; `_` does not by itself mean Defer, rejection, adoption, priority, or future commitment. Lexical/display order is not priority.
-- Markers are local and independent. Parent/child/sibling activation, deactivation, completion, or retention never cascades marker changes; active descendants do not block a parent from transitioning by its own lifecycle state.
-- An inactive ancestor gates ordinary descendant discovery/execution. Descendant markers are preserved/frozen rather than forcing an ancestor marker change; after ancestor reactivation they become discoverable in retained states without rewriting them or re-firing unchanged descendant Hooks.
-- Every retained job unit is marked at its own path; only top-level `jobs/AGENTS.md` and `jobs/.hooks/` are exempt. Top-level supporting material belongs inside a marked owner; unmarked descendants inside a job are supporting material.
+#### State and Discovery
 
 **States**
 
@@ -178,7 +179,7 @@ After `jobs.blocked`, a Consumer Hook may only apply ordinary lifecycle discover
 - If pre-existing control already assigned supporting material, transitional-VB responsibility, or another job-owned responsibility to the re-expressed child outcome, preserve that semantic ownership. Move/co-locate material when required and reconcile moved references without changing claim/authority semantics.
 - A discovered item unnecessary to satisfy the existing approved basis is separate assessment input unless current authority independently includes it; apply root Assessment and Feedback and retain follow-up only for continuing value.
 - Do not create/enlarge retained job content merely to record every suggestion/observation/improvement; discovery or apparent validity alone neither joins it to the job nor requires repository retention.
-- After mutation, the updater re-evaluates that job's marker against State and Discovery. Parent/child control content may be reconciled when applicable, but related markers do not change merely to mirror the updated job. Recency, metadata/evidence refresh, or newly retained context never independently activates/deactivates/reopens or preserves `+`.
+- After mutation, the updater re-evaluates that job's marker against the **States** and **Transitions** rules under State and Discovery. Parent/child control content may be reconciled when applicable, but related markers do not change merely to mirror the updated job. Recency, metadata/evidence refresh, or newly retained context never independently activates/deactivates/reopens or preserves `+`.
 
 ### Active Work Control
 

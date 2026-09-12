@@ -130,6 +130,10 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Completion requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, responsible index current-state updates, and no unresolved Blocker or In-scope deficiency.
 - Disposition cannot waive approved scope, adopted AC, or another completion condition. Dispositioned Follow-ups do not block completion unless new evidence justifies reclassification or exposes another unmet condition.
 
+#### Reset
+
+- See [Reset Dispatch](#reset-dispatch) for the conditional procedure that applies before an explicitly authorized reset to `Uninitialized`.
+
 ### Documentation Language
 
 - Initialization summary proposes a default; absent user choice, propose current conversation language.
@@ -173,23 +177,26 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ## Area Conditional Governance
 
-### Initialization
+### Initialization Dispatch
 
 - If the observed state is `Uninitialized` or `Inconsistent`, read and apply [`definition/agents.d/initialization.md`](agents.d/initialization.md) before definition-specific initialization/reconciliation work.
+
+### Reset Dispatch
+
 - Before an explicitly authorized reset to `Uninitialized`, read and apply [`definition/agents.d/initialization.md`](agents.d/initialization.md).
 
-### Documentation Language
+### Documentation Language Dispatch
 
 - When work determines, selects, records, or changes the effective project documentation language, or before creating or changing project-definition documentation text, read and apply [`definition/agents.d/documentation-language.md`](agents.d/documentation-language.md).
 
-### Realization Authority
+### Realization Authority Dispatch
 
 - When realization- or implementation-derived facts or details are used to determine project-definition authority, adoption, or transfer, or concrete provenance/intent evidence creates material doubt about their authority, read and apply [`definition/agents.d/realization-authority.md`](agents.d/realization-authority.md).
 
-### Governance Migration
+### Governance Migration Dispatch
 
 - When a governance change alters definition authority, classification, routing, retention, migration semantics, or allowed document location/hierarchy, read and apply [`definition/agents.d/governance-migration.md`](agents.d/governance-migration.md) before its definition migration/reconciliation.
 
-### Definition Maintenance
+### Definition Maintenance Dispatch
 
 - Before modifying project-specific definition documentation or its structure/navigation—including creating an app/category/directory, adding/renaming/moving/deleting an indexed document, or separating mixed-authority content—read and apply [`definition/agents.d/definition-maintenance.md`](agents.d/definition-maintenance.md).
