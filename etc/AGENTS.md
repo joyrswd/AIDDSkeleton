@@ -1,17 +1,21 @@
 # AIDD Execution Environment Instructions
 
-## General Provisions
+This file defines area-specific governance for `etc/` and inherits repository governance.
 
-### Scope
+## Area Foundations
+
+### General Provisions
+
+#### Scope
 
 - Applies to `etc/` and descendants; inherits root + `definition/AGENTS.md`.
 
-### Responsibility
+#### Responsibility
 
 - Owns project-managed configuration that controls execution environments from outside an application: container images/composition, external-service config, safe env examples, bootstrap, deployment, rollback, recovery, monitoring, CI environment wiring.
 - Only adopted project-managed configuration belongs in `etc/`.
 
-## Structure and Placement
+### Structure and Placement
 
 - Group by environment responsibility/target service; one project-managed source for each config responsibility.
 - Classify by ownership/role, not extension or script-ness.
@@ -29,18 +33,20 @@ Canonical product/environment boundary:
 | seed | seed data in owning product area | startup injection |
 | external-service fixture | fixture implementation in verification-owning product area | emulator deployment/wiring/endpoint/consumer config |
 
-## Outbound Transfer
-
-- App/formal test/lint/generator/migration/fixture programs → owning `products/` area; container invocation does not transfer ownership.
-- Supplied originals → `references/`.
-
-## Local Governance
+## Area Principles
 
 ### Change Authority
 
 - Uninitialized/unapproved responsibility: do not invent services, commands, topology, publication boundaries, persistence, recovery methods, operational guarantees.
 - Keep config consistent with applicable environment/development/testing/release/migration/operation SoTs.
 - Service composition/networking/persistence/publication/deployment/rollback/recovery behavior changes must respect root authority: complete any required project-definition change/authorization first, then keep config and responsible project docs/status consistent in the same change.
+
+### Outbound Transfer
+
+- App/formal test/lint/generator/migration/fixture programs → owning `products/` area; container invocation does not transfer ownership.
+- Supplied originals → `references/`.
+
+## Area Operations
 
 ### Safety
 

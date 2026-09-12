@@ -1,18 +1,22 @@
 # AIDD Definition and Sources of Truth Instructions
 
-## General Provisions
+This file defines area-specific governance for `definition/` and inherits repository governance.
 
-### Scope
+## Area Foundations
+
+### General Provisions
+
+#### Scope
 
 - Applies to `definition/` and descendants; inherits root governance.
 
-### Responsibility
+#### Responsibility
 
 - `definition/` owns project-specific adopted definition, lifecycle/status, procedures, identifiers, commands, constraints, and VB rules.
 
-## Structure and Placement
+### Structure and Placement
 
-### Required Structure
+#### Required Structure
 
 - Clone-ready fixed entries: `definition/AGENTS.md`, `definition/agents.d/initialization.md`, `definition/agents.d/governance-migration.md`, `definition/agents.d/realization-authority.md`, `definition/agents.d/documentation-language.md`, `definition/agents.d/definition-maintenance.md`, `definition/.hooks/.gitkeep`, `definition/system/.gitkeep`, and `definition/apps/.gitkeep`.
 - Per approved app, create:
@@ -39,7 +43,7 @@
 - Keep fixed system entry docs directly under `definition/system/`.
 - Required app category dirs/indexes do not require detail docs. If none, the index states explicit absence/inheritance/cross-cutting source; design may state no additional normative implementation constraints.
 
-### Placement and Navigation
+#### Placement and Navigation
 
 - One purpose per project doc; split by coherent responsibility/question/reader/update trigger/lifecycle, not tidiness or count alone.
 - Other system docs stay flat while responsibility is small; use a responsibility-based subdirectory only when one stable system responsibility owns multiple independently changing docs.
@@ -54,13 +58,7 @@
   - Normative testing uses the same ownership test. Testing responsibility always exists for formal implementation; if no app testing detail doc, the testing index names inherited/cross-cutting policy. Testing indexes may link current VB for coverage but contain no execution history.
   - Adopted procedures/policy/constraints belong in `definition/`.
 
-### Documentation Language
-
-- Initialization summary proposes a default; absent user choice, propose current conversation language.
-- Do not duplicate the language setting in another machine-readable file.
-- When work determines, selects, records, or changes the effective project documentation language, or before creating or changing project-definition documentation text, read and apply [`definition/agents.d/documentation-language.md`](agents.d/documentation-language.md).
-
-### Document Splitting
+#### Document Splitting
 
 Applies only to initialized project-specific SoT docs; excludes protected `AGENTS.md`.
 
@@ -69,39 +67,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Split by coherent responsibility/question/reader/update trigger/lifecycle, not line count alone; document count alone does not justify a subdirectory.
 - Keep `system_index.md`, `<app>_index.md`, and category indexes as single entry points.
 
-## Lifecycle
-
-### Initialization
-
-| State | Observed state of all listed initialization artifacts taken together |
-|---|---|
-| Uninitialized | `definition/system/system_index.md` and `definition/system/documentation_language.md` absent; `definition/system/.gitkeep` and `definition/apps/.gitkeep` present |
-| Initialized | both fixed system docs present; `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` present only while no app docs exist |
-| Inconsistent | does not exactly match either row above |
-
-- Reconcile an `Inconsistent` state before formal work.
-- Do not delete either fixed system document independently.
-- Initialized requires purpose, scope, RBs, and required project SoTs to be approved and recorded; fixed skeleton files/markers alone do not establish project facts or initialization, and uninitialized/inconsistent state must not be used to infer project facts.
-- If the observed state is `Uninitialized` or `Inconsistent`, read and apply [`definition/agents.d/initialization.md`](agents.d/initialization.md) before definition-specific initialization/reconciliation work.
-
-### Entry and Completion
-
-- Implementation entry requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, and no unresolved Blocker.
-- Completion requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, responsible index current-state updates, and no unresolved Blocker or In-scope deficiency.
-- Disposition cannot waive approved scope, adopted AC, or another completion condition. Dispositioned Follow-ups do not block completion unless new evidence justifies reclassification or exposes another unmet condition.
-
-### Reset
-
-- Before an explicitly authorized reset to `Uninitialized`, read and apply [`definition/agents.d/initialization.md`](agents.d/initialization.md).
-
-## Outbound Transfer
-
-- Non-authoritative candidate replacements/target states/alternatives, transient current-realization or other active working material, active execution control, and project-managed active execution evidence → `jobs/`.
-- Durable non-normative knowledge/artifacts with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`.
-- Environment configuration → `etc/`.
-- Application tests and formal generators/viewers/verifiers → `products/`.
-
-## Local Governance
+## Area Principles
 
 ### Definition Authority
 
@@ -125,17 +91,49 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 #### Realization Authority
 
 - Source paths/private helpers/classes/functions/state fields/DOM IDs/current directory layout/implementation status remain current-realization detail unless independently adopted.
-- When realization- or implementation-derived facts or details are used to determine project-definition authority, adoption, or transfer, or concrete provenance/intent evidence creates material doubt about their authority, read and apply [`definition/agents.d/realization-authority.md`](agents.d/realization-authority.md).
 
 ### Reconciliation and Migration
 
 - Active normative design describes adopted end state, not stale transition stages. After completed migration/refactor/rename/rollout, remove obsolete stages/names/temp compatibility/superseded targets from active design and retain useful history non-normatively.
 - Prevent authority leakage in mixed normative + current-realization/maintenance content. Separate when authority/readers/update triggers differ and usability survives; otherwise mark authority explicitly. Do not duplicate facts merely to separate.
 - Reconciliation affecting authority, ownership, navigation, current state, or verification claims must inspect and reconcile the affected SoTs, indexes, VB, inbound links, and retained job/reference material in the same coherent change.
-- When a governance change alters definition authority, classification, routing, retention, migration semantics, or allowed document location/hierarchy, read and apply [`definition/agents.d/governance-migration.md`](agents.d/governance-migration.md) before its definition migration/reconciliation.
 - Documentation silence does not authorize opportunistic re-architecture.
 - Apply Outbound Transfer to active and durable non-normative material; keep current SoT semantics in `definition/`, use native/external VB when suitable for current claim support, and retire no-need material.
 - Source location is not an adoption record; adopted facts/decisions enter responsible SoTs only through applicable adoption authority.
+
+### Outbound Transfer
+
+- Non-authoritative candidate replacements/target states/alternatives, transient current-realization or other active working material, active execution control, and project-managed active execution evidence → `jobs/`.
+- Durable non-normative knowledge/artifacts with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`.
+- Environment configuration → `etc/`.
+- Application tests and formal generators/viewers/verifiers → `products/`.
+
+## Area Operations
+
+### Lifecycle
+
+#### Initialization
+
+| State | Observed state of all listed initialization artifacts taken together |
+|---|---|
+| Uninitialized | `definition/system/system_index.md` and `definition/system/documentation_language.md` absent; `definition/system/.gitkeep` and `definition/apps/.gitkeep` present |
+| Initialized | both fixed system docs present; `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` present only while no app docs exist |
+| Inconsistent | does not exactly match either row above |
+
+- Reconcile an `Inconsistent` state before formal work.
+- Do not delete either fixed system document independently.
+- Initialized requires purpose, scope, RBs, and required project SoTs to be approved and recorded; fixed skeleton files/markers alone do not establish project facts or initialization, and uninitialized/inconsistent state must not be used to infer project facts.
+
+#### Entry and Completion
+
+- Implementation entry requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, and no unresolved Blocker.
+- Completion requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, responsible index current-state updates, and no unresolved Blocker or In-scope deficiency.
+- Disposition cannot waive approved scope, adopted AC, or another completion condition. Dispositioned Follow-ups do not block completion unless new evidence justifies reclassification or exposes another unmet condition.
+
+### Documentation Language
+
+- Initialization summary proposes a default; absent user choice, propose current conversation language.
+- Do not duplicate the language setting in another machine-readable file.
 
 ### Procedures
 
@@ -169,7 +167,29 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Maintenance and Validation
 
-- Before modifying project-specific definition documentation or its structure/navigation—including creating an app/category/directory, adding/renaming/moving/deleting an indexed document, or separating mixed-authority content—read and apply [`definition/agents.d/definition-maintenance.md`](agents.d/definition-maintenance.md).
 - Run all project-defined documentation verification for documentation changes when available; at minimum cover changed Markdown links, fixed files, index reachability, IDs, and applicable cross-responsibility routing.
 - Verify lifecycle state matches exactly one row in Initialization and project statements have approval/evidence.
 - Derived/summary docs repeating normative IDs, PK/FK, cardinalities, RBs, contracts, or relationships must match the responsible SoT. Repetition does not create alternate authority; prefer automated comparison for intentionally repeated structured facts when practical, otherwise keep manual responsibility explicit.
+
+## Area Conditional Governance
+
+### Initialization
+
+- If the observed state is `Uninitialized` or `Inconsistent`, read and apply [`definition/agents.d/initialization.md`](agents.d/initialization.md) before definition-specific initialization/reconciliation work.
+- Before an explicitly authorized reset to `Uninitialized`, read and apply [`definition/agents.d/initialization.md`](agents.d/initialization.md).
+
+### Documentation Language
+
+- When work determines, selects, records, or changes the effective project documentation language, or before creating or changing project-definition documentation text, read and apply [`definition/agents.d/documentation-language.md`](agents.d/documentation-language.md).
+
+### Realization Authority
+
+- When realization- or implementation-derived facts or details are used to determine project-definition authority, adoption, or transfer, or concrete provenance/intent evidence creates material doubt about their authority, read and apply [`definition/agents.d/realization-authority.md`](agents.d/realization-authority.md).
+
+### Governance Migration
+
+- When a governance change alters definition authority, classification, routing, retention, migration semantics, or allowed document location/hierarchy, read and apply [`definition/agents.d/governance-migration.md`](agents.d/governance-migration.md) before its definition migration/reconciliation.
+
+### Definition Maintenance
+
+- Before modifying project-specific definition documentation or its structure/navigation—including creating an app/category/directory, adding/renaming/moving/deleting an indexed document, or separating mixed-authority content—read and apply [`definition/agents.d/definition-maintenance.md`](agents.d/definition-maintenance.md).

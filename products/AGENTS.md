@@ -1,16 +1,20 @@
 # AIDD Formal Product Instructions
 
-## General Provisions
+This file defines area-specific governance for `products/` and inherits repository governance.
 
-### Scope
+## Area Foundations
+
+### General Provisions
+
+#### Scope
 
 - Applies to `products/` and descendants; inherits root + `definition/AGENTS.md`.
 
-### Responsibility
+#### Responsibility
 
 - Owns formal implementations and tests.
 
-## Structure and Placement
+### Structure and Placement
 
 ```text
 products/
@@ -37,12 +41,7 @@ products/
 - Local `README.md` may explain implementation/entry point; link responsible project docs instead of duplicating requirements/design/testing/status.
 - Product/environment boundary for E2E, generation, migrations, linting, seeds, fixtures: [etc placement rules](../etc/AGENTS.md#structure-and-placement).
 
-## Lifecycle
-
-- When formalizing adopted code/tools, create a project-managed formal implementation with appropriate structure/quality/tests rather than depending on a working/reference copy as production source.
-- Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `definition/AGENTS.md` VB lifecycle.
-
-## Local Governance
+## Area Principles
 
 ### Change Boundaries
 
@@ -51,6 +50,13 @@ products/
 - Documentation silence does not authorize redesign when change affects compatibility/responsibility/security/persistence/state authority/material boundary; resolve through the SoT process.
 - Observable behavior/public contracts/data structures/dependencies/migrations/RBs changes must respect root authority: complete any required project-definition change/authorization first, then keep implementation/tests/responsible project docs/status consistent in the same change.
 - Before move/transfer/deletion inspect dependents, public contracts, migrations, tests, docs, status, current VB, reference-retention needs.
+
+## Area Operations
+
+### Lifecycle
+
+- When formalizing adopted code/tools, create a project-managed formal implementation with appropriate structure/quality/tests rather than depending on a working/reference copy as production source.
+- Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `definition/AGENTS.md` VB lifecycle.
 
 ### Implementation Verification
 
