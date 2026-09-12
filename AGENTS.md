@@ -1,8 +1,14 @@
 # AIDD Working Agreement
 
-## General Provisions
+This file defines repository-wide governance, boundaries, and common rules. Descendant area governance inherits this agreement and adds area-specific rules.
 
-### Purpose and Authority
+For this Upstream-distributed governance set, the root file is organized as `Repository Foundations`, `Repository Principles`, `Repository Operations`, and `Repository Conditional Governance`. The distributed area files use the corresponding `Area Foundations`, `Area Principles`, `Area Operations`, and, when needed, `Area Conditional Governance` headings. These organizational headings do not independently create authority, applicability, precedence, or structural requirements for Consumer-local governance; rule applicability comes from the rules themselves and the instruction hierarchy.
+
+## Repository Foundations
+
+### General Provisions
+
+#### Purpose and Authority
 
 - This file owns repository-wide governance definitions, boundaries, and common rules.
 - The AI may investigate, propose, change, and verify within authorized scope. The user retains final authority over intent, priorities, material scope changes, responsibility boundaries, and accepted outcomes.
@@ -14,7 +20,7 @@
   - **VB** = verification basis
   - **RB** = responsibility boundary
 
-### Governance Concepts
+#### Governance Concepts
 
 | Concept | Meaning |
 |---|---|
@@ -25,7 +31,7 @@
 | **Structure / Placement** | Ownership/RB, lifecycle, and authority determine placement |
 | **Safety / Compliance** | Repository-wide safety plus subtree-owned compliance |
 
-### Common Principles
+#### Common Principles
 
 - A rule may relate to multiple concepts or sections, but must have one authoritative owner; do not redefine it independently elsewhere.
 - Proposal/assumption/observation/implementation/test/result/reference existence or linkage ≠ SoT adoption.
@@ -34,21 +40,9 @@
 - New evidence may require repeating or reopening applicable lifecycle work and revising prior completion/verification claims to the scope still supported.
 - Claim scope ≤ supporting basis: presence ≠ implementation ≠ execution ≠ verification ≠ acceptance/completion.
 
-### Hooks
+### Project Structure and Instruction Hierarchy
 
-- A **Hook** is an optional area-owned extension point exposed by a governance rule after its firing condition has been independently established. Reaching a Hook does not itself grant authority, change project/repository state, prove completion/verification, or satisfy required governance behavior.
-- Hook identifiers use `<area>.<hook>` form, where `<area>` is one of the responsibility areas listed under Ownership and Placement, and are owned by the area that defines their firing condition. A defined Hook resolves at most one **Consumer Hook** from `<area>/.hooks/<hook>.md`; an undefined Hook or absent Consumer Hook is a no-op.
-- Each responsibility area reserves `<area>/.hooks/` as a standard Consumer Hook instruction namespace and keeps the directory present with `.gitkeep`. The `.gitkeep` file has no Hook semantics and may coexist with Consumer Hooks.
-- `<area>/.hooks/` is not an artifact of the area's project responsibility; ordinary area-artifact classification, placement, lifecycle, and Outbound Transfer rules do not apply to Consumer Hooks merely because of that location. Hook-specific local rules may further constrain them.
-- Consumer Hooks are Consumer-local instructions, not SoTs or generally inherited instructions. Read and apply a Consumer Hook only when its Hook is reached. Explicitly authorized inspection or maintenance of that Consumer Hook may read it outside a Hook occurrence; such access does not execute the Consumer Hook or constitute a Hook occurrence. Its instructions apply only to an actual Hook invocation and remain subordinate to applicable `AGENTS.md`, SoTs, Permission / Scope, Safety / Compliance, and required lifecycle/outbound behavior.
-- Existing Consumer Hooks are protected local instructions. Ordinary work must not create, change, move, rename, or delete a Consumer Hook merely to enable, alter, or unblock current work; Hook customization requires explicit user authorization identifying the affected Hook/scope.
-- A Consumer Hook may perform any otherwise-authorized Consumer-specific processing, but must not replace or suppress the governance condition or required action that exposed the Hook. After Consumer Hook processing, re-evaluate affected state before continuing.
-- Do not re-invoke a Hook merely because its Consumer Hook completed. A Hook may run again only when its owning rule's firing condition is reached again through a new applicable occurrence or state transition.
-- Each area owns its concrete Hook points and firing conditions. Hook transport, UI signaling, scheduling, retry, external execution, and automation mechanisms are Consumer concerns unless a governing rule explicitly says otherwise.
-
-## Project Structure and Instruction Hierarchy
-
-### Ownership and Placement
+#### Ownership and Placement
 
 - Record project-specific scope, architecture, technologies, commands, naming, and other project facts in `definition/`.
 
@@ -70,7 +64,7 @@
 - Do not duplicate a canonical artifact under its owning area solely to mirror logical ownership.
 - `README.md` is human guidance only: not instructions or project SoT; do not duplicate/replace requirements, design, testing, status, or agent instructions.
 
-### Instruction Hierarchy and Protection
+#### Instruction Hierarchy and Protection
 
 - Before changing a target, read: root `AGENTS.md` → `definition/AGENTS.md` → every additional descendant `AGENTS.md` through the target → for a repository-level integration artifact carrying an assigned project responsibility, the owning area's `AGENTS.md` when not already read → every conditional instruction explicitly dispatched by those governing files once its stated condition is established → applicable project SoTs.
 - An `agents.d/` directory is optional. Do not scan it to discover applicable instructions or read its files by default. Read only a file explicitly named by a governing `AGENTS.md` when that rule's stated condition is established; incidental path discovery, filename/topic resemblance, or perceived relevance is not a dispatch condition.
@@ -89,14 +83,23 @@
 - Never alter instructions to remove a blocker, retroactively justify implementation, accommodate a tool default, or broaden AI authority.
 - Repository instructions + approved project decisions override general conventions/tool defaults where they differ.
 
-### Project Initialization
+#### Consumer Extension
 
-- Determine project initialization state using `definition/AGENTS.md` before project-specific work.
-- If that state is `Uninitialized` or `Inconsistent`, read and apply [`agents.d/initialization.md`](agents.d/initialization.md) before project-specific modification. `definition/AGENTS.md` separately dispatches definition-owned initialization rules.
+- A **Hook** is an optional area-owned extension point exposed by a governance rule after its firing condition has been independently established. Reaching a Hook does not itself grant authority, change project/repository state, prove completion/verification, or satisfy required governance behavior.
+- Hook identifiers use `<area>.<hook>` form, where `<area>` is one of the responsibility areas listed under Ownership and Placement, and are owned by the area that defines their firing condition. A defined Hook resolves at most one **Consumer Hook** from `<area>/.hooks/<hook>.md`; an undefined Hook or absent Consumer Hook is a no-op.
+- Each responsibility area reserves `<area>/.hooks/` as a standard Consumer Hook instruction namespace and keeps the directory present with `.gitkeep`. The `.gitkeep` file has no Hook semantics and may coexist with Consumer Hooks.
+- `<area>/.hooks/` is not an artifact of the area's project responsibility; ordinary area-artifact classification, placement, lifecycle, and Outbound Transfer rules do not apply to Consumer Hooks merely because of that location. Hook-specific local rules may further constrain them.
+- Consumer Hooks are Consumer-local instructions, not SoTs or generally inherited instructions. Read and apply a Consumer Hook only when its Hook is reached. Explicitly authorized inspection or maintenance of that Consumer Hook may read it outside a Hook occurrence; such access does not execute the Consumer Hook or constitute a Hook occurrence. Its instructions apply only to an actual Hook invocation and remain subordinate to applicable `AGENTS.md`, SoTs, Permission / Scope, Safety / Compliance, and required lifecycle/outbound behavior.
+- Existing Consumer Hooks are protected local instructions. Ordinary work must not create, change, move, rename, or delete a Consumer Hook merely to enable, alter, or unblock current work; Hook customization requires explicit user authorization identifying the affected Hook/scope.
+- A Consumer Hook may perform any otherwise-authorized Consumer-specific processing, but must not replace or suppress the governance condition or required action that exposed the Hook. After Consumer Hook processing, re-evaluate affected state before continuing.
+- Do not re-invoke a Hook merely because its Consumer Hook completed. A Hook may run again only when its owning rule's firing condition is reached again through a new applicable occurrence or state transition.
+- Each area owns its concrete Hook points and firing conditions. Hook transport, UI signaling, scheduling, retry, external execution, and automation mechanisms are Consumer concerns unless a governing rule explicitly says otherwise.
 
-## Action Boundaries
+## Repository Principles
 
-### Permission / Scope
+### Action Boundaries
+
+#### Permission / Scope
 
 - Project SoTs constrain an already authorized task; they do not authorize task mode, modification, publication, or scope expansion.
 - Investigation, analysis, planning, review, implementation, publication, and external operations are distinct modes.
@@ -108,44 +111,10 @@
 - Add discovered work only when required by approved AC or needed to prevent direct regression, corruption, security failure, or irreversible damage; otherwise disposition it under Assessment and Feedback and retain follow-up only when continuing value exists.
 - Repository-managed decomposition, continuity, ordering, acceptance state, and recursive execution of independently completable work follow `jobs/AGENTS.md`; decomposition does not grant authority or remove still-required approved scope/AC.
 
-### Safety / Compliance
+#### Safety / Compliance
 
 - Ask before destructive/irreversible operations, external publication, out-of-scope effects on people/systems, or decisions substantially changing the requested outcome.
 - Never expose credentials, personal information, or confidential values in code, docs, logs, or reports.
-
-## Interaction
-
-### Decision Requests
-
-- Ask only for user-owned decisions; verify repository facts yourself.
-- Ask one issue at a time, or ≤3 closely related issues.
-- Provide only decision-relevant basis/effects/tradeoffs/risks; do not repeat established or repository-verifiable context.
-- End substantial explanation with a short directly answerable decision; use yes/no, short choice, or value when sufficient.
-- Number options and recommend when useful; use free-form when options would distort the decision.
-- After a decision, apply it, separate remaining open questions, and continue.
-- Before declaring a blocker, exhaust safe in-scope alternatives; state the precise blocker and required authority/decision.
-- Do not expand one decision request into a pre-work clarification session unless the issue materially changes the whole request.
-
-### Pre-Work Clarification
-
-- When a request has multiple material ambiguities, read and apply [`agents.d/pre-work-clarification.md`](agents.d/pre-work-clarification.md).
-
-### Completion Reports
-
-- Report proportionally: changed, verified, material unverified matter/blocker/risk/remaining work.
-- Never claim completion/verification beyond evidence.
-- User decisions in a report follow Decision Requests.
-- Update required status/VB/SoTs per `definition/AGENTS.md`; conversation does not replace them.
-
-### Conversation Language
-
-- Per conversation, determine language from: explicit instruction → first request's primary language → execution-environment language → English.
-- Ignore code, quotes, attachments, URLs, and paths when detecting request language.
-- Environment fallback: platform language → `LC_ALL` → `LC_MESSAGES` → `LANGUAGE` → `LANG`; ignore `C`, `POSIX`, `C.UTF-8`.
-- Treat result as BCP 47. Later language changes apply only as explicitly requested.
-- Conversation language ≠ project documentation language; follow `definition/AGENTS.md`. Do not store conversation language in the repository.
-
-## Working Principles
 
 ### Core Principles
 
@@ -177,16 +146,6 @@
   - Do not change formal implementation/configuration first and then revise normative SoTs to justify or match that change.
 - Correct required same-cause deficiencies coherently within authorized scope; route other findings through Permission / Scope and Assessment and Feedback, then applicable decision and safety rules.
 
-### Adversarial Self-Review
-
-- Before completing material work, perform adversarial self-review proportionate to the change and risk, aiming to disprove correctness rather than confirm it. Challenge assumptions, contradictions, boundary/failure conditions, missed impact/root causes, scope drift, and evidence/verification gaps. Do not limit the challenge to edited lines or the exact reported symptom; inspect materially relevant same-responsibility, same-invariant, dependency, sibling-path, boundary, and failure-family cases in proportion to the change and risk. Review breadth does not alter modification authority; resulting work follows Permission / Scope.
-- Bound the review surface to the current authorized outcome's acceptance basis and protected invariants. Investigate beyond it far enough to judge impact, then classify resulting work under Permission / Scope and Assessment and Feedback.
-- When a valid review finding, failed verification, incident, or other assessment exposes a missed consideration, treat it as a detection signal. Diagnose the missed consideration, why it escaped detection, and the material concrete context that exposed it; preserve that context while applying the resulting perspective proportionally to materially related current work before treating the stated instance as resolved. Correct or disposition resulting work under Coherent Correction and Assessment and Feedback.
-- Treat a material correction that introduces or materially changes a mechanism, fallback, boundary, assumption, dependency, or verification method as a new adversarial surface. Challenge how that correction itself can fail, partially fail, race, degrade, or bypass the protected invariant/outcome; do not treat the correction itself as proof of resolution.
-- Continue targeted adversarial review while a correction or new evidence creates a materially new plausible failure surface. Stop when the latest material corrections introduce no such unexamined surface; do not repeat unchanged checks merely to satisfy a review count. Repeat the full proportional self-review only when new evidence, failed verification, broad correction, or contradiction materially changes what must be examined.
-- When materially related findings or corrections repeatedly expose the same or closely related cause or protected invariant across different surfaces, stop treating them as isolated instances and reassess the affected work structurally. Consider whether an implicit invariant, responsibility split, abstraction boundary, verification/evidence model, or scope structure should be made explicit; treat resulting material corrections or changed review basis under the same review rules, and stop when no materially new unexamined surface remains.
-- Treat current work that keeps producing materially new In-scope deficiencies across successive review rounds as not converging. Reassess its boundary and protected invariants; narrow the current outcome or decompose repository-managed work into child jobs when needed under `jobs/AGENTS.md`. Non-convergence does not alter the classification of still-required work, an unresolved In-scope deficiency, or a Blocker.
-
 ### Assessment and Feedback
 
 Feedback, review findings, suggestions, observations, failed verification, external findings, and AI-discovered opportunities are assessment inputs. Their presence or apparent validity does not by itself require a current change. Explicit user instructions retain their authority under Purpose and Authority and Permission / Scope.
@@ -216,7 +175,47 @@ In-scope deficiency is local to the current authorized outcome; a Blocker remain
 
 Severity and disposition are independent: a Follow-up may become separate authorized work or be dispositioned Defer/Reject, while a Blocker or In-scope deficiency may still require a user-owned decision before it can be Accepted now.
 
-#### Reassessment
+## Repository Operations
+
+### Interaction
+
+#### Decision Requests
+
+- Ask only for user-owned decisions; verify repository facts yourself.
+- Ask one issue at a time, or ≤3 closely related issues.
+- Provide only decision-relevant basis/effects/tradeoffs/risks; do not repeat established or repository-verifiable context.
+- End substantial explanation with a short directly answerable decision; use yes/no, short choice, or value when sufficient.
+- Number options and recommend when useful; use free-form when options would distort the decision.
+- After a decision, apply it, separate remaining open questions, and continue.
+- Before declaring a blocker, exhaust safe in-scope alternatives; state the precise blocker and required authority/decision.
+- Do not expand one decision request into a pre-work clarification session unless the issue materially changes the whole request.
+
+#### Completion Reports
+
+- Report proportionally: changed, verified, material unverified matter/blocker/risk/remaining work.
+- Never claim completion/verification beyond evidence.
+- User decisions in a report follow Decision Requests.
+- Update required status/VB/SoTs per `definition/AGENTS.md`; conversation does not replace them.
+
+#### Conversation Language
+
+- Per conversation, determine language from: explicit instruction → first request's primary language → execution-environment language → English.
+- Ignore code, quotes, attachments, URLs, and paths when detecting request language.
+- Environment fallback: platform language → `LC_ALL` → `LC_MESSAGES` → `LANGUAGE` → `LANG`; ignore `C`, `POSIX`, `C.UTF-8`.
+- Treat result as BCP 47. Later language changes apply only as explicitly requested.
+- Conversation language ≠ project documentation language; follow `definition/AGENTS.md`. Do not store conversation language in the repository.
+
+### Adversarial Self-Review
+
+- Before completing material work, perform adversarial self-review proportionate to the change and risk, aiming to disprove correctness rather than confirm it. Challenge assumptions, contradictions, boundary/failure conditions, missed impact/root causes, scope drift, and evidence/verification gaps. Do not limit the challenge to edited lines or the exact reported symptom; inspect materially relevant same-responsibility, same-invariant, dependency, sibling-path, boundary, and failure-family cases in proportion to the change and risk. Review breadth does not alter modification authority; resulting work follows Permission / Scope.
+- Bound the review surface to the current authorized outcome's acceptance basis and protected invariants. Investigate beyond it far enough to judge impact, then classify resulting work under Permission / Scope and Assessment and Feedback.
+- When a valid review finding, failed verification, incident, or other assessment exposes a missed consideration, treat it as a detection signal. Diagnose the missed consideration, why it escaped detection, and the material concrete context that exposed it; preserve that context while applying the resulting perspective proportionally to materially related current work before treating the stated instance as resolved. Correct or disposition resulting work under Coherent Correction and Assessment and Feedback.
+- Treat a material correction that introduces or materially changes a mechanism, fallback, boundary, assumption, dependency, or verification method as a new adversarial surface. Challenge how that correction itself can fail, partially fail, race, degrade, or bypass the protected invariant/outcome; do not treat the correction itself as proof of resolution.
+- Continue targeted adversarial review while a correction or new evidence creates a materially new plausible failure surface. Stop when the latest material corrections introduce no such unexamined surface; do not repeat unchanged checks merely to satisfy a review count. Repeat the full proportional self-review only when new evidence, failed verification, broad correction, or contradiction materially changes what must be examined.
+- When materially related findings or corrections repeatedly expose the same or closely related cause or protected invariant across different surfaces, stop treating them as isolated instances and reassess the affected work structurally. Consider whether an implicit invariant, responsibility split, abstraction boundary, verification/evidence model, or scope structure should be made explicit; treat resulting material corrections or changed review basis under the same review rules, and stop when no materially new unexamined surface remains.
+- Treat current work that keeps producing materially new In-scope deficiencies across successive review rounds as not converging. Reassess its boundary and protected invariants; narrow the current outcome or decompose repository-managed work into child jobs when needed under `jobs/AGENTS.md`. Non-convergence does not alter the classification of still-required work, an unresolved In-scope deficiency, or a Blocker.
+
+### Reassessment
 
 - Retain Defer inputs only when continuing value justifies retention; repository-managed retention follows `jobs/AGENTS.md`.
 - Reassess when new evidence or a recorded revisit condition materially changes relevance, urgency, feasibility, or scope fit.
@@ -225,6 +224,19 @@ Severity and disposition are independent: a Follow-up may become separate author
 - Do not repeatedly resurface an item merely because it exists or has aged.
 - Before reporting current work complete, confirm its approved acceptance basis, required verification, and unresolved Blocker/In-scope deficiencies; repository-managed job completion additionally follows `jobs/AGENTS.md`.
 
-#### Consumer Regression
+## Repository Conditional Governance
+
+This section is always-read governance that owns dispatch rules. Only a dispatched instruction's applicability is conditional; any unconditional rule in this section applies regardless of whether a dispatch condition is satisfied.
+
+### Project Initialization
+
+- Determine project initialization state using `definition/AGENTS.md` before project-specific work.
+- If that state is `Uninitialized` or `Inconsistent`, read and apply [`agents.d/initialization.md`](agents.d/initialization.md) before project-specific modification. `definition/AGENTS.md` separately dispatches definition-owned initialization rules.
+
+### Pre-Work Clarification
+
+- When a request has multiple material ambiguities, read and apply [`agents.d/pre-work-clarification.md`](agents.d/pre-work-clarification.md).
+
+### Consumer Regression
 
 - Changes that alter authority, classification, routing, retention, lifecycle, or migration semantics are potentially breaking governance changes. When performing Upstream-governance consumer regression or evaluating whether such a change is generally adoptable, read and apply [`agents.d/consumer-regression.md`](agents.d/consumer-regression.md).
