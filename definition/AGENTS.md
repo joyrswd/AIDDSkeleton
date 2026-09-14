@@ -77,6 +77,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Goal is semantic reconstruction, not source reproduction/operational restoration. Incidental implementation details are not required unless independently adopted constraints/contracts; design may remain concrete when intentionally constraining future valid implementations.
 - One responsible adopted SoT per project fact; no duplicate detail or parallel `current`/`target` variants/equivalent views. Candidate replacements, target states, and alternatives are non-authoritative and preferably expressed as deltas against the current SoT.
 - Approved future intent may live in `definition/` when it is itself the document's responsibility, not as a parallel candidate SoT. Distinguish assumed/decided/open; proposal/unapproved assumption ≠ settled fact.
+- If resolving an open matter differently could materially change downstream requirements, design, implementation, procedures, verification, or acceptance, keep that matter and its candidate resolutions non-authoritative until the applicable authority resolves/adopts it; do not formalize a provisional choice merely to unblock downstream work. An intentionally open choice may be normative only when that openness itself is adopted and downstream-valid outcomes do not depend on silently choosing one unresolved candidate.
 - Requirements own required outcomes, external conditions, compatibility obligations, and AC; design owns adopted choices among otherwise valid implementation approaches; testing owns required verification, method/observation, and sufficient evidence.
 - Completion criteria must be observable; split requirements that cannot be implemented, verified, and completed together.
 - Semantic exhaustive domains/matrices/transitions/enumerations remain normative even when they imply cardinality; verification may use any evidence form appropriate to AC.
@@ -100,6 +101,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Documentation silence does not authorize opportunistic re-architecture.
 - Apply Outbound Transfer to active and durable non-normative material; keep current SoT semantics in `definition/`, use native/external VB when suitable for current claim support, and retire no-need material.
 - Source location is not an adoption record; adopted facts/decisions enter responsible SoTs only through applicable adoption authority.
+- Adoption from non-authoritative material must separate resolved adopted semantics from remaining open questions/alternatives. Carry with the adopted result any material rationale, constraints, rejected alternatives, and reconsideration conditions needed to interpret or re-evaluate it; unresolved candidate content remains with its non-authoritative owner unless and until separately adopted.
 
 ### Outbound Transfer
 
@@ -126,7 +128,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 #### Entry and Completion
 
-- Implementation entry requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, and no unresolved Blocker.
+- Implementation entry requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, no unresolved Blocker, and no unresolved matter within the entered scope whose alternative resolutions could materially change the formal implementation/configuration or its acceptance/verification basis.
 - Completion requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, responsible index current-state updates, and no unresolved Blocker or In-scope deficiency.
 - Disposition cannot waive approved scope, adopted AC, or another completion condition. Dispositioned Follow-ups do not block completion unless new evidence justifies reclassification or exposes another unmet condition.
 

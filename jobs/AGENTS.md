@@ -51,9 +51,9 @@ This file defines area-specific governance for `jobs/` and inherits repository a
 | Formal code/tests/tools/support programs | `products/` |
 | Managed environment config | `etc/` |
 | Supplied originals, or material whose only continuing value is durable non-normative knowledge independent of active/inactive work | `references/` |
-| Formal open questions/decision points/blocking effects | `definition/` when required; inactive non-adopted work does not transfer there merely for preservation, and applicable assessment/adoption/authority comes first |
+| Adopted current-state limits/blockers caused by unresolved work | responsible definition index when needed to describe accepted current state; the unresolved question, candidate resolutions, and non-adopted decision material remain in `jobs/` |
 
-`jobs/` filenames/splits/directories/INDEX do not prescribe destination structure. Integrate adopted semantics into the responsible SoT instead of migrating the working file; authorized adopted facts must not remain only in `jobs/`.
+`jobs/` filenames/splits/directories/INDEX do not prescribe destination structure. Integrate adopted semantics into the responsible SoT instead of migrating the working file; authorized adopted facts must not remain only in `jobs/`. Do not transfer unresolved candidate semantics merely to satisfy a downstream dependency; resolve/adopt them first or leave dependent downstream work blocked.
 
 ## Area Operations
 
@@ -123,9 +123,9 @@ Authorization, remaining work, entry/dependency readiness, active ancestry, or o
 
 A candidate/subset is **decision-ready** when:
 - major intent + applicable RBs are coherent enough to judge as one unit; and
-- remaining questions are separable and not expected to invalidate/materially reshape it.
+- remaining questions are separable, and resolving them differently is not expected to invalidate/materially reshape the candidate or materially change downstream requirements, design, implementation, procedures, verification, or acceptance that would rely on it.
 
-Decision-ready is not implementation-entry completeness; details consistently decidable after adoption may remain open. When decision-ready and adoption/formalization is not already authorized, surface candidate + material basis + remaining questions through root Decision Requests; do not elaborate only to avoid decision. A coherent decision-ready subset may be adopted independently without waiting for job exit.
+Decision-ready is not implementation-entry completeness. Details consistently decidable after adoption may remain open only when downstream consumers do not need them resolved to interpret or use the adopted subset. If an unresolved matter can materially change a downstream outcome, keep it non-authoritative in `jobs/` and surface the decision before adopting dependent definition. When decision-ready and adoption/formalization is not already authorized, surface candidate + material basis + remaining questions through root Decision Requests; do not elaborate only to avoid decision. A coherent decision-ready subset may be adopted independently without waiting for job exit.
 
 #### Retention
 
