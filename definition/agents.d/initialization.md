@@ -14,11 +14,13 @@
   - purpose, users, scope, exclusions;
   - system/app RBs;
   - requirements/design/testing SoTs;
-  - observable AC + open questions;
+  - observable AC + adopted current-state limits/blockers/routing needed to delimit the initialized scope;
   - lifecycle identifiers/states/transitions/end boundary;
   - implementation entry/completion criteria, standard verification, VB retention expectations;
   - applicability + reasons for security, privacy, accessibility, performance, availability, monitoring, retention, recovery, licensing.
-- Open questions require a decision point + blocking effect. If release/operation/retirement is outside lifecycle, record end boundary + handoff; if inside, define transitions/completion + feedback route.
+- Unresolved questions, candidate resolutions, and non-adopted decision material remain non-authoritative under `jobs/`. When unresolved work materially limits the adopted current state, record the current-state limitation/blocker, its blocking effect, and the responsible decision routing needed for continuation in the responsible definition index; record any independently adopted normative boundary in its responsible requirements/design/testing SoT. Do not duplicate unresolved question/candidate semantics into `definition/` or adopt a provisional choice merely to complete initialization.
+- Initialization does not require every future choice to be resolved. A coherent adopted subset may initialize while separable unresolved matters remain in `jobs/`; dependent formalization/formal implementation remains blocked wherever an unresolved matter must be chosen to interpret, validate, accept, or establish the verification basis for the entered scope. Intentionally open discretion may be normative only when that openness itself is adopted under Definition Authority.
+- If release/operation/retirement is outside lifecycle, record end boundary + handoff; if inside, define transitions/completion + feedback route.
 
 ## Reset
 
