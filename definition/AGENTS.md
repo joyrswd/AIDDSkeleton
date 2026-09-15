@@ -128,7 +128,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 #### Entry and Completion
 
-- Implementation entry requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, no unresolved Blocker, and no unresolved matter within the entered scope whose alternative resolutions could materially change the formal implementation/configuration or its acceptance/verification basis.
+- Implementation entry requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, no unresolved Blocker, and no unresolved matter within the entered scope that requires a user-owned requirements/scope/priority/RB/material-design/completion decision or whose resolution would change the adopted acceptance/verification basis.
 - Completion requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, responsible index current-state updates, and no unresolved Blocker or In-scope deficiency.
 - Disposition cannot waive approved scope, adopted AC, or another completion condition. Dispositioned Follow-ups do not block completion unless new evidence justifies reclassification or exposes another unmet condition.
 
