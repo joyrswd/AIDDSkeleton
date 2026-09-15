@@ -77,6 +77,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Goal is semantic reconstruction, not source reproduction/operational restoration. Incidental implementation details are not required unless independently adopted constraints/contracts; design may remain concrete when intentionally constraining future valid implementations.
 - One responsible adopted SoT per project fact; no duplicate detail or parallel `current`/`target` variants/equivalent views. Candidate replacements, target states, and alternatives are non-authoritative and preferably expressed as deltas against the current SoT.
 - Approved future intent may live in `definition/` when it is itself the document's responsibility, not as a parallel candidate SoT. Distinguish assumed/decided/open; proposal/unapproved assumption ≠ settled fact.
+- Keep an open matter and its candidate resolutions non-authoritative when resolving it differently could materially change the meaning, validity, scope, or acceptance of the definition being adopted, or when a downstream authoritative artifact would have to silently choose among unresolved candidates to interpret or apply that definition. A later decision within explicitly preserved requirements/design/testing discretion does not block adoption merely because it will change eventual implementation. Do not formalize a provisional choice merely to unblock downstream formalization. An intentionally open choice may be normative when that openness itself is adopted and valid downstream work can preserve the choice until the responsible later decision.
 - Requirements own required outcomes, external conditions, compatibility obligations, and AC; design owns adopted choices among otherwise valid implementation approaches; testing owns required verification, method/observation, and sufficient evidence.
 - Completion criteria must be observable; split requirements that cannot be implemented, verified, and completed together.
 - Semantic exhaustive domains/matrices/transitions/enumerations remain normative even when they imply cardinality; verification may use any evidence form appropriate to AC.
@@ -100,6 +101,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Documentation silence does not authorize opportunistic re-architecture.
 - Apply Outbound Transfer to active and durable non-normative material; keep current SoT semantics in `definition/`, use native/external VB when suitable for current claim support, and retire no-need material.
 - Source location is not an adoption record; adopted facts/decisions enter responsible SoTs only through applicable adoption authority.
+- Adoption from non-authoritative material must separate resolved adopted semantics from remaining open questions/alternatives. Carry with the adopted result any material rationale, constraints, rejected alternatives, and reconsideration conditions needed to interpret or re-evaluate it; unresolved candidate content remains with its non-authoritative owner unless and until separately adopted.
 
 ### Outbound Transfer
 
@@ -126,7 +128,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 #### Entry and Completion
 
-- Implementation entry requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, and no unresolved Blocker.
+- Implementation entry requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, no unresolved Blocker, and no unresolved matter within the entered scope that must be resolved as a user-owned requirements/scope/RB/material-design/completion decision or to establish the adopted acceptance/verification basis. Routine reversible implementation choices within approved scope and adopted discretion do not block entry.
 - Completion requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, responsible index current-state updates, and no unresolved Blocker or In-scope deficiency.
 - Disposition cannot waive approved scope, adopted AC, or another completion condition. Dispositioned Follow-ups do not block completion unless new evidence justifies reclassification or exposes another unmet condition.
 
