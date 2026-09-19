@@ -9,10 +9,11 @@
 ## Initialization
 
 - Initialization content comes from the root initialization-summary authorization; do not re-request authorized documents/directories/assumptions.
-- Initialize atomically: create `definition/system/documentation_language.md` and `definition/system/system_index.md`, and remove `definition/system/.gitkeep`.
+- If the observed state is `Inconsistent`, first reconcile existing definition content and authority under `definition/AGENTS.md` Reconciliation and Migration. As part of an authorized coherent reconciliation, missing fixed initialization entry documents may be created or restored from approved content while preserving existing adopted authority; do not create or replace them as an independent initialization action or invent missing approval. Re-evaluate the whole Initialization state after reconciliation; do not proceed with formal work while it remains `Inconsistent`.
+- If the re-evaluated state is `Uninitialized`, initialize atomically: create `definition/common/INDEX.md`, `definition/common/documentation_language.md`, and `definition/units/INDEX.md`, then remove `definition/common/.gitkeep` and `definition/units/.gitkeep`.
 - Define at least:
   - purpose, users, scope, exclusions;
-  - system/app RBs;
+  - common/unit RBs and the approved unit catalog;
   - requirements/design/testing SoTs;
   - observable AC + adopted current-state limits/blockers/routing needed to delimit the initialized scope;
   - lifecycle identifiers/states/transitions/end boundary;
@@ -24,4 +25,6 @@
 
 ## Reset
 
-- Reset to `Uninitialized` only through explicitly approved atomic lifecycle reset: remove project-specific system/app docs, delete both fixed system docs, restore both markers, and verify whole state.
+- Reset to `Uninitialized` only through explicitly approved atomic lifecycle reset: remove or reclassify all project-specific content under `definition/common/` and `definition/units/`, delete the three fixed initialized entry docs, restore `definition/common/.gitkeep` and `definition/units/.gitkeep`, and verify whole state.
+- If that reset leaves no tracked product content under `products/content/`, restore `products/content/.gitkeep` under `products/AGENTS.md` before reset completion and include that marker condition in whole-state verification.
+- Before reset completion, reconcile any `products/` or `etc/` artifact whose formal/adopted status depends on definition authority being removed. Reclassify, transfer, retire, or otherwise update its status under the responsible area governance; do not leave an artifact represented as formal/adopted solely through authority deleted by the reset.
