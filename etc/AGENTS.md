@@ -12,7 +12,7 @@ This file defines area-specific governance for `etc/` and inherits repository an
 
 #### Responsibility
 
-- Owns project-managed configuration that controls execution environments from outside an application: container images/composition, external-service config, safe env examples, bootstrap, deployment, rollback, recovery, monitoring, CI environment wiring.
+- Owns adopted project-managed configuration whose responsibility is to instantiate or control an execution environment for project work or for a distinct formal product, rather than to implement an execution environment/host baseline that is itself the adopted formal product outcome: container images/composition, external-service config, safe env examples, bootstrap, deployment, rollback, recovery, monitoring, CI environment wiring.
 - Only adopted project-managed configuration belongs in `etc/`.
 
 ### Structure and Placement
@@ -33,6 +33,8 @@ Canonical product/environment boundary:
 | seed | seed data in owning product area | startup injection |
 | external-service fixture | fixture implementation in verification-owning product area | emulator deployment/wiring/endpoint/consumer config |
 
+- Product/environment subject test: first decide whether the execution environment or host baseline itself is the adopted formal product outcome. If so, provisioning/configuration-management artifacts that implement that outcome belong to `products/`. Otherwise, `etc/` owns adopted environment wiring/configuration whose responsibility is to host, deploy, run, recover, monitor, or provide verification wiring/invocation/runner configuration for a distinct formal product, or otherwise support project execution. Verifier/test/lint/generator/migration/fixture programs themselves remain product-owned as specified by Outbound Transfer. Artifact technology or action vocabulary such as Ansible, container, bootstrap, deploy, or monitor does not by itself decide ownership.
+
 ## Area Principles
 
 ### Change Authority
@@ -43,7 +45,7 @@ Canonical product/environment boundary:
 
 ### Outbound Transfer
 
-- App/formal test/lint/generator/migration/fixture programs → owning `products/` area; container invocation does not transfer ownership.
+- Formal verifier/test/lint/generator/migration/fixture programs → owning `products/` area; container invocation does not transfer ownership.
 - Supplied originals → `references/`.
 
 ## Area Operations

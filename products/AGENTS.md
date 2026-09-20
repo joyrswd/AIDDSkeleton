@@ -21,31 +21,26 @@ products/
 ├── AGENTS.md
 ├── .hooks/
 │   └── .gitkeep
-├── apps/
-│   └── .gitkeep
-└── system/
+└── content/
     └── .gitkeep
 ```
 
-- Remove `products/apps/.gitkeep` or `products/system/.gitkeep` when tracked content makes the corresponding marker unnecessary; preserve the root-required `products/.hooks/.gitkeep`.
-- `products/apps/<app>/`: app-owned code/resources/dependencies/migrations/fixtures/CLIs/support programs/unit tests/app-local integration tests.
-- `products/system/`: system-owned code/processes/E2E or contract tests/fixtures/generators/support programs, including system responsibilities spanning apps.
-- Ownership follows responsibility/RB, not artifact category, target count, cross-app execution/observation, reuse, or shared infrastructure.
-- Same approved `<app>` name as `definition/apps/<app>/`; never literal `<app>` or invented temporary name.
-- When app-name symmetry or system ownership does not unambiguously identify a formal implementation unit's responsible definition, make an entry point to the responsible definition discoverable from that implementation unit through a project-defined routing mechanism; do not duplicate SoT content.
-- Conventional `src/`, `tests/`, `scripts/`, `tools/`, `packages/` stay below owning app/system area.
-- Test placement follows verification ownership:
-  - app-owned guarantee → owning app;
-  - system-owned guarantee → `products/system/`;
-  - cross-app invocation/observation alone does not alter ownership.
-- Local `README.md` may explain implementation/entry point; link responsible project docs instead of duplicating requirements/design/testing/status.
+- `products/content/` is the standard physical root for formal product artifacts owned by the `products/` area. Remove `products/content/.gitkeep` when tracked product content makes the marker unnecessary, and restore it when no tracked product content remains under `products/content/`; preserve the root-required `products/.hooks/.gitkeep`.
+- Formal implementations/tests/resources/dependencies/migrations/fixtures/CLIs/support programs/generators/manifests and similar product-owned realization artifacts belong under `products/content/` unless root governance requires a repository-level integration location.
+- Structure below `products/content/` follows implementation/toolchain needs. Do not mirror `definition/common/` or `definition/units/`, and do not require name/path symmetry with definition.
+- Physical path/name/location does not establish definition ownership. It may support navigation, framework/tool discovery, or change-impact routing when that use does not redefine authority.
+- One realization artifact may be governed by multiple responsible SoTs for different facts; the one-responsible-SoT-per-project-fact rule remains unchanged.
+- Responsible definition authority for a formal product artifact must remain discoverable from its role/behavior/governing conditions plus the indexed definition hierarchy. Dedicated mapping files or routing-only README files are not required; when ordinary responsibility resolution remains materially ambiguous, provide a project-defined routing entry without duplicating normative content.
+- Repository-level integration artifacts permitted by root governance may remain outside `products/content/`; when they carry a products-owned responsibility, apply this area's governance as required by root instruction hierarchy.
+- Test placement follows verification responsibility and implementation/toolchain structure; cross-unit invocation/observation alone does not create a separate ownership class or require a mirrored definition path.
+- Local `README.md` may explain implementation, setup, operation, or entry points; link responsible project docs instead of duplicating requirements/design/testing/status. Do not require README solely to encode implementation-to-SoT correspondence.
 - Product/environment boundary for E2E, generation, migrations, linting, seeds, fixtures: [etc placement rules](../etc/AGENTS.md#structure-and-placement).
 
 ## Area Principles
 
 ### Change Boundaries
 
-- Keep change inside approved RB; no direct app→app dependency without approved design change.
+- Keep change inside approved RB; do not introduce a dependency across unit RBs without applicable adopted design authority.
 - Do not replace established architecture/RB/dependency direction/state authority/compatibility pattern merely because an alternative also satisfies requirements.
 - Documentation silence does not authorize redesign when change affects compatibility/responsibility/security/persistence/state authority/material boundary; resolve through the SoT process.
 - Observable behavior/public contracts/data structures/dependencies/migrations/RBs changes must respect root authority: complete any required project-definition change/authorization first, then keep implementation/tests/responsible project docs/status consistent in the same change.
@@ -55,7 +50,7 @@ products/
 
 ### Lifecycle
 
-- When formalizing adopted code/tools, create a project-managed formal implementation with appropriate structure/quality/tests rather than depending on a working/reference copy as production source.
+- When formalizing adopted code/tools, create the product-owned formal implementation under `products/content/` with appropriate structure/quality/tests rather than depending on a working/reference copy as production source, unless root governance requires a repository-level integration location.
 - Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `definition/AGENTS.md` VB lifecycle.
 
 ### Implementation Verification
