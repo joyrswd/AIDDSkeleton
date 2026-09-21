@@ -18,44 +18,50 @@ This file defines area-specific governance for `definition/` and inherits reposi
 
 #### Required Structure
 
-- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/agents.d/initialization.md`, `definition/agents.d/governance-migration.md`, `definition/agents.d/realization-authority.md`, `definition/agents.d/documentation-language.md`, `definition/agents.d/definition-maintenance.md`, `definition/.hooks/.gitkeep`, `definition/system/.gitkeep`, and `definition/apps/.gitkeep`.
-- Per approved app, create:
-  - `definition/apps/<app>/<app>_index.md`;
-  - `definition/apps/<app>/requirements/<app>_requirements_index.md`;
-  - `definition/apps/<app>/design/<app>_design_index.md`;
-  - `definition/apps/<app>/testing/<app>_testing_index.md`.
+- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/agents.d/initialization.md`, `definition/agents.d/governance-migration.md`, `definition/agents.d/realization-authority.md`, `definition/agents.d/documentation-language.md`, `definition/agents.d/definition-maintenance.md`, `definition/.hooks/.gitkeep`, `definition/common/.gitkeep`, and `definition/units/.gitkeep`.
+- Initialization replaces the two definition markers with the fixed project entry docs `definition/common/INDEX.md`, `definition/common/documentation_language.md`, and `definition/units/INDEX.md`.
+- Per approved unit, create:
+  - `definition/units/<unit>/INDEX.md`;
+  - `definition/units/<unit>/requirements/INDEX.md`;
+  - `definition/units/<unit>/design/INDEX.md`;
+  - `definition/units/<unit>/testing/INDEX.md`.
 
 | Location | Responsibility |
 |---|---|
-| `definition/system/system_index.md` | System overview, RBs, current system/cross-app state, material limits/blockers, documentation map, reading order, app entry routing, system/cross-app responsibility routing |
-| `definition/system/documentation_language.md` | Default documentation language + explicit app overrides |
-| other `definition/system/` docs | System-owned purpose, requirements, structure, constraints, development/operational methods |
-| `<app>_index.md` | App overview, RBs, current app state, material limits/blockers, reading order, category entries, applicable cross-responsibility authority entries |
-| category indexes | Category docs, questions answered, order, absence/inheritance |
+| `definition/common/INDEX.md` | Primary definition entry: project purpose/scope, project-level lifecycle/current state, material project-wide limits/blockers, common authority routing, cross-unit relationship routing, and the `units/INDEX.md` entry |
+| `definition/common/documentation_language.md` | Default documentation language + explicit unit overrides |
+| other `definition/common/` docs | Project-wide/cross-unit authority, policy, relationships, coordination, constraints, shared verification policy, and other common project facts |
+| `definition/units/INDEX.md` | Approved unit catalog and routing to each unit `INDEX.md`; no duplicated unit detail |
+| `definition/units/<unit>/INDEX.md` | Unit purpose/RB, concise current state, material limits/blockers, category entries, and applicable common/cross-unit authority |
+| category `INDEX.md` files | Category docs, questions answered, order, absence/inheritance |
 | `requirements/` | Required outcomes/constraints |
 | `design/` | Adopted implementation structure/approach/contracts/algorithms/invariants/constraints |
 | `testing/` | Verification strategy/specifications: what must be shown and what evidence is sufficient |
 
-- `definition/system/` and `definition/apps/` are required classifications; remove `.gitkeep` when tracked content makes it unnecessary.
+- `definition/common/` and `definition/units/` are the required project-definition classifications; clone-ready markers are required for a complete `Uninitialized` state, but their presence alone does not establish that state, and partial reset states remain `Inconsistent`.
 - `definition/agents.d/` contains conditional definition governance under the root `agents.d/` loading protocol; it is not project-definition content and is excluded from project document placement/navigation.
-- `definition/AGENTS.md` is the only non-hidden file directly under `definition/`; project-specific docs belong under `definition/system/` or an approved `definition/apps/<app>/` according to responsibility.
+- `definition/AGENTS.md` is the only non-hidden file directly under `definition/`; project-specific docs belong under `definition/common/` or an approved `definition/units/<unit>/` according to responsibility.
 - No `definition/README.md`; use indexes for navigation and `AGENTS.md` for instructions.
-- Keep fixed system entry docs directly under `definition/system/`.
-- Required app category dirs/indexes do not require detail docs. If none, the index states explicit absence/inheritance/cross-cutting source; design may state no additional normative implementation constraints.
+- Required unit category directories/indexes do not require detail docs. If none, the category index states explicit absence/inheritance/applicable common authority; design may state no additional normative implementation constraints.
 
 #### Placement and Navigation
 
 - One purpose per project doc; split by coherent responsibility/question/reader/update trigger/lifecycle, not tidiness or count alone.
-- Other system docs stay flat while responsibility is small; use a responsibility-based subdirectory only when one stable system responsibility owns multiple independently changing docs.
+- Common docs stay flat while responsibility is small; use a responsibility-based subdirectory only when one stable common responsibility owns multiple independently changing docs.
 - Indexes provide navigation plus concise owned current-state/absence/inheritance/coverage context; do not duplicate detailed requirements/design/testing/procedures/results or identifier-level cross-artifact correspondence matrices.
-- System navigation: `system_index.md` is primary; directly link each Markdown doc directly under `definition/system/` except itself and directly link every approved app index. A local index is allowed only when the responsibility needs navigation; nested docs routed through it must remain reachable from `system_index.md`; protected `AGENTS.md` is excluded. `system_index.md` also routes system/cross-app relationships to the SoTs that own their normative meaning; it does not duplicate that relationship detail.
-- App navigation: `<app>_index.md` → three category indexes + applicable cross-responsibility authority. Each app index must contain an explicit cross-responsibility authority entry: link the responsible system/app SoTs when applicable, otherwise state that no additional cross-responsibility authority applies. Category index → its docs.
-- Initialized read order: `definition/system/system_index.md` → `definition/system/documentation_language.md` → target indexes.
-- Determine ownership from purpose + change authority + invocation/governing decision + success/failure (or sufficiency) judgment, not target/caller/tool/file name/operational vocabulary.
-  - App-owned execution/diagnostic procedure → directly under the app, linked from `<app>_index.md`; system-owned or cross-app procedure → `definition/system/`.
-  - Multiple targets do not prove system ownership; one app target does not prove app ownership; never choose a participating app as representative owner or duplicate system responsibility per app.
-  - Shared tools/observability/deployment/system environments/`etc/` config do not transfer ownership. For shared system execution with app-specific prerequisites/commands/AC/constraints, keep shared responsibility in system procedure and only app-owned delta in the app.
-  - Normative testing uses the same ownership test. Testing responsibility always exists for formal implementation; if no app testing detail doc, the testing index names inherited/cross-cutting policy. Testing indexes may link current VB for coverage but contain no execution history.
+- Common navigation: `common/INDEX.md` is primary; directly link each Markdown doc directly under `definition/common/` except itself and directly link `definition/units/INDEX.md`. A local common index is allowed only when one common responsibility needs navigation; nested docs routed through it must remain reachable from `common/INDEX.md`; protected `AGENTS.md` is excluded. `common/INDEX.md` routes project-wide/cross-unit relationships to their responsible SoTs but does not duplicate unit detail.
+- Unit navigation: `units/INDEX.md` directly links every approved unit `INDEX.md`. Each unit `INDEX.md` links its three category indexes plus applicable common/cross-unit authority; when none applies, state that explicitly. Category index → its docs.
+- Within an approved unit, keep project docs within the fixed unit/category hierarchy while responsibility is small. Add a responsibility/component-based subdirectory only when one stable subordinate responsibility has multiple independently changing docs or needs local navigation. A nested `INDEX.md`, when used, is a routing artifact for that subordinate responsibility and does not create independent authority; link it from the applicable unit/category index, and keep every nested project doc reachable through the unit's indexed hierarchy.
+- Initialized read order: `definition/common/INDEX.md` → `definition/common/documentation_language.md` → `definition/units/INDEX.md` → target unit/common indexes and SoTs.
+- Determine responsibility from purpose, RB, governing/change authority, owned outcome/acceptance boundary, and success/failure/sufficiency/completion judgment—not target/caller/tool/file/path name, target count, reuse, shared infrastructure, or operational vocabulary.
+  - **Unit**: a bounded responsibility with an independently identifiable purpose/RB, governing/change authority, owned outcome, and acceptance/completion judgment. Project-wide or cross-unit scope does not make it Common: when these Unit criteria are satisfied, classify the responsibility as a Unit. Explicit dependency on common authority or another unit is allowed when the unit still owns its own boundary and completion judgment. Missing future realization/design/testing work does not by itself negate an already adopted unit boundary; if the boundary or material governing decision is still unresolved, keep that candidate material non-authoritative under `jobs/`.
+  - **Common**: project-wide/cross-unit authority, policy, relationship, coordination, constraint, shared verification policy, or project-level state that does not own an independently completable project outcome. Common may own requirements, verification method/sufficiency, and implementation/verification completion judgments for its own policy/gate/coordination realization when those judgments only establish fulfillment of the common role rather than completion of an independently bounded project outcome.
+  - A shared acceptance/verification gate whose terminal pass/fail judgment only determines whether other responsibilities satisfy their required acceptance or verification basis is Common; that gate judgment alone is not an independently completable responsibility outcome. Requirements/testing that establish the correctness of the gate itself do not by themselves create a distinct project outcome when they only validate that acceptance/verification role. If the responsibility also owns a distinct project outcome with its own acceptance/completion boundary apart from that gate role, evaluate that outcome under the Unit criteria instead.
+  - **Component**: a subordinate responsibility inside a unit RB that borrows one or more of its purpose, RB, governing authority, owned outcome, or acceptance/completion boundary from the parent unit. A separate file/directory/service/process/CLI/credential/recovery path does not by itself create a unit.
+  - Multiple targets do not prove common ownership; one target does not prove unit ownership; never select a participant as representative owner or duplicate one responsibility per participant.
+  - Shared tools/observability/deployment/environments/`etc/` config do not transfer definition ownership. Keep shared responsibility with the SoT whose governing outcome/judgment it implements and only unit-owned deltas with that unit.
+  - Paths/names/locations may support navigation, tool discovery, or change-impact routing, but do not establish normative ownership or authority.
+  - Normative testing uses the same responsibility test. A common verification policy may apply to multiple units; unit testing owns unit-specific sufficiency/acceptance where applicable. Testing indexes may link current VB for coverage but contain no execution history.
   - Adopted procedures/policy/constraints belong in `definition/`.
 
 #### Document Splitting
@@ -65,7 +71,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Review split at ≥150 lines, ≥12 independently referenced identifiers, or ≥3 independently changing functional areas.
 - As a rule split >250 lines or >20 independently referenced identifiers; if retained, the index records reason + reconsideration condition.
 - Split by coherent responsibility/question/reader/update trigger/lifecycle, not line count alone; document count alone does not justify a subdirectory.
-- Keep `system_index.md`, `<app>_index.md`, and category indexes as single entry points.
+- Keep `common/INDEX.md`, `units/INDEX.md`, each unit `INDEX.md`, and category indexes as single entry points.
 
 ## Area Principles
 
@@ -108,7 +114,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 - Non-authoritative candidate replacements/target states/alternatives, transient current-realization or other active working material, active execution control, and project-managed active execution evidence → `jobs/`.
 - Durable non-normative knowledge/artifacts with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`.
 - Environment configuration → `etc/`.
-- Application tests and formal generators/viewers/verifiers → `products/`.
+- Formal product-owned test/lint/generator/migration/fixture/viewer/verifier programs → owning `products/` area.
 
 ## Area Operations
 
@@ -118,18 +124,21 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 | State | Observed state of all listed initialization artifacts taken together |
 |---|---|
-| Uninitialized | `definition/system/system_index.md` and `definition/system/documentation_language.md` absent; `definition/system/.gitkeep` and `definition/apps/.gitkeep` present |
-| Initialized | both fixed system docs present; `definition/system/.gitkeep` absent; `definition/apps/.gitkeep` present only while no app docs exist |
-| Inconsistent | does not exactly match either row above |
+| Uninitialized | all three fixed entry docs absent; both definition markers present; no other project-specific content exists under `definition/common/` or `definition/units/` |
+| Initialized | all three fixed entry docs present; both definition markers absent; required approved initialization content is recorded; every approved unit has its required unit/category indexes |
+| Inconsistent | all other states, including initialized-shaped placeholders/incomplete approved content and reset residue |
 
+- For both `Uninitialized` and `Initialized`, project-specific content remaining in retired or otherwise disallowed `definition/` locations (including legacy `definition/system/` or `definition/apps/`) makes the whole state `Inconsistent` regardless of fixed entries or markers; reconcile such content under Reconciliation and Migration before re-evaluating the state.
 - Reconcile an `Inconsistent` state before formal work.
-- Do not delete either fixed system document independently.
-- Initialized requires purpose, scope, RBs, and required project SoTs to be approved and recorded; fixed skeleton files/markers alone do not establish project facts or initialization, and uninitialized/inconsistent state must not be used to infer project facts.
+- Structural shape alone does not establish `Initialized`; each state row must satisfy all of its structural and semantic conditions.
+- Do not delete any fixed initialized entry document independently.
+- Initialized requires purpose, scope, RBs, common/unit routing, and required project SoTs to be approved and recorded; fixed skeleton files/markers alone do not establish project facts or initialization, and uninitialized/inconsistent state must not be used to infer project facts.
 
 #### Entry and Completion
 
 - Implementation entry requires applicable requirements/AC, RBs, adopted approach (or explicit no additional design constraint), verification method, no unresolved Blocker, and no unresolved matter within the entered scope that must be resolved as a user-owned requirements/scope/RB/material-design/completion decision or to establish the adopted acceptance/verification basis. Routine reversible implementation choices within approved scope and adopted discretion do not block entry.
 - Completion requires implementation/configuration, required verification, requirements/design/tests/implementation consistency, responsible index current-state updates, and no unresolved Blocker or In-scope deficiency.
+- These entry/completion rules also apply to formal realization/configuration of Common responsibilities. For Common, they establish whether that policy/gate/coordination realization is ready or complete; such a judgment does not by itself create an independently completable project outcome or Unit classification.
 - Disposition cannot waive approved scope, adopted AC, or another completion condition. Dispositioned Follow-ups do not block completion unless new evidence justifies reclassification or exposes another unmet condition.
 
 #### Reset
@@ -147,13 +156,15 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### State and Routing
 
-- `system_index.md` owns concise current lifecycle/implementation/verification state and material limits/blockers for system/cross-app responsibilities; each `<app>_index.md` owns the same for its app.
+- For state ownership, `common/INDEX.md` owns only concise project-level lifecycle/current state and material project-wide limits/blockers; responsibility-local state for a common responsibility belongs in its responsible common SoT or local common index when one exists. Each unit `INDEX.md` owns concise current lifecycle/implementation/verification state and material limits/blockers for that unit. `units/INDEX.md` is a catalog/router, not an alternate current-state owner.
 - Distinguish unimplemented/implemented/verified with no speculation; link applicable VB when needed. Index state is responsibility-level summary; do not duplicate run/version IDs, counts, output, execution history, detailed requirement/design/testing content, or identifier-level cross-artifact correspondence matrices.
-- Keep active execution sequence, priority, next work, and transient job-specific blockers out of project-definition state. A limitation/blocker belongs in a definition index only when it materially describes current accepted state of that responsibility.
-- Shared terminology follows the underlying project fact's authority and ownership: keep the canonical definition in the SoT that owns that fact under Definition Authority. When one meaning is referenced across multiple SoTs, the owning responsibility remains app-owned for a single-app fact and system-owned for a system/cross-app fact; dependent SoTs reference the canonical definition instead of redefining it. Do not maintain a standalone project glossary.
-- System/cross-app relationship meaning belongs to the SoT that owns the underlying project fact. `system_index.md` owns routing to those responsible SoTs and to every approved app index; app indexes own routing to applicable cross-responsibility authority. Indexes must not become alternate owners of detailed relationship semantics.
-- Development routing must remain responsibility-based: resolve the responsible definition index, then use its category and cross-responsibility authority entries to reach the applicable requirements/design/testing and other governing SoTs. A dedicated cross-artifact mapping is not required for implementation entry or completion.
-- Index checks must support direct-link + nested reachability + protected-instruction exclusions; requirement/design/testing and cross-responsibility authority discovery must follow the supported indexed hierarchy rather than assume a flat source set.
+- Keep active execution sequence, priority, next work, and transient job-specific blockers out of project-definition state. A limitation/blocker belongs in an index only when it materially describes current accepted state of that responsibility.
+- Shared terminology follows the underlying project fact's authority and ownership: keep the canonical definition in the SoT that owns that fact. Dependent SoTs reference the canonical definition instead of redefining it; do not maintain a standalone project glossary.
+- Cross-unit relationship meaning belongs to the SoT that owns the underlying project fact. `common/INDEX.md` owns project-level routing to those SoTs and to `units/INDEX.md`; unit indexes route to applicable common/cross-unit authority. Indexes must not become alternate owners of relationship detail.
+- Development routing remains responsibility-based: resolve the responsible common/unit index from purpose/RB/governing conditions/outcome judgment, then follow its category/common-authority entries to applicable requirements/design/testing and other governing SoTs.
+- A formal realization artifact may be governed by multiple SoTs for different project facts. Resolve each fact independently; the one-responsible-SoT-per-project-fact rule remains authoritative. Conflicting normative statements about the same fact are a definition inconsistency to reconcile, not a common-vs-unit or path-based precedence rule.
+- Responsible definition authority for a formal realization must be discoverable from its role/behavior/governing conditions plus the indexed definition hierarchy. Path/name symmetry or physical co-location does not establish ownership. A dedicated implementation-to-SoT mapping/README is not required, but when ordinary responsibility resolution remains materially ambiguous, provide a project-defined routing entry without duplicating normative content.
+- Index checks must support direct-link + nested reachability + protected-instruction exclusions; requirement/design/testing/common-authority discovery must follow the supported indexed hierarchy rather than assume a flat source set.
 
 ### Verification Basis
 
@@ -201,4 +212,4 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Definition Maintenance Dispatch
 
-- Before modifying project-specific definition documentation or its structure/navigation—including creating an app/category/directory, adding/renaming/moving/deleting an indexed document, or separating mixed-authority content—read and apply [`definition/agents.d/definition-maintenance.md`](agents.d/definition-maintenance.md).
+- Before modifying project-specific definition documentation or its structure/navigation—including creating a unit/category/directory, adding/renaming/moving/deleting an indexed document, or separating mixed-authority content—read and apply [`definition/agents.d/definition-maintenance.md`](agents.d/definition-maintenance.md).
