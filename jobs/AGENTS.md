@@ -113,7 +113,7 @@ Authorization, remaining work, entry/dependency readiness, active ancestry, or o
 #### Inactive Retention
 
 - Keep `_` only for plausible continuing evaluation, decision, follow-up, diagnostic, restart, or reconsideration value. Root Defer is one basis, not `_` semantics; retention implies no adoption/requirement/priority/promise.
-- File or directory is allowed; no `INDEX.md` required. Use a proportional local entry point (the file itself or, when needed for a directory, a local `README.md`) and preserve enough context, provenance/scope, retention/evaluation basis, and reevaluation/restart condition to explain retention.
+- File or directory is allowed; no `INDEX.md` required. Use a proportional local entry point (the file itself or, when needed for a directory, a directly identifiable file at that directory root); no filename is prescribed and `README.md` has no jobs-specific semantics. Preserve enough context, provenance/scope, retention/evaluation basis, and reevaluation/restart condition to explain retention.
 - Evidence/context gathering being performed now is active work and belongs under `+`; do not use `_` as a quieter state for ongoing work.
 - A matching Defer revisit condition surfaces the inactive parent for root reassessment at a useful decision point without descendant inspection/activation. Other `_` units likewise need current basis + applicable assessment/decision before activation.
 - Root Defer: Accept now requires applicable authority/adoption before active retained work moves/restructures to `+`; Defer again keeps `_` and refreshes materially changed rationale/revisit condition; Reject deletes unless rationale/provenance has independent continuing value, which is then classified under its responsible area.
@@ -144,6 +144,8 @@ A job is complete when all hold:
 - required verification is complete;
 - no required child outcome remains unresolved; and
 - no Blocker, active handoff/reconciliation, or required transitional verification remains.
+
+Before asserting completion, determine which unresolved child outcomes are required from the current acceptance basis and required parent-local lifecycle obligations rather than child existence, marker, prior plan, ordering, or `INDEX.md` listing.
 
 Completion is separate from retention, parent acceptance, broader requirement/AC completion, and external integration/publication.
 
@@ -179,6 +181,8 @@ After `jobs.blocked`, a Consumer Hook may only apply ordinary lifecycle discover
 - If pre-existing control already assigned supporting material, transitional-VB responsibility, or another job-owned responsibility to the re-expressed child outcome, preserve that semantic ownership. Move/co-locate material when required and reconcile moved references without changing claim/authority semantics.
 - A discovered item unnecessary to satisfy the existing approved basis is separate assessment input unless current authority independently includes it; apply root Assessment and Feedback and retain follow-up only for continuing value.
 - Do not create/enlarge retained job content merely to record every suggestion/observation/improvement; discovery or apparent validity alone neither joins it to the job nor requires repository retention.
+- When execution, verification, or correction materially changes state represented by retained owning-job control—such as target revision/evidence binding, directly supported or materially unverified scope, remaining required verification/work, blocker/handoff/resumable state, or child dependency/necessity—reconcile the affected control before relying on it for dependent continuation, handoff, lifecycle transition, or completion/verification claim. Do not create/enlarge retained control merely to log the change when continuation needs no such control. This is control reconciliation, not execution logging: do not retain every transient failure, retry, command result, or implementation commit solely to satisfy it.
+- A child outcome remains required for parent completion only while it is necessary to satisfy the current parent acceptance basis or another required parent-local lifecycle obligation. Creation, listing, prior activation, usefulness, ordering, or dependency readiness does not make a child outcome required. When that necessity materially changes, reconcile parent control and disposition the child under ordinary authority, state, and retention rules.
 - After mutation, the updater re-evaluates that job's marker against the **States** and **Transitions** rules under State and Discovery. Parent/child control content may be reconciled when applicable, but related markers do not change merely to mirror the updated job. Recency, metadata/evidence refresh, or newly retained context never independently activates/deactivates/reopens or preserves `+`.
 
 ### Active Work Control
@@ -187,11 +191,11 @@ After `jobs.blocked`, a Consumer Hook may only apply ordinary lifecycle discover
 - Keep proportionally discoverable: purpose/approved basis/acceptance basis; applicable child links/state; order/dependencies; remaining/blocked work; material work/evidence links; and job-level exit/transfer/retention/disposal conditions.
 - Track coherent outcomes/children rather than low-level execution; identifiers/status vocabulary/layout are local choices.
 - While its parent is active, keep the index current enough to identify active execution and resumable state. Before a newly accepted child begins, reconcile decomposition; newly discovered work follows root Permission / Scope and Assessment and Feedback and never becomes an unapproved backlog.
-- Parent control records enough child path, dependency/return condition, and current child state without duplicating internal execution detail.
-- `INDEX.md` grants no implementation/adoption/priority authority, does not make retained material committed work, and its presence or unresolved-child listing does not keep the parent `+`. Parent-local control/handoff/reconciliation stays active only while needed; separate handoff is optional when index + links suffice.
+- Parent control records enough child path, dependency/return condition, and current child state without duplicating internal execution detail. When material to continuation or completion, distinguish required child outcomes from separate authorized follow-up.
+- `INDEX.md` grants no implementation/adoption/priority authority, does not make retained material committed work, and its presence or unresolved-child listing neither makes a child outcome required for parent completion nor keeps the parent `+`. Parent-local control/handoff/reconciliation stays active only while needed; separate handoff is optional when index + links suffice.
 
 ### Parent / Child Execution
 
-- Child scope/acceptance derives from parent/approved basis; decomposition preserves every still-required parent outcome.
-- Children may execute sequentially/concurrently when authority/dependencies permit and ancestry is discoverable. Child completion alone never completes/deactivates the parent; an active parent reconciles returned outcomes, dependencies, remaining children/work, verification, and its own acceptance basis.
+- Child scope/acceptance derives from parent/approved basis; decomposition preserves every still-required parent outcome without expanding parent acceptance. A child outcome is required for parent completion only while it remains necessary to satisfy the current parent acceptance basis or another required parent-local lifecycle obligation.
+- Children may execute sequentially/concurrently when authority/dependencies permit and ancestry is discoverable. Child completion alone never completes/deactivates the parent; an active parent reconciles returned outcomes, dependencies, remaining children/work, verification, and its own acceptance basis. Before parent completion—and earlier when new evidence, adoption, or correction materially changes necessity—re-evaluate unresolved child outcomes against that current basis. A useful or future child whose outcome is not required for parent completion does not block parent completion; continue, activate, or retain it only under its own applicable authority/state/retention rules.
 - Branch/PR/external runner/agent isolation is execution mechanism, not job identity. Preserve return target/context for reconciliation; creation/publication/merge and other external actions remain governed by root Permission / Scope, Safety / Compliance, and Consumer Hook boundaries.
