@@ -83,18 +83,6 @@ For this Upstream-distributed governance set, the root file is organized as `Rep
 - Never alter instructions to remove a blocker, retroactively justify implementation, accommodate a tool default, or broaden AI authority.
 - Repository instructions + approved project decisions override general conventions/tool defaults where they differ.
 
-#### Consumer Extension
-
-- A **Hook** is an optional area-owned extension point exposed by a governance rule after its firing condition has been independently established. Reaching a Hook does not itself grant authority, change project/repository state, prove completion/verification, or satisfy required governance behavior.
-- Hook identifiers use `<area>.<hook>` form, where `<area>` is one of the responsibility areas listed under Ownership and Placement, and are owned by the area that defines their firing condition. A defined Hook resolves at most one **Consumer Hook** from `<area>/.hooks/<hook>.md`; an undefined Hook or absent Consumer Hook is a no-op.
-- Each responsibility area reserves `<area>/.hooks/` as a standard Consumer Hook instruction namespace and keeps the directory present with `.gitkeep`. The `.gitkeep` file has no Hook semantics and may coexist with Consumer Hooks.
-- `<area>/.hooks/` is not an artifact of the area's project responsibility; ordinary area-artifact classification, placement, lifecycle, and Outbound Transfer rules do not apply to Consumer Hooks merely because of that location. Hook-specific local rules may further constrain them.
-- Consumer Hooks are Consumer-local instructions, not SoTs or generally inherited instructions. Read and apply a Consumer Hook only when its Hook is reached. Explicitly authorized inspection or maintenance of that Consumer Hook may read it outside a Hook occurrence; such access does not execute the Consumer Hook or constitute a Hook occurrence. Its instructions apply only to an actual Hook invocation and remain subordinate to applicable `AGENTS.md`, SoTs, Permission / Scope, Safety / Compliance, and required lifecycle/outbound behavior.
-- Existing Consumer Hooks are protected local instructions. Ordinary work must not create, change, move, rename, or delete a Consumer Hook merely to enable, alter, or unblock current work; Hook customization requires explicit user authorization identifying the affected Hook/scope.
-- A Consumer Hook may perform any otherwise-authorized Consumer-specific processing, but must not replace or suppress the governance condition or required action that exposed the Hook. After Consumer Hook processing, re-evaluate affected state before continuing.
-- Do not re-invoke a Hook merely because its Consumer Hook completed. A Hook may run again only when its owning rule's firing condition is reached again through a new applicable occurrence or state transition.
-- Each area owns its concrete Hook points and firing conditions. Hook transport, UI signaling, scheduling, retry, external execution, and automation mechanisms are Consumer concerns unless a governing rule explicitly says otherwise.
-
 ## Repository Principles
 
 ### Action Boundaries

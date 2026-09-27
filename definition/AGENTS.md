@@ -18,7 +18,7 @@ This file defines area-specific governance for `definition/` and inherits reposi
 
 #### Required Structure
 
-- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/agents.d/initialization.md`, `definition/agents.d/governance-migration.md`, `definition/agents.d/realization-authority.md`, `definition/agents.d/documentation-language.md`, `definition/agents.d/definition-maintenance.md`, `definition/.hooks/.gitkeep`, `definition/common/.gitkeep`, and `definition/units/.gitkeep`.
+- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/agents.d/initialization.md`, `definition/agents.d/governance-migration.md`, `definition/agents.d/realization-authority.md`, `definition/agents.d/documentation-language.md`, `definition/agents.d/definition-maintenance.md`, `definition/common/.gitkeep`, and `definition/units/.gitkeep`.
 - Initialization replaces the two definition markers with the fixed project entry docs `definition/common/INDEX.md`, `definition/common/documentation_language.md`, and `definition/units/INDEX.md`.
 - Per approved unit, create:
   - `definition/units/<unit>/INDEX.md`;

@@ -19,13 +19,11 @@ This file defines area-specific governance for `products/` and inherits reposito
 ```text
 products/
 ├── AGENTS.md
-├── .hooks/
-│   └── .gitkeep
 └── content/
     └── .gitkeep
 ```
 
-- `products/content/` is the standard physical root for formal product artifacts owned by the `products/` area. Remove `products/content/.gitkeep` when tracked product content makes the marker unnecessary, and restore it when no tracked product content remains under `products/content/`; preserve the root-required `products/.hooks/.gitkeep`.
+- `products/content/` is the standard physical root for formal product artifacts owned by the `products/` area. Remove `products/content/.gitkeep` when tracked product content makes the marker unnecessary, and restore it when no tracked product content remains under `products/content/`.
 - Formal implementations/tests/resources/dependencies/migrations/fixtures/CLIs/support programs/generators/manifests and similar product-owned realization artifacts belong under `products/content/` unless root governance requires a repository-level integration location.
 - Structure below `products/content/` follows implementation/toolchain needs. Do not mirror `definition/common/` or `definition/units/`, and do not require name/path symmetry with definition.
 - Physical path/name/location does not establish definition ownership. It may support navigation, framework/tool discovery, or change-impact routing when that use does not redefine authority.
