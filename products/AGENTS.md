@@ -12,7 +12,8 @@ This file defines area-specific governance for `products/` and inherits reposito
 
 #### Responsibility
 
-- Owns formal implementations and tests.
+- Owns formal implementations, tests, and adopted project-managed execution-environment configuration.
+- Execution-environment configuration includes project-managed artifacts whose responsibility is to instantiate or control an environment for project work or for a formal product, such as container images/composition, external-service configuration, safe environment examples, bootstrap, deployment, rollback, recovery, monitoring, and CI environment wiring.
 
 ### Structure and Placement
 
@@ -24,7 +25,9 @@ products/
 ```
 
 - `products/content/` is the standard physical root for formal product artifacts owned by the `products/` area. Remove `products/content/.gitkeep` when tracked product content makes the marker unnecessary, and restore it when no tracked product content remains under `products/content/`.
-- Formal implementations/tests/resources/dependencies/migrations/fixtures/CLIs/support programs/generators/manifests and similar product-owned realization artifacts belong under `products/content/` unless root governance requires a repository-level integration location.
+- Formal implementations/tests/resources/dependencies/migrations/fixtures/CLIs/support programs/generators/manifests, execution-environment configuration, and similar product-owned realization artifacts belong under `products/content/` unless root governance requires a repository-level integration location.
+- Group execution-environment configuration by environment responsibility/target service, keep one project-managed source for each configuration responsibility, and classify artifacts by ownership/role rather than extension, script-ness, or action vocabulary such as Ansible, container, bootstrap, deploy, or monitor.
+- For execution-environment configuration, do not retain generated data/cache/log/build output/installed dependencies as managed configuration. Environment examples may contain variable names and safe example values only; never actual credentials/private keys/tokens/personal/confidential values.
 - Structure below `products/content/` follows implementation/toolchain needs. Do not mirror `definition/common/` or `definition/units/`, and do not require name/path symmetry with definition.
 - Physical path/name/location does not establish definition ownership. It may support navigation, framework/tool discovery, or change-impact routing when that use does not redefine authority.
 - One realization artifact may be governed by multiple responsible SoTs for different facts; the one-responsible-SoT-per-project-fact rule remains unchanged.
@@ -32,12 +35,15 @@ products/
 - Repository-level integration artifacts permitted by root governance may remain outside `products/content/`; when they carry a products-owned responsibility, apply this area's governance as required by root instruction hierarchy.
 - Test placement follows verification responsibility and implementation/toolchain structure; cross-unit invocation/observation alone does not create a separate ownership class or require a mirrored definition path.
 - Local `README.md` may explain implementation, setup, operation, or entry points; link responsible project docs instead of duplicating requirements/design/testing/status. Do not require README solely to encode implementation-to-SoT correspondence.
-- Product/environment boundary for E2E, generation, migrations, linting, seeds, fixtures: [etc placement rules](../etc/AGENTS.md#structure-and-placement).
+- E2E tests/fixtures, generators, migrations, lint programs, seed data, external-service fixtures, and their environment startup/invocation/wiring all remain product-owned formal realization artifacts; responsibility and definition ownership follow the governed outcome rather than whether an artifact is executable code or environment configuration.
 
 ## Area Principles
 
 ### Change Boundaries
 
+- Uninitialized/unapproved environment responsibility: do not invent services, commands, topology, publication boundaries, persistence, recovery methods, or operational guarantees.
+- Keep environment configuration consistent with applicable environment/development/testing/release/migration/operation SoTs.
+- Service composition/networking/persistence/publication/deployment/rollback/recovery behavior changes must respect root authority: complete any required project-definition change/authorization first, then keep configuration and responsible project docs/status consistent in the same change.
 - Keep change inside approved RB; do not introduce a dependency across unit RBs without applicable adopted design authority.
 - Do not replace established architecture/RB/dependency direction/state authority/compatibility pattern merely because an alternative also satisfies requirements.
 - Documentation silence does not authorize redesign when change affects compatibility/responsibility/security/persistence/state authority/material boundary; resolve through the SoT process.
@@ -48,11 +54,14 @@ products/
 
 ### Lifecycle
 
-- When formalizing adopted code/tools, create the product-owned formal implementation under `products/content/` with appropriate structure/quality/tests rather than depending on a working/reference copy as production source, unless root governance requires a repository-level integration location.
+- When formalizing adopted code/tools/configuration, create the product-owned formal artifact under `products/content/` with appropriate structure/quality/tests or verification rather than depending on a working/reference copy as production source, unless root governance requires a repository-level integration location.
 - Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `definition/AGENTS.md` VB lifecycle.
 
-### Implementation Verification
+### Formal Artifact Verification
 
-- Run project-required + risk-proportional static analysis, generation consistency, migration, compatibility, security, performance, packaging checks.
+- Prefer automated reproducible checks; when impractical, define the method and result location.
+- Run project-required + risk-proportional static analysis, generation consistency, migration, compatibility, security, performance, packaging, and applicable configuration checks.
+- For changed execution-environment configuration, verify proportional to impact: applicable syntax, expanded configuration, startup, migration, health, rollback, and recovery.
+- Before destructive data delete/recreate/migration, confirm effect + recovery method under root authority rules.
 - Generated artifact/intermediate migration state ≠ implementation evidence.
-- Unavailable check ≠ success; report impact + remaining risk.
+- Record verification scope/limits/risk per `definition/AGENTS.md`; unavailable check ≠ success.
