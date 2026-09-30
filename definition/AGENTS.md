@@ -59,7 +59,7 @@ This file defines area-specific governance for `definition/` and inherits reposi
   - A shared acceptance/verification gate whose terminal pass/fail judgment only determines whether other responsibilities satisfy their required acceptance or verification basis is Common; that gate judgment alone is not an independently completable responsibility outcome. Requirements/testing that establish the correctness of the gate itself do not by themselves create a distinct project outcome when they only validate that acceptance/verification role. If the responsibility also owns a distinct project outcome with its own acceptance/completion boundary apart from that gate role, evaluate that outcome under the Unit criteria instead.
   - **Component**: a subordinate responsibility inside a unit RB that borrows one or more of its purpose, RB, governing authority, owned outcome, or acceptance/completion boundary from the parent unit. A separate file/directory/service/process/CLI/credential/recovery path does not by itself create a unit.
   - Multiple targets do not prove common ownership; one target does not prove unit ownership; never select a participant as representative owner or duplicate one responsibility per participant.
-  - Shared tools/observability/deployment/environments/`etc/` config do not transfer definition ownership. Keep shared responsibility with the SoT whose governing outcome/judgment it implements and only unit-owned deltas with that unit.
+  - Shared tools/observability/deployment/environment configuration do not transfer definition ownership. Keep shared responsibility with the SoT whose governing outcome/judgment it implements and only unit-owned deltas with that unit.
   - Paths/names/locations may support navigation, tool discovery, or change-impact routing, but do not establish normative ownership or authority.
   - Normative testing uses the same responsibility test. A common verification policy may apply to multiple units; unit testing owns unit-specific sufficiency/acceptance where applicable. Testing indexes may link current VB for coverage but contain no execution history.
   - Adopted procedures/policy/constraints belong in `definition/`.
@@ -113,7 +113,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 - Non-authoritative candidate replacements/target states/alternatives, transient current-realization or other active working material, active execution control, and project-managed active execution evidence → `jobs/`.
 - Durable non-normative knowledge/artifacts with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`.
-- Environment configuration → `etc/`.
+- Formal environment configuration → owning `products/` area.
 - Formal product-owned test/lint/generator/migration/fixture/viewer/verifier programs → owning `products/` area.
 
 ## Area Operations

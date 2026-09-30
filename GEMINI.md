@@ -4,7 +4,6 @@
 @./jobs/AGENTS.md
 @./products/AGENTS.md
 @./references/AGENTS.md
-@./etc/AGENTS.md
 
 **Do not implement before identifying and reading the applicable project SoTs.**
 **Implementation without corresponding authoritative SoT coverage is prohibited.**

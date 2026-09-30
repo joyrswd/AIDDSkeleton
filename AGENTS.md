@@ -49,15 +49,14 @@ For this Upstream-distributed governance set, the root file is organized as `Rep
 | Area | Owns |
 |---|---|
 | [`definition/`](definition/AGENTS.md) | Adopted project definition, status, project-specific lifecycle/VB rules |
-| [`etc/`](etc/AGENTS.md) | Project-managed execution-environment configuration |
 | [`jobs/`](jobs/AGENTS.md) | Non-authoritative active-work control, investigation, proposals, deferred follow-up, prototypes, handoffs, transitional verification material |
 | [`references/`](references/AGENTS.md) | Durable non-normative supplied/project-managed reference material |
-| [`products/`](products/AGENTS.md) | Formal implementations and tests |
+| [`products/`](products/AGENTS.md) | Formal implementations, tests, and project-managed execution-environment configuration |
 
 - Every artifact carrying project responsibility belongs to the area owning that responsibility.
 - Placement follows responsibility; location alone does not satisfy the applicable adoption, authority, completion, or verification process.
 - An `agents.d/` directory is an optional conditional-governance subdivision owned by its nearest governing `AGENTS.md`; it is not a project-responsibility area or project artifact and need not exist where no conditional rules are defined.
-- Repository-level integration artifacts may remain outside the five responsibility areas when an adopted VCS/framework/tool/platform requires or directly discovers a repository-root, top-level, or hidden path for repository-scoped metadata, configuration, or instruction routing and the integration has no supported way to relocate that artifact while preserving equivalent behavior.
+- Repository-level integration artifacts may remain outside the four responsibility areas when an adopted VCS/framework/tool/platform requires or directly discovers a repository-root, top-level, or hidden path for repository-scoped metadata, configuration, or instruction routing and the integration has no supported way to relocate that artifact while preserving equivalent behavior.
 - Repository-level integration placement does not create a responsibility area or authority. Tool-facing routing/translation must defer to the applicable governance/SoTs rather than become an independent owner; when an integration artifact substantively carries an existing project responsibility, assign it to that area and apply that area's governance as if the artifact were placed there.
 - No additional top-level non-hidden directory without an explicit user decision changing this model, except root `agents.d/` under the conditional-governance rules below or a repository-level integration path permitted above.
 - Ordinary framework/tool source, test, script, package, infrastructure, or documentation layout conventions do not by themselves create repository-level integration paths; keep such project content below the responsible area unless it qualifies under the repository-level integration rule above.

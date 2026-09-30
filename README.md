@@ -45,10 +45,9 @@ Instead of asking an AI to generate code into an unstructured repository, AIDD g
 
 ```text
 definition/  Project definitions and sources of truth
-products/    Formal implementations, tests, and deliverables
+products/    Formal implementations, tests, environment configuration, and deliverables
 references/  Durable non-normative reference materials
 jobs/        Working, exploratory, and verification materials
-etc/         Execution-environment configuration
 ```
 
 Repository-wide and directory-specific `AGENTS.md` files define the working agreements that developers and AI agents must follow. Conditional instruction bodies may live in sibling `agents.d/` directories and are read only when explicitly dispatched by their governing `AGENTS.md`.
@@ -56,7 +55,7 @@ Repository-wide and directory-specific `AGENTS.md` files define the working agre
 ## What You Get
 
 - A shared working agreement for developers and AI agents
-- Clear separation between definitions, formal products, durable references, job materials, and environment configuration
+- Clear separation between definitions, formal products, durable references, and job materials
 - A predictable workflow for requirements, design, implementation, and verification
 - A structure designed to remain understandable as the project grows
 
@@ -64,7 +63,6 @@ Repository-wide and directory-specific `AGENTS.md` files define the working agre
 
 - [Working Agreement](AGENTS.md)
 - [Definitions and Sources of Truth](definition/AGENTS.md)
-- [Execution Environment Conventions](etc/AGENTS.md)
-- [Formal Products](products/AGENTS.md)
+- [Formal Products and Environment Configuration](products/AGENTS.md)
 - [Reference Materials](references/AGENTS.md)
 - [Jobs](jobs/AGENTS.md)
