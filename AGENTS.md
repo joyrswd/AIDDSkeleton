@@ -51,7 +51,7 @@ For this Upstream-distributed governance set, the root file is organized as `Rep
 | [`definition/`](definition/AGENTS.md) | Adopted project definition, status, project-specific lifecycle/VB rules |
 | [`jobs/`](jobs/AGENTS.md) | Non-authoritative active-work control, investigation, proposals, deferred follow-up, prototypes, handoffs, transitional verification material |
 | [`references/`](references/AGENTS.md) | Durable non-normative supplied/project-managed reference material |
-| [`products/`](products/AGENTS.md) | Formal implementations, tests, and project-managed execution-environment configuration |
+| [`implementation/`](implementation/AGENTS.md) | Formal implementations, tests, and project-managed execution-environment configuration |
 
 - Every artifact carrying project responsibility belongs to the area owning that responsibility.
 - Placement follows responsibility; location alone does not satisfy the applicable adoption, authority, completion, or verification process.

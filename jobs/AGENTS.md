@@ -47,8 +47,8 @@ This file defines area-specific governance for `jobs/` and inherits repository a
 | Continuing material | Destination / handling |
 |---|---|
 | Adopted requirements/design/testing/procedures/decisions/project facts | responsible `definition/` SoT |
-| Formal code/tests/tools/support programs | `products/` |
-| Managed environment config | `products/` |
+| Formal code/tests/tools/support programs | `implementation/` |
+| Managed environment config | `implementation/` |
 | Supplied originals, or material whose only continuing value is durable non-normative knowledge independent of active/inactive work | `references/` |
 | Adopted current-state limits/blockers caused by unresolved work | responsible definition index when needed to describe accepted current state; the unresolved question, candidate resolutions, and non-adopted decision material remain in `jobs/` |
 

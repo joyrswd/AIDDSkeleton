@@ -2,7 +2,7 @@
 @./AGENTS.md
 @./definition/AGENTS.md
 @./jobs/AGENTS.md
-@./products/AGENTS.md
+@./implementation/AGENTS.md
 @./references/AGENTS.md
 
 **Do not implement before identifying and reading the applicable project SoTs.**

@@ -46,8 +46,8 @@ This file defines area-specific governance for `references/` and inherits reposi
 ### Outbound Transfer
 
 - Adopted requirements/design/testing/procedures/decisions → responsible `definition/` SoT.
-- Adopted source/code → project-managed `products/`.
-- Adopted environment config → `products/`.
+- Adopted source/code → project-managed `implementation/`.
+- Adopted environment config → `implementation/`.
 - Working copies needed for processing/modification/comparison/transformation/investigation/verification → `jobs/`; preserve the supplied original in `references/`.
 - Derived results whose responsibility no longer belongs to `references/` → the area owning that responsibility.
 

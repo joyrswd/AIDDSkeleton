@@ -1,6 +1,6 @@
-# AIDD Formal Product Instructions
+# AIDD Implementation Instructions
 
-This file defines area-specific governance for `products/` and inherits repository and `definition/` governance.
+This file defines area-specific governance for `implementation/` and inherits repository and `definition/` governance.
 
 ## Area Foundations
 
@@ -8,34 +8,34 @@ This file defines area-specific governance for `products/` and inherits reposito
 
 #### Scope
 
-- Applies to `products/` and descendants; inherits root + `definition/AGENTS.md`.
+- Applies to `implementation/` and descendants; inherits root + `definition/AGENTS.md`.
 
 #### Responsibility
 
 - Owns formal implementations, tests, and adopted project-managed execution-environment configuration.
-- Execution-environment configuration includes project-managed artifacts whose responsibility is to instantiate or control an environment for project work or for a formal product, such as container images/composition, external-service configuration, safe environment examples, bootstrap, deployment, rollback, recovery, monitoring, and CI environment wiring.
+- Execution-environment configuration includes project-managed artifacts whose responsibility is to instantiate or control an environment for project work or for a formal implementation, such as container images/composition, external-service configuration, safe environment examples, bootstrap, deployment, rollback, recovery, monitoring, and CI environment wiring.
 
 ### Structure and Placement
 
 ```text
-products/
-├── AGENTS.md
-└── content/
-    └── .gitkeep
+implementation/
+└── AGENTS.md
 ```
 
-- `products/content/` is the standard physical root for formal product artifacts owned by the `products/` area. Remove `products/content/.gitkeep` when tracked product content makes the marker unnecessary, and restore it when no tracked product content remains under `products/content/`.
-- Formal implementations/tests/resources/dependencies/migrations/fixtures/CLIs/support programs/generators/manifests, execution-environment configuration, and similar product-owned realization artifacts belong under `products/content/` unless root governance requires a repository-level integration location.
+- `implementation/` is the repository physical root for formal artifacts owned by the implementation area.
+- Generated/package/deployed/installed/runtime layouts are separate from repository placement and need not mirror the `implementation/` area name or its internal structure; follow the responsible toolchain and adopted packaging/deployment/operation SoTs for those layouts.
+- Moving or restructuring repository implementation artifacts does not by itself authorize changing an adopted generated/package/deployed/installed/runtime layout or path contract; preserve that contract unless its responsible authority changes it, and reconcile the implementation needed to continue satisfying it.
+- Formal implementations/tests/resources/dependencies/migrations/fixtures/CLIs/support programs/generators/manifests, execution-environment configuration, and similar implementation-owned artifacts belong under `implementation/` unless root governance requires a repository-level integration location.
 - Group execution-environment configuration by environment responsibility/target service, keep one project-managed source for each configuration responsibility, and classify artifacts by ownership/role rather than extension, script-ness, or action vocabulary such as Ansible, container, bootstrap, deploy, or monitor.
 - For execution-environment configuration, do not retain generated data/cache/log/build output/installed dependencies as managed configuration. Environment examples may contain variable names and safe example values only; never actual credentials/private keys/tokens/personal/confidential values.
-- Structure below `products/content/` follows implementation/toolchain needs. Do not mirror `definition/common/` or `definition/units/`, and do not require name/path symmetry with definition.
+- Structure within `implementation/` follows implementation/toolchain needs. Do not mirror `definition/common/` or `definition/units/`, and do not require name/path symmetry with definition.
 - Physical path/name/location does not establish definition ownership. It may support navigation, framework/tool discovery, or change-impact routing when that use does not redefine authority.
 - One realization artifact may be governed by multiple responsible SoTs for different facts; the one-responsible-SoT-per-project-fact rule remains unchanged.
-- Responsible definition authority for a formal product artifact must remain discoverable from its role/behavior/governing conditions plus the indexed definition hierarchy. Dedicated mapping files or routing-only README files are not required; when ordinary responsibility resolution remains materially ambiguous, provide a project-defined routing entry without duplicating normative content.
-- Repository-level integration artifacts permitted by root governance may remain outside `products/content/`; when they carry a products-owned responsibility, apply this area's governance as required by root instruction hierarchy.
+- Responsible definition authority for a formal implementation artifact must remain discoverable from its role/behavior/governing conditions plus the indexed definition hierarchy. Dedicated mapping files or routing-only README files are not required; when ordinary responsibility resolution remains materially ambiguous, provide a project-defined routing entry without duplicating normative content.
+- Repository-level integration artifacts permitted by root governance may remain outside `implementation/`; when they carry an implementation-owned responsibility, apply this area's governance as required by root instruction hierarchy.
 - Test placement follows verification responsibility and implementation/toolchain structure; cross-unit invocation/observation alone does not create a separate ownership class or require a mirrored definition path.
 - Local `README.md` may explain implementation, setup, operation, or entry points; link responsible project docs instead of duplicating requirements/design/testing/status. Do not require README solely to encode implementation-to-SoT correspondence.
-- E2E tests/fixtures, generators, migrations, lint programs, seed data, external-service fixtures, and their environment startup/invocation/wiring all remain product-owned formal realization artifacts; responsibility and definition ownership follow the governed outcome rather than whether an artifact is executable code or environment configuration.
+- E2E tests/fixtures, generators, migrations, lint programs, seed data, external-service fixtures, and their environment startup/invocation/wiring all remain implementation-owned formal realization artifacts; responsibility and definition ownership follow the governed outcome rather than whether an artifact is executable code or environment configuration.
 
 ## Area Principles
 
@@ -54,7 +54,7 @@ products/
 
 ### Lifecycle
 
-- When formalizing adopted code/tools/configuration, create the product-owned formal artifact under `products/content/` with appropriate structure/quality/tests or verification rather than depending on a working/reference copy as production source, unless root governance requires a repository-level integration location.
+- When formalizing adopted code/tools/configuration, create the implementation-owned formal artifact under `implementation/` with appropriate structure/quality/tests or verification rather than depending on a working/reference copy as production source, unless root governance requires a repository-level integration location.
 - Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `definition/AGENTS.md` VB lifecycle.
 
 ### Formal Artifact Verification

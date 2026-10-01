@@ -26,5 +26,4 @@
 ## Reset
 
 - Reset to `Uninitialized` only through explicitly approved atomic lifecycle reset: remove or reclassify all project-specific content under `definition/common/` and `definition/units/`, delete the three fixed initialized entry docs, restore `definition/common/.gitkeep` and `definition/units/.gitkeep`, and verify whole state.
-- If that reset leaves no tracked product content under `products/content/`, restore `products/content/.gitkeep` under `products/AGENTS.md` before reset completion and include that marker condition in whole-state verification.
-- Before reset completion, reconcile any `products/` artifact whose formal/adopted status depends on definition authority being removed. Reclassify, transfer, retire, or otherwise update its status under the responsible area governance; do not leave an artifact represented as formal/adopted solely through authority deleted by the reset.
+- Before reset completion, reconcile any `implementation/` artifact whose formal/adopted status depends on definition authority being removed. Reclassify, transfer, retire, or otherwise update its status under the responsible area governance; do not leave an artifact represented as formal/adopted solely through authority deleted by the reset.

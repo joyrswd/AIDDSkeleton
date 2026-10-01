@@ -79,7 +79,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 #### Normative and SoT Authority
 
-- Normative content constrains future valid implementations and must remain usable without current `products/`; applicable requirements/design/testing together must support independent implementation with the same intended outcomes, adopted contracts/RBs, fixed algorithms/invariants, and equivalent acceptance intent.
+- Normative content constrains future valid implementations and must remain usable without current `implementation/`; applicable requirements/design/testing together must support independent implementation with the same intended outcomes, adopted contracts/RBs, fixed algorithms/invariants, and equivalent acceptance intent.
 - Goal is semantic reconstruction, not source reproduction/operational restoration. Incidental implementation details are not required unless independently adopted constraints/contracts; design may remain concrete when intentionally constraining future valid implementations.
 - One responsible adopted SoT per project fact; no duplicate detail or parallel `current`/`target` variants/equivalent views. Candidate replacements, target states, and alternatives are non-authoritative and preferably expressed as deltas against the current SoT.
 - Approved future intent may live in `definition/` when it is itself the document's responsibility, not as a parallel candidate SoT. Distinguish assumed/decided/open; proposal/unapproved assumption ≠ settled fact.
@@ -113,8 +113,8 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 - Non-authoritative candidate replacements/target states/alternatives, transient current-realization or other active working material, active execution control, and project-managed active execution evidence → `jobs/`.
 - Durable non-normative knowledge/artifacts with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`.
-- Formal environment configuration → owning `products/` area.
-- Formal product-owned test/lint/generator/migration/fixture/viewer/verifier programs → owning `products/` area.
+- Formal environment configuration → owning `implementation/` area.
+- Formal test/lint/generator/migration/fixture/viewer/verifier programs → owning `implementation/` area.
 
 ## Area Operations
 
