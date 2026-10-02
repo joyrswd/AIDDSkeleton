@@ -112,7 +112,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 ### Outbound Transfer
 
 - Non-authoritative candidate replacements/target states/alternatives, transient current-realization or other active working material, active execution control, and project-managed active execution evidence → `jobs/`.
-- Durable non-normative knowledge/artifacts with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/`.
+- Durable non-normative knowledge/artifacts with continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation value → `references/` only after any continuing adopted semantics remain represented by their responsible SoTs; reference entry, identity, retention, and later use follow `references/AGENTS.md`.
 - Formal environment configuration → owning `implementation/` area.
 - Formal test/lint/generator/migration/fixture/viewer/verifier programs → owning `implementation/` area.
 

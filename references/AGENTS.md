@@ -15,6 +15,8 @@ This file defines area-specific governance for `references/` and inherits reposi
 - Owns durable **non-normative** material for future consultation:
   - externally supplied originals;
   - project-managed material with continuing evidential, diagnostic, maintenance, interoperability, audit, or re-investigation value.
+- A **retained reference unit** is material that has validly entered this area's lifecycle under Entry and represents a specific supplied, observed, or recorded identity/state. It is not a staging form of `definition/`, `implementation/`, or `jobs/` material.
+- Reference responsibility is terminal for a validly entered retained unit: later work may consume, copy, cite, compare, or derive from it, but that retained unit itself does not promote or transfer outward into another responsibility area.
 
 ### Structure and Placement
 
@@ -22,7 +24,7 @@ This file defines area-specific governance for `references/` and inherits reposi
 
 - Keep supplied originals distinct from project-managed references; never silently mix them.
 - Supplied unit: preserve supplier, applicable version/commit, receipt date, supplied structure/paths/names/content/README where practical.
-- Project-managed unit: record origin, purpose, retention/observation date, represented scope, target/source identity, and material freshness/revalidation/supersession conditions.
+- Project-managed unit: record origin, purpose, retention/observation date, represented scope/state, target/source identity, and material freshness/revalidation/supersession conditions.
 - General supplied `docs/` collections/datasets → `references/`; never create new top-level `docs/`/`data/`.
 - Project guidance around supplied material must remain distinguishable from the original.
 - Import supplied source as traceable snapshot/archive/pinned version when practical; avoid embedding nested VCS metadata unintentionally.
@@ -43,13 +45,15 @@ This file defines area-specific governance for `references/` and inherits reposi
 - Reference presence/linkage ≠ requirement/design/testing/implementation constraint/verification conclusion beyond recorded scope.
 - A reference remains supporting input, not an adoption record.
 
-### Outbound Transfer
+### Consumption and Derivation Boundary
 
-- Adopted requirements/design/testing/procedures/decisions → responsible `definition/` SoT.
-- Adopted source/code → project-managed `implementation/`.
-- Adopted environment config → `implementation/`.
-- Working copies needed for processing/modification/comparison/transformation/investigation/verification → `jobs/`; preserve the supplied original in `references/`.
-- Derived results whose responsibility no longer belongs to `references/` → the area owning that responsibility.
+- Using a reference as input/evidence does not transfer, promote, reactivate, or reclassify the retained reference unit.
+- Requirements/design/testing/procedures/decisions derived from reference material become authoritative only when separately adopted into the responsible `definition/` SoT; the source reference remains independently retained or disposed under this area's lifecycle.
+- Source/code or environment configuration derived from reference material becomes formal only as a distinct project-managed artifact under `implementation/` and applicable definition authority; never use a retained reference unit as the formal implementation source.
+- Processing/modification/comparison/transformation/investigation/verification based on a reference uses distinct working material under `jobs/`; do not turn the retained reference unit itself into working material.
+- A derived result is classified by its own responsibility. If it independently qualifies for durable non-normative retention, enter it as a distinct reference unit with provenance to its inputs rather than treating derivation as mutation of an existing reference.
+- **Distinct artifact** is a responsibility/lifecycle distinction, not a requirement for different bytes, Git blob identity, or simultaneous duplicate retention. When Retention and Disposal permits disposal, one coherent change may consume a reference, establish byte-identical content as a separately authorized artifact in another area, and dispose of the source reference; this does not preserve reference identity or constitute reference promotion.
+- A resulting artifact or its responsible authority must retain enough source identity/version/integrity provenance to remain interpretable if the source reference is later disposed; do not make formal or authoritative meaning depend on continued existence of a reference path.
 
 ## Area Operations
 
@@ -58,16 +62,25 @@ This file defines area-specific governance for `references/` and inherits reposi
 #### Entry
 
 - Confirm purpose and relation to existing references/decisions.
-- Satisfy Reference Classes, Provenance, and Storage requirements.
+- A unit validly enters the retained-reference lifecycle when it is deliberately classified and retained under `references/` for future consultation or evidence and satisfies Reference Classes, Provenance, and Storage. Physical placement under `references/` alone does not establish valid entry.
+- Material still being authored, corrected, compared, transformed, or evaluated before retained-reference entry is working material under `jobs/`; supplied originals may enter directly when their retained purpose and required provenance are established.
+- Material discovered under `references/` that never satisfied this area's responsibility/entry conditions is a placement/classification error: correct it to the responsible area under root transfer rules. Such correction is not promotion of a retained reference unit.
 - Retain project-managed material only when it has continuing non-normative value.
 - Do not retain every run/output/log/screenshot/report; prefer a concise durable summary/stable mapping when raw transient history adds no value.
 
-#### Supersession
+#### Asserted Content, Errata, and Supersession
 
-- Never overwrite supplied content.
-- Observation-bound evidence (screenshot/captured response/measurement/execution result) records that observation; do not edit it into a different observation. Record new observation separately, or supersede while preserving prior record when a current claim/audit/continuing need depends on it.
-- Derived summaries/mappings/compatibility/maintenance knowledge may be revised/superseded; preserve provenance and distinguish them from underlying observations.
-- Keep materially different supplied versions distinguishable; inspect effects on decisions, implementation, verification, references.
+- **Asserted content** is what the reference records as supplied, observed, or otherwise represented: its payload plus claimed source/target identity, represented scope/state/conditions, observation/result values, and conclusions. After valid entry, do not silently replace or materially rewrite asserted content in place.
+- Materially different content, identity, version, observation, represented state/scope/conditions, result, or conclusion is a distinct reference unit when retained; do not reuse one retained unit as a rolling `latest` artifact.
+- Except for required Safety/compliance redaction below, never overwrite supplied asserted content. A corrected/revised supplier version is a distinct reference unit when retained.
+- Observation-bound evidence (screenshot/captured response/measurement/execution result) records exactly that observation. A later observation is a distinct reference unit; preserve or delete the earlier unit only under Retention and Disposal.
+- A derived summary/mapping/compatibility/maintenance record whose asserted meaning or represented state materially changes is a distinct reference unit when retained. Drafting, correction, comparison, or transformation before retained-reference entry belongs in `jobs/`.
+- Curatorial/lifecycle metadata may be maintained in place when it does not change asserted meaning or identity: evidence-based provenance supplementation, current routing/accessibility links, supersession relationships, retention/licensing/confidentiality status, and meaning-preserving formatting or typo correction. For supplied originals, keep any correction or annotation distinguishable from the supplied payload rather than editing that payload merely to fix a typo or link. Do not rewrite a historical asserted path, version, identity, wording, or observation merely to match current governance, repository layout, terminology, or documentation language; add current routing/context separately when useful.
+- If an error affects asserted identity, numeric/result value, scope, condition, observation, or conclusion, do not silently replace the recorded value. Record an erratum that preserves the original recorded value, states the correction and its basis, and reassess affected dependents/claims; when the corrected record itself needs durable consultation, retain it as a distinct successor unit.
+- Safety/compliance redaction is allowed when necessary even if it affects stored payload. Do not preserve credentials, personal/confidential information, or prohibited content merely for immutability; leave a non-sensitive redaction/errata indication when safe and reassess dependent claims/provenance.
+- When a successor supersedes an earlier retained unit, keep their represented scopes distinguishable and make the relation discoverable on the successor, predecessor metadata, or responsible routing material; such curatorial linkage must not rewrite the predecessor's asserted state.
+- Do not reuse a retained unit's stable identifier or path for a materially different represented state while prior inbound references, VB claims, audit needs, or other dependencies may still resolve to the earlier unit.
+- Keep materially different supplied or project-managed versions distinguishable; inspect effects on decisions, implementation, verification, references.
 
 #### Retention and Disposal
 
@@ -76,7 +89,7 @@ This file defines area-specific governance for `references/` and inherits reposi
 
 ### Use
 
-- Preserve supplied originals in `references/`.
+- While a supplied original is retained, keep its asserted content under `references/`; downstream consumption does not move or convert that retained unit into another responsibility artifact. Retention/disposal remains governed by this area's lifecycle.
 - Implementation, acceptance, or current verified-claim use requires the Validation rules below.
 
 ### Validation
