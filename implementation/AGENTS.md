@@ -55,7 +55,7 @@ implementation/
 ### Lifecycle
 
 - When formalizing adopted code/tools/configuration, create the implementation-owned formal artifact under `implementation/` with appropriate structure/quality/tests or verification rather than depending on a working/reference copy as production source, unless root governance requires a repository-level integration location.
-- When an artifact ceases to have formal implementation responsibility but has independent durable non-normative evidential/diagnostic/maintenance/interoperability/audit/re-investigation value, it may transfer to `references/` after affected definition authority, dependents, current claims, and implementation state are reconciled. The retained reference unit is not a dormant implementation source; later formal reuse requires a distinct implementation-owned artifact under current authority.
+- When an artifact ceases to have formal implementation responsibility but has independent durable non-normative evidential/diagnostic/maintenance/interoperability/audit/re-investigation value, it may transfer to `references/` after affected definition authority, dependents, current claims, and implementation state are reconciled; reference entry, identity, retention, and any later use follow `references/AGENTS.md`.
 - Generated output/cache/disposable test results/build artifacts/installed dependencies stay with execution unit and normally untracked. Retained evidence follows `definition/AGENTS.md` VB lifecycle.
 
 ### Formal Artifact Verification
