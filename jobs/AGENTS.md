@@ -49,7 +49,7 @@ This file defines area-specific governance for `jobs/` and inherits repository a
 | Adopted requirements/design/testing/procedures/decisions/project facts | responsible `definition/` SoT |
 | Formal code/tests/tools/support programs | `implementation/` |
 | Managed environment config | `implementation/` |
-| Supplied originals, or material whose only continuing value is durable non-normative knowledge independent of active/inactive work | `references/` |
+| Supplied originals, or material whose only continuing value is durable non-normative knowledge independent of active/inactive work | `references/` as a retained reference unit; transfer ends `jobs/` responsibility for that artifact, and later working reuse creates new `jobs/` material rather than reactivating or mutating the reference unit |
 | Adopted current-state limits/blockers caused by unresolved work | responsible definition index when needed to describe accepted current state; the unresolved question, candidate resolutions, and non-adopted decision material remain in `jobs/` |
 
 `jobs/` filenames/splits/directories/INDEX do not prescribe destination structure. Integrate adopted semantics into the responsible SoT instead of migrating the working file; authorized adopted facts must not remain only in `jobs/`. Do not transfer unresolved candidate semantics merely to satisfy a downstream authoritative dependency; resolve/adopt them first or leave dependent formalization/formal implementation blocked. Clearly non-authoritative investigation, comparison, and prototypes may still explore unresolved candidates within existing authority.
