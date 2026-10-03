@@ -64,7 +64,7 @@ This file defines area-specific governance for `references/` and inherits reposi
 - Confirm purpose and relation to existing references/decisions.
 - A unit validly enters the retained-reference lifecycle when it is deliberately classified and retained under `references/` for future consultation or evidence and satisfies Reference Classes, Provenance, and Storage. Physical placement under `references/` alone does not establish valid entry.
 - Material still being authored, corrected, compared, transformed, or evaluated before retained-reference entry is working material under `jobs/`; supplied originals may enter directly when their retained purpose and required provenance are established.
-- Material discovered under `references/` that never satisfied this area's responsibility/entry conditions is a placement/classification error: correct it to the responsible area under root transfer rules. Such correction is not promotion of a retained reference unit.
+- Material discovered under `references/` that never satisfied this area's responsibility/entry conditions is a placement/classification error: determine its responsible area under root Ownership and Placement, then correct or route it only through that area's applicable entry/authority process. If destination entry/adoption is not authorized, do not transfer it merely to normalize placement. Such correction is not promotion of a retained reference unit.
 - Retain project-managed material only when it has continuing non-normative value.
 - Do not retain every run/output/log/screenshot/report; prefer a concise durable summary/stable mapping when raw transient history adds no value.
 
@@ -84,8 +84,10 @@ This file defines area-specific governance for `references/` and inherits reposi
 
 #### Retention and Disposal
 
+- Retain a unit only while continuing non-normative value, a dependent claim, an inbound dependency, or an applicable retention/audit/legal obligation still justifies retention. Supersession alone neither requires nor forbids retaining the predecessor; licensing, confidentiality, privacy, or other storage constraints may independently require restricted handling or disposal.
 - Never remove the only adequate VB for a current verified claim without replacement or claim downgrade per `definition/AGENTS.md`.
-- Inspect SoTs, `jobs/`, implementation, active work, provenance, licensing, usage links, and continuing evidential/maintenance needs before move/delete.
+- Inspect SoTs, `jobs/`, implementation, active work, provenance, licensing, usage links, inbound dependencies, and continuing evidential/diagnostic/maintenance/interoperability/audit/re-investigation needs before move/delete.
+- A retained unit may be disposed when no current verified claim depends on it, no continuing dependency or retention obligation requires its identity/content, and no continuing non-normative value justifies retention; reconcile affected routing, provenance, and supersession links so disposal does not create misleading or broken meaning.
 
 ### Use
 
