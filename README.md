@@ -25,6 +25,13 @@ Hello!
 
 A compatible AI agent will inspect and follow the repository instructions, then guide you through initialization and the next steps.
 
+On a fresh template, the agent should first explain what initialization establishes and what repository areas it will prepare. If you have not already given a more specific initialization request, it should offer two ways to proceed:
+
+- **Guided:** work through the material project decisions with you progressively.
+- **Assumption-led (faster):** use the information you provide plus reasonable assumptions, minimize advance questions, and show the assumptions before they are adopted.
+
+You can discuss the project and choose either mode without changing any files. When you are ready for the agent to start initialization, say so explicitly; before adopting the project definition, the agent will present the initialization summary required by the working agreement.
+
 ### AI Agent Compatibility
 
 When choosing an AI coding environment, prefer one whose agent runtime reliably follows repository instructions while working. The authoritative working agreement is defined by the repository `AGENTS.md` files and any instructions they dispatch; this README intentionally does not restate that contract.

@@ -238,8 +238,8 @@ This section is always-read governance that owns dispatch rules. Only a dispatch
 
 ### Project Initialization
 
-- Determine project initialization state using `definition/AGENTS.md` before project-specific work.
-- If that state is `Uninitialized` or `Inconsistent`, read and apply [`agents.d/initialization.md`](agents.d/initialization.md) before project-specific modification. `definition/AGENTS.md` separately dispatches definition-owned initialization rules.
+- Determine project initialization state using `definition/AGENTS.md` before project-specific work and when a user begins repository collaboration without a more specific project request.
+- If that state is `Uninitialized` or `Inconsistent`, read and apply [`agents.d/initialization.md`](agents.d/initialization.md) before initialization guidance, project-specific clarification, or project-specific modification. When the user begins repository collaboration without a more specific project request, use that file's applicable read-only orientation as the initial project-facing response. `definition/AGENTS.md` separately dispatches definition-owned initialization rules.
 
 ### Pre-Work Clarification
 
