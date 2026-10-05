@@ -92,6 +92,18 @@ Authorization, remaining work, entry/dependency readiness, active ancestry, or o
 - A blocked/pending job stays `+` only if it had already entered active lifecycle and its authorized outcome remains active while waiting. Future authorized work not yet activated is `_`.
 - Current-claim-dependent transitional VB stays in `+` while preservation/replacement/reconciliation/claim-downgrade is an active obligation, even after implementation ends.
 
+#### Status Projection
+
+A conversational/session status summary is a derived view, not job state, authority, priority, or a separate repository control artifact. Producing the view does not activate, reactivate, select, defer, complete, or otherwise transition work.
+
+- Build the repository-managed work portion from the ordinary discoverable active chain: top-level `jobs/+*`, then active-parent entry points/`INDEX.md` and marked children only as needed to explain current execution or resumable state.
+- Report observed lifecycle/progress facts rather than synthesizing completion percentages, priority, or next-job selection from marker state, child/file counts, lexical order, or retained-plan order.
+- Do not descend through or enumerate `_` merely to make the status summary comprehensive. Include inactive/follow-up work only when it is already surfaced by an applicable root reassessment/revisit condition, current active control, or an explicit request to inspect that retained unit.
+- Report a user-owned decision as `waiting for user` only when current discoverable control shows that the decision is actually required for continuation or acceptance. A pending/blocked `+` job does not by itself imply user action.
+- Report a job as blocked only under Blocked Continuation. When another independently executable continuation is already available within existing authority, distinguish that available continuation from the blocked path rather than presenting the repository as wholly blocked.
+- A complete top-level `jobs/+*` discovery that finds no active job supports only a `no repository-managed active work found` statement for the inspected state. It does not establish that no inactive, deferred, future-authorized, or unrecorded work exists.
+- Status projection does not require persistence. If the source control is materially stale in a way that existing lifecycle/reconciliation rules require fixing before it can be relied on, reconcile that owner under those rules rather than creating a parallel status record.
+
 #### Entry
 
 - Basis: explicit request, approved decision/init summary, recorded open question, applicable SoT, supplied material, authorized parent decomposition, or root-permitted retention/disposition; never unapproved assumption alone.

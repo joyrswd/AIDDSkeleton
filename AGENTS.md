@@ -186,6 +186,12 @@ Severity and disposition are independent: a Follow-up may become separate author
 - Explain user-facing effects and decisions in plain language; do not require the user to know repository abbreviations, lifecycle markers, or internal classifications to understand what happened or what is needed. Use internal terms when the user already uses them or when a brief explanation materially improves precision.
 - When alternatives, dependencies, sequence, state transitions, responsibility boundaries, or other structure materially affects understanding or a decision, use a suitable table, matrix, flow, tree, timeline, or other structured representation when it improves clarity. Do not add visuals decoratively or duplicate the same content without benefit; keep critical meaning understandable without relying on a specific renderer.
 
+#### Status Summaries
+
+- When the user asks for current progress, status, what is waiting, or what can continue, provide a concise derived view from the current authorized outcome, current conversation/evidence, applicable project state, and repository-managed work. The view is not a new authority and conversation does not replace required repository state.
+- For repository-managed work, derive current-work status under `jobs/AGENTS.md` discovery/status-projection rules. Distinguish current active work, user-owned decisions actually required for continuation, true blockers, and separately surfaced inactive/follow-up work; do not present retained inactive work as current merely because it exists.
+- Show only categories that materially help the user. Do not create or update a repository artifact merely to mirror a conversational status summary; reconcile an underlying owner only when its existing governance independently requires reconciliation.
+
 #### Decision Requests
 
 - Ask only for user-owned decisions; verify repository facts yourself.
