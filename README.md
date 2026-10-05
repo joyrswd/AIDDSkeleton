@@ -23,7 +23,20 @@ Hello!
 ...
 ```
 
-A compatible AI agent will inspect and follow the repository instructions, then guide you through initialization and the next steps.
+A greeting starts the conversation; it does not by itself authorize repository changes. If the project is still uninitialized, a compatible AI agent will briefly explain initialization and offer two ways to proceed:
+
+- **Guided** — work through the important project decisions together before reviewing the initialization summary.
+- **Fast** — let the agent prepare reasonable assumptions from the information you supplied and the repository, then review them together in one summary.
+
+Choosing a mode starts the initialization workflow. The agent may create one temporary initialization job to preserve progress, but it will show you the proposed project changes and assumptions for approval before applying the rest of the initialization.
+
+## Working with the Agent
+
+You can speak naturally; you do not need to learn AIDD's internal abbreviations or lifecycle terminology to use the repository.
+
+When substantial retained work is resumed, the agent should give you a concise orientation when useful: what outcome is being pursued, what is active, what is blocked or waiting for you, and what comes next. If several decisions need your input, they may be shown together as a temporary decision view rather than turned into a second source of truth.
+
+Decision requests should be directly answerable, often with a short option or value. An initialized project may also adopt a project-specific decision-delegation policy to require extra confirmation for selected routine choices; that policy cannot bypass the repository's existing authority or safety boundaries.
 
 ### AI Agent Compatibility
 
