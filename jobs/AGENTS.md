@@ -23,7 +23,7 @@ This file defines area-specific governance for `jobs/` and inherits repository a
 - **Child job**: a job unit physically contained by another job unit; nesting is recursive.
 - **Supporting material**: unmarked descendants such as notes, logs, evidence, fixtures, generated material, and ordinary execution detail.
 - Prefer one purpose/question/experiment/verification activity/handoff per job and make `<purpose>` sufficient for first-pass relevance screening; do not use an opaque generic name that requires opening the unit.
-- Keep jobs independently understandable/removable with proportional structure/entry points. Use file form only when no retained descendants are owned; otherwise use directory form. Do not create directories/control docs/templates solely for uniformity.
+- Keep jobs independently understandable/removable with proportional structure/entry points. Detailed file/directory formation rules are conditionally governed by [`agents.d/job-entry.md`](agents.d/job-entry.md) when creating or structurally forming a job unit.
 - Related lightweight inactive assessment inputs may share a unit/registry only while they are not independently authorized work and remain independently judgeable/removable; no repository-wide dumping ground.
 - Organize by purpose/job rather than artifact type. Co-locate needed inputs, dependencies, notes, evidence, and reproduction instructions where practical; handoffs, logs, evidence, prototypes, drafts, and similar supporting material stay inside the owning unit unless they are themselves the complete small job unit. Material outside a child path may be referenced but remains owned by its actual containing job/responsible area unless governance moves/reclassifies it.
 - A substantial job makes discoverable: purpose; approved or retention/disposition basis; applicable evaluation/consumption method; and acceptance/retention/supersession/transfer/deletion condition.
@@ -41,6 +41,11 @@ This file defines area-specific governance for `jobs/` and inherits repository a
 6. Filesystem containment determines parent/child relationship and job-owned descendants. A link, proximity, or INDEX entry does not transfer ownership.
 7. Every retained job unit is marked at its own path; only top-level `jobs/AGENTS.md` is exempt. Top-level supporting material belongs inside a marked owner; unmarked descendants inside a job are supporting material.
 8. Adoption/formalization authority remains external to `jobs/`: job content, markers, `INDEX.md`, completion, retention, revisit matches, and decision-readiness never grant it; adoption requires applicable root + `definition/` authority.
+
+### Conditional Job Entry Governance
+
+- When creating or structurally forming a job unit, first representing pre-existing work as a child job, selecting/performing an inactive-to-active transition, or creating an active job's first `INDEX.md`, read and apply [`agents.d/job-entry.md`](agents.d/job-entry.md) before that decision or mutation.
+- Do not read the entry file merely for ordinary execution, discovery, investigation, handoff, verification, or updates to an already-formed active job when none of those entry conditions applies.
 
 ### Conditional Job Exit Governance
 
@@ -64,13 +69,7 @@ Detailed completion, retention, transfer, deletion, and exit handling are condit
 
 **Transitions**
 
-`_` → `+` requires all of:
-- current approved basis;
-- applicable entry conditions satisfied;
-- applicable assessment/decision/authority for active work; and
-- actual selection as current work.
-
-Authorization, remaining work, entry/dependency readiness, active ancestry, or ordering alone does not activate. An already-authorized child may be selected and activated without a new user decision when existing authority permits current execution unless another governing rule requires one. Reactivate any inactive ancestor before ordinary descendant selection/continuation.
+`_` → `+` is an entry/activation mutation; before deciding or performing it, apply [`agents.d/job-entry.md`](agents.d/job-entry.md). Reactivate any inactive ancestor under those rules before ordinary descendant selection/continuation.
 
 `+` → `_` requires both:
 - current job-local active lifecycle work ended or was withdrawn; and
@@ -84,12 +83,6 @@ Authorization, remaining work, entry/dependency readiness, active ancestry, or o
 - A parent's `+` state never activates a child.
 - A blocked/pending job stays `+` only if it had already entered active lifecycle and its authorized outcome remains active while waiting. Future authorized work not yet activated is `_`.
 - Current-claim-dependent transitional VB stays in `+` while preservation/replacement/reconciliation/claim-downgrade is an active obligation, even after implementation ends.
-
-#### Entry
-
-- Basis: explicit request, approved decision/init summary, recorded open question, applicable SoT, supplied material, authorized parent decomposition, or root-permitted retention/disposition; never unapproved assumption alone.
-- Acceptance basis derives from approved scope/AC and, when nested, parent outcome; unaccepted assessment input is not a child job.
-- Requirements/design investigation may precede its formal document if another approved basis exists. Supplied material also follows `references/AGENTS.md`.
 
 #### Investigation / Prototype / Verification
 
@@ -120,8 +113,7 @@ Decision-ready is not implementation-entry completeness. Details consistently de
 
 - An update reconciles the retained job's working material/control state for its existing purpose/basis; it grants no new purpose, material scope/AC/RB/design/priority change, or current-work commitment.
 - Refinement/correction/reordering/decomposition/collapse is allowed only when resulting work remains required by existing approved basis/scope/AC or root Permission / Scope otherwise permits it now. Separate independently completable improvements/future opportunities/adjacent follow-up.
-- First structural decomposition of pre-existing retained work is not activation. A newly represented child is `+` only when current repository control explicitly identifies its outcome as current active continuation/job-local active obligation; historical execution/evidence, retained status, ordering, dependency readiness, or active-parent membership does not carry active state. Otherwise still-required authorized child work begins `_` until selected.
-- If pre-existing control already assigned supporting material, transitional-VB responsibility, or another job-owned responsibility to the re-expressed child outcome, preserve that semantic ownership. Move/co-locate material when required and reconcile moved references without changing claim/authority semantics.
+- Creating or first structurally representing a child job is governed by [`agents.d/job-entry.md`](agents.d/job-entry.md); decomposition does not itself activate the child or change authority.
 - A discovered item unnecessary to satisfy the existing approved basis is separate assessment input unless current authority independently includes it; apply root Assessment and Feedback and retain follow-up only for continuing value.
 - Do not create/enlarge retained job content merely to record every suggestion/observation/improvement; discovery or apparent validity alone neither joins it to the job nor requires repository retention.
 - When execution, verification, or correction materially changes state represented by retained owning-job control—such as target revision/evidence binding, directly supported or materially unverified scope, remaining required verification/work, blocker/handoff/resumable state, or child dependency/necessity—reconcile the affected control before relying on it for dependent continuation, handoff, lifecycle transition, or completion/verification claim. Do not create/enlarge retained control merely to log the change when continuation needs no such control. This is control reconciliation, not execution logging: do not retain every transient failure, retry, command result, or implementation commit solely to satisfy it.
@@ -130,7 +122,7 @@ Decision-ready is not implementation-entry completeness. Details consistently de
 
 ### Active Work Control
 
-- `INDEX.md` is optional non-authoritative active control inside an active job. Create it only when authorized repository-modification work needs retained decomposition/progress for continuation, handoff, or cross-session coordination. If the need appears later, create it then and reconcile current child jobs, remaining work, state, and links before relying on it.
+- `INDEX.md` is optional non-authoritative active control inside an active job. Its initial creation is governed by [`agents.d/job-entry.md`](agents.d/job-entry.md).
 - Keep proportionally discoverable: purpose/approved basis/acceptance basis; applicable child links/state; order/dependencies; remaining/blocked work; material work/evidence links; and job-level exit/transfer/retention/disposal conditions.
 - Track coherent outcomes/children rather than low-level execution; identifiers/status vocabulary/layout are local choices.
 - While its parent is active, keep the index current enough to identify active execution and resumable state. Before a newly accepted child begins, reconcile decomposition; newly discovered work follows root Permission / Scope and Assessment and Feedback and never becomes an unapproved backlog.
