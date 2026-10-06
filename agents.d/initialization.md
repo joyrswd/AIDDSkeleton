@@ -8,9 +8,10 @@
 
 ## Human Onboarding
 
-- When initialization is needed, explain in plain language what initialization will establish, what will be changed only after approval, and what information or decisions are still needed from the user.
-- Use supplied information and verified repository facts before asking questions. Ask only for material user-owned decisions that cannot be established from existing authority or evidence; propose reasonable assumptions separately when they can reduce unnecessary clarification.
-- Prepare one initialization summary for approval rather than requiring the user to understand initialization internals or repository lifecycle terminology. Assumptions remain proposed until that summary is approved.
+- When initialization is needed, explain in plain language what initialization will establish and what will be changed only after approval. Surface a user decision at this stage only when it is presently needed to make initialization valid or materially unambiguous.
+- Use supplied information and verified repository facts before asking questions. Do not front-load or enumerate a checklist of requirement, platform, audience, feature, technology, or other decision categories merely because they may matter later.
+- Ask only for material user-owned decisions that cannot safely remain open and cannot be represented as a proposed assumption. If a choice can be deferred without invalidating initialization, carry it as an open item; if a reasonable reversible basis is sufficient, carry it separately as a proposed assumption.
+- Prefer the smallest presently necessary decision request over a batch of future-facing questions. Prepare one initialization summary for approval rather than requiring the user to complete an initialization questionnaire or understand repository lifecycle terminology. Assumptions remain proposed until that summary is approved.
 
 ## Initialization Job
 
@@ -28,5 +29,5 @@
 - Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
 - After summary approval, preserve the approved future-intent classification during initialization. Current-scope exclusion alone must not reopen decided future intent or settle an assumed or open possibility; reclassification requires an explicit user decision.
 - If `README.md` still identifies the repository as AIDD Skeleton or contains template-use guidance, include replacement with project-specific human guidance in the initialization summary; after approval, replace that starter content during initialization.
-- Resolve material user-owned choices only when needed for a valid initialization; avoid asking repository-verifiable, immaterial, or safely assumable questions.
+- Resolve material user-owned choices only when needed for a valid initialization; avoid asking repository-verifiable, immaterial, safely assumable, or safely deferrable questions. Do not turn unresolved future choices into mandatory initialization inputs merely to make the initial definition more complete.
 - Every proposed assumption remains non-authoritative until initialization-summary approval, and every adopted assumption is reported at completion.
