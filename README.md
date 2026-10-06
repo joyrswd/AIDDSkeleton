@@ -12,18 +12,17 @@ It gives developers and AI coding agents a shared structure for planning work, p
 2. Select **Create a new repository**.
 3. Choose the repository owner, name, and visibility, then create the repository.
 4. Open the new repository in a compatible AI coding environment.
-5. Send your first message in your preferred language.
+5. Tell the agent what you want to build or work on, in your preferred language.
 
-For example:
+If the project is still uninitialized, a compatible AI agent will inspect the repository, use the information you supplied, and ask only for material decisions it cannot establish itself. It will then show you the proposed project changes and assumptions in one initialization summary for approval before applying the initialization.
 
-```text
-Hello!
-こんにちは！
-¡Hola!
-...
-```
+## Working with the Agent
 
-A compatible AI agent will inspect and follow the repository instructions, then guide you through initialization and the next steps.
+You can speak naturally; you do not need to learn AIDD's internal abbreviations or lifecycle terminology to use the repository.
+
+When substantial retained work is resumed, the agent should give you a concise orientation when useful: what outcome is being pursued, what is active, what is blocked or waiting for you, and what comes next. If several decisions need your input, they may be shown together as a temporary decision view rather than turned into a second source of truth.
+
+Decision requests should be directly answerable, often with a short option or value. An initialized project may also adopt a project-specific decision-delegation policy to require extra confirmation for selected routine choices; that policy cannot bypass the repository's existing authority or safety boundaries.
 
 ### AI Agent Compatibility
 

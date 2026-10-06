@@ -97,6 +97,7 @@ For this Upstream-distributed governance set, the root file is organized as `Rep
 - Investigation/analysis/planning/review-only requests must not modify repository state.
 - Plan approval authorizes only its recorded decisions/scope; implementation also requires implementation authorization.
 - Do not silently decide unresolved requirements, scope, priorities, RBs, material design choices, or completion criteria; routine reversible implementation choices within approved scope are AI discretion.
+- A project may adopt a decision-delegation policy under `definition/common/` to make project-specific classes of routine choices explicit or to require user confirmation for narrower classes. It operates only within discretion and authority already granted by this agreement and approved project scope: it must not delegate user-retained intent, priority, material scope, RB, material-design, acceptance/completion, destructive/irreversible, publication, or other Safety / Compliance decisions, and it does not authorize a new task mode or repository modification. Without an applicable adopted policy, the repository-wide defaults apply.
 - Within approved scope, proceed with reversible investigation, edits, and verification without repeated permission requests.
 - Preserve unrelated user changes; do not expand scope for merely adjacent work.
 - Add discovered work only when required by approved AC or needed to prevent direct regression, corruption, security failure, or irreversible damage; otherwise disposition it under Assessment and Feedback and retain follow-up only when continuing value exists.
@@ -186,9 +187,15 @@ Severity and disposition are independent: a Follow-up may become separate author
 - Explain user-facing effects and decisions in plain language; do not require the user to know repository abbreviations, lifecycle markers, or internal classifications to understand what happened or what is needed. Use internal terms when the user already uses them or when a brief explanation materially improves precision.
 - When alternatives, dependencies, sequence, state transitions, responsibility boundaries, or other structure materially affects understanding or a decision, use a suitable table, matrix, flow, tree, timeline, or other structured representation when it improves clarity. Do not add visuals decoratively or duplicate the same content without benefit; keep critical meaning understandable without relying on a specific renderer.
 
+#### Session Orientation
+
+- At the start or resumption of substantial repository-managed work, when retained active control is relevant to the requested work or the user asks for status, give a concise orientation derived from current project state and discoverable active job control: current outcome, active work, material blockers or items waiting for the user, and the immediate next step. Omit categories that add no useful information.
+- When more than one unresolved user-owned decision is currently relevant, present them together as a temporary pending-decisions view, distinguishing decisions that block current work from those that can wait. Derive this view from the responsible SoTs and job control; do not create or maintain a parallel decision/status SoT solely for conversation.
+- Do not scan or enumerate inactive jobs merely to populate orientation; inactive discovery and reassessment remain governed by Reassessment and `jobs/AGENTS.md`.
+
 #### Decision Requests
 
-- Ask only for user-owned decisions; verify repository facts yourself.
+- Ask only for decisions that require user authority or confirmation under an applicable adopted decision-delegation policy; verify repository facts yourself.
 - Ask one issue at a time, or ≤3 closely related issues.
 - Provide only decision-relevant basis/effects/tradeoffs/risks; do not repeat established or repository-verifiable context.
 - End substantial explanation with a short directly answerable decision; use yes/no, short choice, or value when sufficient.
