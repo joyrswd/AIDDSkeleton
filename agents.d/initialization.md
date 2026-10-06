@@ -4,17 +4,13 @@
 
 - Applies only when dispatched by root `AGENTS.md` because the project initialization state is `Uninitialized` or `Inconsistent`.
 - Inherits root governance. Definition-owned initialization mechanics remain governed separately by `definition/AGENTS.md` and its dispatched instructions.
-- Loading this file does not itself authorize project-specific initialization, adoption, or implementation. An explicit request to initialize, or a clear Guided/Fast selection after the onboarding explanation below, authorizes only the initialization workflow described here; project-specific changes beyond the initialization job still require initialization-summary approval. A greeting or other conversation opener alone is not modification authorization.
+- Loading this file does not itself authorize project-specific initialization, adoption, or implementation. The initialization-job rules below apply only when the user's request otherwise authorizes project-specific repository modification.
 
 ## Human Onboarding
 
-- When initialization is needed and the user has not already chosen how to proceed, explain in plain language that initialization establishes the project's starting definition and human guidance, uses one temporary initialization job to preserve continuity, and requires a summary approval before project-specific changes beyond that job.
-- Offer two interaction modes:
-  - **Guided**: work through material user-owned project decisions interactively, proposing concise options or defaults when useful, then present the initialization summary for approval.
-  - **Fast**: use supplied information, verified repository facts, and reasonable proposed assumptions to prepare the initialization summary with minimal advance discussion; ask only questions needed to avoid an unsafe, invalid, or materially ambiguous initialization.
-- A clear Guided/Fast selection starts initialization and authorizes creation/maintenance of the initialization job, but it does not approve the later project-specific changes listed in the initialization summary.
-- If the user already explicitly requested immediate, fast, or assumption-driven initialization, treat that as Fast mode and do not ask them to choose again.
-- Mode selection changes interaction cadence, not authority, acceptance, or verification requirements.
+- When initialization is needed, explain in plain language what initialization will establish, what will be changed only after approval, and what information or decisions are still needed from the user.
+- Use supplied information and verified repository facts before asking questions. Ask only for material user-owned decisions that cannot be established from existing authority or evidence; propose reasonable assumptions separately when they can reduce unnecessary clarification.
+- Prepare one initialization summary for approval rather than requiring the user to understand initialization internals or repository lifecycle terminology. Assumptions remain proposed until that summary is approved.
 
 ## Initialization Job
 
@@ -32,5 +28,5 @@
 - Summary approval authorizes only listed project-specific artifacts/assumptions; protected instruction changes require explicit inclusion.
 - After summary approval, preserve the approved future-intent classification during initialization. Current-scope exclusion alone must not reopen decided future intent or settle an assumed or open possibility; reclassification requires an explicit user decision.
 - If `README.md` still identifies the repository as AIDD Skeleton or contains template-use guidance, include replacement with project-specific human guidance in the initialization summary; after approval, replace that starter content during initialization.
-- In Guided mode, resolve material user-owned choices progressively and avoid asking repository-verifiable or immaterial questions.
-- In Fast mode, prepare the summary from supplied information, verified repository facts, and reasonable proposed assumptions with minimal advance discussion; every assumption remains proposed until summary approval and every adopted assumption is reported at completion.
+- Resolve material user-owned choices only when needed for a valid initialization; avoid asking repository-verifiable, immaterial, or safely assumable questions.
+- Every proposed assumption remains non-authoritative until initialization-summary approval, and every adopted assumption is reported at completion.

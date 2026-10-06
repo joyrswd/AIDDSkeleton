@@ -12,23 +12,9 @@ It gives developers and AI coding agents a shared structure for planning work, p
 2. Select **Create a new repository**.
 3. Choose the repository owner, name, and visibility, then create the repository.
 4. Open the new repository in a compatible AI coding environment.
-5. Send your first message in your preferred language.
+5. Tell the agent what you want to build or work on, in your preferred language.
 
-For example:
-
-```text
-Hello!
-こんにちは！
-¡Hola!
-...
-```
-
-A greeting starts the conversation; it does not by itself authorize repository changes. If the project is still uninitialized, a compatible AI agent will briefly explain initialization and offer two ways to proceed:
-
-- **Guided** — work through the important project decisions together before reviewing the initialization summary.
-- **Fast** — let the agent prepare reasonable assumptions from the information you supplied and the repository, then review them together in one summary.
-
-Choosing a mode starts the initialization workflow. The agent may create one temporary initialization job to preserve progress, but it will show you the proposed project changes and assumptions for approval before applying the rest of the initialization.
+If the project is still uninitialized, a compatible AI agent will inspect the repository, use the information you supplied, and ask only for material decisions it cannot establish itself. It will then show you the proposed project changes and assumptions in one initialization summary for approval before applying the initialization.
 
 ## Working with the Agent
 
