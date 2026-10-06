@@ -42,23 +42,16 @@ This file defines area-specific governance for `jobs/` and inherits repository a
 7. Every retained job unit is marked at its own path; only top-level `jobs/AGENTS.md` is exempt. Top-level supporting material belongs inside a marked owner; unmarked descendants inside a job are supporting material.
 8. Adoption/formalization authority remains external to `jobs/`: job content, markers, `INDEX.md`, completion, retention, revisit matches, and decision-readiness never grant it; adoption requires applicable root + `definition/` authority.
 
-### Outbound Transfer
+### Conditional Job Exit Governance
 
-| Continuing material | Destination / handling |
-|---|---|
-| Adopted requirements/design/testing/procedures/decisions/project facts | responsible `definition/` SoT |
-| Formal code/tests/tools/support programs | `implementation/` |
-| Managed environment config | `implementation/` |
-| Supplied originals, or material whose only continuing value is durable non-normative knowledge independent of active/inactive work | `references/` under the entry, identity, retention, and lifecycle rules owned by `references/AGENTS.md` |
-| Adopted current-state limits/blockers caused by unresolved work | responsible definition index when needed to describe accepted current state; the unresolved question, candidate resolutions, and non-adopted decision material remain in `jobs/` |
-
-`jobs/` filenames/splits/directories/INDEX do not prescribe destination structure. Integrate adopted semantics into the responsible SoT instead of migrating the working file; authorized adopted facts must not remain only in `jobs/`. Do not transfer unresolved candidate semantics merely to satisfy a downstream authoritative dependency; resolve/adopt them first or leave dependent formalization/formal implementation blocked. Clearly non-authoritative investigation, comparison, and prototypes may still explore unresolved candidates within existing authority.
+- When a job or job-owned material is being evaluated or mutated for completion, active-to-inactive transition, inactive-item reassessment/disposition, retention, post-adoption reconciliation, completed-child return/reconciliation, transfer, deletion, or other exit handling, read and apply [`agents.d/job-exit.md`](agents.d/job-exit.md) before that decision or mutation.
+- Do not read the exit file merely for ordinary active execution, discovery, investigation, handoff, or decomposition when none of those conditions applies.
 
 ## Area Operations
 
 ### Lifecycle
 
-Retention and Exit Handling govern applicable `jobs/` retention, deletion, and transfer regardless of whether the operation arose through ordinary lifecycle discovery.
+Detailed completion, retention, transfer, deletion, and exit handling are conditionally governed by [`agents.d/job-exit.md`](agents.d/job-exit.md) when the dispatch condition above is met.
 
 #### State and Discovery
 
@@ -109,15 +102,6 @@ Authorization, remaining work, entry/dependency readiness, active ancestry, or o
 - May package authorized scope/exclusions, completion conditions, blockers, decisions, assumptions, open questions, order, and context; grants no implementation authority and overrides no instructions/SoTs.
 - Current continuation remains in the owning `+` job/discoverable active descendant. Restart-only future context is `_`, not automatically Defer. With active `INDEX.md`, decomposition/progress stays there; separate handoff only for context that does not fit.
 
-#### Inactive Retention
-
-- Keep `_` only for plausible continuing evaluation, decision, follow-up, diagnostic, restart, or reconsideration value. Root Defer is one basis, not `_` semantics; retention implies no adoption/requirement/priority/promise.
-- File or directory is allowed; no `INDEX.md` required. Use a proportional local entry point (the file itself or, when needed for a directory, a directly identifiable file at that directory root); no filename is prescribed and `README.md` has no jobs-specific semantics. Preserve enough context, provenance/scope, retention/evaluation basis, and reevaluation/restart condition to explain retention.
-- Evidence/context gathering being performed now is active work and belongs under `+`; do not use `_` as a quieter state for ongoing work.
-- A matching Defer revisit condition surfaces the inactive parent for root reassessment at a useful decision point without descendant inspection/activation. Other `_` units likewise need current basis + applicable assessment/decision before activation.
-- Root Defer: Accept now requires applicable authority/adoption before active retained work moves/restructures to `+`; Defer again keeps `_` and refreshes materially changed rationale/revisit condition; Reject deletes unless rationale/provenance has independent continuing value, which is then classified under its responsible area.
-- Do not scan all inactive jobs on every task.
-
 #### Decision Readiness
 
 A candidate/subset is **decision-ready** when:
@@ -125,39 +109,6 @@ A candidate/subset is **decision-ready** when:
 - remaining questions are separable and are not expected to change the candidate's meaning, validity, scope, or acceptance as the unit being judged.
 
 Decision-ready is not implementation-entry completeness. Details consistently decidable after adoption may remain open when they fall within discretion intentionally preserved by the adopted subset; their eventual effect on downstream implementation does not by itself block adoption. If an unresolved matter must be chosen to interpret, validate, or accept the candidate itself, keep that matter non-authoritative in `jobs/` and surface the decision before adopting the dependent definition. Non-authoritative investigation/prototypes may continue as authorized. When decision-ready and adoption/formalization is not already authorized, surface candidate + material basis + remaining questions through root Decision Requests; do not elaborate only to avoid decision. A coherent decision-ready subset may be adopted independently without waiting for job exit.
-
-#### Retention
-
-- Retain only material with continuing evidential/diagnostic/audit/maintenance/decision/reconsideration value; occurrence/presence of runs, caches, dependencies, logs, generated/disposable output, or suggestions is insufficient.
-- Keep justified support inside its marked owner while it remains `jobs/` responsibility; if no plausible continuing value/evaluation/revisit basis remains, dispose rather than accumulate an indefinite backlog.
-- `_` keeps evaluation/retention basis discoverable; root Defer also keeps disposition rationale/revisit condition current.
-- Never delete `jobs/` material supporting a current verified claim unless remaining/replacement VB is sufficient or the claim is downgraded.
-- `jobs/` VB is transitional only for active work, immediate handoff, unresolved reconciliation, or a bounded post-work transition with a specific exit event. Open-ended “keep for now”/“reverify later” is not bounded.
-- If the exit event is missed/cancelled/becomes open-ended, or the claim must outlive transitional responsibility without adequate remaining basis: use durable native/external VB, Outbound Transfer only the needed durable material, or downgrade the claim.
-- For bounded transition, make the exit event + intended disposition discoverable; no fixed date/ID/metadata/history archive is required. At the event, retire/replace/re-evaluate VB or downgrade.
-
-#### Completion
-
-A job is complete when all hold:
-- acceptance basis and required job-local lifecycle work are satisfied;
-- required verification is complete;
-- no required child outcome remains unresolved; and
-- no Blocker, active handoff/reconciliation, or required transitional verification remains.
-
-Before asserting completion, determine which unresolved child outcomes are required from the current acceptance basis and required parent-local lifecycle obligations rather than child existence, marker, prior plan, ordering, or `INDEX.md` listing.
-
-Completion is separate from retention, parent acceptance, broader requirement/AC completion, and external integration/publication.
-
-#### Exit Handling
-
-- After adoption, keep only unresolved questions/alternatives/prototypes/feasibility, verification evidence, decision/handoff context, or other remaining `jobs/` responsibility; reference responsible SoTs instead of duplicating adopted specification.
-- Candidate artifacts must not appear as active alternate SoTs: delete, mark superseded/historical, transfer durable non-normative value, or explicitly relate to resulting SoT. Reassessed or dispositioned inactive items likewise must reflect material handling and marker changes rather than stale TODOs.
-- If active `INDEX.md` exists, reconcile children, remaining work, and links for parent acceptance/retention: reflect completed/adopted outcomes at responsible destinations; leave authorized remaining work represented; handle inactive inputs by their rules; deliberately retain/dispose temporary material. Parent exit does not require synchronizing descendant markers.
-- A completed child returns/integrates its outcome through ordinary parent reconciliation within existing authority. Returned-outcome reconciliation is parent lifecycle work and does not keep/return the child to `+`; child completion alone proves no parent completion/acceptance and does not change the parent marker.
-- A discoverable job remains `+` only while its own active lifecycle, handoff/reconciliation, or required transitional verification remains. Otherwise remove it, transfer durable material, or restructure justified inactive remainder under `_` after applicable assessment/disposition. A frozen `+` descendant is exempt until discoverable; after ancestor reactivation reconcile newly visible descendant state before relying on it.
-- Retained superseded jobs are `_` and record superseded status. Findings awaiting only a user decision on separate follow-up are not active handoff/reconciliation; retain `_` only for continuing evaluation/reconsideration value.
-- A completed/superseded `INDEX.md` must not present stale active control: delete it, reduce it to remaining active/handoff context, or retain only independent value clearly no longer presented as active control.
-- Before delete/transfer inspect inbound references, unresolved work, child/ancestor relationships, responsible project state, current verified claims, and continuing evidence/maintenance/reconsideration need. This explicit subtree operation is outside ordinary lifecycle discovery and does not require descendant marker changes first.
 
 ### Blocked Continuation
 
@@ -174,7 +125,7 @@ Completion is separate from retention, parent acceptance, broader requirement/AC
 - A discovered item unnecessary to satisfy the existing approved basis is separate assessment input unless current authority independently includes it; apply root Assessment and Feedback and retain follow-up only for continuing value.
 - Do not create/enlarge retained job content merely to record every suggestion/observation/improvement; discovery or apparent validity alone neither joins it to the job nor requires repository retention.
 - When execution, verification, or correction materially changes state represented by retained owning-job control—such as target revision/evidence binding, directly supported or materially unverified scope, remaining required verification/work, blocker/handoff/resumable state, or child dependency/necessity—reconcile the affected control before relying on it for dependent continuation, handoff, lifecycle transition, or completion/verification claim. Do not create/enlarge retained control merely to log the change when continuation needs no such control. This is control reconciliation, not execution logging: do not retain every transient failure, retry, command result, or implementation commit solely to satisfy it.
-- A child outcome remains required for parent completion only while it is necessary to satisfy the current parent acceptance basis or another required parent-local lifecycle obligation. Creation, listing, prior activation, usefulness, ordering, or dependency readiness does not make a child outcome required. When that necessity materially changes, reconcile parent control and disposition the child under ordinary authority, state, and retention rules.
+- A child outcome remains required for parent completion only while it is necessary to satisfy the current parent acceptance basis or another required parent-local lifecycle obligation. Creation, listing, prior activation, usefulness, ordering, or dependency readiness does not make a child outcome required. When that necessity materially changes, reconcile parent control and disposition the child under ordinary authority/state and the dispatched job-exit rules.
 - After mutation, the updater re-evaluates that job's marker against the **States** and **Transitions** rules under State and Discovery. Parent/child control content may be reconciled when applicable, but related markers do not change merely to mirror the updated job. Recency, metadata/evidence refresh, or newly retained context never independently activates/deactivates/reopens or preserves `+`.
 
 ### Active Work Control
@@ -189,5 +140,5 @@ Completion is separate from retention, parent acceptance, broader requirement/AC
 ### Parent / Child Execution
 
 - Child scope/acceptance derives from parent/approved basis; decomposition preserves every still-required parent outcome without expanding parent acceptance. A child outcome is required for parent completion only while it remains necessary to satisfy the current parent acceptance basis or another required parent-local lifecycle obligation.
-- Children may execute sequentially/concurrently when authority/dependencies permit and ancestry is discoverable. Child completion alone never completes/deactivates the parent; an active parent reconciles returned outcomes, dependencies, remaining children/work, verification, and its own acceptance basis. Before parent completion—and earlier when new evidence, adoption, or correction materially changes necessity—re-evaluate unresolved child outcomes against that current basis. A useful or future child whose outcome is not required for parent completion does not block parent completion; continue, activate, or retain it only under its own applicable authority/state/retention rules.
+- Children may execute sequentially/concurrently when authority/dependencies permit and ancestry is discoverable. Child completion alone never completes/deactivates the parent; an active parent reconciles returned outcomes, dependencies, remaining children/work, verification, and its own acceptance basis. Before parent completion—and earlier when new evidence, adoption, or correction materially changes necessity—re-evaluate unresolved child outcomes against that current basis. A useful or future child whose outcome is not required for parent completion does not block parent completion; continue or activate it only under its own applicable authority/state, and retain or dispose it only under the dispatched job-exit rules.
 - Branch/PR/external runner/agent isolation is execution mechanism, not job identity. Preserve return target/context for reconciliation; creation/publication/merge and other external actions remain governed by root Permission / Scope and Safety / Compliance.
