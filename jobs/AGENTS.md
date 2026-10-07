@@ -23,7 +23,7 @@ This file defines area-specific governance for `jobs/` and inherits repository a
 - **Child job**: a job unit physically contained by another job unit; nesting is recursive.
 - **Supporting material**: unmarked descendants such as notes, logs, evidence, fixtures, generated material, and ordinary execution detail.
 - Prefer one purpose/question/experiment/verification activity/handoff per job and make `<purpose>` sufficient for first-pass relevance screening; do not use an opaque generic name that requires opening the unit.
-- Keep jobs independently understandable/removable with proportional structure/entry points. Detailed file/directory formation rules are conditionally governed by [`agents.d/job-entry.md`](agents.d/job-entry.md) when creating or structurally forming a job unit.
+- Keep jobs independently understandable/removable with proportional structure/entry points. Detailed file/directory formation rules follow [Job Entry Dispatch](#job-entry-dispatch) when creating or structurally forming a job unit.
 - Related lightweight inactive assessment inputs may share a unit/registry only while they are not independently authorized work and remain independently judgeable/removable; no repository-wide dumping ground.
 - Organize by purpose/job rather than artifact type. Co-locate needed inputs, dependencies, notes, evidence, and reproduction instructions where practical; handoffs, logs, evidence, prototypes, drafts, and similar supporting material stay inside the owning unit unless they are themselves the complete small job unit. Material outside a child path may be referenced but remains owned by its actual containing job/responsible area unless governance moves/reclassifies it.
 - A substantial job makes discoverable: purpose; approved or retention/disposition basis; applicable evaluation/consumption method; and acceptance/retention/supersession/transfer/deletion condition.
@@ -42,21 +42,11 @@ This file defines area-specific governance for `jobs/` and inherits repository a
 7. Every retained job unit is marked at its own path; only top-level `jobs/AGENTS.md` is exempt. Top-level supporting material belongs inside a marked owner; unmarked descendants inside a job are supporting material.
 8. Adoption/formalization authority remains external to `jobs/`: job content, markers, `INDEX.md`, completion, retention, revisit matches, and decision-readiness never grant it; adoption requires applicable root + `definition/` authority.
 
-### Conditional Job Entry Governance
-
-- When creating or structurally forming a job unit, first representing pre-existing work as a child job, selecting/performing an inactive-to-active transition, or creating an active job's first `INDEX.md`, read and apply [`agents.d/job-entry.md`](agents.d/job-entry.md) before that decision or mutation.
-- Do not read the entry file merely for ordinary execution, discovery, investigation, handoff, verification, or updates to an already-formed active job when none of those entry conditions applies.
-
-### Conditional Job Exit Governance
-
-- When a job or job-owned material is being evaluated or mutated for completion, active-to-inactive transition, inactive-item reassessment/disposition, retention, post-adoption reconciliation, completed-child return/reconciliation, transfer, deletion, or other exit handling, read and apply [`agents.d/job-exit.md`](agents.d/job-exit.md) before that decision or mutation.
-- Do not read the exit file merely for ordinary active execution, discovery, investigation, handoff, or decomposition when none of those conditions applies.
-
 ## Area Operations
 
 ### Lifecycle
 
-Detailed completion, retention, transfer, deletion, and exit handling are conditionally governed by [`agents.d/job-exit.md`](agents.d/job-exit.md) when the dispatch condition above is met.
+Detailed completion, retention, transfer, deletion, and exit handling follow [Job Exit Dispatch](#job-exit-dispatch) when its conditions apply.
 
 #### State and Discovery
 
@@ -69,7 +59,7 @@ Detailed completion, retention, transfer, deletion, and exit handling are condit
 
 **Transitions**
 
-`_` → `+` is an entry/activation mutation; before deciding or performing it, apply [`agents.d/job-entry.md`](agents.d/job-entry.md). Reactivate any inactive ancestor under those rules before ordinary descendant selection/continuation.
+`_` → `+` is an entry/activation mutation; before deciding or performing it, apply [Job Entry Dispatch](#job-entry-dispatch). Reactivate any inactive ancestor under those rules before ordinary descendant selection/continuation.
 
 `+` → `_` requires both:
 - current job-local active lifecycle work ended or was withdrawn; and
@@ -113,7 +103,7 @@ Decision-ready is not implementation-entry completeness. Details consistently de
 
 - An update reconciles the retained job's working material/control state for its existing purpose/basis; it grants no new purpose, material scope/AC/RB/design/priority change, or current-work commitment.
 - Refinement/correction/reordering/decomposition/collapse is allowed only when resulting work remains required by existing approved basis/scope/AC or root Permission / Scope otherwise permits it now. Separate independently completable improvements/future opportunities/adjacent follow-up.
-- Creating or first structurally representing a child job is governed by [`agents.d/job-entry.md`](agents.d/job-entry.md); decomposition does not itself activate the child or change authority.
+- Creating or first structurally representing a child job follows [Job Entry Dispatch](#job-entry-dispatch); decomposition does not itself activate the child or change authority.
 - A discovered item unnecessary to satisfy the existing approved basis is separate assessment input unless current authority independently includes it; apply root Assessment and Feedback and retain follow-up only for continuing value.
 - Do not create/enlarge retained job content merely to record every suggestion/observation/improvement; discovery or apparent validity alone neither joins it to the job nor requires repository retention.
 - When execution, verification, or correction materially changes state represented by retained owning-job control—such as target revision/evidence binding, directly supported or materially unverified scope, remaining required verification/work, blocker/handoff/resumable state, or child dependency/necessity—reconcile the affected control before relying on it for dependent continuation, handoff, lifecycle transition, or completion/verification claim. Do not create/enlarge retained control merely to log the change when continuation needs no such control. This is control reconciliation, not execution logging: do not retain every transient failure, retry, command result, or implementation commit solely to satisfy it.
@@ -122,7 +112,7 @@ Decision-ready is not implementation-entry completeness. Details consistently de
 
 ### Active Work Control
 
-- `INDEX.md` is optional non-authoritative active control inside an active job. Its initial creation is governed by [`agents.d/job-entry.md`](agents.d/job-entry.md).
+- `INDEX.md` is optional non-authoritative active control inside an active job. Its initial creation follows [Job Entry Dispatch](#job-entry-dispatch).
 - Keep proportionally discoverable: purpose/approved basis/acceptance basis; applicable child links/state; order/dependencies; remaining/blocked work; material work/evidence links; and job-level exit/transfer/retention/disposal conditions.
 - Track coherent outcomes/children rather than low-level execution; identifiers/status vocabulary/layout are local choices.
 - While its parent is active, keep the index current enough to identify active execution and resumable state. Before a newly accepted child begins, reconcile decomposition; newly discovered work follows root Permission / Scope and Assessment and Feedback and never becomes an unapproved backlog.
@@ -134,3 +124,15 @@ Decision-ready is not implementation-entry completeness. Details consistently de
 - Child scope/acceptance derives from parent/approved basis; decomposition preserves every still-required parent outcome without expanding parent acceptance. A child outcome is required for parent completion only while it remains necessary to satisfy the current parent acceptance basis or another required parent-local lifecycle obligation.
 - Children may execute sequentially/concurrently when authority/dependencies permit and ancestry is discoverable. Child completion alone never completes/deactivates the parent; an active parent reconciles returned outcomes, dependencies, remaining children/work, verification, and its own acceptance basis. Before parent completion—and earlier when new evidence, adoption, or correction materially changes necessity—re-evaluate unresolved child outcomes against that current basis. A useful or future child whose outcome is not required for parent completion does not block parent completion; continue or activate it only under its own applicable authority/state, and retain or dispose it only under the dispatched job-exit rules.
 - Branch/PR/external runner/agent isolation is execution mechanism, not job identity. Preserve return target/context for reconciliation; creation/publication/merge and other external actions remain governed by root Permission / Scope and Safety / Compliance.
+## Area Conditional Governance
+
+### Job Entry Dispatch
+
+- When creating or structurally forming a job unit, first representing pre-existing work as a child job, selecting/performing an inactive-to-active transition, or creating an active job's first `INDEX.md`, read and apply [`agents.d/job-entry.md`](agents.d/job-entry.md) before that decision or mutation.
+- Do not read the entry file merely for ordinary execution, discovery, investigation, handoff, verification, or updates to an already-formed active job when none of those entry conditions applies.
+
+### Job Exit Dispatch
+
+- When a job or job-owned material is being evaluated or mutated for completion, active-to-inactive transition, inactive-item reassessment/disposition, retention, post-adoption reconciliation, completed-child return/reconciliation, transfer, deletion, or other exit handling, read and apply [`agents.d/job-exit.md`](agents.d/job-exit.md) before that decision or mutation.
+- Do not read the exit file merely for ordinary active execution, discovery, investigation, handoff, or decomposition when none of those conditions applies.
+
