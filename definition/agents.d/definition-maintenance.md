@@ -13,3 +13,12 @@
 - After separating normative from current-realization/maintenance content, validate both: normative sources still support semantic reconstruction without `implementation/`, and retained references preserve enough provenance/observation context to re-investigate without becoming normative.
 - Do not add a third project-definition classification/directory when `common/` and `units/` can represent the responsibility. Before a new `definition/` project-content classification, explain responsibility + classification effects and obtain user approval; approved init/change summary suffices.
 - Add/rename/move/delete indexed docs using Reconciliation and Migration; preserve identifiers when splitting/moving and do not duplicate detail between overview/detail docs.
+
+## Document Splitting
+
+Applies only to initialized project-specific SoT docs; excludes protected `AGENTS.md`.
+
+- Review split at ≥150 lines, ≥12 independently referenced identifiers, or ≥3 independently changing functional areas.
+- As a rule split >250 lines or >20 independently referenced identifiers; if retained, the index records reason + reconsideration condition.
+- Apply the parent `Placement and Navigation` splitting principle; document count alone does not justify a subdirectory.
+- Keep `common/INDEX.md`, `units/INDEX.md`, each unit `INDEX.md`, and category indexes as single entry points.

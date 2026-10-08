@@ -18,7 +18,7 @@ This file defines area-specific governance for `definition/` and inherits reposi
 
 #### Required Structure
 
-- Clone-ready fixed entries: `definition/AGENTS.md`, `definition/agents.d/initialization.md`, `definition/agents.d/governance-migration.md`, `definition/agents.d/realization-authority.md`, `definition/agents.d/documentation-language.md`, `definition/agents.d/definition-maintenance.md`, `definition/common/.gitkeep`, and `definition/units/.gitkeep`.
+- Clone-ready fixed entries: `definition/AGENTS.md`, the conditional definition-governance files dispatched under [Area Conditional Governance](#area-conditional-governance), `definition/common/.gitkeep`, and `definition/units/.gitkeep`.
 - Initialization replaces the two definition markers with the fixed project entry docs `definition/common/INDEX.md`, `definition/common/documentation_language.md`, and `definition/units/INDEX.md`.
 - Per approved unit, create:
   - `definition/units/<unit>/INDEX.md`;
@@ -47,6 +47,7 @@ This file defines area-specific governance for `definition/` and inherits reposi
 #### Placement and Navigation
 
 - One purpose per project doc; split by coherent responsibility/question/reader/update trigger/lifecycle, not tidiness or count alone.
+- Detailed split review thresholds and index-preservation rules follow [Definition Maintenance Dispatch](#definition-maintenance-dispatch) when its conditions apply.
 - Common docs stay flat while responsibility is small; use a responsibility-based subdirectory only when one stable common responsibility owns multiple independently changing docs.
 - Indexes provide navigation plus concise owned current-state/absence/inheritance/coverage context; do not duplicate detailed requirements/design/testing/procedures/results or identifier-level cross-artifact correspondence matrices.
 - Common navigation: `common/INDEX.md` is primary; directly link each Markdown doc directly under `definition/common/` except itself and directly link `definition/units/INDEX.md`. A local common index is allowed only when one common responsibility needs navigation; nested docs routed through it must remain reachable from `common/INDEX.md`; protected `AGENTS.md` is excluded. `common/INDEX.md` routes project-wide/cross-unit relationships to their responsible SoTs but does not duplicate unit detail.
@@ -63,15 +64,6 @@ This file defines area-specific governance for `definition/` and inherits reposi
   - Paths/names/locations may support navigation, tool discovery, or change-impact routing, but do not establish normative ownership or authority.
   - Normative testing uses the same responsibility test. A common verification policy may apply to multiple units; unit testing owns unit-specific sufficiency/acceptance where applicable. Testing indexes may link current VB for coverage but contain no execution history.
   - Adopted procedures/policy/constraints belong in `definition/`.
-
-#### Document Splitting
-
-Applies only to initialized project-specific SoT docs; excludes protected `AGENTS.md`.
-
-- Review split at ≥150 lines, ≥12 independently referenced identifiers, or ≥3 independently changing functional areas.
-- As a rule split >250 lines or >20 independently referenced identifiers; if retained, the index records reason + reconsideration condition.
-- Split by coherent responsibility/question/reader/update trigger/lifecycle, not line count alone; document count alone does not justify a subdirectory.
-- Keep `common/INDEX.md`, `units/INDEX.md`, each unit `INDEX.md`, and category indexes as single entry points.
 
 ## Area Principles
 
@@ -145,11 +137,6 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 - See [Reset Dispatch](#reset-dispatch) for the conditional procedure that applies before an explicitly authorized reset to `Uninitialized`.
 
-### Documentation Language
-
-- Initialization summary proposes a default; absent user choice, propose current conversation language.
-- Do not duplicate the language setting in another machine-readable file.
-
 ### Procedures
 
 - Applicable project procedures define reproducible prerequisites and steps for setup, execution, analysis, testing, documentation checks, deployment, migration, rollback, and operation.
@@ -200,7 +187,7 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Documentation Language Dispatch
 
-- When work determines, selects, records, or changes the effective project documentation language, or before creating or changing project-definition documentation text, read and apply [`definition/agents.d/documentation-language.md`](agents.d/documentation-language.md).
+- When work proposes, determines, selects, records, or changes the effective project documentation language, or before creating or changing project-definition documentation text, read and apply [`definition/agents.d/documentation-language.md`](agents.d/documentation-language.md).
 
 ### Realization Authority Dispatch
 
@@ -212,4 +199,4 @@ Applies only to initialized project-specific SoT docs; excludes protected `AGENT
 
 ### Definition Maintenance Dispatch
 
-- Before modifying project-specific definition documentation or its structure/navigation—including creating a unit/category/directory, adding/renaming/moving/deleting an indexed document, or separating mixed-authority content—read and apply [`definition/agents.d/definition-maintenance.md`](agents.d/definition-maintenance.md).
+- Before modifying project-specific definition documentation or its structure/navigation—including creating a unit/category/directory, adding/renaming/moving/deleting an indexed document, or separating mixed-authority content—or when explicitly reviewing or validating such documentation, structure, or navigation against definition-maintenance rules, read and apply [`definition/agents.d/definition-maintenance.md`](agents.d/definition-maintenance.md).
