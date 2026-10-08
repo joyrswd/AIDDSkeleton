@@ -7,6 +7,8 @@
 
 ## Documentation Language
 
+- During initialization-summary preparation, absent an explicit user choice, propose the current conversation language as the default.
+- Do not duplicate the language setting in another machine-readable file.
 - After approval, record one BCP 47 default in `definition/common/documentation_language.md`, with only explicit unit overrides. Common docs use the default; unit docs inherit unless explicitly overridden.
 - Never infer language/override from code, supplied material, later conversation language, or environment; conversation language is independent after initialization.
 - On adoption into `definition/`, preserve semantics in the destination's effective documentation language while preserving identifiers, code/protocol literals, proper names, standard technical notation, and intentionally fixed wording/language.
