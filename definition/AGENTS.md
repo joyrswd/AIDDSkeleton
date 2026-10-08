@@ -199,4 +199,4 @@ This file defines area-specific governance for `definition/` and inherits reposi
 
 ### Definition Maintenance Dispatch
 
-- Before modifying project-specific definition documentation or its structure/navigation—including creating a unit/category/directory, adding/renaming/moving/deleting an indexed document, or separating mixed-authority content—or when explicitly reviewing or validating such documentation, structure, or navigation against definition-maintenance rules, read and apply [`definition/agents.d/definition-maintenance.md`](agents.d/definition-maintenance.md).
+- Before modifying project-specific definition documentation or its structure/navigation—including creating a unit/category/directory, adding/renaming/moving/deleting an indexed document, or separating mixed-authority content—or when explicitly reviewing or validating project-specific definition documentation or its structure/navigation, read and apply [`definition/agents.d/definition-maintenance.md`](agents.d/definition-maintenance.md).
