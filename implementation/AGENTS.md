@@ -1,6 +1,6 @@
 # AIDD Implementation Instructions
 
-This file defines area-specific governance for `implementation/` and inherits repository and `definition/` governance.
+This file defines area-specific governance for `implementation/` and inherits repository governance.
 
 ## Area Foundations
 
@@ -8,7 +8,7 @@ This file defines area-specific governance for `implementation/` and inherits re
 
 #### Scope
 
-- Applies to `implementation/` and descendants; inherits root + `definition/AGENTS.md`.
+- Applies to `implementation/` and descendants; inherits root governance. Follow applicable `definition/AGENTS.md` rules for project-definition responsibilities under root/area routing.
 
 #### Responsibility
 

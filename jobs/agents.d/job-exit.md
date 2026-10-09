@@ -3,7 +3,7 @@
 ## Scope
 
 - Applies only when dispatched by `jobs/AGENTS.md` because a job or job-owned material is being evaluated or mutated for completion, active-to-inactive transition, inactive-item reassessment/disposition, retention, post-adoption reconciliation, completed-child return/reconciliation, transfer, deletion, or other exit handling.
-- Inherits root governance, `definition/AGENTS.md`, and `jobs/AGENTS.md`.
+- Inherits root governance and `jobs/AGENTS.md`. Follow applicable `definition/AGENTS.md` rules for project-definition responsibilities under root/area routing.
 - This file owns detailed job exit, retention, transfer, and disposal semantics for its dispatched scope. It does not redefine marker meaning, discovery, entry, or active execution.
 
 ## Area Principles
