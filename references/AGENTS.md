@@ -1,6 +1,6 @@
 # AIDD Reference Material Instructions
 
-This file defines area-specific governance for `references/` and inherits repository and `definition/` governance.
+This file defines area-specific governance for `references/` and inherits repository governance.
 
 ## Area Foundations
 
@@ -8,7 +8,7 @@ This file defines area-specific governance for `references/` and inherits reposi
 
 #### Scope
 
-- Applies to `references/` and descendants; inherits root + `definition/AGENTS.md`.
+- Applies to `references/` and descendants; inherits root governance. Follow applicable `definition/AGENTS.md` rules for project-definition responsibilities under root/area routing.
 
 #### Responsibility
 
