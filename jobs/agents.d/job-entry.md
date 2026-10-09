@@ -3,7 +3,7 @@
 ## Scope
 
 - Applies only when dispatched by `jobs/AGENTS.md` because work is creating or structurally forming a job unit, first representing pre-existing work as a child job, selecting/performing an inactive-to-active transition, or creating an active job's first `INDEX.md`.
-- Inherits root governance, `definition/AGENTS.md`, and `jobs/AGENTS.md`.
+- Inherits root governance and `jobs/AGENTS.md`. Follow applicable `definition/AGENTS.md` rules for project-definition responsibilities under root/area routing.
 - This file owns detailed job formation and active-entry semantics for its dispatched scope. It does not redefine job identity, marker meaning, ordinary discovery/execution, or exit/retention behavior.
 
 ## Formation
