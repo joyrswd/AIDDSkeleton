@@ -9,6 +9,21 @@ Authorized candidate work: clarify Root `AGENTS.md` instruction-reading integrit
 - Candidate: this branch's Root `AGENTS.md` only; every other instruction must match the Upstream baseline.
 - No source Consumer `main` modification, initialization, PR action, or Upstream `main` change.
 
+## Setup commands (operator only)
+
+Use clean, detached checkouts of the exact pinned source SHAs, not a mutable `main` checkout. Export the candidate Root from the branch at a fixed candidate commit:
+
+```sh
+git -C /path/to/AIDDSkeleton-candidate show <candidate-commit>:AGENTS.md > /tmp/candidate-root.md
+python3 /path/to/build-fixtures.py \
+  --consumer /path/to/1minute-wiki-pinned \
+  --upstream /path/to/AIDDSkeleton-baseline-pinned \
+  --candidate-root /tmp/candidate-root.md \
+  --output /tmp/wiki-instruction-ab
+```
+
+The source checkouts must match the pinned SHAs and be clean; generation refuses existing output. The command produces `A/`, `B/`, and `manifest.json` outside both checkouts. Show only a fresh copy of one arm to each test agent; keep this job and `manifest.json` outside its workspace. If a runner cannot materialize the pinned source checkouts, report fixture-generation as **not run**, rather than substituting the mutable consumer repository or silently weakening A/B equality.
+
 ## Work and evidence boundary
 
 1. Assemble isolated initialized A/B diagnostic copies using [build-fixtures.py](build-fixtures.py) and the pinned source snapshots. The old Consumer's governance is replaced by the same modern Upstream governance in both copies; this **synthetic migration is test setup, not adoption evidence**.
