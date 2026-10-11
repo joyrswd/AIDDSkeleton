@@ -20,6 +20,12 @@ For this Upstream-distributed governance set, the root file is organized as `Rep
   - **VB** = verification basis
   - **RB** = responsibility boundary
 
+#### Instruction Reading Integrity
+
+- **Instruction retrieval is not instruction reading.** Required `AGENTS.md` and conditionally dispatched `agents.d/*.md` instructions count as read only when their complete contents have been presented to and reviewed by the acting AI. Paths, hashes, metadata, excerpts, summaries, and truncated tool output do not establish reading; obtain any missing portions before dependent decisions or changes.
+- **Dispatch routing is critical operational context.** Keep governing dispatch conditions and target instruction paths available through work continuations. A prior claim of reading or an unchanged file hash does not substitute for instruction content that is no longer reliably available; re-read the governing instructions when that context has been lost or is uncertain.
+- **Re-evaluate on new conditions.** When findings, failed verification, or changed work introduce new applicability conditions, re-evaluate dispatch and read newly required instructions before dependent decisions or changes. Previously read instructions may be reused only when their revision is unchanged and their complete content remains reliably available.
+
 #### Governance Concepts
 
 | Concept | Meaning |
