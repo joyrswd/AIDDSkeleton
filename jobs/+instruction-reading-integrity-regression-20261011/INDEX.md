@@ -24,6 +24,16 @@ python3 /path/to/build-fixtures.py \
 
 The source checkouts must match the pinned SHAs and be clean; generation refuses existing output. The command produces `A/`, `B/`, and `manifest.json` outside both checkouts. Show only a fresh copy of one arm to each test agent; keep this job and `manifest.json` outside its workspace. If a runner cannot materialize the pinned source checkouts, report fixture-generation as **not run**, rather than substituting the mutable consumer repository or silently weakening A/B equality.
 
+## Reproducible one-command preparation
+
+On a host where `git clone` can reach GitHub, run:
+
+```sh
+bash run-fixture-setup.sh /tmp/aidd-wiki-ab-20261011
+```
+
+This creates pinned upstream, Consumer, and candidate detached checkouts; builds `fixtures/A`, `fixtures/B`, and a separate `manifest.json`; and executes the existing (deliberately incomplete) quiz tests in both arms. It does **not** run independent agents or judge governance behavior. Keep evaluator-only files and `manifest.json` outside agent context, and give independent test agents a fresh copy of a single arm.
+
 ## Work and evidence boundary
 
 1. Assemble isolated initialized A/B diagnostic copies using [build-fixtures.py](build-fixtures.py) and the pinned source snapshots. The old Consumer's governance is replaced by the same modern Upstream governance in both copies; this **synthetic migration is test setup, not adoption evidence**.
