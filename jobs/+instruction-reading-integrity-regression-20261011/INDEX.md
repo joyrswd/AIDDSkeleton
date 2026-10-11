@@ -9,7 +9,13 @@ Authorized candidate work: clarify Root `AGENTS.md` instruction-reading integrit
 - Candidate: this branch's Root `AGENTS.md` only; every other instruction must match the Upstream baseline.
 - No source Consumer `main` modification, initialization, PR action, or Upstream `main` change.
 
-## Setup commands (operator only)
+## Primary: ChatGPT and GitHub plugin trial
+
+Use [github-plugin-trial.md](github-plugin-trial.md). The **six ready-to-read GitHub trial branches** in `joyrswd/1minute-wiki` were prepared and their Git trees compared on 2026-10-11. Their `AGENTS.md` blobs alone differ. Each of six branches is reserved for one independent ChatGPT/GitHub-plugin run, with 101/102 as the pilot pair. The original `1minute-wiki/main` and Upstream `main` remain unmodified by fixture setup.
+
+The A/B comparison tests ChatGPT's **GitHub connector / `functions.exec` model-visible-output boundary**; shell/Codex runs are only secondary generator checks and do not establish this behavior.
+
+## Optional local setup commands (not the primary plugin test)
 
 Use clean, detached checkouts of the exact pinned source SHAs, not a mutable `main` checkout. Export the candidate Root from the branch at a fixed candidate commit:
 
@@ -24,7 +30,7 @@ python3 /path/to/build-fixtures.py \
 
 The source checkouts must match the pinned SHAs and be clean; generation refuses existing output. The command produces `A/`, `B/`, and `manifest.json` outside both checkouts. Show only a fresh copy of one arm to each test agent; keep this job and `manifest.json` outside its workspace. If a runner cannot materialize the pinned source checkouts, report fixture-generation as **not run**, rather than substituting the mutable consumer repository or silently weakening A/B equality.
 
-## Reproducible one-command preparation
+## Optional reproducible one-command CLI preparation
 
 On a host where `git clone` can reach GitHub, run:
 
@@ -36,7 +42,7 @@ This creates pinned upstream, Consumer, and candidate detached checkouts; builds
 
 ## Work and evidence boundary
 
-1. Assemble isolated initialized A/B diagnostic copies using [build-fixtures.py](build-fixtures.py) and the pinned source snapshots. The old Consumer's governance is replaced by the same modern Upstream governance in both copies; this **synthetic migration is test setup, not adoption evidence**.
+1. Prefer the pinned GitHub fixture branches in [github-plugin-trial.md](github-plugin-trial.md); [build-fixtures.py](build-fixtures.py) can generate equivalent **local** synthetic A/B material for secondary tests. The old Consumer's governance is replaced by the same modern Upstream governance in both copies; this **synthetic migration is test setup, not adoption evidence**.
 2. Execute the three-stage instruction in [trial-prompts.md](trial-prompts.md) with independent AI sessions (prefer at least three per arm), retaining their actual tool calls and model-visible outputs. Keep the evaluator-only key separate.
 3. Evaluate with [evaluation.md](evaluation.md); score per phase and distinguish instruction-fetch success, actual content delivered to the AI, correctly triggered subsidiary instructions, and dependent work decisions.
 4. Report observed support/failures and limits; do not claim upstream general adoptability from these synthetic, guided fixtures. Representative initialized Consumer black-box evidence is separately required where the existing Consumer Regression dispatch calls for it.
@@ -54,7 +60,7 @@ This is **only a smoke test of generation logic using mock source trees**. Pinne
 
 ## Current state
 
-Candidate Root addition and diagnostic preparation are the current outcome. Fixture generation in an executable environment and independent AI A/B trials are **not yet verified**. Keep the job active for results and subsequent adoption decision; a prepared script is not a run.
+Candidate Root addition and diagnostic preparation are the current outcome. GitHub-hosted A/B trial branches were created, and their 31-file Git trees were compared (only Root differs). Independent ChatGPT + GitHub-plugin trial behavior is **not yet verified**. Pinned-checkout CLI generation remains separately untested. Keep the job active for results and subsequent adoption decision; a prepared script is not a run.
 
 ## Exit
 

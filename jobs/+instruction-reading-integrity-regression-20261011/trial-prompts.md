@@ -1,6 +1,6 @@
 # Blind trial prompts (give one stage at a time)
 
-Operator-only: do not include this file or the evaluator key in the fixture delivered to an agent. Run A and B in fresh, history-independent sessions with the same model/tool/project-instruction configuration. Mask the arm label when possible. Preserve **raw tool-call arguments and model-visible returned output**, including truncation. Use independent disposable copies per run.
+Operator-only: do not include this file or the evaluator key in the fixture delivered to an agent. Run A and B in fresh, history-independent sessions with the same model/tool/project-instruction configuration. Mask the arm label when possible. Preserve **raw tool-call arguments and model-visible returned output**, including truncation. Use each one-time remote trial branch from [github-plugin-trial.md](github-plugin-trial.md) for one run; do not reuse an edited branch.
 
 ## Stage 1 — first access
 

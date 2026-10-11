@@ -34,4 +34,4 @@ Run at least 3 independent sessions per arm for an initial comparison. Report pe
 
 ## Static fixture acceptance
 
-Before trials confirm: source HEADs exactly match the pinned commits; output `manifest.json` indicates `nonroot_equal: true`; A/B root diff is only the intended new subsection; no operator rubric or script inside either delivered fixture; no original branch or source working tree mutation.
+For the primary GitHub-plugin trials: confirm each numbered trial branch's initial commit matches [github-plugin-trial.md](github-plugin-trial.md); compare the full recursive Git trees for exactly one changed blob (`AGENTS.md`); confirm no operator rubric/answer key lives in the fixture and `1minute-wiki/main` remains unchanged. The local `manifest.json` rule applies only to the optional CLI generator. Confirm trial agents actually used the target ref; default-`main` reads are not valid A/B evidence.
