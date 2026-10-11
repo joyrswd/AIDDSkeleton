@@ -31,6 +31,17 @@ The source checkouts must match the pinned SHAs and be clean; generation refuses
 3. Evaluate with [evaluation.md](evaluation.md); score per phase and distinguish instruction-fetch success, actual content delivered to the AI, correctly triggered subsidiary instructions, and dependent work decisions.
 4. Report observed support/failures and limits; do not claim upstream general adoptability from these synthetic, guided fixtures. Representative initialized Consumer black-box evidence is separately required where the existing Consumer Regression dispatch calls for it.
 
+## Local smoke verification (2026-10-11)
+
+Verified the **exact candidate** `build-fixtures.py` content by matching local `git hash-object` to GitHub blob `7181ea644a8051bed014dd529ee9abb9f7cb7829`. Python 3.13.5 `py_compile` and `--help` passed. A locally constructed **mock-source harness** replaced only the pinned-Git-checkout precondition (the clone is unavailable in the execution environment; `git ls-remote` returned `Could not resolve host: github.com`). It then executed the real fixture builder and confirmed:
+
+- A and B generated successfully, differing only in the Root `AGENTS.md`; the manifest's `nonroot_equal` was `true`.
+- Retired `etc/` and `products/` were removed, and synthetic initialized Definition indexes were created.
+- Both identical quiz Unit test runs passed, while the deliberate exact-60-second defect still returned `True`.
+- Unexpected additional Root edits and attempts to overwrite an existing output directory were rejected.
+
+This is **only a smoke test of generation logic using mock source trees**. Pinned source checkouts, their full governance trees, real clean-checkout verification, link/index validation against actual source files, and independent AI trials remain **not executed**. Neither model behavior nor Consumer adoptability has been verified by these results.
+
 ## Current state
 
 Candidate Root addition and diagnostic preparation are the current outcome. Fixture generation in an executable environment and independent AI A/B trials are **not yet verified**. Keep the job active for results and subsequent adoption decision; a prepared script is not a run.
