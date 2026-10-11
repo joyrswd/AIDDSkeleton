@@ -110,13 +110,20 @@ QUIZ-R-002：正解は、回答と期待する記事名の前後空白を除去�
 十分な検証では t = 60 の回答が拒否されることを示す必要がある。
 この文書はテスト実行済みや完成済みとは主張しない。
 """)
+    write(root, "README.md", """
+# 1minute-wiki 検証用Consumer
+
+Wikipedia風1分クイズの、外部サービスを使用しない採点処理の検証用コピー。
+これは独立した仮設Consumerで、本番プロジェクトの完成・公開を意味しない。
+適用規約はAGENTS.mdと領域ごとの正規指示を参照する。
+""")
     write(root, "implementation/quiz.py", '''
-"""Synthetic deliberately imperfect scoring implementation."""
+"""Wikipedia-style timed quiz scoring."""
 
 
 def accepted_answer(expected: str, submitted: str, elapsed_seconds: float) -> bool:
     return (
-        0 <= elapsed_seconds <= 60  # Intentional fixture defect at t = 60.
+        0 <= elapsed_seconds <= 60
         and expected.strip().casefold() == submitted.strip().casefold()
     )
 ''')
