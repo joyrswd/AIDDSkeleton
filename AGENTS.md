@@ -178,7 +178,7 @@ For this Upstream-distributed governance set, the root file is organized as `Rep
 
 - Per conversation, determine language from: explicit instruction → first request's primary language → execution-environment language → English.
 - Ignore code, quotes, attachments, URLs, and paths when detecting request language.
-- Environment fallback: prefer the platform's explicitly provided language preference, then a reliably configured language/locale preference exposed by the execution environment; ignore neutral, unspecified, or unavailable values.
+- Environment fallback: prefer the platform's explicitly provided language preference; otherwise use the execution environment's effective user-facing language as resolved by its own locale/language precedence rules. Do not select arbitrarily among conflicting raw settings; if no unambiguous natural language is available, use English.
 - Treat result as BCP 47. Later language changes apply only as explicitly requested.
 - Conversation language ≠ project documentation language; follow `definition/AGENTS.md`. Do not store conversation language in the repository.
 
