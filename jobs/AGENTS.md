@@ -123,7 +123,7 @@ Decision-ready is not implementation-entry completeness. Details consistently de
 
 - Child scope/acceptance derives from parent/approved basis; decomposition preserves every still-required parent outcome without expanding parent acceptance. A child outcome is required for parent completion only while it remains necessary to satisfy the current parent acceptance basis or another required parent-local lifecycle obligation.
 - Children may execute sequentially/concurrently when authority/dependencies permit and ancestry is discoverable. Child completion alone never completes/deactivates the parent; an active parent reconciles returned outcomes, dependencies, remaining children/work, verification, and its own acceptance basis. Before parent completion—and earlier when new evidence, adoption, or correction materially changes necessity—re-evaluate unresolved child outcomes against that current basis. A useful or future child whose outcome is not required for parent completion does not block parent completion; continue or activate it only under its own applicable authority/state, and retain or dispose it only under the dispatched job-exit rules.
-- Branch/PR/external runner/agent isolation is execution mechanism, not job identity. Preserve return target/context for reconciliation; creation/publication/merge and other external actions remain governed by root Permission / Scope and Safety / Compliance.
+- Work execution, separation, or integration mechanisms do not define a job's identity. Preserve return target/context for reconciliation; external actions remain governed by root Permission / Scope and Safety / Compliance.
 ## Area Conditional Governance
 
 ### Job Entry Dispatch
